@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Jobaer Hossain's Technical Blog</title>
+	<!-- meta -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Bootstrap Icons CDN (only addition) -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<!-- css -->
+	<link rel="stylesheet" href="\css/bootstrap.min.css">
+	<link rel="stylesheet" href="\css/ionicons.min.css">
+	<link rel="stylesheet" href="\css/pace.css">
+	<link rel="stylesheet" href="\css/custom.css">
+	<!-- js -->
+	<script src="js/jquery-2.1.3.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/pace.min.js"></script>
+	<script src="js/modernizr.custom.js"></script>
+	<style>
+		/* Black & White Theme + Full-Width Content */
+		body,
+		.content-body {
+			background-color: #ffffff;
+			color: #000000;
+		}
+
+		a {
+			color: #000000;
+		}
+
+		a:hover {
+			color: #333333;
+		}
+
+		h1 {
+			font-size: 32px;
+			font-weight: bold;
+			/* Explicitly bold */
+			margin-top: 40px;
+			margin-bottom: 15px;
+			color: #000000;
+		}
+
+		h2 {
+			font-size: 28px;
+			font-weight: bold;
+			margin-top: 50px;
+			margin-bottom: 20px;
+			color: #000000;
+			padding-bottom: 10px;
+			border-bottom: 2px solid #000000;
+		}
+
+		h3 {
+			font-size: 26px;
+			font-weight: bold;
+			/* Explicitly bold */
+			margin-top: 40px;
+			margin-bottom: 15px;
+			color: #000000;
+		}
+
+		.entry-title,
+		h2,
+		h3 {
+			color: #000000;
+		}
+
+		.entry-meta span {
+			color: #000000;
+		}
+
+		.table-bordered th,
+		.table-bordered td {
+			border: 1px solid #000000 !important;
+		}
+
+		.table-bordered thead th {
+			background-color: #eeeeee;
+		}
+
+		#site-header {
+			background-color: #FFF;
+			padding: 25px 20px;
+			margin-bottom: 40px;
+			border-bottom: 1px solid #e7e7e7;
+		}
+
+		#site-footer {
+			padding-top: 10px;
+			padding: 0 0 1.5em 0;
+		}
+
+		.copyright {
+			text-align: center;
+			padding-top: 1em;
+			margin: 0;
+			border-top: 1px solid #eee;
+			color: #666;
+		}
+
+		/* Force grayscale on all images */
+		img {
+			filter: grayscale(100%);
+		}
+
+		/* Full-width content - remove sidebar */
+		.content-body .container {
+			max-width: none;
+			width: 100%;
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+
+		.content-body .row {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+		/* Make main content take full width */
+		.content-body main {
+			max-width: 1000px;
+			margin: 0 auto;
+			float: none;
+		}
+
+		/* Hide sidebar completely */
+		aside {
+			display: none;
+		}
+	</style>
+</head>
+
+<body id="single">
+	<div class="container">
+		<header id="site-header">
+			<div class="row">
+				<div class="col-md-4 col-sm-5 col-xs-8">
+					<div class="logo">
+						<a href="/index.html"><img src="/img/avatar.png" alt="Site logo" class="logo-img"></a>
+					</div>
+				</div>
+				<div class="col-md-8 col-sm-7 col-xs-4">
+					<nav class="main-nav" role="navigation">
+						<div class="navbar-header">
+							<button type="button" id="trigger-overlay" class="navbar-toggle">
+								<span class="ion-navicon"></span>
+							</button>
+						</div>
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav navbar-right">
+								<li class="cl-effect-11"><a href="/index.html" data-hover="Home">Home</a></li>
+								<li class="cl-effect-11"><a href="/full-width.html" data-hover="Blog">Blog</a></li>
+							</ul>
+						</div>
+					</nav>
+					<div id="header-search-box">
+						<a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
+						<div id="search-form" class="search-form">
+							<form role="search" method="get" id="searchform" action="#">
+								<input type="search" placeholder="Search" required>
+								<button type="submit"><span class="ion-ios-search-strong"></span></button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+	</div>
+	<div class="content-body">
+		<div class="container">
+			<div class="row">
+				<main class="col-md-12"> <!-- Changed from col-md-8 to col-md-12 -->
+					<article class="post post-1">
+						<header class="entry-header">
+							<h1 class="entry-title">What is TCP/IP Model? - 5 Layers Explained</h1>
+							<div class="entry-meta">
+								<span class="post-category"><a href="#">Networking</a></span>
+
+								<span class="post-date"><a href="#"><time class="entry-date"
+											datetime="2025-12-30">December 30, 2025</time></a></span>
+
+								<span class="post-author"><a href="#">Jobaer Hossain</a></span>
+							</div>
+						</header>
+						<div class="entry-content clearfix">
+							<h2><i class="bi bi-lightbulb"></i> Introduction</h2>
+							<p>The TCP/IP model is a framework used to model communication in a network. It is mainly a
+								collection of network protocols organized in different layers for modeling the network.
+							</p>
+							<p>The original TCP/IP standard consists of four layers: Application, Transport, Internet,
+								and Network Access. In practice and teaching, it is often presented as a 5-layer model
+								by separating the Physical aspects.</p>
+							<p>While the OSI model has seven layers, the TCP/IP model is simpler and forms the basis of
+								the modern Internet.</p>
+
+							<figure class="text-center">
+								<img src="https://scaleyourapp.com/wp-content/uploads/2020/07/TCP-IP-model-grid.jpeg"
+									alt="Black and white TCP/IP Model 5 Layers Diagram"
+									class="img-responsive center-block">
+								<figcaption><em><strong>Photo:</strong> Visual representation of the TCP/IP Model
+										layers</em></figcaption>
+							</figure>
+
+							<h2><i class="bi bi-lightbulb"></i> Role of TCP/IP</h2>
+							<p>One of its main goals is to ensure that data sent by the sender arrives safely and
+								correctly at the receiver’s end. Data is broken into smaller packets, which travel
+								separately and are reassembled at the destination.</p>
+							<p><strong>Note:</strong> This prevents errors and ensures the message is complete and
+								accurate.</p>
+
+							<h2><i class="bi bi-lightbulb"></i> Layers of TCP/IP Model</h2>
+
+							<h3>1. Application Layer</h3>
+							<p>The topmost layer, closest to the user. This is where applications like web browsers,
+								email clients, or file-sharing tools connect to the network.</p>
+							<ul>
+								<li><strong>Protocols:</strong> HTTP, FTP, SMTP, DNS, etc.</li>
+								<li><strong>Functions:</strong> Data formatting, encryption, session management,
+									bridging software to lower layers</li>
+							</ul>
+
+							<h3>2. Transport Layer</h3>
+							<p>Responsible for reliable and ordered data delivery between devices. Uses TCP for
+								reliability or UDP for speed.</p>
+							<ul>
+								<li><strong>Protocols:</strong> TCP (reliable, connection-oriented), UDP (fast,
+									connectionless)</li>
+								<li><strong>Functions:</strong> Error checking, retransmission, segmentation, flow
+									control</li>
+							</ul>
+
+							<h3>3. Internet Layer</h3>
+							<p>Handles routing of packets across networks to the correct destination.</p>
+							<ul>
+								<li><strong>Protocols:</strong> IP, ICMP, ARP</li>
+								<li><strong>Functions:</strong> IP addressing, routing, packet forwarding</li>
+							</ul>
+
+							<h3>4. Network Access (Link) Layer</h3>
+							<p>Manages framing and physical transmission over the hardware.</p>
+							<ul>
+								<li><strong>Functions:</strong> Framing with MAC addresses, converting bits to signals,
+									hardware interaction (NIC, cables, Wi-Fi)</li>
+							</ul>
+
+							<h2><i class="bi bi-lightbulb"></i> Working of TCP/IP Model</h2>
+
+							<h3>When Sending Data</h3>
+							<ul>
+								<li>Application Layer: Prepares data using protocols like HTTP/FTP.</li>
+								<li>Transport Layer: Breaks into segments (TCP/UDP).</li>
+								<li>Internet Layer: Adds IP addresses and routes packets.</li>
+								<li>Link Layer: Converts to frames and sends over physical medium.</li>
+							</ul>
+
+							<h3>When Receiving Data</h3>
+							<ul>
+								<li>Link Layer: Receives and rebuilds frames.</li>
+								<li>Internet Layer: Checks IP and forwards upward.</li>
+								<li>Transport Layer: Reassembles and checks errors.</li>
+								<li>Application Layer: Delivers to the app.</li>
+							</ul>
+
+							<h2><i class="bi bi-lightbulb"></i> Why TCP/IP is Used Over OSI Model</h2>
+
+							<figure class="text-center">
+								<img src="https://techprodezza.code.blog/wp-content/uploads/2020/07/tcp-ip-model-vs-osi-model.png"
+									alt="TCP/IP vs OSI Model Comparison Diagram" class="img-responsive center-block">
+								<figcaption><em><strong>Photo:</strong> Comparison between TCP/IP and OSI models</em>
+								</figcaption>
+							</figure>
+
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>Reason</th>
+										<th>Explanation</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Simpler Structure</td>
+										<td>TCP/IP has 4-5 layers vs OSI's 7, easier to implement.</td>
+									</tr>
+									<tr>
+										<td>Protocol-Driven Design</td>
+										<td>Based on real working protocols, OSI is theoretical.</td>
+									</tr>
+									<tr>
+										<td>Flexibility and Robustness</td>
+										<td>Adapts to hardware, includes error/routing features.</td>
+									</tr>
+									<tr>
+										<td>Open Standard</td>
+										<td>Free and universally accepted.</td>
+									</tr>
+									<tr>
+										<td>Actual Use</td>
+										<td>TCP/IP powers the real Internet, OSI is educational.</td>
+									</tr>
+								</tbody>
+							</table>
+
+							<h2><i class="bi bi-lightbulb"></i> Advantages of TCP/IP Model</h2>
+							<ul>
+								<li>Interoperability across different systems</li>
+								<li>Highly scalable (LAN to Internet)</li>
+								<li>Standardization and open protocols</li>
+								<li>Flexibility in routing and communication</li>
+								<li>Reliability with error-checking</li>
+							</ul>
+
+							<h2><i class="bi bi-lightbulb"></i> Disadvantages of TCP/IP Model</h2>
+							<ul>
+								<li>Security not built-in originally (added later)</li>
+								<li>Overhead inefficient for very small networks</li>
+								<li>IPv4 address limitation (mitigated by IPv6)</li>
+								<li>TCP has significant overhead for reliability</li>
+							</ul>
+						</div>
+					</article>
+				</main>
+				<!-- Sidebar removed -->
+			</div>
+		</div>
+	</div>
+	<footer id="site-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<p class="copyright">&copy; Copyright <strong>Jobaer Hossain</strong> All Rights Reserved</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Mobile Menu -->
+	<div class="overlay overlay-hugeinc">
+		<button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="full-width.html">Blog</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</nav>
+	</div>
+	<script src="js/script.js"></script>
+</body>
+
+</html>
