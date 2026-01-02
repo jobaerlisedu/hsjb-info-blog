@@ -50,7 +50,7 @@
             margin-bottom: 20px;
             color: #000000;
             padding-bottom: 10px;
-			border-bottom: 2px solid #000000;
+            border-bottom: 2px solid #000000;
         }
 
         h3 {
@@ -175,115 +175,129 @@
                 <main class="col-md-12">
                     <article class="post post-1">
                         <header class="entry-header">
-                            <h1 class="entry-title">Basics of Computer Networking</h1>
+                            <h1 class="entry-title">Types of Network Topology</h1>
                             <div class="entry-meta">
                                 <span class="post-category"><a href="#">Networking</a></span>
 
                                 <span class="post-date"><a href="#"><time class="entry-date"
-                                            datetime="2025-12-31">December 31, 2025</time></a></span>
+                                            datetime="2026-01-02">January 02, 2026</time></a></span>
 
                                 <span class="post-author"><a href="#">Jobaer Hossain</a></span>
                             </div>
                         </header>
                         <div class="entry-content clearfix">
                             <h2><i class="bi bi-lightbulb"></i> Introduction</h2>
-                            <p>A computer network is a collection of interconnected devices that share resources and
-                                information. These devices can include computers, servers, printers, and other hardware.
-                                Networks allow for the efficient exchange of data, enabling applications such as email,
-                                file sharing, and internet browsing.</p>
+                            <p>A network topology is the arrangement of devices (nodes) and connections (links) in a
+                                computer network. It shows how computers, servers, and other devices are connected and
+                                how data flows between them.</p>
+                            <p>There are two main types of topology:</p>
+                            <ul>
+                                <li><strong>Physical Topology:</strong> The actual physical layout of cables and
+                                    devices.</li>
+                                <li><strong>Logical Topology:</strong> How data moves across the network, regardless of
+                                    physical layout.</li>
+                            </ul>
+                            <p><strong>Note:</strong> Choosing the right topology is important because it affects the
+                                performance, cost, reliability, and security of the network.</p>
 
                             <figure class="text-center">
-                                <img src="blog-img/blog-01/blog-01-01.webp"
-                                    alt="Basic Computer Network Diagram" class="img-responsive center-block">
-                                <figcaption><em><strong>Photo:</strong> Illustration of a basic computer network with
-                                        nodes and connections</em></figcaption>
+                                <img src="blog-img/blog-05/blog-05-01.webp"
+                                    alt="Overview of Network Topologies" class="img-responsive center-block">
+                                <figcaption><em><strong>Photo:</strong> Common types of network topologies</em>
+                                </figcaption>
                             </figure>
 
-                            <h2><i class="bi bi-lightbulb"></i> Basic Terminologies</h2>
+                            <h2><i class="bi bi-lightbulb"></i> Point-to-Point Topology</h2>
+                            <p>Point-to-point topology is the simplest communication between two nodes, where one is the
+                                sender and the other is the receiver.</p>
                             <ul>
-                                <li><strong>Network:</strong> A group of connected computers and devices that can
-                                    communicate and share data.</li>
-                                <li><strong>Node:</strong> Any device that can send, receive, or forward data (e.g.,
-                                    computers, laptops, mobiles, printers, servers).</li>
-                                <li><strong>Networking Devices:</strong> Devices like routers, switches, hubs, and
-                                    access points that manage network functions.</li>
-                                <li><strong>Transmission Media:</strong>
-                                    <ul>
-                                        <li>Wired: Ethernet cables, optical fiber</li>
-                                        <li>Wireless: Wi-Fi, Bluetooth, infrared</li>
-                                    </ul>
-                                </li>
-                                <li><strong>Service Provider Networks:</strong> Networks leased from providers (e.g.,
-                                    ISPs, mobile carriers).</li>
+                                <li><strong>Functions:</strong> Provides high bandwidth and direct connection.</li>
                             </ul>
 
-                            <h2><i class="bi bi-lightbulb"></i> Working of a Computer Network</h2>
-                            <p>Networks consist of nodes (devices) connected by links (media). Data transfer
-                                follows protocols, and each device has a unique IP address.</p>
-                            <p>A firewall monitors traffic and allows, blocks, or drops data based on rules.</p>
-
+                            <h2><i class="bi bi-lightbulb"></i> Mesh Topology</h2>
+                            <p>In mesh topology, every device is connected to every other device via dedicated channels.
+                            </p>
+                            <ul>
+                                <li><strong>Functions:</strong> Fast communication, robust, easy fault diagnosis,
+                                    reliable due to dedicated links, secure.</li>
+                                <li>Links required: N*(N-1)/2 for N devices.</li>
+                                <li><strong>Protocols:</strong> AHCP, DHCP, etc.</li>
+                            </ul>
                             <figure class="text-center">
-                                <img src="blog-img/blog-01/blog-01-02.webp"
-                                    alt="Working Structure" class="img-responsive center-block">
-                                <figcaption><em><strong>Photo:</strong> Illustration of Working Structure</em></figcaption>
+                                <img src="blog-img/blog-05/blog-05-02.jpg"
+                                    alt="Mesh Topology Diagram" class="img-responsive center-block">
+                                <figcaption><em><strong>Photo:</strong> Mesh Topology</em></figcaption>
                             </figure>
 
-                            <h2><i class="bi bi-lightbulb"></i> Types of Computer Network Architecture</h2>
+                            <h2><i class="bi bi-lightbulb"></i> Star Topology</h2>
+                            <p>All devices are connected to a single central hub.</p>
                             <ul>
-                                <li><strong>Client-Server Architecture:</strong> Central server manages client behavior.
-                                </li>
-                                <li><strong>Peer-to-Peer (P2P) Architecture:</strong> No central server; devices act as
-                                    both client and server.</li>
+                                <li><strong>Functions:</strong> Easy setup, robust (single link failure affects only one
+                                    device), easy fault isolation.</li>
+                                <li><strong>Cables required:</strong> N for N devices.</li>
+                                <li><strong>Protocols:</strong> Ethernet, CSMA.</li>
                             </ul>
-
-                            <h2><i class="bi bi-lightbulb"></i> Network Devices</h2>
-                            <p>Key devices that facilitate communication:</p>
-                            <ul>
-                                <li><strong>Router:</strong> Connects multiple networks and directs packets.</li>
-                                <li><strong>Switch:</strong> Connects devices in a network and forwards data to specific
-                                    recipients.</li>
-                                <li><strong>Hub:</strong> Broadcasts data to all connected devices.</li>
-                                <li><strong>Bridge:</strong> Connects and filters traffic between network segments.</li>
-                                <li><strong>Gateway:</strong> Translates between different network protocols.</li>
-                                <li><strong>Access Point (AP):</strong> Provides wireless connectivity.</li>
-                                <li><strong>Modem:</strong> Converts digital signals to analog and vice versa for
-                                    internet access.</li>
-                                <li><strong>Firewall:</strong> Controls traffic for security.</li>
-                            </ul>
-
                             <figure class="text-center">
-                                <img src="blog-img/blog-01/blog-01-03.jpg"
-                                    alt="Network Devices" class="img-responsive center-block">
-                                <figcaption><em><strong>Photo:</strong> Illustration of Network Devices</em></figcaption>
+                                <img src="blog-img/blog-05/blog-05-03.jpg"
+                                    alt="Star Topology Diagram" class="img-responsive center-block">
+                                <figcaption><em><strong>Photo:</strong> Star Topology</em></figcaption>
                             </figure>
 
-                            <h2><i class="bi bi-lightbulb"></i> Goals of Networks</h2>
+                            <h2><i class="bi bi-lightbulb"></i> Bus Topology</h2>
+                            <p>All devices connect to a single shared backbone cable.</p>
                             <ul>
-                                <li>Convenience and efficiency</li>
-                                <li>Resource management</li>
-                                <li>Security and protection</li>
-                                <li>Reliability and fault tolerance</li>
-                                <li>Scalability</li>
+                                <li><strong>Functions:</strong> Low cost, suitable for small networks.</li>
+                                <li><strong>Protocols:</strong> CSMA/CD.</li>
                             </ul>
+                            <figure class="text-center">
+                                <img src="blog-img/blog-05/blog-05-04.jpg"
+                                    alt="Bus Topology Diagram" class="img-responsive center-block">
+                                <figcaption><em><strong>Photo:</strong> Bus Topology</em></figcaption>
+                            </figure>
 
-                            <h2><i class="bi bi-lightbulb"></i> Uses of Computer Networks</h2>
+                            <h2><i class="bi bi-lightbulb"></i> Ring Topology</h2>
+                            <p>Devices form a ring, each connected to two neighbors. Data flows in one direction using a
+                                token.</p>
                             <ul>
-                                <li>Communication (email, chat, video calls)</li>
-                                <li>Resource sharing (printers, files)</li>
-                                <li>Remote access</li>
-                                <li>Collaboration</li>
-                                <li>E-commerce</li>
-                                <li>Education and online learning</li>
+                                <li><strong>Functions:</strong> High-speed, minimal collisions, cheap to install.</li>
+                                <li><strong>Protocols:</strong> Token Ring Passing.</li>
                             </ul>
+                            <figure class="text-center">
+                                <img src="blog-img/blog-05/blog-05-05.jpg"
+                                    alt="Ring Topology Diagram" class="img-responsive center-block">
+                                <figcaption><em><strong>Photo:</strong> Ring Topology</em></figcaption>
+                            </figure>
 
-                            <h2><i class="bi bi-lightbulb"></i> Characteristics of Computer Networks</h2>
+                            <h2><i class="bi bi-lightbulb"></i> Tree Topology</h2>
+                            <p>Hierarchical structure combining star and bus topologies.</p>
                             <ul>
-                                <li><strong>Security:</strong> Protection from unauthorized access using firewalls,
-                                    encryption.</li>
-                                <li><strong>Reliability:</strong> Availability with redundancy and backups.</li>
-                                <li><strong>Scalability:</strong> Ability to grow without performance loss.</li>
-                                <li><strong>High Performance:</strong> Fast transfer, low latency.</li>
-                                <li><strong>Quality of Service (QoS):</strong> Prioritizes critical data.</li>
+                                <li><strong>Functions:</strong> Supports more devices, easy expansion, network
+                                    isolation.</li>
+                                <li><strong>Protocols:</strong> DHCP, SAC.</li>
+                            </ul>
+                            <figure class="text-center">
+                                <img src="blog-img/blog-05/blog-05-06.jpg"
+                                    alt="Tree Topology Diagram" class="img-responsive center-block">
+                                <figcaption><em><strong>Photo:</strong> Tree Topology</em></figcaption>
+                            </figure>
+
+                            <h2><i class="bi bi-lightbulb"></i> Hybrid Topology</h2>
+                            <p>Combination of two or more different topologies.</p>
+                            <ul>
+                                <li><strong>Functions:</strong> Flexible, easy to expand.</li>
+                            </ul>
+                            <figure class="text-center">
+                                <img src="blog-img/blog-05/blog-05-07.jpg"
+                                    alt="Hybrid Topology Diagram" class="img-responsive center-block">
+                                <figcaption><em><strong>Photo:</strong> Hybrid Topology</em></figcaption>
+                            </figure>
+
+                            <h2><i class="bi bi-lightbulb"></i> Why Network Topology Matters</h2>
+                            <ul>
+                                <li>Improves network performance and efficiency</li>
+                                <li>Enhances reliability with redundancy</li>
+                                <li>Supports easier expansion</li>
+                                <li>Improves security</li>
                             </ul>
                         </div>
                     </article>
