@@ -1,310 +1,174 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Tech. Enablement</title>
-    <!-- meta -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap Icons CDN (only addition) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Types of Area Networks | enablement.info</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@300;400;600;700;800&family=Syne:wght@800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- css -->
-    <link rel="stylesheet" href="\css/bootstrap.min.css">
-    <link rel="stylesheet" href="\css/ionicons.min.css">
-    <link rel="stylesheet" href="\css/pace.css">
-    <link rel="stylesheet" href="\css/custom.css">
-    <!-- js -->
-    <script src="js/jquery-2.1.3.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/pace.min.js"></script>
-    <script src="js/modernizr.custom.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
     <style>
-        /* Black & White Theme + Full-Width Content */
-        body,
-        .content-body {
-            background-color: #ffffff;
-            color: #000000;
+        .blog-content-wrapper {
+            padding-top: 120px;
+            padding-bottom: 60px;
         }
 
-        a {
-            color: #000000;
-        }
-
-        a:hover {
-            color: #333333;
-        }
-
-        h1 {
-            font-size: 32px;
-            font-weight: bold;
-            /* Explicitly bold */
-            margin-top: 40px;
-            margin-bottom: 15px;
-            color: #000000;
-        }
-
-        h2 {
-            font-size: 28px;
-            font-weight: bold;
-            margin-top: 50px;
-            margin-bottom: 20px;
-            color: #000000;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #000000;
-        }
-
-        h3 {
-            font-size: 26px;
-            font-weight: bold;
-            /* Explicitly bold */
-            margin-top: 40px;
-            margin-bottom: 15px;
-            color: #000000;
-        }
-
-        .entry-title,
-        h2,
-        h3 {
-            color: #000000;
-        }
-
-        .entry-meta span {
-            color: #000000;
-        }
-
-        .table-bordered th,
-        .table-bordered td {
-            border: 1px solid #000000 !important;
-        }
-
-        .table-bordered thead th {
-            background-color: #eeeeee;
-        }
-
-        #site-header {
-            background-color: #FFF;
-            padding: 25px 20px;
-            margin-bottom: 40px;
-            border-bottom: 1px solid #e7e7e7;
-        }
-
-        #site-footer {
-            padding-top: 10px;
-            padding: 0 0 1.5em 0;
-        }
-
-        .copyright {
+        .article-header {
             text-align: center;
-            padding-top: 1em;
-            margin: 0;
-            border-top: 1px solid #eee;
-            color: #666;
+            margin-bottom: 40px;
         }
 
-        /* Force grayscale on all images */
-        img {
-            filter: grayscale(100%);
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
         }
 
-        /* Full-width content - remove sidebar */
-        .content-body .container {
-            max-width: none;
-            width: 100%;
-            padding-left: 15px;
-            padding-right: 15px;
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
-        .content-body .row {
-            margin-left: 0;
-            margin-right: 0;
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d0d0e0;
         }
 
-        /* Make main content take full width */
-        .content-body main {
-            max-width: 1000px;
-            margin: 0 auto;
-            float: none;
+        .article-body h2,
+        .article-body h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--primary-color);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 800;
         }
 
-        /* Hide sidebar completely */
-        aside {
-            display: none;
+        .article-body h2 {
+            font-size: 1.8rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .article-body li {
+            margin-bottom: 10px;
+        }
+
+        .article-body img {
+            max-width: 100%;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 1px solid var(--glass-border);
+        }
+
+        .article-body figcaption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: -10px;
+            margin-bottom: 30px;
+            font-style: italic;
         }
     </style>
 </head>
 
-<body id="single">
-    <div class="container">
-        <header id="site-header">
-            <div class="row">
-                <div class="col-md-4 col-sm-5 col-xs-8">
-                    <div class="logo">
-                        <a href="/index.html"><img src="/img/avatar.png" alt="Site logo" class="logo-img"></a>
-                    </div>
+<body>
+    <canvas id="network-canvas"></canvas>
+    <div class="overlay">
+        <header class="glass-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../assets/images/avatar.png" alt="JH Logo" class="logo-img">
+                        <span class="logo-text">enablement.info</span>
+                    </a>
                 </div>
-                <div class="col-md-8 col-sm-7 col-xs-4">
-                    <nav class="main-nav" role="navigation">
-                        <div class="navbar-header">
-                            <button type="button" id="trigger-overlay" class="navbar-toggle">
-                                <span class="ion-navicon"></span>
-                            </button>
-                        </div>
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav navbar-right">
-                                <li class="cl-effect-11"><a href="/index.html" data-hover="Home">Home</a></li>
-                                <li class="cl-effect-11"><a href="/full-width.html" data-hover="Blog">Blog</a></li>
-                            </ul>
-                        </div>
-                    </nav>
-                    <div id="header-search-box">
-                        <a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
-                        <div id="search-form" class="search-form">
-                            <form role="search" method="get" id="searchform" action="#">
-                                <input type="search" placeholder="Search" required>
-                                <button type="submit"><span class="ion-ios-search-strong"></span></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../blogs.html" class="active">Blogs</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-btn"><i class='bx bx-menu'></i></div>
             </div>
         </header>
-    </div>
-    <div class="content-body">
-        <div class="container">
-            <div class="row">
-                <main class="col-md-12">
-                    <article class="post post-1">
-                        <header class="entry-header">
-                            <h1 class="entry-title">Types of Area Networks - LAN, MAN, and WAN</h1>
-                            <div class="entry-meta">
-                                <span class="post-category"><a href="#">Networking</a></span>
 
-                                <span class="post-date"><a href="#"><time class="entry-date"
-                                            datetime="2026-01-02">January 02, 2026</time></a></span>
+        <main class="blog-content-wrapper">
+            <div class="container">
+                <article class="glass-panel">
+                    <header class="article-header">
+                        <h1>Types of Area Networks - LAN, MAN, and WAN</h1>
+                        <div class="article-meta">
+                            <span><i class='bx bx-calendar'></i> Jan 02, 2026</span>
+                            <span style="margin: 0 10px;">|</span>
+                            <span><i class='bx bx-category'></i> Networking</span>
+                        </div>
+                    </header>
 
-                                <span class="post-author"><a href="#">Jobaer Hossain</a></span>
-                            </div>
-                        </header>
-                        <div class="entry-content clearfix">
-                            <h2><i class="bi bi-lightbulb"></i> Introduction</h2>
-                            <p>The Network allows computers to connect and communicate with different computers via any
-                                medium. LAN, MAN, and WAN are the three major types of networks designed to
-                                operate over the area they cover.</p>
+                    <div class="article-body">
+                        <h2><i class="bi bi-lightbulb"></i> Introduction</h2>
+                        <p>LAN, MAN, and WAN are the three major types of networks designed to operate over the area
+                            they cover.</p>
 
-                            <figure class="text-center">
-                                <img src="blog-img/blog-06/blog-06-01.png"
-                                    alt="LAN MAN WAN Comparison Diagram" class="img-responsive center-block">
-                                <figcaption><em><strong>Photo:</strong> Overview of LAN, MAN, and WAN coverage
-                                        areas</em></figcaption>
-                            </figure>
+                        <figure class="text-center">
+                            <img src="../assets/images/blog-img/blog-06/blog-06-01.png" alt="LAN MAN WAN"
+                                class="img-responsive center-block">
+                            <figcaption><em><strong>Photo:</strong> Overview of LAN, MAN, and WAN</em></figcaption>
+                        </figure>
 
-                            <h2><i class="bi bi-lightbulb"></i> Personal Area Network (PAN)</h2>
-                            <p>A PAN is a short-range network that connects personal devices like smartphones, tablets,
-                                and computers. It typically covers less than 10 meters and usually uses wireless
-                                technologies such as Bluetooth.</p>
-                            <ul>
-                                <li><strong>Advantages:</strong>
-                                    <ul>
-                                        <li>Easy communication between personal devices in close proximity.</li>
-                                        <li>Uses wireless technology, eliminating wires.</li>
-                                        <li>Energy efficient.</li>
-                                    </ul>
-                                </li>
-                                <li><strong>Disadvantages:</strong>
-                                    <ul>
-                                        <li>Limited coverage area.</li>
-                                        <li>Limited bandwidth.</li>
-                                        <li>May experience interference.</li>
-                                    </ul>
-                                </li>
-                            </ul>
+                        <h2><i class="bi bi-lightbulb"></i> Local Area Network (LAN)</h2>
+                        <p>Connects devices within a small area like a home or office. High speed, low cost.</p>
+                        <figure class="text-center">
+                            <img src="../assets/images/blog-img/blog-06/blog-06-02.png" alt="LAN Diagram"
+                                class="img-responsive center-block">
+                        </figure>
 
-                            <h2><i class="bi bi-lightbulb"></i> Local Area Network (LAN)</h2>
-                            <p>A LAN connects computers and devices within a small area like a home, office, school, or
-                                hospital. It usually uses switches, routers, and private IP addresses.</p>
-                            <ul>
-                                <li><strong>Coverage:</strong> Up to 2 km</li>
-                                <li><strong>Speed:</strong> 100–1000 Mbps</li>
-                                <li><strong>Medium:</strong> Mostly wired (Ethernet), wireless possible</li>
-                                <li><strong>Example:</strong> Multiplayer game in the same room</li>
-                            </ul>
-                            <figure class="text-center">
-                                <img src="blog-img/blog-06/blog-06-02.png"
-                                    alt="Local Area Network Diagram" class="img-responsive center-block">
-                                <figcaption><em><strong>Photo:</strong> Example of a Local Area Network (LAN)</em>
-                                </figcaption>
-                            </figure>
-                            <ul>
-                                <li><strong>Advantages:</strong>
-                                    <ul>
-                                        <li>Fast data transfer and high-speed.</li>
-                                        <li>Easy to set up and manage.</li>
-                                        <li>Share peripherals like printers.</li>
-                                    </ul>
-                                </li>
-                                <li><strong>Disadvantages:</strong>
-                                    <ul>
-                                        <li>Limited geographical coverage.</li>
-                                        <li>Limited scalability.</li>
-                                        <li>May experience congestion.</li>
-                                    </ul>
-                                </li>
-                            </ul>
+                        <h2><i class="bi bi-lightbulb"></i> Metropolitan Area Network (MAN)</h2>
+                        <p>Spans a city or campus (5-50km). Connects multiple LANs.</p>
+                        <figure class="text-center">
+                            <img src="../assets/images/blog-img/blog-06/blog-06-03.png" alt="MAN Diagram"
+                                class="img-responsive center-block">
+                        </figure>
 
-                            <h2><i class="bi bi-lightbulb"></i> Metropolitan Area Network (MAN)</h2>
-                            <p>A MAN spans 5–50 km, covering a city or nearby cities. It connects multiple LANs and can
-                                act as an ISP.</p>
-                            <figure class="text-center">
-                                <img src="blog-img/blog-06/blog-06-03.png"
-                                    alt="Metropolitan Area Network Diagram" class="img-responsive center-block">
-                                <figcaption><em><strong>Photo:</strong> Example of a Metropolitan Area Network
-                                        (MAN)</em></figcaption>
-                            </figure>
-                            <ul>
-                                <li><strong>Advantages:</strong>
-                                    <ul>
-                                        <li>High-speed over larger area than LAN.</li>
-                                        <li>Can serve as ISP.</li>
-                                        <li>Higher data rates in some cases.</li>
-                                    </ul>
-                                </li>
-                                <li><strong>Disadvantages:</strong>
-                                    <ul>
-                                        <li>Expensive to set up and maintain.</li>
-                                        <li>Congestion possible.</li>
-                                        <li>Limited fault tolerance and security.</li>
-                                    </ul>
-                                </li>
-                            </ul>
+                        <h2><i class="bi bi-lightbulb"></i> Wide Area Network (WAN)</h2>
+                        <p>Covers large geographical areas, connecting cities or countries. The Internet is a WAN.</p>
+                        <figure class="text-center">
+                            <img src="../assets/images/blog-img/blog-06/blog-06-04.png" alt="WAN Diagram"
+                                class="img-responsive center-block">
+                        </figure>
 
-                            <h2><i class="bi bi-lightbulb"></i> Wide Area Network (WAN)</h2>
-                            <p>A WAN covers large geographical areas (above 50 km), connecting multiple LANs via
-                                telephone lines, radio waves, or satellites. The Internet is the largest WAN.</p>
-                            <figure class="text-center">
-                                <img src="blog-img/blog-06/blog-06-04.png"
-                                    alt="Wide Area Network Diagram" class="img-responsive center-block">
-                                <figcaption><em><strong>Photo:</strong> Example of a Wide Area Network (WAN)</em>
-                                </figcaption>
-                            </figure>
-                            <ul>
-                                <li><strong>Advantages:</strong>
-                                    <ul>
-                                        <li>Covers large areas and remote locations.</li>
-                                        <li>Provides Internet connectivity.</li>
-                                        <li>Remote resource access.</li>
-                                    </ul>
-                                </li>
-                                <li><strong>Disadvantages:</strong>
-                                    <ul>
-                                        <li>Expensive.</li>
-                                        <li>Slower than LAN/MAN.</li>
-                                        <li>Lower fault tolerance and security.</li>
-                                    </ul>
-                                </li>
-                            </ul>
-
-                            <h2><i class="bi bi-lightbulb"></i> Comparison of LAN, MAN, and WAN</h2>
-                            <table class="table table-bordered">
+                        <h2><i class="bi bi-lightbulb"></i> Comparison</h2>
+                        <div class="table-wrapper">
+                            <table class="table">
                                 <thead>
                                     <tr>
                                         <th>Feature</th>
@@ -316,79 +180,44 @@
                                 <tbody>
                                     <tr>
                                         <td>Coverage</td>
-                                        <td>Up to 2 km</td>
-                                        <td>5–50 km</td>
-                                        <td>Above 50 km</td>
+                                        <td>
+                                            &lt; 2km</td>
+                                        <td>5-50km</td>
+                                        <td>&gt; 50km</td>
                                     </tr>
                                     <tr>
                                         <td>Speed</td>
-                                        <td>100–1000 Mbps</td>
-                                        <td>High-speed (Mbps)</td>
-                                        <td>High but slower than LAN/MAN</td>
-                                    </tr>
-                                    <tr>
+                                        <td>High</td>
                                         <td>Medium</td>
-                                        <td>Mostly wired</td>
-                                        <td>Varies (fiber, leased lines)</td>
-                                        <td>Telephone, radio, satellites</td>
+                                        <td>Low</td>
                                     </tr>
                                     <tr>
                                         <td>Cost</td>
-                                        <td>Inexpensive</td>
-                                        <td>Costly</td>
-                                        <td>Expensive</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Maintenance</td>
-                                        <td>Easy</td>
-                                        <td>Complex</td>
-                                        <td>Difficult</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Examples</td>
-                                        <td>Home, office</td>
-                                        <td>City-wide</td>
-                                        <td>Internet</td>
+                                        <td>Low</td>
+                                        <td>High</td>
+                                        <td>Highest</td>
                                     </tr>
                                 </tbody>
                             </table>
-
-                            <h2><i class="bi bi-lightbulb"></i> Key Differences</h2>
-                            <ul>
-                                <li>Coverage Area: LAN (small), MAN (city), WAN (large/global)</li>
-                                <li>Speed: LAN highest, then MAN, WAN slowest</li>
-                                <li>Cost & Complexity: LAN cheapest/easiest, WAN most expensive/complex</li>
-                                <li>Use Cases: LAN local sharing, MAN city connectivity, WAN global</li>
-                            </ul>
                         </div>
-                    </article>
-                </main>
-                <!-- Sidebar removed -->
+                    </div>
+                </article>
             </div>
-        </div>
-    </div>
-    <footer id="site-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <p class="copyright">&copy; Copyright <strong>Jobaer Hossain</strong> All Rights Reserved</p>
+        </main>
+
+        <footer class="glass-footer">
+            <div class="container">
+                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+                <div class="social-links">
+                    <a href="#"><i class='bx bxl-linkedin'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-github'></i></a>
                 </div>
             </div>
-        </div>
-    </footer>
-    <!-- Mobile Menu -->
-    <div class="overlay overlay-hugeinc">
-        <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="full-width.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        </footer>
     </div>
-    <script src="js/script.js"></script>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>

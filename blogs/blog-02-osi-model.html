@@ -1,338 +1,249 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Jobaer Hossain's Technical Blog</title>
+<html lang="en">
 
-		<!-- meta -->
-		<meta charset="UTF-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is OSI Model? | enablement.info</title>
 
-	    <!-- Bootstrap Icons CDN (only addition) -->
-	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@300;400;600;700;800&family=Syne:wght@800&display=swap"
+        rel="stylesheet">
 
-	    <!-- css -->
-		<link rel="stylesheet" href="\css/bootstrap.min.css">
-		<link rel="stylesheet" href="\css/ionicons.min.css">
-		<link rel="stylesheet" href="\css/pace.css">
-	    <link rel="stylesheet" href="\css/custom.css">
+    <!-- Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-	    <!-- js -->
-	    <script src="js/jquery-2.1.3.min.js"></script>
-	    <script src="js/bootstrap.min.js"></script>
-	    <script src="js/pace.min.js"></script>
-	    <script src="js/modernizr.custom.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
 
-		<style>
-			/* Black & White Theme + Full-Width Content */
-			body, .content-body {
-				background-color: #ffffff;
-				color: #000000;
-			}
-			a {
-				color: #000000;
-			}
-			a:hover {
-				color: #333333;
-			}
-			h1 {
-				font-size: 32px;
-				font-weight: bold; /* Explicitly bold */
-				margin-top: 40px;
-				margin-bottom: 15px;
-				color: #000000;
-			}
-			h2 {
-				font-size: 28px;
-				font-weight: bold;
-				margin-top: 50px;
-				margin-bottom: 20px;
-				color: #000000;
-				padding-bottom: 10px;
-				border-bottom: 2px solid #000000;
-			}
-			h3 {
-				font-size: 26px;
-				font-weight: bold; /* Explicitly bold */
-				margin-top: 40px;
-				margin-bottom: 15px;
-				color: #000000;
-			}
-			.entry-title, h2, h3 {
-				color: #000000;
-			}
-			.entry-meta span {
-				color: #000000;
-			}
-			.table-bordered th, .table-bordered td {
-				border: 1px solid #000000 !important;
-			}
-			.table-bordered thead th {
-				background-color: #eeeeee;
-			}
-			#site-header {
-				background-color: #FFF;
-				padding: 25px 20px;
-				margin-bottom: 40px;
-				border-bottom: 1px solid #e7e7e7;
-			}
-			#site-footer {
-				padding-top: 10px;
-				padding: 0 0 1.5em 0;
-			}
-			.copyright {
-				text-align: center;
-				padding-top: 1em;
-				margin: 0;
-				border-top: 1px solid #eee;
-				color: #666;
-			}
-			/* Force grayscale on all images */
-			img {
-				filter: grayscale(100%);
-			}
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <style>
+        .blog-content-wrapper {
+            padding-top: 120px;
+            padding-bottom: 60px;
+        }
 
-			/* Full-width content - remove sidebar */
-			.content-body .container {
-				max-width: none;
-				width: 100%;
-				padding-left: 15px;
-				padding-right: 15px;
-			}
-			.content-body .row {
-				margin-left: 0;
-				margin-right: 0;
-			}
-			/* Make main content take full width */
-			.content-body main {
-				max-width: 1000px;
-				margin: 0 auto;
-				float: none;
-			}
-			/* Hide sidebar completely */
-			aside {
-				display: none;
-			}
-		</style>
-	</head>
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-	<body id="single">
-		<div class="container">	
-			<header id="site-header">
-				<div class="row">
-					<div class="col-md-4 col-sm-5 col-xs-8">
-						<div class="logo">
-							<a href="/index.html"><img src="/img/avatar.png" alt="Site logo" class="logo-img"></a>
-						</div>
-					</div>
-					<div class="col-md-8 col-sm-7 col-xs-4">
-						<nav class="main-nav" role="navigation">
-							<div class="navbar-header">
-  								<button type="button" id="trigger-overlay" class="navbar-toggle">
-    								<span class="ion-navicon"></span>
-  								</button>
-							</div>
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
 
-							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-  								<ul class="nav navbar-nav navbar-right">
-    								<li class="cl-effect-11"><a href="/index.html" data-hover="Home">Home</a></li>
-    								<li class="cl-effect-11"><a href="/full-width.html" data-hover="Blog">Blog</a></li>
-  								</ul>
-							</div>
-						</nav>
-						<div id="header-search-box">
-							<a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
-							<div id="search-form" class="search-form">
-								<form role="search" method="get" id="searchform" action="#">
-									<input type="search" placeholder="Search" required>
-									<button type="submit"><span class="ion-ios-search-strong"></span></button>
-								</form>				
-							</div>
-						</div>
-					</div>
-				</div>
-			</header>
-		</div>
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
 
-		<div class="content-body">
-			<div class="container">
-				<div class="row">
-					<main class="col-md-12"> <!-- Changed from col-md-8 to col-md-12 -->
-						<article class="post post-1">
-							<header class="entry-header">
-								<h1 class="entry-title">What is OSI Model? - 7 Layers Explained</h1>
-								<div class="entry-meta">
-									<span class="post-category"><a href="#">Networking</a></span>
-			
-									<span class="post-date"><a href="#"><time class="entry-date" datetime="2025-12-30">December 30, 2025</time></a></span>
-			
-									<span class="post-author"><a href="#">Jobaer Hossain</a></span>
-								</div>
-							</header>
-							<div class="entry-content clearfix">
-								<h2><i class="bi bi-lightbulb"></i> Introduction</h2>
-								<p>The OSI (Open Systems Interconnection) Model is a set of rules that explains how different computer systems communicate over a network. Developed by the International Organization for Standardization (ISO), it consists of <strong>7 layers</strong>, each with specific functions and responsibilities. This layered approach makes it easier for different devices and technologies to work together.</p>
-								<p><strong>Note:</strong> The OSI Model provides a clear structure for data transmission and managing network issues. It is widely used as a reference to understand how network systems function.</p>
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d0d0e0;
+        }
 
-								<figure class="text-center">
-									<img src="blog-img/blog-02/blog-02-01.png" alt="Black and white OSI Model 7 Layers Diagram" class="img-responsive center-block">
-									<figcaption><em><strong>Photo:</strong> Visual representation of the 7 layers of the OSI Model</em></figcaption>
-								</figure>
+        .article-body h2,
+        .article-body h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--primary-color);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
 
-								<h2><i class="bi bi-lightbulb"></i> The 7 Layers of the OSI Model</h2>
+        .article-body h2 {
+            font-size: 1.8rem;
+        }
 
-								<h3>Layer 7: Application Layer</h3>
-								<p>The topmost layer, closest to the end-user. It provides network services directly to applications.</p>
-								<ul>
-									<li><strong>Protocols:</strong> HTTP, FTP, SMTP, DNS, etc.</li>
-									<li><strong>Functions:</strong> Network Virtual Terminal, File Transfer, Mail Services, Directory Services</li>
-								</ul>
+        .article-body h3 {
+            font-size: 1.4rem;
+            color: #fff;
+        }
 
-								<h3>Layer 6: Presentation Layer</h3>
-								<p>Known as the Translation layer. Handles data formatting, encryption, and compression.</p>
-								<ul>
-									<li><strong>Functions:</strong> Translation (e.g., ASCII to EBCDIC), Encryption/Decryption, Compression</li>
-									<li><strong>Protocols:</strong> TLS/SSL, JPEG, MPEG</li>
-								</ul>
+        .article-body ul,
+        .article-body ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
 
-								<h3>Layer 5: Session Layer</h3>
-								<p>Manages sessions between applications. Establishes, maintains, and terminates connections.</p>
-								<ul>
-									<li><strong>Functions:</strong> Session establishment/maintenance/termination, Synchronization, Dialog control</li>
-									<li><strong>Protocols:</strong> NetBIOS, PPTP</li>
-								</ul>
+        .article-body li {
+            margin-bottom: 10px;
+        }
 
-								<h3>Layer 4: Transport Layer</h3>
-								<p>Provides end-to-end communication services for reliable data transfer.</p>
-								<ul>
-									<li>Data Unit: Segments</li>
-									<li><strong>Functions:</strong> Segmentation & Reassembly, Service Point Addressing, Flow/Error Control</li>
-									<li><strong>Protocols:</strong> TCP, UDP</li>
-								</ul>
+        .article-body img {
+            max-width: 100%;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 1px solid var(--glass-border);
+        }
 
-								<h3>Layer 3: Network Layer</h3>
-								<p>Handles routing and forwarding of packets between different networks.</p>
-								<ul>
-									<li>Data Unit: Packets</li>
-									<li><strong>Functions:</strong> Routing, Logical Addressing (IP)</li>
-									<li>Devices: Routers</li>
-									<li><strong>Protocols:</strong> IP, ICMP</li>
-								</ul>
+        .article-body figcaption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: -10px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+    </style>
+</head>
 
-								<h3>Layer 2: Data Link Layer</h3>
-								<p>Provides node-to-node data transfer and error detection/correction.</p>
-								<ul>
-									<li>Data Unit: Frames</li>
-									<li><strong>Functions:</strong> Framing, Physical Addressing (MAC), Error/Flow/Access Control</li>
-									<li>Devices: Switches, Bridges</li>
-									<li><strong>Protocols:</strong> Ethernet, PPP</li>
-								</ul>
+<body>
+    <canvas id="network-canvas"></canvas>
+    <div class="overlay">
+        <header class="glass-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../assets/images/avatar.png" alt="JH Logo" class="logo-img">
+                        <span class="logo-text">enablement.info</span>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../blogs.html" class="active">Blogs</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-btn"><i class='bx bx-menu'></i></div>
+            </div>
+        </header>
 
-								<h3>Layer 1: Physical Layer</h3>
-								<p>The lowest layer, responsible for physical transmission of bits.</p>
-								<ul>
-									<li>Data Unit: Bits</li>
-									<li><strong>Functions:</strong> Bit synchronization, Bit rate control, Physical topologies, Transmission mode</li>
-									<li>Devices: Hubs, Repeaters, Modems, Cables</li>
-								</ul>
+        <main class="blog-content-wrapper">
+            <div class="container">
+                <article class="glass-panel">
+                    <header class="article-header">
+                        <h1>What is OSI Model? - 7 Layers Explained</h1>
+                        <div class="article-meta">
+                            <span><i class='bx bx-calendar'></i> Dec 30, 2025</span>
+                            <span style="margin: 0 10px;">|</span>
+                            <span><i class='bx bx-category'></i> Networking</span>
+                        </div>
+                    </header>
 
-								<h2><i class="bi bi-lightbulb"></i> How Data Flows in the OSI Model</h2>
-								<p>Data travels down the 7 layers on the sender's side (encapsulation) and up the 7 layers on the receiver's side (decapsulation).</p>
-								<ol>
-									<li>Application → Data creation</li>
-									<li>Presentation → Formatting & encryption</li>
-									<li>Session → Connection management</li>
-									<li>Transport → Segmentation & reliable delivery</li>
-									<li>Network → Routing</li>
-									<li>Data Link → Framing</li>
-									<li>Physical → Bit transmission</li>
-								</ol>
+                    <div class="article-body">
+                        <h2><i class="bi bi-lightbulb"></i> Introduction</h2>
+                        <p>The OSI (Open Systems Interconnection) Model is a set of rules that explains how different
+                            computer systems communicate over a network. Developed by the International Organization for
+                            Standardization (ISO), it consists of <strong>7 layers</strong>, each with specific
+                            functions and responsibilities.</p>
 
-								<h2><i class="bi bi-lightbulb"></i> Protocols in OSI Layers</h2>
-								<table class="table table-bordered">
-									<thead>
-										<tr>
-											<th>Layer</th>
-											<th>Name</th>
-											<th>Protocol Data Unit</th>
-											<th>Key Protocols</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>7</td>
-											<td>Application</td>
-											<td>Data</td>
-											<td>FTP, SMTP, DNS, HTTP</td>
-										</tr>
-										<tr>
-											<td>6</td>
-											<td>Presentation</td>
-											<td>Data</td>
-											<td>TLS/SSL, JPEG</td>
-										</tr>
-										<tr>
-											<td>5</td>
-											<td>Session</td>
-											<td>Data</td>
-											<td>NetBIOS, PPTP</td>
-										</tr>
-										<tr>
-											<td>4</td>
-											<td>Transport</td>
-											<td>Segments</td>
-											<td>TCP, UDP</td>
-										</tr>
-										<tr>
-											<td>3</td>
-											<td>Network</td>
-											<td>Packets</td>
-											<td>IP, ICMP</td>
-										</tr>
-										<tr>
-											<td>2</td>
-											<td>Data Link</td>
-											<td>Frames</td>
-											<td>Ethernet, PPP</td>
-										</tr>
-										<tr>
-											<td>1</td>
-											<td>Physical</td>
-											<td>Bits</td>
-											<td>USB, Ethernet cables</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</article>
-					</main>
-					<!-- Sidebar removed -->
-				</div>
-			</div>
-		</div>
-		<footer id="site-footer">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<p class="copyright">&copy; Copyright <strong>Jobaer Hossain</strong> All Rights Reserved</p>
-					</div>
-				</div>
-			</div>
-		</footer>
+                        <figure class="text-center">
+                            <img src="../assets/images/blog-img/blog-02/blog-02-01.png" alt="OSI Model 7 Layers Diagram"
+                                class="img-responsive center-block">
+                            <figcaption><em><strong>Photo:</strong> Visual representation of the 7 layers of the OSI
+                                    Model</em></figcaption>
+                        </figure>
 
-		<!-- Mobile Menu -->
-		<div class="overlay overlay-hugeinc">
-			<button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
-			<nav>
-				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="full-width.html">Blog</a></li>
-					<li><a href="about.html">About</a></li>
-					<li><a href="contact.html">Contact</a></li>
-				</ul>
-			</nav>
-		</div>
+                        <h2><i class="bi bi-lightbulb"></i> The 7 Layers of the OSI Model</h2>
 
-		<script src="js/script.js"></script>
+                        <h3>Layer 7: Application Layer</h3>
+                        <p>The topmost layer, closest to the end-user. It provides network services directly to
+                            applications.</p>
+                        <ul>
+                            <li><strong>Protocols:</strong> HTTP, FTP, SMTP, DNS</li>
+                            <li><strong>Functions:</strong> Network Virtual Terminal, File Transfer, Mail Services</li>
+                        </ul>
 
-	</body>
+                        <h3>Layer 6: Presentation Layer</h3>
+                        <p>Known as the Translation layer. Handles data formatting, encryption, and compression.</p>
+
+                        <h3>Layer 5: Session Layer</h3>
+                        <p>Manages sessions between applications. Establishes, maintains, and terminates connections.
+                        </p>
+
+                        <h3>Layer 4: Transport Layer</h3>
+                        <p>Provides end-to-end communication services for reliable data transfer (TCP/UDP).</p>
+
+                        <h3>Layer 3: Network Layer</h3>
+                        <p>Handles routing and forwarding of packets using IP addresses.</p>
+
+                        <h3>Layer 2: Data Link Layer</h3>
+                        <p>Provides node-to-node data transfer and physical addressing (MAC).</p>
+
+                        <h3>Layer 1: Physical Layer</h3>
+                        <p>The lowest layer, responsible for physical transmission of bits over cables/wireless.</p>
+
+                        <h2><i class="bi bi-lightbulb"></i> Protocols in OSI Layers</h2>
+                        <div class="table-wrapper">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Layer</th>
+                                        <th>Protocol Data Unit</th>
+                                        <th>Key Protocols</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>7. Application</td>
+                                        <td>Data</td>
+                                        <td>HTTP, FTP, DNS</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6. Presentation</td>
+                                        <td>Data</td>
+                                        <td>SSL/TLS, JPEG</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5. Session</td>
+                                        <td>Data</td>
+                                        <td>NetBIOS, PPTP</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4. Transport</td>
+                                        <td>Segments</td>
+                                        <td>TCP, UDP</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3. Network</td>
+                                        <td>Packets</td>
+                                        <td>IP, ICMP</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2. Data Link</td>
+                                        <td>Frames</td>
+                                        <td>Ethernet, PPP</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1. Physical</td>
+                                        <td>Bits</td>
+                                        <td>USB, Ethernet</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer class="glass-footer">
+            <div class="container">
+                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+                <div class="social-links">
+                    <a href="#"><i class='bx bxl-linkedin'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-github'></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/network-background.js"></script>
+</body>
+
 </html>

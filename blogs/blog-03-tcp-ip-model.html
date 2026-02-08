@@ -1,354 +1,211 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-	<title>Jobaer Hossain's Technical Blog</title>
-	<!-- meta -->
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- Bootstrap Icons CDN (only addition) -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-	<!-- css -->
-	<link rel="stylesheet" href="\css/bootstrap.min.css">
-	<link rel="stylesheet" href="\css/ionicons.min.css">
-	<link rel="stylesheet" href="\css/pace.css">
-	<link rel="stylesheet" href="\css/custom.css">
-	<!-- js -->
-	<script src="js/jquery-2.1.3.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/pace.min.js"></script>
-	<script src="js/modernizr.custom.js"></script>
-	<style>
-		/* Black & White Theme + Full-Width Content */
-		body,
-		.content-body {
-			background-color: #ffffff;
-			color: #000000;
-		}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCP/IP Model Explained | enablement.info</title>
 
-		a {
-			color: #000000;
-		}
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@300;400;600;700;800&family=Syne:wght@800&display=swap"
+        rel="stylesheet">
 
-		a:hover {
-			color: #333333;
-		}
+    <!-- Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-		h1 {
-			font-size: 32px;
-			font-weight: bold;
-			/* Explicitly bold */
-			margin-top: 40px;
-			margin-bottom: 15px;
-			color: #000000;
-		}
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
 
-		h2 {
-			font-size: 28px;
-			font-weight: bold;
-			margin-top: 50px;
-			margin-bottom: 20px;
-			color: #000000;
-			padding-bottom: 10px;
-			border-bottom: 2px solid #000000;
-		}
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <style>
+        .blog-content-wrapper {
+            padding-top: 120px;
+            padding-bottom: 60px;
+        }
 
-		h3 {
-			font-size: 26px;
-			font-weight: bold;
-			/* Explicitly bold */
-			margin-top: 40px;
-			margin-bottom: 15px;
-			color: #000000;
-		}
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-		.entry-title,
-		h2,
-		h3 {
-			color: #000000;
-		}
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
 
-		.entry-meta span {
-			color: #000000;
-		}
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
 
-		.table-bordered th,
-		.table-bordered td {
-			border: 1px solid #000000 !important;
-		}
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d0d0e0;
+        }
 
-		.table-bordered thead th {
-			background-color: #eeeeee;
-		}
+        .article-body h2,
+        .article-body h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--primary-color);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
 
-		#site-header {
-			background-color: #FFF;
-			padding: 25px 20px;
-			margin-bottom: 40px;
-			border-bottom: 1px solid #e7e7e7;
-		}
+        .article-body h2 {
+            font-size: 1.8rem;
+        }
 
-		#site-footer {
-			padding-top: 10px;
-			padding: 0 0 1.5em 0;
-		}
+        .article-body h3 {
+            font-size: 1.4rem;
+            color: #fff;
+        }
 
-		.copyright {
-			text-align: center;
-			padding-top: 1em;
-			margin: 0;
-			border-top: 1px solid #eee;
-			color: #666;
-		}
+        .article-body ul,
+        .article-body ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
 
-		/* Force grayscale on all images */
-		img {
-			filter: grayscale(100%);
-		}
+        .article-body li {
+            margin-bottom: 10px;
+        }
 
-		/* Full-width content - remove sidebar */
-		.content-body .container {
-			max-width: none;
-			width: 100%;
-			padding-left: 15px;
-			padding-right: 15px;
-		}
+        .article-body img {
+            max-width: 100%;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 1px solid var(--glass-border);
+        }
 
-		.content-body .row {
-			margin-left: 0;
-			margin-right: 0;
-		}
-
-		/* Make main content take full width */
-		.content-body main {
-			max-width: 1000px;
-			margin: 0 auto;
-			float: none;
-		}
-
-		/* Hide sidebar completely */
-		aside {
-			display: none;
-		}
-	</style>
+        .article-body figcaption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: -10px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+    </style>
 </head>
 
-<body id="single">
-	<div class="container">
-		<header id="site-header">
-			<div class="row">
-				<div class="col-md-4 col-sm-5 col-xs-8">
-					<div class="logo">
-						<a href="/index.html"><img src="/img/avatar.png" alt="Site logo" class="logo-img"></a>
-					</div>
-				</div>
-				<div class="col-md-8 col-sm-7 col-xs-4">
-					<nav class="main-nav" role="navigation">
-						<div class="navbar-header">
-							<button type="button" id="trigger-overlay" class="navbar-toggle">
-								<span class="ion-navicon"></span>
-							</button>
-						</div>
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav navbar-right">
-								<li class="cl-effect-11"><a href="/index.html" data-hover="Home">Home</a></li>
-								<li class="cl-effect-11"><a href="/full-width.html" data-hover="Blog">Blog</a></li>
-							</ul>
-						</div>
-					</nav>
-					<div id="header-search-box">
-						<a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
-						<div id="search-form" class="search-form">
-							<form role="search" method="get" id="searchform" action="#">
-								<input type="search" placeholder="Search" required>
-								<button type="submit"><span class="ion-ios-search-strong"></span></button>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
-	</div>
-	<div class="content-body">
-		<div class="container">
-			<div class="row">
-				<main class="col-md-12"> <!-- Changed from col-md-8 to col-md-12 -->
-					<article class="post post-1">
-						<header class="entry-header">
-							<h1 class="entry-title">What is TCP/IP Model? - 5 Layers Explained</h1>
-							<div class="entry-meta">
-								<span class="post-category"><a href="#">Networking</a></span>
+<body>
+    <canvas id="network-canvas"></canvas>
+    <div class="overlay">
+        <header class="glass-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../assets/images/avatar.png" alt="JH Logo" class="logo-img">
+                        <span class="logo-text">enablement.info</span>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../blogs.html" class="active">Blogs</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-btn"><i class='bx bx-menu'></i></div>
+            </div>
+        </header>
 
-								<span class="post-date"><a href="#"><time class="entry-date"
-											datetime="2025-12-30">December 30, 2025</time></a></span>
+        <main class="blog-content-wrapper">
+            <div class="container">
+                <article class="glass-panel">
+                    <header class="article-header">
+                        <h1>What is TCP/IP Model? - 5 Layers Explained</h1>
+                        <div class="article-meta">
+                            <span><i class='bx bx-calendar'></i> Dec 30, 2025</span>
+                            <span style="margin: 0 10px;">|</span>
+                            <span><i class='bx bx-category'></i> Networking</span>
+                        </div>
+                    </header>
 
-								<span class="post-author"><a href="#">Jobaer Hossain</a></span>
-							</div>
-						</header>
-						<div class="entry-content clearfix">
-							<h2><i class="bi bi-lightbulb"></i> Introduction</h2>
-							<p>The TCP/IP model is a framework used to model communication in a network. It is mainly a
-								collection of network protocols organized in different layers for modeling the network.
-							</p>
-							<p>The original TCP/IP standard consists of four layers: Application, Transport, Internet,
-								and Network Access. In practice and teaching, it is often presented as a 5-layer model
-								by separating the Physical aspects.</p>
-							<p>While the OSI model has seven layers, the TCP/IP model is simpler and forms the basis of
-								the modern Internet.</p>
+                    <div class="article-body">
+                        <h2><i class="bi bi-lightbulb"></i> Introduction</h2>
+                        <p>The TCP/IP model is a framework used to model communication in a network. It is simpler than
+                            OSI and forms the basis of the internet.</p>
 
-							<figure class="text-center">
-								<img src="blog-img/blog-03/blog-03-01.jpeg"
-									alt="Black and white TCP/IP Model 5 Layers Diagram"
-									class="img-responsive center-block">
-								<figcaption><em><strong>Photo:</strong> Visual representation of the TCP/IP Model
-										layers</em></figcaption>
-							</figure>
+                        <figure class="text-center">
+                            <img src="../assets/images/blog-img/blog-03/blog-03-01.jpeg" alt="TCP/IP Model Layers"
+                                class="img-responsive center-block">
+                            <figcaption><em><strong>Photo:</strong> Visual representation of the TCP/IP Model
+                                    layers</em></figcaption>
+                        </figure>
 
-							<h2><i class="bi bi-lightbulb"></i> Role of TCP/IP</h2>
-							<p>One of its main goals is to ensure that data sent by the sender arrives safely and
-								correctly at the receiver’s end. Data is broken into smaller packets, which travel
-								separately and are reassembled at the destination.</p>
-							<p><strong>Note:</strong> This prevents errors and ensures the message is complete and
-								accurate.</p>
+                        <h2><i class="bi bi-lightbulb"></i> Layers of TCP/IP Model</h2>
 
-							<h2><i class="bi bi-lightbulb"></i> Layers of TCP/IP Model</h2>
+                        <h3>1. Application Layer</h3>
+                        <p>Where applications like browsers connect. Protocols: HTTP, FTP, DNS.</p>
 
-							<h3>1. Application Layer</h3>
-							<p>The topmost layer, closest to the user. This is where applications like web browsers,
-								email clients, or file-sharing tools connect to the network.</p>
-							<ul>
-								<li><strong>Protocols:</strong> HTTP, FTP, SMTP, DNS, etc.</li>
-								<li><strong>Functions:</strong> Data formatting, encryption, session management,
-									bridging software to lower layers</li>
-							</ul>
+                        <h3>2. Transport Layer</h3>
+                        <p>Reliable delivery using TCP or fast delivery using UDP.</p>
 
-							<h3>2. Transport Layer</h3>
-							<p>Responsible for reliable and ordered data delivery between devices. Uses TCP for
-								reliability or UDP for speed.</p>
-							<ul>
-								<li><strong>Protocols:</strong> TCP (reliable, connection-oriented), UDP (fast,
-									connectionless)</li>
-								<li><strong>Functions:</strong> Error checking, retransmission, segmentation, flow
-									control</li>
-							</ul>
+                        <h3>3. Internet Layer</h3>
+                        <p>Routing and logical addressing (IP).</p>
 
-							<h3>3. Internet Layer</h3>
-							<p>Handles routing of packets across networks to the correct destination.</p>
-							<ul>
-								<li><strong>Protocols:</strong> IP, ICMP, ARP</li>
-								<li><strong>Functions:</strong> IP addressing, routing, packet forwarding</li>
-							</ul>
+                        <h3>4. Network Access (Link) Layer</h3>
+                        <p>Physical transmission and framing.</p>
 
-							<h3>4. Network Access (Link) Layer</h3>
-							<p>Manages framing and physical transmission over the hardware.</p>
-							<ul>
-								<li><strong>Functions:</strong> Framing with MAC addresses, converting bits to signals,
-									hardware interaction (NIC, cables, Wi-Fi)</li>
-							</ul>
+                        <h2><i class="bi bi-lightbulb"></i> TCP/IP vs OSI</h2>
+                        <figure class="text-center">
+                            <img src="../assets/images/blog-img/blog-03/blog-03-02.png" alt="TCP/IP vs OSI"
+                                class="img-responsive center-block">
+                            <figcaption><em><strong>Photo:</strong> Comparison between TCP/IP and OSI models</em>
+                            </figcaption>
+                        </figure>
 
-							<h2><i class="bi bi-lightbulb"></i> Working of TCP/IP Model</h2>
+                        <div class="table-wrapper">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Reason</th>
+                                        <th>Explanation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Simpler Structure</td>
+                                        <td>4-5 layers vs 7, easier to implement.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Actual Use</td>
+                                        <td>Powers the real Internet.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </main>
 
-							<h3>When Sending Data</h3>
-							<ul>
-								<li>Application Layer: Prepares data using protocols like HTTP/FTP.</li>
-								<li>Transport Layer: Breaks into segments (TCP/UDP).</li>
-								<li>Internet Layer: Adds IP addresses and routes packets.</li>
-								<li>Link Layer: Converts to frames and sends over physical medium.</li>
-							</ul>
-
-							<h3>When Receiving Data</h3>
-							<ul>
-								<li>Link Layer: Receives and rebuilds frames.</li>
-								<li>Internet Layer: Checks IP and forwards upward.</li>
-								<li>Transport Layer: Reassembles and checks errors.</li>
-								<li>Application Layer: Delivers to the app.</li>
-							</ul>
-
-							<h2><i class="bi bi-lightbulb"></i> Why TCP/IP is Used Over OSI Model</h2>
-
-							<figure class="text-center">
-								<img src="blog-img/blog-03/blog-03-02.png"
-									alt="TCP/IP vs OSI Model Comparison Diagram" class="img-responsive center-block">
-								<figcaption><em><strong>Photo:</strong> Comparison between TCP/IP and OSI models</em>
-								</figcaption>
-							</figure>
-
-							<table class="table table-bordered">
-								<thead>
-									<tr>
-										<th>Reason</th>
-										<th>Explanation</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Simpler Structure</td>
-										<td>TCP/IP has 4-5 layers vs OSI's 7, easier to implement.</td>
-									</tr>
-									<tr>
-										<td>Protocol-Driven Design</td>
-										<td>Based on real working protocols, OSI is theoretical.</td>
-									</tr>
-									<tr>
-										<td>Flexibility and Robustness</td>
-										<td>Adapts to hardware, includes error/routing features.</td>
-									</tr>
-									<tr>
-										<td>Open Standard</td>
-										<td>Free and universally accepted.</td>
-									</tr>
-									<tr>
-										<td>Actual Use</td>
-										<td>TCP/IP powers the real Internet, OSI is educational.</td>
-									</tr>
-								</tbody>
-							</table>
-
-							<h2><i class="bi bi-lightbulb"></i> Advantages of TCP/IP Model</h2>
-							<ul>
-								<li>Interoperability across different systems</li>
-								<li>Highly scalable (LAN to Internet)</li>
-								<li>Standardization and open protocols</li>
-								<li>Flexibility in routing and communication</li>
-								<li>Reliability with error-checking</li>
-							</ul>
-
-							<h2><i class="bi bi-lightbulb"></i> Disadvantages of TCP/IP Model</h2>
-							<ul>
-								<li>Security not built-in originally (added later)</li>
-								<li>Overhead inefficient for very small networks</li>
-								<li>IPv4 address limitation (mitigated by IPv6)</li>
-								<li>TCP has significant overhead for reliability</li>
-							</ul>
-						</div>
-					</article>
-				</main>
-				<!-- Sidebar removed -->
-			</div>
-		</div>
-	</div>
-	<footer id="site-footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<p class="copyright">&copy; Copyright <strong>Jobaer Hossain</strong> All Rights Reserved</p>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- Mobile Menu -->
-	<div class="overlay overlay-hugeinc">
-		<button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
-		<nav>
-			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="full-width.html">Blog</a></li>
-				<li><a href="about.html">About</a></li>
-				<li><a href="contact.html">Contact</a></li>
-			</ul>
-		</nav>
-	</div>
-	<script src="js/script.js"></script>
+        <footer class="glass-footer">
+            <div class="container">
+                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+                <div class="social-links">
+                    <a href="#"><i class='bx bxl-linkedin'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-github'></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>

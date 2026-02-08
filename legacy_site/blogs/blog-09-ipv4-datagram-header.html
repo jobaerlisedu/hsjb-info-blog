@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tech. Enablement</title>
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap Icons CDN (only addition) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- css -->
+    <link rel="stylesheet" href="\css/bootstrap.min.css">
+    <link rel="stylesheet" href="\css/ionicons.min.css">
+    <link rel="stylesheet" href="\css/pace.css">
+    <link rel="stylesheet" href="\css/custom.css">
+    <!-- js -->
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/pace.min.js"></script>
+    <script src="js/modernizr.custom.js"></script>
+    <style>
+        /* Black & White Theme + Full-Width Content */
+        body,
+        .content-body {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        a {
+            color: #000000;
+        }
+
+        a:hover {
+            color: #333333;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: bold;
+            /* Explicitly bold */
+            margin-top: 40px;
+            margin-bottom: 15px;
+            color: #000000;
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: #000000;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #000000;
+        }
+
+        h3 {
+            font-size: 26px;
+            font-weight: bold;
+            /* Explicitly bold */
+            margin-top: 40px;
+            margin-bottom: 15px;
+            color: #000000;
+        }
+
+        .entry-title,
+        h2,
+        h3 {
+            color: #000000;
+        }
+
+        .entry-meta span {
+            color: #000000;
+        }
+
+        .table-bordered th,
+        .table-bordered td {
+            border: 1px solid #000000 !important;
+        }
+
+        .table-bordered thead th {
+            background-color: #eeeeee;
+        }
+
+        #site-header {
+            background-color: #FFF;
+            padding: 25px 20px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #e7e7e7;
+        }
+
+        #site-footer {
+            padding-top: 10px;
+            padding: 0 0 1.5em 0;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1em;
+            margin: 0;
+            border-top: 1px solid #eee;
+            color: #666;
+        }
+
+        /* Force grayscale on all images */
+        img {
+            filter: grayscale(100%);
+        }
+
+        /* Full-width content - remove sidebar */
+        .content-body .container {
+            max-width: none;
+            width: 100%;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .content-body .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        /* Make main content take full width */
+        .content-body main {
+            max-width: 1000px;
+            margin: 0 auto;
+            float: none;
+        }
+
+        /* Hide sidebar completely */
+        aside {
+            display: none;
+        }
+    </style>
+</head>
+
+<body id="single">
+    <div class="container">
+        <header id="site-header">
+            <div class="row">
+                <div class="col-md-4 col-sm-5 col-xs-8">
+                    <div class="logo">
+                        <a href="/index.html"><img src="/img/avatar.png" alt="Site logo" class="logo-img"></a>
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-7 col-xs-4">
+                    <nav class="main-nav" role="navigation">
+                        <div class="navbar-header">
+                            <button type="button" id="trigger-overlay" class="navbar-toggle">
+                                <span class="ion-navicon"></span>
+                            </button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="cl-effect-11"><a href="/index.html" data-hover="Home">Home</a></li>
+                                <li class="cl-effect-11"><a href="/full-width.html" data-hover="Blog">Blog</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <div id="header-search-box">
+                        <a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
+                        <div id="search-form" class="search-form">
+                            <form role="search" method="get" id="searchform" action="#">
+                                <input type="search" placeholder="Search" required>
+                                <button type="submit"><span class="ion-ios-search-strong"></span></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="content-body">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-12">
+                    <article class="post post-1">
+                        <header class="entry-header">
+                            <h1 class="entry-title">Introduction and IPv4 Datagram Header</h1>
+                            <div class="entry-meta">
+                                <span class="post-category"><a href="#">Networking</a></span>
+
+                                <span class="post-date"><a href="#"><time class="entry-date"
+                                            datetime="2026-01-02">January 02, 2026</time></a></span>
+
+                                <span class="post-author"><a href="#">Jobaer Hossain</a></span>
+                            </div>
+                        </header>
+                        <div class="entry-content clearfix">
+                            <h2><i class="bi bi-lightbulb"></i> Introduction</h2>
+                            <p>IPv4 (Internet Protocol version 4) is the most widely used version of the Internet
+                                Protocol. It defines how data is packetized, addressed, transmitted, routed, and
+                                received across networks.</p>
+                            <p>IPv4 uses a 32-bit address scheme allowing for a total of 4,294,967,296 addresses. It
+                                operates at the Network Layer (Layer 3) of the OSI model and provides connectionless,
+                                best-effort delivery of datagrams.</p>
+
+                            <figure class="text-center">
+                                <img src="blog-img/blog-09/blog-09-01.png"
+                                    alt="IPv4 Datagram Header Format" class="img-responsive center-block">
+                                <figcaption><em><strong>Photo:</strong> IPv4 Datagram Header Format</em></figcaption>
+                            </figure>
+
+                            <h2><i class="bi bi-lightbulb"></i> IPv4 Datagram Header</h2>
+                            <p>The IPv4 packet is called a <strong>datagram</strong>. The header is usually 20 bytes
+                                long (without options) and contains information essential for routing and delivery.</p>
+
+                            <h2><i class="bi bi-lightbulb"></i> Fields in IPv4 Header</h2>
+
+                            <h3>Version (4 bits)</h3>
+                            <p>Indicates the IP version. For IPv4, this field is always 4.</p>
+
+                            <h3>Internet Header Length (IHL) (4 bits)</h3>
+                            <p>Specifies the length of the header in 32-bit words. Minimum value is 5 (20 bytes),
+                                maximum is 15 (60 bytes).</p>
+
+                            <h3>Type of Service (ToS) / DSCP + ECN (8 bits)</h3>
+                            <p>Used for Quality of Service (QoS). Originally for precedence, now divided into DSCP (6
+                                bits) for packet classification and ECN (2 bits) for congestion control.</p>
+
+                            <h3>Total Length (16 bits)</h3>
+                            <p>Total size of the datagram (header + data) in bytes. Maximum size is 65,535 bytes.</p>
+
+                            <h3>Identification (16 bits)</h3>
+                            <p>Used to identify fragments of an original IP datagram during reassembly.</p>
+
+                            <h3>Flags (3 bits)</h3>
+                            <p>Control flags for fragmentation:</p>
+                            <ul>
+                                <li>Bit 0: Reserved (must be 0)</li>
+                                <li>Bit 1: Don't Fragment (DF)</li>
+                                <li>Bit 2: More Fragments (MF)</li>
+                            </ul>
+
+                            <h3>Fragment Offset (13 bits)</h3>
+                            <p>Indicates the position of the fragment in the original datagram (in units of 8 bytes).
+                            </p>
+
+                            <h3>Time to Live (TTL) (8 bits)</h3>
+                            <p>Prevents datagrams from looping forever. Decremented by each router; packet discarded
+                                when TTL reaches 0.</p>
+
+                            <h3>Protocol (8 bits)</h3>
+                            <p>Indicates the next-level protocol (e.g., 1 = ICMP, 6 = TCP, 17 = UDP).</p>
+
+                            <h3>Header Checksum (16 bits)</h3>
+                            <p>Error-checking field for the header only (recalculated at each hop since TTL changes).
+                            </p>
+
+                            <h3>Source IP Address (32 bits)</h3>
+                            <p>IP address of the sender.</p>
+
+                            <h3>Destination IP Address (32 bits)</h3>
+                            <p>IP address of the intended recipient.</p>
+
+                            <h3>Options (variable, optional)</h3>
+                            <p>Rarely used; may include security, routing, timestamp, etc. Padded to 32-bit boundary.
+                            </p>
+
+                            <figure class="text-center">
+                                <img src="blog-img/blog-09/blog-09-02.jpg"
+                                    alt="IPv4 Datagram Header Format" class="img-responsive center-block">
+                                <figcaption><em><strong>Photo:</strong> IPv4 Datagram Header Format</em></figcaption>
+                            </figure>
+
+                            <h2><i class="bi bi-lightbulb"></i> Key Points</h2>
+                            <ul>
+                                <li>Minimum header size: 20 bytes</li>
+                                <li>Maximum header size: 60 bytes (with options)</li>
+                                <li>IPv4 is connectionless and unreliable (reliability handled by upper layers like TCP)
+                                </li>
+                                <li>Best-effort delivery – no guarantee of delivery, order, or integrity</li>
+                                <li>Fragmentation possible at routers if packet exceeds MTU</li>
+                            </ul>
+
+                            <h2><i class="bi bi-lightbulb"></i> Summary</h2>
+                            <p>The IPv4 datagram header contains all necessary information for routing packets across
+                                interconnected networks. Despite its limitations (address space exhaustion, lack of
+                                built-in security), IPv4 remains the backbone of the Internet today.</p>
+                        </div>
+                    </article>
+                </main>
+                <!-- Sidebar removed -->
+            </div>
+        </div>
+    </div>
+    <footer id="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="copyright">&copy; Copyright <strong>Jobaer Hossain</strong> All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Mobile Menu -->
+    <div class="overlay overlay-hugeinc">
+        <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="full-width.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

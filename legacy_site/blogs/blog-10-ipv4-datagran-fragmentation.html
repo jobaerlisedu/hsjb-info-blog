@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tech. Enablement</title>
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap Icons CDN (only addition) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- css -->
+    <link rel="stylesheet" href="\css/bootstrap.min.css">
+    <link rel="stylesheet" href="\css/ionicons.min.css">
+    <link rel="stylesheet" href="\css/pace.css">
+    <link rel="stylesheet" href="\css/custom.css">
+    <!-- js -->
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/pace.min.js"></script>
+    <script src="js/modernizr.custom.js"></script>
+    <style>
+        /* Black & White Theme + Full-Width Content */
+        body,
+        .content-body {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        a {
+            color: #000000;
+        }
+
+        a:hover {
+            color: #333333;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: bold;
+            /* Explicitly bold */
+            margin-top: 40px;
+            margin-bottom: 15px;
+            color: #000000;
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: #000000;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #000000;
+        }
+
+        h3 {
+            font-size: 26px;
+            font-weight: bold;
+            /* Explicitly bold */
+            margin-top: 40px;
+            margin-bottom: 15px;
+            color: #000000;
+        }
+
+        .entry-title,
+        h2,
+        h3 {
+            color: #000000;
+        }
+
+        .entry-meta span {
+            color: #000000;
+        }
+
+        .table-bordered th,
+        .table-bordered td {
+            border: 1px solid #000000 !important;
+        }
+
+        .table-bordered thead th {
+            background-color: #eeeeee;
+        }
+
+        #site-header {
+            background-color: #FFF;
+            padding: 25px 20px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #e7e7e7;
+        }
+
+        #site-footer {
+            padding-top: 10px;
+            padding: 0 0 1.5em 0;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1em;
+            margin: 0;
+            border-top: 1px solid #eee;
+            color: #666;
+        }
+
+        /* Force grayscale on all images */
+        img {
+            filter: grayscale(100%);
+        }
+
+        /* Full-width content - remove sidebar */
+        .content-body .container {
+            max-width: none;
+            width: 100%;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .content-body .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        /* Make main content take full width */
+        .content-body main {
+            max-width: 1000px;
+            margin: 0 auto;
+            float: none;
+        }
+
+        /* Hide sidebar completely */
+        aside {
+            display: none;
+        }
+    </style>
+</head>
+
+<body id="single">
+    <div class="container">
+        <header id="site-header">
+            <div class="row">
+                <div class="col-md-4 col-sm-5 col-xs-8">
+                    <div class="logo">
+                        <a href="/index.html"><img src="/img/avatar.png" alt="Site logo" class="logo-img"></a>
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-7 col-xs-4">
+                    <nav class="main-nav" role="navigation">
+                        <div class="navbar-header">
+                            <button type="button" id="trigger-overlay" class="navbar-toggle">
+                                <span class="ion-navicon"></span>
+                            </button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="cl-effect-11"><a href="/index.html" data-hover="Home">Home</a></li>
+                                <li class="cl-effect-11"><a href="/full-width.html" data-hover="Blog">Blog</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <div id="header-search-box">
+                        <a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
+                        <div id="search-form" class="search-form">
+                            <form role="search" method="get" id="searchform" action="#">
+                                <input type="search" placeholder="Search" required>
+                                <button type="submit"><span class="ion-ios-search-strong"></span></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="content-body">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-12">
+                    <article class="post post-1">
+                        <header class="entry-header">
+                            <h1 class="entry-title">IPv4 Datagram Fragmentation and Delays</h1>
+                            <div class="entry-meta">
+                                <span class="post-category"><a href="#">Networking</a></span>
+
+                                <span class="post-date"><a href="#"><time class="entry-date"
+                                            datetime="2026-01-02">January 02, 2026</time></a></span>
+
+                                <span class="post-author"><a href="#">Jobaer Hossain</a></span>
+                            </div>
+                        </header>
+                        <div class="entry-content clearfix">
+                            <h2><i class="bi bi-lightbulb"></i> Introduction</h2>
+                            <p>Fragmentation is the process of breaking a large IPv4 datagram into smaller fragments so
+                                that they can be transmitted over networks with smaller Maximum Transmission Unit (MTU)
+                                sizes.</p>
+                            <p>When a packet is too large for the next link's MTU, the router fragments it into smaller
+                                pieces. Each fragment is treated as an independent packet and may be fragmented further
+                                if needed.</p>
+
+                            <figure class="text-center">
+                                <img src="blog-img/blog-10/blog-10-01.png"
+                                    alt="IPv4 Fragmentation Example" class="img-responsive center-block">
+                                <figcaption><em><strong>Photo:</strong> IPv4 Datagram Fragmentation Process</em>
+                                </figcaption>
+                            </figure>
+
+                            <h2><i class="bi bi-lightbulb"></i> Why Fragmentation is Needed</h2>
+                            <p>Different networks have different MTUs (e.g., Ethernet: 1500 bytes, older links:
+                                smaller). To traverse heterogeneous networks, large packets must be broken down.</p>
+
+                            <h2><i class="bi bi-lightbulb"></i> Fields Used in Fragmentation</h2>
+                            <ul>
+                                <li><strong>Identification (16 bits):</strong> Same value in all fragments of the
+                                    original datagram.</li>
+                                <li><strong>Flags (3 bits):</strong>
+                                    <ul>
+                                        <li>Bit 0: Reserved</li>
+                                        <li>Bit 1: Don't Fragment (DF) – if set, packet is dropped if too large</li>
+                                        <li>Bit 2: More Fragments (MF) – 1 if more fragments follow, 0 for last fragment
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><strong>Fragment Offset (13 bits):</strong> Position of this fragment in the
+                                    original datagram (in units of 8 bytes).</li>
+                            </ul>
+
+                            <h2><i class="bi bi-lightbulb"></i> Fragmentation Process</h2>
+                            <ol>
+                                <li>Router receives a packet larger than outgoing link's MTU.</li>
+                                <li>Header is copied to each fragment (with modifications).</li>
+                                <li>Data is divided into fragments of size ≤ MTU (minus header).</li>
+                                <li>Fragment Offset and MF flag are set accordingly.</li>
+                                <li>Total Length is updated for each fragment.</li>
+                                <li>Header Checksum is recalculated.</li>
+                            </ol>
+
+                            <figure class="text-center">
+                                <img src="blog-img/blog-10/blog-10-02.png"
+                                    alt="IPv4 Fragmentation Mechanism" class="img-responsive center-block">
+                                <figcaption><em><strong>Photo:</strong> IPv4 Datagram Fragmentation Process</em>
+                                </figcaption>
+                            </figure>
+
+                            <h2><i class="bi bi-lightbulb"></i> Reassembly</h2>
+                            <p>Reassembly is done only at the final destination (not at intermediate routers).</p>
+                            <p>All fragments must arrive for successful reassembly. If any fragment is lost, the entire
+                                datagram is discarded.</p>
+
+                            <h2><i class="bi bi-lightbulb"></i> Example of Fragmentation</h2>
+                            <p>Original packet: 4000 bytes data + 20 bytes header = 4020 bytes total.</p>
+                            <p>Outgoing MTU: 1500 bytes → Fragment payload max: 1480 bytes (multiple of 8).</p>
+                            <p>Results in 3 fragments:</p>
+                            <ul>
+                                <li>Fragment 1: Offset 0, MF=1, Length=1500</li>
+                                <li>Fragment 2: Offset 185, MF=1, Length=1500</li>
+                                <li>Fragment 3: Offset 370, MF=0, Length=1040</li>
+                            </ul>
+
+                            
+
+                            <figure class="text-center">
+                                <img src="blog-img/blog-10/blog-10-03.png"
+                                    alt="IPv4 Fragmentation Example" class="img-responsive center-block">
+                                <figcaption><em><strong>Photo:</strong> IPv4 Datagram Fragmentation Process</em>
+                                </figcaption>
+                            </figure>
+
+                            <h2><i class="bi bi-lightbulb"></i> Types of Delays in Fragmentation</h2>
+                            <ul>
+                                <li><strong>Processing Delay:</strong> Time to fragment the packet at the router.</li>
+                                <li><strong>Queuing Delay:</strong> Waiting in router queue (more fragments = more
+                                    queuing).</li>
+                                <li><strong>Transmission Delay:</strong> More fragments mean more transmission time.
+                                </li>
+                                <li><strong>Reassembly Delay:</strong> Waiting for all fragments at destination.</li>
+                            </ul>
+
+                            <h2><i class="bi bi-lightbulb"></i> Problems with Fragmentation</h2>
+                            <ul>
+                                <li>Increases overhead (each fragment has its own header)</li>
+                                <li>Loss of one fragment causes entire packet loss</li>
+                                <li>Complicates reassembly and error handling</li>
+                                <li>Performance degradation due to multiple transmissions</li>
+                                <li>Security risks (fragment overlap attacks)</li>
+                            </ul>
+
+                            <h2><i class="bi bi-lightbulb"></i> Path MTU Discovery (PMTUD)</h2>
+                            <p>Modern approach to avoid fragmentation:</p>
+                            <ul>
+                                <li>Sender sets DF bit and sends large packets</li>
+                                <li>If router cannot forward, it drops and sends ICMP "Fragmentation Needed"</li>
+                                <li>Sender reduces packet size accordingly</li>
+                                <li>Avoids fragmentation overhead</li>
+                            </ul>
+
+                            <h2><i class="bi bi-lightbulb"></i> Summary</h2>
+                            <p>Fragmentation allows IPv4 packets to traverse networks with varying MTUs but introduces
+                                significant delays and overhead. Modern networks prefer Path MTU Discovery to avoid
+                                fragmentation altogether.</p>
+                        </div>
+                    </article>
+                </main>
+                <!-- Sidebar removed -->
+            </div>
+        </div>
+    </div>
+    <footer id="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="copyright">&copy; Copyright <strong>Jobaer Hossain</strong> All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Mobile Menu -->
+    <div class="overlay overlay-hugeinc">
+        <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="full-width.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

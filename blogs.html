@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Blogs | enablement.info</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@300;400;600;700;800&family=Syne:wght@800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <canvas id="network-canvas"></canvas>
+
+    <div class="overlay">
+        <header class="glass-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/images/avatar.png" alt="JH Logo" class="logo-img">
+                        <span class="logo-text">enablement.info</span>
+                    </a>
+                </div>
+
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blogs.html" class="active">Blogs</a></li>
+
+
+                    </ul>
+                </nav>
+
+                <div class="mobile-menu-btn">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="recent-posts" style="padding-top: 120px;">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>All Articles</h2>
+                    </div>
+
+                    <div class="posts-grid">
+                        <!-- Post 11 -->
+                        <article class="post-card glass-panel">
+                            <div class="post-meta">
+                                <span class="category">Networking</span>
+                                <span class="date">Jan 02, 2025</span>
+                            </div>
+                            <h3><a href="blogs/blog-11-ipv4-exhaustion.html">IPv4 Exhaustion in Computer Network</a>
+                            </h3>
+                            <p>Understanding the depletion of IPv4 addresses and the transition to IPv6.</p>
+                            <a href="blogs/blog-11-ipv4-exhaustion.html" class="read-more">Read Article</a>
+                        </article>
+
+                        <!-- Post 10 -->
+                        <article class="post-card glass-panel">
+                            <div class="post-meta">
+                                <span class="category">Networking</span>
+                                <span class="date">Jan 02, 2025</span>
+                            </div>
+                            <h3><a href="blogs/blog-10-ipv4-datagran-fragmentation.html">IPv4 Datagram Fragmentation and
+                                    Delays</a></h3>
+                            <p>How data packets are broken down and reassembled during transmission.</p>
+                            <a href="blogs/blog-10-ipv4-datagran-fragmentation.html" class="read-more">Read Article</a>
+                        </article>
+
+                        <!-- Post 9 -->
+                        <article class="post-card glass-panel">
+                            <div class="post-meta">
+                                <span class="category">Networking</span>
+                                <span class="date">Jan 02, 2025</span>
+                            </div>
+                            <h3><a href="blogs/blog-09-ipv4-datagram-header.html">IPv4 Datagram Header</a></h3>
+                            <p>A deep dive into the structure and fields of the IPv4 header.</p>
+                            <a href="blogs/blog-09-ipv4-datagram-header.html" class="read-more">Read Article</a>
+                        </article>
+
+                        <!-- Post 8 -->
+                        <article class="post-card glass-panel">
+                            <div class="post-meta">
+                                <span class="category">Networking</span>
+                                <span class="date">Jan 02, 2025</span>
+                            </div>
+                            <h3><a href="blogs/blog-08-ipv4.html">What is Internet Protocol Version 4 (IPv4)</a></h3>
+                            <p>The fundamental protocol that powers the internet as we know it.</p>
+                            <a href="blogs/blog-08-ipv4.html" class="read-more">Read Article</a>
+                        </article>
+
+                        <!-- Post 7 -->
+                        <article class="post-card glass-panel">
+                            <div class="post-meta">
+                                <span class="category">Networking</span>
+                                <span class="date">Jan 02, 2025</span>
+                            </div>
+                            <h3><a href="blogs/blog-07-transmission-mode.html">Transmission Modes in Computer
+                                    Networks</a></h3>
+                            <p>Simplex, Half-Duplex, and Full-Duplex communication modes explained.</p>
+                            <a href="blogs/blog-07-transmission-mode.html" class="read-more">Read Article</a>
+                        </article>
+
+                        <!-- Post 6 -->
+                        <article class="post-card glass-panel">
+                            <div class="post-meta">
+                                <span class="category">Networking</span>
+                                <span class="date">Jan 02, 2025</span>
+                            </div>
+                            <h3><a href="blogs/blog-06-types-of-network.html">Types of Network - LAN, WAN & MAN</a></h3>
+                            <p>classifying networks based on their geographical coverage.</p>
+                            <a href="blogs/blog-06-types-of-network.html" class="read-more">Read Article</a>
+                        </article>
+
+                        <!-- Post 5 -->
+                        <article class="post-card glass-panel">
+                            <div class="post-meta">
+                                <span class="category">Networking</span>
+                                <span class="date">Jan 02, 2025</span>
+                            </div>
+                            <h3><a href="blogs/blog-05-network-topologies.html">Types of Network Topology</a></h3>
+                            <p>Visualizing how devices are arranged: Bus, Star, Ring, Mesh, and more.</p>
+                            <a href="blogs/blog-05-network-topologies.html" class="read-more">Read Article</a>
+                        </article>
+
+                        <!-- Post 4 -->
+                        <article class="post-card glass-panel">
+                            <div class="post-meta">
+                                <span class="category">Networking</span>
+                                <span class="date">Dec 25, 2025</span>
+                            </div>
+                            <h3><a href="blogs/blog-04-network-devices.html">Network Devices</a></h3>
+                            <p>Routers, Switches, Hubs, and Bridges: The hardware that makes networking possible.</p>
+                            <a href="blogs/blog-04-network-devices.html" class="read-more">Read Article</a>
+                        </article>
+
+                        <!-- Post 3 -->
+                        <article class="post-card glass-panel">
+                            <div class="post-meta">
+                                <span class="category">Protocols</span>
+                                <span class="date">Dec 25, 2025</span>
+                            </div>
+                            <h3><a href="blogs/blog-03-tcp-ip-model.html">TCP/IP Model in Networking</a></h3>
+                            <p>The practical implementation of network protocols used in the modern internet.</p>
+                            <a href="blogs/blog-03-tcp-ip-model.html" class="read-more">Read Article</a>
+                        </article>
+
+                        <!-- Post 2 -->
+                        <article class="post-card glass-panel">
+                            <div class="post-meta">
+                                <span class="category">Networking</span>
+                                <span class="date">Dec 25, 2025</span>
+                            </div>
+                            <h3><a href="blogs/blog-02-osi-model.html">What is OSI Model?</a></h3>
+                            <p>The 7 layers of the OSI Model and their roles in standardizing communication.</p>
+                            <a href="blogs/blog-02-osi-model.html" class="read-more">Read Article</a>
+                        </article>
+
+                        <!-- Post 1 -->
+                        <article class="post-card glass-panel">
+                            <div class="post-meta">
+                                <span class="category">Networking</span>
+                                <span class="date">Dec 25, 2025</span>
+                            </div>
+                            <h3><a href="blogs/blog-01-basics-of-networking.html">Basics of Computer Networking</a></h3>
+                            <p>A comprehensive guide to understanding how networks operate.</p>
+                            <a href="blogs/blog-01-basics-of-networking.html" class="read-more">Read Article</a>
+                        </article>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="glass-footer">
+            <div class="container">
+                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+                <div class="social-links">
+                    <a href="#"><i class='bx bxl-linkedin'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-github'></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/network-background.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script>
+        // Tilt effect removed as per request
+    </script>
+</body>
+
+</html>

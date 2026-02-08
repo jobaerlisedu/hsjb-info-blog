@@ -1,333 +1,232 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Tech. Enablement</title>
-    <!-- meta -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap Icons CDN (only addition) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Topologies | enablement.info</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@300;400;600;700;800&family=Syne:wght@800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- css -->
-    <link rel="stylesheet" href="\css/bootstrap.min.css">
-    <link rel="stylesheet" href="\css/ionicons.min.css">
-    <link rel="stylesheet" href="\css/pace.css">
-    <link rel="stylesheet" href="\css/custom.css">
-    <!-- js -->
-    <script src="js/jquery-2.1.3.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/pace.min.js"></script>
-    <script src="js/modernizr.custom.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
     <style>
-        /* Black & White Theme + Full-Width Content */
-        body,
-        .content-body {
-            background-color: #ffffff;
-            color: #000000;
+        .blog-content-wrapper {
+            padding-top: 120px;
+            padding-bottom: 60px;
         }
 
-        a {
-            color: #000000;
-        }
-
-        a:hover {
-            color: #333333;
-        }
-
-        h1 {
-            font-size: 32px;
-            font-weight: bold;
-            /* Explicitly bold */
-            margin-top: 40px;
-            margin-bottom: 15px;
-            color: #000000;
-        }
-
-        h2 {
-            font-size: 28px;
-            font-weight: bold;
-            margin-top: 50px;
-            margin-bottom: 20px;
-            color: #000000;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #000000;
-        }
-
-        h3 {
-            font-size: 26px;
-            font-weight: bold;
-            /* Explicitly bold */
-            margin-top: 40px;
-            margin-bottom: 15px;
-            color: #000000;
-        }
-
-        .entry-title,
-        h2,
-        h3 {
-            color: #000000;
-        }
-
-        .entry-meta span {
-            color: #000000;
-        }
-
-        .table-bordered th,
-        .table-bordered td {
-            border: 1px solid #000000 !important;
-        }
-
-        .table-bordered thead th {
-            background-color: #eeeeee;
-        }
-
-        #site-header {
-            background-color: #FFF;
-            padding: 25px 20px;
-            margin-bottom: 40px;
-            border-bottom: 1px solid #e7e7e7;
-        }
-
-        #site-footer {
-            padding-top: 10px;
-            padding: 0 0 1.5em 0;
-        }
-
-        .copyright {
+        .article-header {
             text-align: center;
-            padding-top: 1em;
-            margin: 0;
-            border-top: 1px solid #eee;
-            color: #666;
+            margin-bottom: 40px;
         }
 
-        /* Force grayscale on all images */
-        img {
-            filter: grayscale(100%);
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
         }
 
-        /* Full-width content - remove sidebar */
-        .content-body .container {
-            max-width: none;
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d0d0e0;
+        }
+
+        .article-body h2,
+        .article-body h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--primary-color);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .article-body h2 {
+            font-size: 1.8rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .article-body li {
+            margin-bottom: 10px;
+        }
+
+        .article-body img {
+            max-width: 100%;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 1px solid var(--glass-border);
+        }
+
+        .article-body figcaption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: -10px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .table {
             width: 100%;
-            padding-left: 15px;
-            padding-right: 15px;
+            border-collapse: collapse;
+            margin: 20px 0;
         }
 
-        .content-body .row {
-            margin-left: 0;
-            margin-right: 0;
+        .table th,
+        .table td {
+            border: 1px solid var(--glass-border);
+            padding: 10px;
+            text-align: left;
         }
 
-        /* Make main content take full width */
-        .content-body main {
-            max-width: 1000px;
-            margin: 0 auto;
-            float: none;
-        }
-
-        /* Hide sidebar completely */
-        aside {
-            display: none;
+        .table th {
+            background: rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
 
-<body id="single">
-    <div class="container">
-        <header id="site-header">
-            <div class="row">
-                <div class="col-md-4 col-sm-5 col-xs-8">
-                    <div class="logo">
-                        <a href="/index.html"><img src="/img/avatar.png" alt="Site logo" class="logo-img"></a>
-                    </div>
+<body>
+    <canvas id="network-canvas"></canvas>
+    <div class="overlay">
+        <header class="glass-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../assets/images/avatar.png" alt="JH Logo" class="logo-img">
+                        <span class="logo-text">enablement.info</span>
+                    </a>
                 </div>
-                <div class="col-md-8 col-sm-7 col-xs-4">
-                    <nav class="main-nav" role="navigation">
-                        <div class="navbar-header">
-                            <button type="button" id="trigger-overlay" class="navbar-toggle">
-                                <span class="ion-navicon"></span>
-                            </button>
-                        </div>
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav navbar-right">
-                                <li class="cl-effect-11"><a href="/index.html" data-hover="Home">Home</a></li>
-                                <li class="cl-effect-11"><a href="/full-width.html" data-hover="Blog">Blog</a></li>
-                            </ul>
-                        </div>
-                    </nav>
-                    <div id="header-search-box">
-                        <a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
-                        <div id="search-form" class="search-form">
-                            <form role="search" method="get" id="searchform" action="#">
-                                <input type="search" placeholder="Search" required>
-                                <button type="submit"><span class="ion-ios-search-strong"></span></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../blogs.html" class="active">Blogs</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-btn"><i class='bx bx-menu'></i></div>
             </div>
         </header>
-    </div>
-    <div class="content-body">
-        <div class="container">
-            <div class="row">
-                <main class="col-md-12">
-                    <article class="post post-1">
-                        <header class="entry-header">
-                            <h1 class="entry-title">Types of Network Topology</h1>
-                            <div class="entry-meta">
-                                <span class="post-category"><a href="#">Networking</a></span>
 
-                                <span class="post-date"><a href="#"><time class="entry-date"
-                                            datetime="2026-01-02">January 02, 2026</time></a></span>
-
-                                <span class="post-author"><a href="#">Jobaer Hossain</a></span>
-                            </div>
-                        </header>
-                        <div class="entry-content clearfix">
-                            <h2><i class="bi bi-lightbulb"></i> Introduction</h2>
-                            <p>A network topology is the arrangement of devices (nodes) and connections (links) in a
-                                computer network. It shows how computers, servers, and other devices are connected and
-                                how data flows between them.</p>
-                            <p>There are two main types of topology:</p>
-                            <ul>
-                                <li><strong>Physical Topology:</strong> The actual physical layout of cables and
-                                    devices.</li>
-                                <li><strong>Logical Topology:</strong> How data moves across the network, regardless of
-                                    physical layout.</li>
-                            </ul>
-                            <p><strong>Note:</strong> Choosing the right topology is important because it affects the
-                                performance, cost, reliability, and security of the network.</p>
-
-                            <figure class="text-center">
-                                <img src="blog-img/blog-05/blog-05-01.webp"
-                                    alt="Overview of Network Topologies" class="img-responsive center-block">
-                                <figcaption><em><strong>Photo:</strong> Common types of network topologies</em>
-                                </figcaption>
-                            </figure>
-
-                            <h2><i class="bi bi-lightbulb"></i> Point-to-Point Topology</h2>
-                            <p>Point-to-point topology is the simplest communication between two nodes, where one is the
-                                sender and the other is the receiver.</p>
-                            <ul>
-                                <li><strong>Functions:</strong> Provides high bandwidth and direct connection.</li>
-                            </ul>
-
-                            <h2><i class="bi bi-lightbulb"></i> Mesh Topology</h2>
-                            <p>In mesh topology, every device is connected to every other device via dedicated channels.
-                            </p>
-                            <ul>
-                                <li><strong>Functions:</strong> Fast communication, robust, easy fault diagnosis,
-                                    reliable due to dedicated links, secure.</li>
-                                <li>Links required: N*(N-1)/2 for N devices.</li>
-                                <li><strong>Protocols:</strong> AHCP, DHCP, etc.</li>
-                            </ul>
-                            <figure class="text-center">
-                                <img src="blog-img/blog-05/blog-05-02.jpg"
-                                    alt="Mesh Topology Diagram" class="img-responsive center-block">
-                                <figcaption><em><strong>Photo:</strong> Mesh Topology</em></figcaption>
-                            </figure>
-
-                            <h2><i class="bi bi-lightbulb"></i> Star Topology</h2>
-                            <p>All devices are connected to a single central hub.</p>
-                            <ul>
-                                <li><strong>Functions:</strong> Easy setup, robust (single link failure affects only one
-                                    device), easy fault isolation.</li>
-                                <li><strong>Cables required:</strong> N for N devices.</li>
-                                <li><strong>Protocols:</strong> Ethernet, CSMA.</li>
-                            </ul>
-                            <figure class="text-center">
-                                <img src="blog-img/blog-05/blog-05-03.jpg"
-                                    alt="Star Topology Diagram" class="img-responsive center-block">
-                                <figcaption><em><strong>Photo:</strong> Star Topology</em></figcaption>
-                            </figure>
-
-                            <h2><i class="bi bi-lightbulb"></i> Bus Topology</h2>
-                            <p>All devices connect to a single shared backbone cable.</p>
-                            <ul>
-                                <li><strong>Functions:</strong> Low cost, suitable for small networks.</li>
-                                <li><strong>Protocols:</strong> CSMA/CD.</li>
-                            </ul>
-                            <figure class="text-center">
-                                <img src="blog-img/blog-05/blog-05-04.jpg"
-                                    alt="Bus Topology Diagram" class="img-responsive center-block">
-                                <figcaption><em><strong>Photo:</strong> Bus Topology</em></figcaption>
-                            </figure>
-
-                            <h2><i class="bi bi-lightbulb"></i> Ring Topology</h2>
-                            <p>Devices form a ring, each connected to two neighbors. Data flows in one direction using a
-                                token.</p>
-                            <ul>
-                                <li><strong>Functions:</strong> High-speed, minimal collisions, cheap to install.</li>
-                                <li><strong>Protocols:</strong> Token Ring Passing.</li>
-                            </ul>
-                            <figure class="text-center">
-                                <img src="blog-img/blog-05/blog-05-05.jpg"
-                                    alt="Ring Topology Diagram" class="img-responsive center-block">
-                                <figcaption><em><strong>Photo:</strong> Ring Topology</em></figcaption>
-                            </figure>
-
-                            <h2><i class="bi bi-lightbulb"></i> Tree Topology</h2>
-                            <p>Hierarchical structure combining star and bus topologies.</p>
-                            <ul>
-                                <li><strong>Functions:</strong> Supports more devices, easy expansion, network
-                                    isolation.</li>
-                                <li><strong>Protocols:</strong> DHCP, SAC.</li>
-                            </ul>
-                            <figure class="text-center">
-                                <img src="blog-img/blog-05/blog-05-06.jpg"
-                                    alt="Tree Topology Diagram" class="img-responsive center-block">
-                                <figcaption><em><strong>Photo:</strong> Tree Topology</em></figcaption>
-                            </figure>
-
-                            <h2><i class="bi bi-lightbulb"></i> Hybrid Topology</h2>
-                            <p>Combination of two or more different topologies.</p>
-                            <ul>
-                                <li><strong>Functions:</strong> Flexible, easy to expand.</li>
-                            </ul>
-                            <figure class="text-center">
-                                <img src="blog-img/blog-05/blog-05-07.jpg"
-                                    alt="Hybrid Topology Diagram" class="img-responsive center-block">
-                                <figcaption><em><strong>Photo:</strong> Hybrid Topology</em></figcaption>
-                            </figure>
-
-                            <h2><i class="bi bi-lightbulb"></i> Why Network Topology Matters</h2>
-                            <ul>
-                                <li>Improves network performance and efficiency</li>
-                                <li>Enhances reliability with redundancy</li>
-                                <li>Supports easier expansion</li>
-                                <li>Improves security</li>
-                            </ul>
+        <main class="blog-content-wrapper">
+            <div class="container">
+                <article class="glass-panel">
+                    <header class="article-header">
+                        <h1>Types of Network Topology</h1>
+                        <div class="article-meta">
+                            <span><i class='bx bx-calendar'></i> Jan 02, 2026</span>
+                            <span style="margin: 0 10px;">|</span>
+                            <span><i class='bx bx-category'></i> Networking</span>
                         </div>
-                    </article>
-                </main>
-                <!-- Sidebar removed -->
+                    </header>
+
+                    <div class="article-body">
+                        <h2><i class="bi bi-lightbulb"></i> Introduction</h2>
+                        <p>Network topology is the arrangement of nodes and links in a network. It defines how data
+                            flows.</p>
+
+                        <figure class="text-center">
+                            <img src="../assets/images/blog-img/blog-05/blog-05-01.webp" alt="Network Topologies"
+                                class="img-responsive center-block">
+                            <figcaption><em><strong>Photo:</strong> Common types of network topologies</em></figcaption>
+                        </figure>
+
+                        <h2><i class="bi bi-lightbulb"></i> Common Topologies</h2>
+
+                        <h3>Mesh Topology</h3>
+                        <p>Every device connects to every other device via dedicated channels. Robust but expensive.</p>
+                        <figure class="text-center">
+                            <img src="../assets/images/blog-img/blog-05/blog-05-02.jpg" alt="Mesh Topology"
+                                class="img-responsive center-block">
+                        </figure>
+
+                        <h3>Star Topology</h3>
+                        <p>All devices connect to a central hub. Easy to setup and robust.</p>
+                        <figure class="text-center">
+                            <img src="../assets/images/blog-img/blog-05/blog-05-03.jpg" alt="Star Topology"
+                                class="img-responsive center-block">
+                        </figure>
+
+                        <h3>Bus Topology</h3>
+                        <p>All devices connect to a single backbone cable. Cost-effective for small networks.</p>
+                        <figure class="text-center">
+                            <img src="../assets/images/blog-img/blog-05/blog-05-04.jpg" alt="Bus Topology"
+                                class="img-responsive center-block">
+                        </figure>
+
+                        <h3>Ring Topology</h3>
+                        <p>Devices form a ring; data flows in one direction.</p>
+                        <figure class="text-center">
+                            <img src="../assets/images/blog-img/blog-05/blog-05-05.jpg" alt="Ring Topology"
+                                class="img-responsive center-block">
+                        </figure>
+
+                        <h3>Tree Topology</h3>
+                        <p>Hierarchical structure combining star and bus topologies.</p>
+                        <figure class="text-center">
+                            <img src="../assets/images/blog-img/blog-05/blog-05-06.jpg" alt="Tree Topology"
+                                class="img-responsive center-block">
+                        </figure>
+
+                        <h3>Hybrid Topology</h3>
+                        <p>Combination of two or more different topologies.</p>
+                        <figure class="text-center">
+                            <img src="../assets/images/blog-img/blog-05/blog-05-07.jpg" alt="Hybrid Topology"
+                                class="img-responsive center-block">
+                        </figure>
+
+                        <h2><i class="bi bi-lightbulb"></i> Summary</h2>
+                        <p>Choosing the right topology affects performance, cost, and reliability. Star is most common
+                            today.</p>
+                    </div>
+                </article>
             </div>
-        </div>
-    </div>
-    <footer id="site-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <p class="copyright">&copy; Copyright <strong>Jobaer Hossain</strong> All Rights Reserved</p>
+        </main>
+
+        <footer class="glass-footer">
+            <div class="container">
+                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+                <div class="social-links">
+                    <a href="#"><i class='bx bxl-linkedin'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-github'></i></a>
                 </div>
             </div>
-        </div>
-    </footer>
-    <!-- Mobile Menu -->
-    <div class="overlay overlay-hugeinc">
-        <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="full-width.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        </footer>
     </div>
-    <script src="js/script.js"></script>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>

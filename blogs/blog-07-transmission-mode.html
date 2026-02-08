@@ -1,365 +1,221 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Tech. Enablement</title>
-    <!-- meta -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap Icons CDN (only addition) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transmission Modes | enablement.info</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@300;400;600;700;800&family=Syne:wght@800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- css -->
-    <link rel="stylesheet" href="\css/bootstrap.min.css">
-    <link rel="stylesheet" href="\css/ionicons.min.css">
-    <link rel="stylesheet" href="\css/pace.css">
-    <link rel="stylesheet" href="\css/custom.css">
-    <!-- js -->
-    <script src="js/jquery-2.1.3.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/pace.min.js"></script>
-    <script src="js/modernizr.custom.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
     <style>
-        /* Black & White Theme + Full-Width Content */
-        body,
-        .content-body {
-            background-color: #ffffff;
-            color: #000000;
+        .blog-content-wrapper {
+            padding-top: 120px;
+            padding-bottom: 60px;
         }
 
-        a {
-            color: #000000;
-        }
-
-        a:hover {
-            color: #333333;
-        }
-
-        h1 {
-            font-size: 32px;
-            font-weight: bold;
-            /* Explicitly bold */
-            margin-top: 40px;
-            margin-bottom: 15px;
-            color: #000000;
-        }
-
-        h2 {
-            font-size: 28px;
-            font-weight: bold;
-            margin-top: 50px;
-            margin-bottom: 20px;
-            color: #000000;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #000000;
-        }
-
-        h3 {
-            font-size: 26px;
-            font-weight: bold;
-            /* Explicitly bold */
-            margin-top: 40px;
-            margin-bottom: 15px;
-            color: #000000;
-        }
-
-        .entry-title,
-        h2,
-        h3 {
-            color: #000000;
-        }
-
-        .entry-meta span {
-            color: #000000;
-        }
-
-        .table-bordered th,
-        .table-bordered td {
-            border: 1px solid #000000 !important;
-        }
-
-        .table-bordered thead th {
-            background-color: #eeeeee;
-        }
-
-        #site-header {
-            background-color: #FFF;
-            padding: 25px 20px;
-            margin-bottom: 40px;
-            border-bottom: 1px solid #e7e7e7;
-        }
-
-        #site-footer {
-            padding-top: 10px;
-            padding: 0 0 1.5em 0;
-        }
-
-        .copyright {
+        .article-header {
             text-align: center;
-            padding-top: 1em;
-            margin: 0;
-            border-top: 1px solid #eee;
-            color: #666;
+            margin-bottom: 40px;
         }
 
-        /* Force grayscale on all images */
-        img {
-            filter: grayscale(100%);
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
         }
 
-        /* Full-width content - remove sidebar */
-        .content-body .container {
-            max-width: none;
-            width: 100%;
-            padding-left: 15px;
-            padding-right: 15px;
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
-        .content-body .row {
-            margin-left: 0;
-            margin-right: 0;
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d0d0e0;
         }
 
-        /* Make main content take full width */
-        .content-body main {
-            max-width: 1000px;
-            margin: 0 auto;
-            float: none;
+        .article-body h2,
+        .article-body h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--primary-color);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 800;
         }
 
-        /* Hide sidebar completely */
-        aside {
-            display: none;
+        .article-body h2 {
+            font-size: 1.8rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .article-body li {
+            margin-bottom: 10px;
+        }
+
+        .article-body img {
+            max-width: 100%;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 1px solid var(--glass-border);
+        }
+
+        .article-body figcaption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: -10px;
+            margin-bottom: 30px;
+            font-style: italic;
         }
     </style>
 </head>
 
-<body id="single">
-    <div class="container">
-        <header id="site-header">
-            <div class="row">
-                <div class="col-md-4 col-sm-5 col-xs-8">
-                    <div class="logo">
-                        <a href="/index.html"><img src="/img/avatar.png" alt="Site logo" class="logo-img"></a>
-                    </div>
+<body>
+    <canvas id="network-canvas"></canvas>
+    <div class="overlay">
+        <header class="glass-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../index.html">
+                        <img src="../assets/images/avatar.png" alt="JH Logo" class="logo-img">
+                        <span class="logo-text">enablement.info</span>
+                    </a>
                 </div>
-                <div class="col-md-8 col-sm-7 col-xs-4">
-                    <nav class="main-nav" role="navigation">
-                        <div class="navbar-header">
-                            <button type="button" id="trigger-overlay" class="navbar-toggle">
-                                <span class="ion-navicon"></span>
-                            </button>
-                        </div>
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav navbar-right">
-                                <li class="cl-effect-11"><a href="/index.html" data-hover="Home">Home</a></li>
-                                <li class="cl-effect-11"><a href="/full-width.html" data-hover="Blog">Blog</a></li>
-                            </ul>
-                        </div>
-                    </nav>
-                    <div id="header-search-box">
-                        <a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
-                        <div id="search-form" class="search-form">
-                            <form role="search" method="get" id="searchform" action="#">
-                                <input type="search" placeholder="Search" required>
-                                <button type="submit"><span class="ion-ios-search-strong"></span></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../blogs.html" class="active">Blogs</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-btn"><i class='bx bx-menu'></i></div>
             </div>
         </header>
-    </div>
-    <div class="content-body">
-        <div class="container">
-            <div class="row">
-                <main class="col-md-12">
-                    <article class="post post-1">
-                        <header class="entry-header">
-                            <h1 class="entry-title">Transmission Modes in Computer Networks</h1>
-                            <div class="entry-meta">
-                                <span class="post-category"><a href="#">Networking</a></span>
 
-                                <span class="post-date"><a href="#"><time class="entry-date"
-                                            datetime="2026-01-02">January 02, 2026</time></a></span>
+        <main class="blog-content-wrapper">
+            <div class="container">
+                <article class="glass-panel">
+                    <header class="article-header">
+                        <h1>Transmission Modes in Computer Networks</h1>
+                        <div class="article-meta">
+                            <span><i class='bx bx-calendar'></i> Jan 02, 2026</span>
+                            <span style="margin: 0 10px;">|</span>
+                            <span><i class='bx bx-category'></i> Networking</span>
+                        </div>
+                    </header>
 
-                                <span class="post-author"><a href="#">Jobaer Hossain</a></span>
-                            </div>
-                        </header>
-                        <div class="entry-content clearfix">
-                            <h2><i class="bi bi-lightbulb"></i> Introduction</h2>
-                            <p>Transmission mode refers to the mechanism of transferring data between two devices
-                                connected over a network. There are three types of transmission modes:</p>
-                            <ul>
-                                <li><strong>Simplex Mode</strong></li>
-                                <li><strong>Half-Duplex Mode</strong></li>
-                                <li><strong>Full-Duplex Mode</strong></li>
-                            </ul>
+                    <div class="article-body">
+                        <h2><i class="bi bi-lightbulb"></i> Introduction</h2>
+                        <p>Transmission mode refers to the mechanism of transferring data between two devices. There are
+                            three types:</p>
 
-                            <figure class="text-center">
-                                <img src="blog-img/blog-07/blog-07-01.png"
-                                    alt="Transmission Modes Overview" class="img-responsive center-block">
-                                <figcaption><em><strong>Photo:</strong> Overview of Simplex, Half-Duplex, and
-                                        Full-Duplex transmission modes</em></figcaption>
-                            </figure>
+                        <figure class="text-center">
+                            <img src="../assets/images/blog-img/blog-07/blog-07-01.png" alt="Transmission Modes"
+                                class="img-responsive center-block">
+                            <figcaption><em><strong>Photo:</strong> Overview of Simplex, Half-Duplex, and
+                                    Full-Duplex</em></figcaption>
+                        </figure>
 
-                            <h2><i class="bi bi-lightbulb"></i> Simplex Mode</h2>
-                            <p>In Simplex mode, communication is unidirectional. Only one of the two devices can
-                                transmit; the other can only receive.</p>
-                            <ul>
-                                <li><strong>Direction:</strong> One-way only</li>
-                                <li><strong>Example:</strong> Keyboard to computer, TV broadcast, radio station</li>
-                            </ul>
-                            <figure class="text-center">
-                                <img src="blog-img/blog-07/blog-07-02.png"
-                                    alt="Simplex Mode Diagram" class="img-responsive center-block">
-                                <figcaption><em><strong>Photo:</strong> Simplex Mode</em></figcaption>
-                            </figure>
-                            <ul>
-                                <li><strong>Advantages:</strong>
-                                    <ul>
-                                        <li>Simple and cost-effective</li>
-                                        <li>Entire bandwidth used for transmission in one direction</li>
-                                    </ul>
-                                </li>
-                                <li><strong>Disadvantages:</strong>
-                                    <ul>
-                                        <li>No bidirectional communication</li>
-                                        <li>Receiver cannot reply</li>
-                                    </ul>
-                                </li>
-                            </ul>
+                        <h2><i class="bi bi-lightbulb"></i> Types</h2>
 
-                            <h2><i class="bi bi-lightbulb"></i> Half-Duplex Mode</h2>
-                            <p>In Half-Duplex mode, both devices can transmit and receive, but not at the same time.
-                                Communication is bidirectional but alternating.</p>
-                            <ul>
-                                <li><strong>Direction:</strong> Two-way, but one direction at a time</li>
-                                <li><strong>Example:</strong> Walkie-talkie, two-way radio</li>
-                            </ul>
-                            <figure class="text-center">
-                                <img src="blog-img/blog-07/blog-07-03.png"
-                                    alt="Half-Duplex Mode Diagram" class="img-responsive center-block">
-                                <figcaption><em><strong>Photo:</strong> Half-Duplex Mode</em></figcaption>
-                            </figure>
-                            <ul>
-                                <li><strong>Advantages:</strong>
-                                    <ul>
-                                        <li>Bidirectional communication possible</li>
-                                        <li>Cost-effective compared to full-duplex</li>
-                                    </ul>
-                                </li>
-                                <li><strong>Disadvantages:</strong>
-                                    <ul>
-                                        <li>Lower efficiency (only one direction at a time)</li>
-                                        <li>Delay due to switching</li>
-                                    </ul>
-                                </li>
-                            </ul>
+                        <h3>Simplex Mode</h3>
+                        <p>Unidirectional. Only one device transmits. Example: Keyboard, TV.</p>
+                        <figure class="text-center">
+                            <img src="../assets/images/blog-img/blog-07/blog-07-02.png" alt="Simplex"
+                                class="img-responsive center-block">
+                        </figure>
 
-                            <h2><i class="bi bi-lightbulb"></i> Full-Duplex Mode</h2>
-                            <p>In Full-Duplex mode, both devices can transmit and receive simultaneously. Communication
-                                is truly bidirectional.</p>
-                            <ul>
-                                <li><strong>Direction:</strong> Two-way simultaneous</li>
-                                <li><strong>Example:</strong> Telephone conversation, modern Ethernet networks</li>
-                            </ul>
-                            <figure class="text-center">
-                                <img src="blog-img/blog-07/blog-07-04.png"
-                                    alt="Full-Duplex Mode Diagram" class="img-responsive center-block">
-                                <figcaption><em><strong>Photo:</strong> Full-Duplex Mode</em></figcaption>
-                            </figure>
-                            <ul>
-                                <li><strong>Advantages:</strong>
-                                    <ul>
-                                        <li>Highest efficiency and performance</li>
-                                        <li>No delay in communication</li>
-                                        <li>Double the bandwidth utilization</li>
-                                    </ul>
-                                </li>
-                                <li><strong>Disadvantages:</strong>
-                                    <ul>
-                                        <li>More expensive</li>
-                                        <li>Complex implementation</li>
-                                    </ul>
-                                </li>
-                            </ul>
+                        <h3>Half-Duplex Mode</h3>
+                        <p>Bidirectional, but one at a time. Example: Walkie-talkie.</p>
+                        <figure class="text-center">
+                            <img src="../assets/images/blog-img/blog-07/blog-07-03.png" alt="Half-Duplex"
+                                class="img-responsive center-block">
+                        </figure>
 
-                            <h2><i class="bi bi-lightbulb"></i> Comparison of Transmission Modes</h2>
-                            <table class="table table-bordered">
+                        <h3>Full-Duplex Mode</h3>
+                        <p>Bidirectional and simultaneous. Example: Telephone.</p>
+                        <figure class="text-center">
+                            <img src="../assets/images/blog-img/blog-07/blog-07-04.png" alt="Full-Duplex"
+                                class="img-responsive center-block">
+                        </figure>
+
+                        <h2><i class="bi bi-lightbulb"></i> Comparison</h2>
+                        <div class="table-wrapper">
+                            <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Parameter</th>
-                                        <th>Simplex</th>
-                                        <th>Half-Duplex</th>
-                                        <th>Full-Duplex</th>
+                                        <th>Mode</th>
+                                        <th>Direction</th>
+                                        <th>Performance</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Direction of Communication</td>
-                                        <td>Unidirectional</td>
-                                        <td>Bidirectional (alternating)</td>
-                                        <td>Bidirectional (simultaneous)</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Data Transmission</td>
-                                        <td>Only one way</td>
-                                        <td>Both ways, one at a time</td>
-                                        <td>Both ways at the same time</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Bandwidth Utilization</td>
-                                        <td>Full in one direction</td>
-                                        <td>Half (shared)</td>
-                                        <td>Full (doubled)</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Performance</td>
+                                        <td>Simplex</td>
+                                        <td>One-way</td>
                                         <td>Low</td>
-                                        <td>Moderate</td>
-                                        <td>High</td>
                                     </tr>
                                     <tr>
-                                        <td>Examples</td>
-                                        <td>Keyboard, Monitor, TV broadcast</td>
-                                        <td>Walkie-talkie</td>
-                                        <td>Telephone, Internet connection</td>
+                                        <td>Half-Duplex</td>
+                                        <td>Two-way (Alternate)</td>
+                                        <td>Moderate</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Full-Duplex</td>
+                                        <td>Two-way (Simultaneous)</td>
+                                        <td>High</td>
                                     </tr>
                                 </tbody>
                             </table>
-
-                            <h2><i class="bi bi-lightbulb"></i> Summary</h2>
-                            <p>The choice of transmission mode depends on the application requirements for speed, cost,
-                                and bidirectional communication needs.</p>
                         </div>
-                    </article>
-                </main>
-                <!-- Sidebar removed -->
+                    </div>
+                </article>
             </div>
-        </div>
-    </div>
-    <footer id="site-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <p class="copyright">&copy; Copyright <strong>Jobaer Hossain</strong> All Rights Reserved</p>
+        </main>
+
+        <footer class="glass-footer">
+            <div class="container">
+                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+                <div class="social-links">
+                    <a href="#"><i class='bx bxl-linkedin'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-github'></i></a>
                 </div>
             </div>
-        </div>
-    </footer>
-    <!-- Mobile Menu -->
-    <div class="overlay overlay-hugeinc">
-        <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="full-width.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        </footer>
     </div>
-    <script src="js/script.js"></script>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>
