@@ -8,52 +8,68 @@ const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialia
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 
-// Particles
-const particlesGeometry = new THREE.BufferGeometry();
-const particlesCount = 100; // Adjust for density
-const posArray = new Float32Array(particlesCount * 3);
-const velocityArray = new Float32Array(particlesCount * 3); // For movement
+// Binary Flow Configuration
+const columnCount = 50;
+const digitsPerColumn = 15;
+const binDigits = [];
 
-for (let i = 0; i < particlesCount * 3; i++) {
-    posArray[i] = (Math.random() - 0.5) * 15; // Spread
-    velocityArray[i] = (Math.random() - 0.5) * 0.005; // Speed
+// Create Dynamic Textures for 0 and 1
+function createTextTexture(char, color) {
+    const canvas = document.createElement('canvas');
+    canvas.width = 64;
+    canvas.height = 64;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = color;
+    ctx.font = 'Bold 48px monospace';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(char, 32, 32);
+    const texture = new THREE.CanvasTexture(canvas);
+    return texture;
 }
 
-particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
 
-const material = new THREE.PointsMaterial({
-    size: 0.05,
-    color: 0x1ba0d7,
-    transparent: true,
-    opacity: 0.8,
-});
+const tex0Blue = createTextTexture('0', '#2196f3');
+const tex1Blue = createTextTexture('1', '#2196f3');
+const tex0DarkBlue = createTextTexture('0', '#1976d2');
+const tex1DarkBlue = createTextTexture('1', '#1976d2');
 
-const particlesMesh = new THREE.Points(particlesGeometry, material);
-scene.add(particlesMesh);
+const textures = [tex0Blue, tex1Blue, tex0DarkBlue, tex1DarkBlue];
 
-// Lines
-const lineMaterial = new THREE.LineBasicMaterial({
-    color: 0x7000ff,
-    transparent: true,
-    opacity: 0.15
-});
+// Create streaming columns
+for (let i = 0; i < columnCount; i++) {
+    const x = (Math.random() - 0.5) * 40;
+    const z = (Math.random() - 0.5) * 15;
+    const speed = Math.random() * 0.05 + 0.02;
 
-const linesGeometry = new THREE.BufferGeometry();
-const linesMesh = new THREE.LineSegments(linesGeometry, lineMaterial);
-scene.add(linesMesh);
+    for (let j = 0; j < digitsPerColumn; j++) {
+        const texture = textures[Math.floor(Math.random() * textures.length)];
+        const material = new THREE.SpriteMaterial({ map: texture, transparent: true, opacity: 0.8 });
+        const sprite = new THREE.Sprite(material);
+
+        const y = (Math.random() - 0.5) * 20;
+        sprite.position.set(x, y, z);
+        sprite.scale.set(0.5, 0.5, 1);
+
+        sprite.userData = {
+            speed: speed,
+            initialX: x,
+            z: z,
+            flipTimer: Math.random() * 2
+        };
+
+        scene.add(sprite);
+        binDigits.push(sprite);
+    }
+}
 
 // Mouse interaction
 let mouseX = 0;
 let mouseY = 0;
-let targetX = 0;
-let targetY = 0;
-
-const windowHalfX = window.innerWidth / 2;
-const windowHalfY = window.innerHeight / 2;
 
 document.addEventListener('mousemove', (event) => {
-    mouseX = (event.clientX - windowHalfX);
-    mouseY = (event.clientY - windowHalfY);
+    mouseX = (event.clientX - window.innerWidth / 2) * 0.002;
+    mouseY = (event.clientY - window.innerHeight / 2) * 0.002;
 });
 
 // Resize
@@ -63,67 +79,39 @@ window.addEventListener('resize', () => {
     camera.updateProjectionMatrix();
 });
 
-camera.position.z = 5;
+camera.position.z = 15;
 
 // Animation Loop
 const clock = new THREE.Clock();
 
 function animate() {
-    targetX = mouseX * 0.001;
-    targetY = mouseY * 0.001;
-
+    const delta = clock.getDelta();
     const elapsedTime = clock.getElapsedTime();
 
-    // Rotate entire system slightly based on mouse
-    particlesMesh.rotation.y += 0.001;
-    particlesMesh.rotation.x += 0.0005;
+    binDigits.forEach(digit => {
+        // Move downwards
+        digit.position.y -= digit.userData.speed;
 
-    particlesMesh.rotation.y += 0.05 * (targetX - particlesMesh.rotation.y);
-    particlesMesh.rotation.x += 0.05 * (targetY - particlesMesh.rotation.x);
-
-    // Update particles position
-    const positions = particlesGeometry.attributes.position.array;
-
-    // Line connections
-    const connectDistance = 2.5;
-    const linePositions = [];
-
-    // Update individual particle positions
-    for (let i = 0; i < particlesCount; i++) {
-        const i3 = i * 3;
-
-        // Move particles
-        positions[i3] += velocityArray[i3];
-        positions[i3 + 1] += velocityArray[i3 + 1];
-        positions[i3 + 2] += velocityArray[i3 + 2];
-
-        // Boundary check (bounce back)
-        if (positions[i3] > 7 || positions[i3] < -7) velocityArray[i3] = -velocityArray[i3];
-        if (positions[i3 + 1] > 7 || positions[i3 + 1] < -7) velocityArray[i3 + 1] = -velocityArray[i3 + 1];
-        if (positions[i3 + 2] > 7 || positions[i3 + 2] < -7) velocityArray[i3 + 2] = -velocityArray[i3 + 2];
-
-        // Check connections
-        for (let j = i + 1; j < particlesCount; j++) {
-            const j3 = j * 3;
-            const dx = positions[i3] - positions[j3];
-            const dy = positions[i3 + 1] - positions[j3 + 1];
-            const dz = positions[i3 + 2] - positions[j3 + 2];
-            const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
-
-            if (dist < connectDistance) {
-                linePositions.push(
-                    positions[i3], positions[i3 + 1], positions[i3 + 2],
-                    positions[j3], positions[j3 + 1], positions[j3 + 2]
-                );
-            }
+        // Wrap around
+        if (digit.position.y < -12) {
+            digit.position.y = 12;
         }
-    }
 
-    particlesGeometry.attributes.position.needsUpdate = true;
+        // Randomly flip between 0 and 1
+        digit.userData.flipTimer -= delta;
+        if (digit.userData.flipTimer <= 0) {
+            const isLightBlue = digit.material.map === tex0Blue || digit.material.map === tex1Blue;
+            if (isLightBlue) {
+                digit.material.map = Math.random() > 0.5 ? tex0Blue : tex1Blue;
+            } else {
+                digit.material.map = Math.random() > 0.5 ? tex0DarkBlue : tex1DarkBlue;
+            }
+            digit.userData.flipTimer = Math.random() * 2 + 1;
+        }
 
-    // Update lines
-    linesGeometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
-
+        // Parallax effect
+        digit.position.x = digit.userData.initialX + mouseX * (digit.userData.z * 0.5);
+    });
 
     renderer.render(scene, camera);
     requestAnimationFrame(animate);

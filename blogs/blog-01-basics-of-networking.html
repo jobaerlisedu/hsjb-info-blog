@@ -99,17 +99,20 @@
     <div class="overlay">
         <header class="glass-header">
             <div class="container">
-                <div class="logo">
-                    <a href="../index.html">
-                        <img src="../assets/images/avatar.png" alt="JH Logo" class="logo-img">
-                        <span class="logo-text">enablement.info</span>
-                    </a>
-                </div>
-
                 <nav class="main-nav">
                     <ul>
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="../blogs.html" class="active">Blogs</a></li>
+                        <li>
+                            <a href="../index.html">
+                                <i class='bx bx-home-alt-2'></i>
+                                <span class="nav-text">Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../blogs.html" class="active">
+                                <i class='bx bx-book-content'></i>
+                                <span class="nav-text">Blogs</span>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
 
@@ -149,24 +152,36 @@
                         <ul>
                             <li><strong>Network:</strong> A group of connected computers and devices that can
                                 communicate and share data.</li>
-                            <li><strong>Node:</strong> Any device that can send, receive, or forward data (e.g.,
-                                computers, laptops, mobiles, printers, servers).</li>
-                            <li><strong>Networking Devices:</strong> Devices like routers, switches, hubs, and
-                                access points that manage network functions.</li>
-                            <li><strong>Transmission Media:</strong>
+                            <li><strong>Node:</strong> Any device that can send, receive, or forward data in a network.
+                                This includes laptops, mobiles, printers, earbuds, servers, etc.</li>
+                            <li><strong>Networking Devices:</strong> Devices that manage and support networking
+                                functions. This includes routers, switches, hubs, and access points.</li>
+                            <li><strong>Transmission Media:</strong> The physical or wireless medium through which data
+                                travels between devices.
                                 <ul>
-                                    <li>Wired: Ethernet cables, optical fiber</li>
-                                    <li>Wireless: Wi-Fi, Bluetooth, infrared</li>
+                                    <li>Wired media: Ethernet cables, optical fiber</li>
+                                    <li>Wireless media: Wi-Fi, Bluetooth, infrared</li>
                                 </ul>
                             </li>
-                            <li><strong>Service Provider Networks:</strong> Networks leased from providers (e.g.,
-                                ISPs, mobile carriers).</li>
+                            <li><strong>Service Provider Networks:</strong> Networks offered by external providers that
+                                allow users or organizations to lease network access and capabilities (e.g., ISPs,
+                                mobile carriers).</li>
                         </ul>
 
                         <h2><i class="bi bi-lightbulb"></i> Working of a Computer Network</h2>
-                        <p>Networks consist of nodes (devices) connected by links (media). Data transfer
-                            follows protocols, and each device has a unique IP address.</p>
-                        <p>A firewall monitors traffic and allows, blocks, or drops data based on rules.</p>
+                        <p>The basic building blocks of a Computer network are <strong>Nodes</strong> and
+                            <strong>Links</strong>.
+                        </p>
+                        <ul>
+                            <li><strong>Network Node:</strong> Any device in a network, such as a modem, router, or
+                                computer, that sends or receives data.</li>
+                            <li><strong>Link:</strong> The medium that connects nodes, like cables, wires, or wireless
+                                signals.</li>
+                        </ul>
+                        <p>Networks use rules called <strong>protocols</strong> to send and receive data between
+                            devices. Each device is identified by a unique <strong>IP Address</strong>.</p>
+                        <p>A <strong>firewall</strong> monitors traffic and allows, blocks, or drops data based on set
+                            rules.</p>
 
                         <figure class="text-center">
                             <img src="../assets/images/blog-img/blog-01/blog-01-02.webp" alt="Working Structure"
@@ -185,16 +200,22 @@
                         <h2><i class="bi bi-lightbulb"></i> Network Devices</h2>
                         <p>Key devices that facilitate communication:</p>
                         <ul>
-                            <li><strong>Router:</strong> Connects multiple networks and directs packets.</li>
-                            <li><strong>Switch:</strong> Connects devices in a network and forwards data to specific
-                                recipients.</li>
-                            <li><strong>Hub:</strong> Broadcasts data to all connected devices.</li>
-                            <li><strong>Bridge:</strong> Connects and filters traffic between network segments.</li>
-                            <li><strong>Gateway:</strong> Translates between different network protocols.</li>
-                            <li><strong>Access Point (AP):</strong> Provides wireless connectivity.</li>
-                            <li><strong>Modem:</strong> Converts digital signals to analog and vice versa for
-                                internet access.</li>
-                            <li><strong>Firewall:</strong> Controls traffic for security.</li>
+                            <li><strong>Router:</strong> Connects multiple networks (like a home network to the
+                                internet) and directs data packets to their correct destination.</li>
+                            <li><strong>Switch:</strong> Connects devices within a network (like computers in an office)
+                                and forwards data only to the specific device it is meant for.</li>
+                            <li><strong>Hub:</strong> A basic device that connects multiple devices in a network; it
+                                sends data to all devices (less efficient than a switch).</li>
+                            <li><strong>Bridge:</strong> Connects and filters traffic between two networks or segments,
+                                helping to reduce data congestion.</li>
+                            <li><strong>Gateway:</strong> Connects two different types of networks and translates data
+                                between different protocols.</li>
+                            <li><strong>Access Point (AP):</strong> Provides wireless connectivity to devices and
+                                extends a wired network into a Wi-Fi network.</li>
+                            <li><strong>Modem:</strong> Converts digital data from a computer into signals for
+                                phone/cable lines and vice versa, providing internet access.</li>
+                            <li><strong>Firewall:</strong> Monitors and controls incoming and outgoing network traffic,
+                                providing security by blocking unauthorized access.</li>
                         </ul>
 
                         <figure class="text-center">
@@ -205,21 +226,29 @@
 
                         <h2><i class="bi bi-lightbulb"></i> Goals of Networks</h2>
                         <ul>
-                            <li>Convenience and efficiency</li>
-                            <li>Resource management</li>
-                            <li>Security and protection</li>
-                            <li>Reliability and fault tolerance</li>
-                            <li>Scalability</li>
+                            <li><strong>Convenience:</strong> Makes computer use easier for users.</li>
+                            <li><strong>Efficiency:</strong> Manages hardware resources effectively for better
+                                performance.</li>
+                            <li><strong>Resource Management:</strong> Allocates CPU, memory, I/O, and storage fairly and
+                                efficiently.</li>
+                            <li><strong>Security & Protection:</strong> Protects data and resources from unauthorized
+                                access.</li>
+                            <li><strong>Reliability & Fault Tolerance:</strong> Ensures system runs smoothly and
+                                recovers from failures.</li>
+                            <li><strong>Scalability:</strong> Supports growth in users, processes, and resources.</li>
                         </ul>
 
                         <h2><i class="bi bi-lightbulb"></i> Uses of Computer Networks</h2>
                         <ul>
-                            <li>Communication (email, chat, video calls)</li>
-                            <li>Resource sharing (printers, files)</li>
-                            <li>Remote access</li>
-                            <li>Collaboration</li>
-                            <li>E-commerce</li>
-                            <li>Education and online learning</li>
+                            <li><strong>Communication:</strong> Email, chat, and video conferencing.</li>
+                            <li><strong>Resource Sharing:</strong> Share printers, scanners, and files to save cost and
+                                effort.</li>
+                            <li><strong>Remote Access:</strong> Access data and systems from anywhere.</li>
+                            <li><strong>Collaboration:</strong> Work together on projects, share ideas, and review work.
+                            </li>
+                            <li><strong>E-commerce:</strong> Enables online shopping and secure payments.</li>
+                            <li><strong>Education:</strong> Supports online learning, research, and student–teacher
+                                collaboration.</li>
                         </ul>
 
                         <h2><i class="bi bi-lightbulb"></i> Characteristics of Computer Networks</h2>
@@ -239,11 +268,6 @@
         <footer class="glass-footer">
             <div class="container">
                 <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
-                <div class="social-links">
-                    <a href="#"><i class='bx bxl-linkedin'></i></a>
-                    <a href="#"><i class='bx bxl-twitter'></i></a>
-                    <a href="#"><i class='bx bxl-github'></i></a>
-                </div>
             </div>
         </footer>
     </div>
@@ -253,3 +277,4 @@
 </body>
 
 </html>
+
