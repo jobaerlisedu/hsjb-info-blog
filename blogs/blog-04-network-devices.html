@@ -4,14 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Network Devices Explained | enablement.info</title>
+    <title>নেটওয়ার্ক ডিভাইস এর বিস্তারিত | enablement.info</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@300;400;600;700;800&family=Syne:wght@800&display=swap"
-        rel="stylesheet">
+
 
     <!-- Icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -57,7 +52,7 @@
 
         .article-body h2,
         .article-body h3 {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Times New Roman', 'Nikosh', serif;
             color: var(--primary-color);
             margin-top: 40px;
             margin-bottom: 20px;
@@ -111,13 +106,13 @@
                         <li>
                             <a href="../index.html">
                                 <i class='bx bx-home-alt-2'></i>
-                                <span class="nav-text">Home</span>
+                                <span class="nav-text">হোম</span>
                             </a>
                         </li>
                         <li>
                             <a href="../blogs.html" class="active">
                                 <i class='bx bx-book-content'></i>
-                                <span class="nav-text">Blogs</span>
+                                <span class="nav-text">ব্লগ</span>
                             </a>
                         </li>
                     </ul>
@@ -129,93 +124,197 @@
             <div class="container">
                 <a href="../blogs.html" class="back-btn">
                     <i class='bx bx-arrow-back'></i>
-                    <span>Back to Blogs</span>
+                    <span>আগের পেজে ফিরে যান</span>
                 </a>
 
                 <article class="glass-panel">
                     <header class="article-header">
-                        <h1>Network Devices Explained - Hub, Switch, Router, Gateway</h1>
+                        <h1>নেটওয়ার্ক ডিভাইস এর বিস্তারিত - হাব, সুইচ, রাউটার, গেটওয়ে</h1>
                         <div class="article-meta">
-                            <span><i class='bx bx-calendar'></i> Dec 31, 2025</span>
+                            <span><i class='bx bx-calendar'></i> ৩১ ডিসেম্বর, ২০২৫</span>
                             <span style="margin: 0 10px;">|</span>
-                            <span><i class='bx bx-category'></i> Networking</span>
+                            <span><i class='bx bx-category'></i> নেটওয়ার্কিং</span>
                         </div>
                     </header>
 
                     <div class="article-body">
-                        <h2><i class="bi bi-lightbulb"></i> Introduction</h2>
-                        <p>Network Devices are physical hardware required for interaction between devices on a network.
-                            They operate at different layers of the OSI model.</p>
+                        <h2><i class="bi bi-lightbulb"></i> ভূমিকা: নেটওয়ার্ক ডিভাইসের গুরুত্ব</h2>
+                        <p>নেটওয়ার্ক ডিভাইস হলো সেই সব হার্ডওয়্যার সরঞ্জাম যা একটি কম্পিউটার নেটওয়ার্কের বিভিন্ন
+                            ডিভাইসের মধ্যে ডেটা আদান-প্রদান, সংযোগ স্থাপন এবং নিরাপত্তা নিশ্চিত করতে ব্যবহৃত হয়। এগুলো
+                            ছাড়া একটি আধুনিক নেটওয়ার্ক কল্পনা করা অসম্ভব।</p>
 
-                        
+                        <div class="content-box">
+                            <h3>নেটওয়ার্ক ডিভাইসের ৫টি প্রধান কাজ:</h3>
+                            <ul>
+                                <li><strong>ডেটা ট্রান্সমিশন (Transmission):</strong> এক ডিভাইস থেকে অন্য ডিভাইসে তথ্য
+                                    পাঠানো।</li>
+                                <li><strong>যোগাযোগের দক্ষতা (Efficiency):</strong> দ্রুততম পথে ডেটা পাঠিয়ে নেটওয়ার্কের
+                                    জট কমানো।</li>
+                                <li><strong>কর্মক্ষমতা বৃদ্ধি (Performance):</strong> ট্রাফিক ম্যানেজমেন্টের মাধ্যমে
+                                    স্পিড বাড়ানো।</li>
+                                <li><strong>নিরাপত্তা নিশ্চিত করা (Security):</strong> অননুমোদিত প্রবেশ রোধ করা এবং
+                                    নিরাপত্তা রুল প্রয়োগ করা।</li>
+                                <li><strong>পরিধি বিস্তার (Coverage):</strong> সিগন্যাল শক্তিশালী করে নেটওয়ার্কের
+                                    সীমানা বাড়ানো।</li>
+                            </ul>
+                        </div>
 
-                        <h2><i class="bi bi-lightbulb"></i> Types of Network Devices</h2>
+                        <h2>১. ফিজিক্যাল লেয়ার (Layer 1) ডিভাইস</h2>
+                        <p>এই ডিভাইসগুলো সরাসরি বৈদ্যুতিক বা অপটিক্যাল সিগন্যাল (Raw bits) নিয়ে কাজ করে। এরা কোনো
+                            অ্যাড্রেসিং বোঝে না।</p>
 
-                        <h3>1. Hub</h3>
-                        <p>A basic device connecting multiple devices. It broadcasts data to all ports (Layer 1).</p>
+                        <h3>হাব (Hub)</h3>
+                        <p>হাব হলো একটি মাল্টি-পোর্ট ডিভাইস যা একটি লোকাল নেটওয়ার্কের সব ডিভাইসকে যুক্ত করে। এটি
+                            ইনকামিং সিগন্যালকে সব পোর্টে <strong>Broadcast</strong> করে দেয়।</p>
+                        <ul>
+                            <li><strong>প্রকারভেদ:</strong>
+                                <ul>
+                                    <li><strong>Passive Hub:</strong> সিগন্যালকে শুধু পাস করে দেয়, কোনো শক্তিশালী
+                                        (Regeneration) করে না।</li>
+                                    <li><strong>Active Hub:</strong> এটি রিপিটারের মতো কাজ করে সিগন্যালকে শক্তিশালী করে।
+                                    </li>
+                                    <li><strong>Intelligent Hub:</strong> এতে নেটওয়ার্ক ম্যানেজমেন্ট ও মনিটরিং সুবিধা
+                                        থাকে।</li>
+                                </ul>
+                            </li>
+                            <li><strong>সুবিধা:</strong> সহজ সেটআপ এবং অত্যন্ত সাশ্রয়ী।</li>
+                            <li><strong>অসুবিধা:</strong> ডেটা জট বা Collision Domain বেশি, সিকিউরিটি কম এবং ব্যান্ডউইডথ
+                                অপচয় হয়।</li>
+                        </ul>
 
-                        <h3>2. Repeater</h3>
-                        <p>Regenerates signals to extend network distance (Layer 1).</p>
+                        <h3>রিপিটার (Repeater)</h3>
+                        <p>দীর্ঘ দূরত্বে ডেটা যাওয়ার সময় সিগন্যাল দুর্বল বা 'Attenuation' হয়। রিপিটার সেই দুর্বল
+                            সিগন্যাল গ্রহণ করে নয়েজ সরিয়ে ফেলে এবং সিগন্যালকে বিট-বাই-বিট পুনরায় তৈরি (Regenerate) করে
+                            পাঠায়।</p>
+                        <ul>
+                            <li><strong>সুবিধা:</strong> নেটওয়ার্কের শারীরিক পরিধি বাড়াতে সাহায্য করে।</li>
+                            <li><strong>অসুবিধা:</strong> এটি ট্রাফিক ফিল্টার করতে পারে না এবং হালকা নেটওয়ার্ক ডিলে
+                                (Delay) তৈরি করে।</li>
+                        </ul>
 
-                        <h3>3. Bridge</h3>
-                        <p>Connects network segments and filters traffic using MAC addresses (Layer 2).</p>
+                        <h3>মডেম (Modem)</h3>
+                        <p>মডেম (Modulator-Demodulator) ডিজিটাল এবং অ্যানালগ সিগন্যালের মধ্যে রূপান্তরকারী হিসেবে কাজ
+                            করে।</p>
+                        <ul>
+                            <li><strong>কাজ:</strong> কম্পিউটারের ডিজিটাল সিগন্যালকে অ্যানালগে (Modulation) এবং অ্যানালগ
+                                সিগন্যালকে ডিজিটালে (Demodulation) রূপান্তর করা।</li>
+                        </ul>
 
-                        <h3>4. Switch</h3>
-                        <p>Intelligent device that forwards data only to the intended recipient (Layer 2).</p>
+                        <h2>২. ডেটা লিংক লেয়ার (Layer 2) ডিভাইস</h2>
+                        <p>এই লেয়ারের ডিভাইসগুলো <strong>MAC Address</strong> (Physical Address) ব্যবহার করে অনেক বেশি
+                            বুদ্ধিমত্তার সাথে কাজ করে।</p>
 
-                        <h3>5. Router</h3>
-                        <p>Connects different networks and directs packets using IP addresses (Layer 3).</p>
+                        <h3>সুইচ (Switch)</h3>
+                        <p>সুইচকে বলা হয় 'Intelligent Hub'। এটি প্রতিটি ডিভাইসের ম্যাক অ্যাড্রেস শিখে নিজের একটি
+                            ফরওয়ার্ডিং টেবিল তৈরি করে। এটি ডেটা <strong>Unicast</strong> বা সরাসরি গন্তব্য পোর্টে
+                            পাঠায়।</p>
+                        <ul>
+                            <li><strong>প্রকারভেদ:</strong> Unmanaged (বেসিক), Managed (VLAN ও সিকিউরিটি সাপোর্ট করে),
+                                এবং Layer 3 Switch (রাউটিং সুবিধাসহ)।</li>
+                            <li><strong>সুবিধা:</strong> ইফিডিয়েন্ট ট্রাফিক ম্যানেজমেন্ট, কলিশন মুক্ত নেটওয়ার্ক
+                                (Dedicated collision domain per port)।</li>
+                            <li><strong>অসুবিধা:</strong> হাবের চেয়ে দামি এবং কনফিগার করা কিছুটা জটিল হতে পারে।</li>
+                        </ul>
 
-                        <h3>6. Gateway</h3>
-                        <p>Connects networks with different protocols, acting as a translator (All Layers).</p>
+                        <h3>ব্রিজ (Bridge)</h3>
+                        <p>ব্রিজ দুটি ল্যান সেগমেন্টকে যুক্ত করে একটি ইউনিফাইড নেটওয়ার্ক তৈরি করে। এটি ম্যাক অ্যাড্রেস
+                            টেবিল ব্যবহার করে লোকাল ট্রাফিক ফিল্টার করে।</p>
+                        <ul>
+                            <li><strong>প্রকারভেদ:</strong> Transparent Bridge (অটোম্যাটিক) এবং Source Routing Bridge
+                                (ম্যানুয়াল সোর্স কন্ট্রোল)।</li>
+                            <li><strong>সুবিধা:</strong> নেটওয়ার্কের জট কমানো এবং লজিক্যাল পরিধি বাড়ানো।</li>
+                            <li><strong>অসুবিধা:</strong> প্রসেসিং টাইমের কারণে হাবের চেয়ে কিছুটা ধীরগতির।</li>
+                        </ul>
 
-                        <h2><i class="bi bi-lightbulb"></i> Comparison Table</h2>
+                        <h3>নেটওয়ার্ক ইন্টারফেস কার্ড (NIC)</h3>
+                        <p>এনআইসি কার্ড হলো সেই হার্ডওয়্যার যা প্রতিটি কম্পিউটার বা স্মার্টফোনে থাকে। এটি নেটওয়ার্ক
+                            ক্যাবল বা ওয়াই-ফাই সংযোগের সরাসরি মাধ্যম। এর ভেতরেই ডিভাইসের স্থায়ী <strong>MAC
+                                Address</strong> থাকে। এতে ইন্টারনাল বা এক্সটারনাল উভয় প্রকার থাকে।</p>
+
+                        <h2>৩. নেটওয়ার্ক লেয়ার (Layer 3) ডিভাইস</h2>
+                        <p>এরা <strong>IP Address</strong> (Logical Address) নিয়ে কাজ করে এবং বিভিন্ন নেটওয়ার্কের মধ্যে
+                            সংযোগ স্থাপন করে।</p>
+
+                        <h3>রাউটার (Router)</h3>
+                        <p>রাউটার হলো নেটওয়ার্কের 'ট্রাফিক পুলিশ'। এটি বিভিন্ন নেটওয়ার্কের (যেমন: LAN ও Internet)
+                            মধ্যে সংযোগ ঘটায়। এটি <strong>Routing Table</strong> এবং প্রোটোকল (RIP, OSPF) ব্যবহার করে
+                            ডেটার জন্য সেরা পথ খুঁজে বের করে।</p>
+                        <ul>
+                            <li><strong>সুবিধা:</strong> ব্রডকাস্ট ট্রাফিক বন্ধ করে সিকিউরিটি বাড়ায় এবং আলাদা
+                                নেটওয়ার্ককে যুক্ত করে।</li>
+                            <li><strong>অসুবিধা:</strong> প্রতিটি প্যাকেট অ্যানালাইসিস করতে হয় বলে কিছুটা ধীরগতি এবং দাম
+                                বেশি।</li>
+                        </ul>
+
+                        <h3>ব্রাউটার (Brouter)</h3>
+                        <p>এটি ব্রিজ এবং রাউটারের সংমিশ্রণ। এটি রাউটেবল প্রোটোকলের জন্য রাউটার হিসেবে এবং নন-রাউটেবল
+                            প্রোটোকলের জন্য ব্রিজ হিসেবে একই সাথে কাজ করতে পারে।</p>
+
+                        <h2>৪. আপার লেয়ার (Layer 4-7) ডিভাইস</h2>
+
+                        <h3>গেটওয়ে (Gateway)</h3>
+                        <p>গেটওয়ে হলো এক নেটওয়ার্ক থেকে অন্য নেটওয়ার্কের প্রবেশদ্বার। এটি ভিন্ন ভিন্ন আর্কিটেকচার বা
+                            প্রোটোকল কনভার্টার (Protocol Translator) হিসেবে কাজ করে। এটি একটি প্যাকেটের এনক্যাপসুলেশন
+                            পরিবর্তন করে ভিন্ন ফরম্যাটে রূপান্তর করে।</p>
+
+                        <h3>ফায়ারওয়াল (Firewall)</h3>
+                        <p>ফায়ারওয়াল হলো নেটওয়ার্কের গেট-কিপার বা রক্ষী। এটি সিকিউরিটি রুল অনুযায়ী ইনকামিং এবং
+                            আউটগোয়িং ট্রাফিক মনিটর ও ব্লক করে। এটি হার্ডওয়্যার (Physical appliance) বা সফটওয়্যার
+                            (Server-based) হতে পারে। এটি <strong>Packet Filtering</strong> এবং <strong>Stateful
+                                Inspection</strong>-এর মাধ্যমে নিরাপত্তা নিশ্চিত করে।</p>
+
+                        <h2>৫. নেটওয়ার্ক ডিভাইস সমূহের তুলনা</h2>
                         <div class="table-wrapper">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Device</th>
-                                        <th>OSI Layer</th>
-                                        <th>Function</th>
-                                        <th>Key Feature</th>
+                                        <th>বৈশিষ্ট্য</th>
+                                        <th>হাব (Hub)</th>
+                                        <th>সুইচ (Switch)</th>
+                                        <th>রাউটার (Router)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Hub</td>
-                                        <td>Physical</td>
-                                        <td>Broadcast</td>
-                                        <td>Multi-port repeater</td>
+                                        <td>OSI লেয়ার</td>
+                                        <td>Physical (L1)</td>
+                                        <td>Data Link (L2)</td>
+                                        <td>Network (L3)</td>
                                     </tr>
                                     <tr>
-                                        <td>Switch</td>
-                                        <td>Data Link</td>
-                                        <td>Filtering</td>
-                                        <td>High performance</td>
+                                        <td>ডেটা ফরম্যাট</td>
+                                        <td>Bits</td>
+                                        <td>Frames</td>
+                                        <td>Packets</td>
                                     </tr>
                                     <tr>
-                                        <td>Router</td>
-                                        <td>Network</td>
-                                        <td>Routing</td>
-                                        <td>Connects networks</td>
+                                        <td>অ্যাড্রেস টাইপ</td>
+                                        <td>ব্রডকাস্ট (নেই)</td>
+                                        <td>MAC Address</td>
+                                        <td>IP Address</td>
                                     </tr>
                                     <tr>
-                                        <td>Gateway</td>
-                                        <td>All</td>
-                                        <td>Translation</td>
-                                        <td>Protocol conversation</td>
+                                        <td>বুদ্ধিমত্তা</td>
+                                        <td>নিম্ন (Non-Intelligent)</td>
+                                        <td>মাঝারি</td>
+                                        <td>অত্যন্ত উচ্চ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ব্যবহার</td>
+                                        <td>সাধারণ কানেকশন</td>
+                                        <td>দক্ষ ল্যান কানেকশন</td>
+                                        <td>নেটওয়ার্ক সংযোগ</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                    </div>
                 </article>
             </div>
         </main>
 
         <footer class="glass-footer">
             <div class="container">
-                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+                <p>&copy; ২০২৬ enablement.info. সর্বস্বত্ব সংরক্ষিত।</p>
             </div>
         </footer>
     </div>
@@ -224,6 +323,3 @@
 </body>
 
 </html>
-
-
-

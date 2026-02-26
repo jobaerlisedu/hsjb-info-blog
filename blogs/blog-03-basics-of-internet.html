@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ইন্টারনেট কী? - ইন্টারনেটের ইতিহাস ও কার্যপদ্ধতি | enablement.info</title>
+
+
+
+    <!-- Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <style>
+        .blog-content-wrapper {
+            padding-top: 20px;
+            padding-bottom: 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d0d0e0;
+        }
+
+        .article-body h2,
+        .article-body h3 {
+            font-family: 'Times New Roman', 'Nikosh', serif;
+            color: var(--primary-color);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .article-body h2 {
+            font-size: 1.8rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .article-body li {
+            margin-bottom: 10px;
+        }
+
+        .article-body img {
+            max-width: 100%;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 1px solid var(--glass-border);
+        }
+
+        .article-body figcaption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: -10px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="network-canvas"></canvas>
+    <div class="overlay">
+        <header class="glass-header">
+            <div class="container">
+                <nav class="main-nav">
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                <i class='bx bx-home-alt-2'></i>
+                                <span class="nav-text">হোম</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../blogs.html" class="active">
+                                <i class='bx bx-book-content'></i>
+                                <span class="nav-text">ব্লগ</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="blog-content-wrapper">
+            <div class="container">
+                <a href="../blogs.html" class="back-btn">
+                    <i class='bx bx-arrow-back'></i>
+                    <span>আগের পেজে ফিরে যান</span>
+                </a>
+
+                <article class="glass-panel">
+                    <header class="article-header">
+                        <h1>ইন্টারনেট কী? - ইন্টারনেটের ইতিহাস ও কার্যপদ্ধতি</h1>
+                        <div class="article-meta">
+                            <span><i class='bx bx-calendar'></i> ৩০ ডিসেম্বর, ২০২৫</span>
+                            <span style="margin: 0 10px;">|</span>
+                            <span><i class='bx bx-category'></i> নেটওয়ার্কিং</span>
+                        </div>
+                    </header>
+
+                    <div class="article-body">
+                        <h2><i class="bi bi-lightbulb"></i> ভূমিকা: ইন্টারনেট কী?</h2>
+                        <p>ইন্টারনেট হলো বিশ্বজুড়ে ছড়িয়ে থাকা কোটি কোটি কম্পিউটার এবং স্মার্টফোনের একটি বিশাল সমন্বিত
+                            নেটওয়ার্ক। এটিকে বলা হয় "নেটওয়ার্কের নেটওয়ার্ক"। এটি মূলত একটি বিশাল মহাসড়কের মতো, যেখানে
+                            তথ্যের ছোট ছোট 'প্যাকেট' এক ডিভাইস থেকে অন্য ডিভাইসে চলাফেরা করে।</p>
+
+                        <div class="content-box">
+                            <h3>ইন্টারনেট বনাম ওয়ার্ল্ড ওয়াইড ওয়েব (WWW)</h3>
+                            <p>অনেকেই ইন্টারনেট এবং ডাব্লুডাব্লুডাব্লু (WWW) কে এক মনে করেন, কিন্তু তারা আলাদা:</p>
+                            <ul>
+                                <li><strong>ইন্টারনেট:</strong> এটি হলো হার্ডওয়্যার পরিকাঠামো — ক্যাবল, স্যাটেলাইট এবং
+                                    রাউটারের বিশাল শারীরিক নেটওয়ার্ক।</li>
+                                <li><strong>ওয়ার্ল্ড ওয়াইড ওয়েব:</strong> এটি ইন্টারনেটের ওপর চলা একটি সার্ভিস মাত্র
+                                    — যেখানে ওয়েবসাইট এবং ওয়েব পেজগুলো অবস্থান করে।</li>
+                            </ul>
+                        </div>
+
+                        <h2>১. ইন্টারনেটের ইতিহাস ও পাবলিক বিপ্লব</h2>
+                        <p>ইন্টারনেটের যাত্রা অনেক আগে শুরু হলেও, সাধারণ মানুষের জন্য এর বিপ্লব ঘটে নব্বইয়ের দশকের
+                            শুরুতে।</p>
+                        <div class="content-box">
+                            <h3>স্যার টিম বার্নার্স-লি ও WWW (১৯৮৯-১৯৯১)</h3>
+                            <p>ব্রিটিশ বিজ্ঞানী <strong>স্যার টিম বার্নার্স-লি</strong> সার্ন (CERN)-এ কাজ করার সময়
+                                ওয়ার্ল্ড ওয়াইড ওয়েব উদ্ভাবন করেন। তিনি তিনটি মূল ভিত্তি তৈরি করেছিলেন:</p>
+                            <ul>
+                                <li><strong>HTML (HyperText Markup Language):</strong> ওয়েব পেজ তৈরির ভাষা।</li>
+                                <li><strong>HTTP (HyperText Transfer Protocol):</strong> ব্রাউজার এবং সার্ভারের মধ্যে
+                                    যোগাযোগের নিয়ম।</li>
+                                <li><strong>URLs (Uniform Resource Locators):</strong> ওয়েব পেজের নির্দিষ্ট ঠিকানা।</li>
+                            </ul>
+                            <p>মিড-নব্বইয়ের দশকে <strong>Mosaic</strong> এবং <strong>Netscape Navigator</strong>-এর মতো
+                                ব্রাউজারগুলো আসার পর ইন্টারনেট সাধারণ মানুষের জন্য সহজ হয়ে ওঠে।</p>
+                        </div>
+
+                        <h2>২. ইন্টারনেট কীভাবে কাজ করে? (Technical Deep-Dive)</h2>
+                        <p>প্রতিটি সেকেন্ডে লক্ষ লক্ষ ডেটা প্যাকেট আদান-প্রদান হয়। এই বিশাল প্রক্রিয়াটি তিনটি মূল
+                            স্তম্ভের ওপর দাঁড়িয়ে আছে:</p>
+
+                        <h3>ক. ডেটা প্যাকেট (Data Packets)</h3>
+                        <p>আপনি যখন কোনো ছবি বা ইমেইল পাঠান, সেটি ছোট ছোট টুকরো বা 'প্যাকেট'-এ ভাগ হয়ে যায়। প্রতিটি
+                            প্যাকেট আলাদা আলাদা পথ দিয়ে ইন্টারনেটে ভ্রমণ করতে পারে এবং গন্তব্যে পৌঁছানোর পর আবার আগের
+                            মতো পূর্ণাঙ্গ ফাইলে রূপান্তরিত হয়।</p>
+
+                        <h3>খ. প্রোটোকল: তথ্যের মহাসড়কের নিয়ম</h3>
+                        <ul>
+                            <li><strong>TCP (Transmission Control Protocol):</strong> ডেটাকে প্যাকেটে ভাগ করে এবং
+                                প্রতিটি প্যাকেট সঠিকভাবে পৌঁছানো নিশ্চিত করে।</li>
+                            <li><strong>IP (Internet Protocol):</strong> প্রতিটি ডিভাইসের জন্য একটি অনন্য ঠিকানা (IP
+                                Address) নির্ধারণ করে। যেমন: <code>192.168.1.1</code>। বর্তমানে আমরা IPv4 থেকে আধুনিক
+                                <strong>IPv6</strong>-এ স্থানান্তরিত হচ্ছি।
+                            </li>
+                            <li><strong>HTTP/HTTPS:</strong> ওয়েবসাইট দেখার জন্য ব্যবহৃত হয়।</li>
+                            <li><strong>SMTP:</strong> প্রফেশনাল ইমেইল আদান-প্রদানের জন্য ব্যবহৃত নিয়ম।</li>
+                        </ul>
+
+                        <h3>গ. নেটওয়ার্কের মূল উপাদান</h3>
+                        <ul>
+                            <li><strong>Routers:</strong> ট্রাফিক পুলিশের মতো প্রতিটি প্যাকেটকে সবচেয়ে দ্রুত ও সঠিক পথে
+                                পাঠায়।</li>
+                            <li><strong>Servers:</strong> যেখানে আমাদের ওয়েবসাইট, ভিডিও এবং অ্যাপের ডেটা জমা থাকে।</li>
+                            <li><strong>ISPs (Internet Service Providers):</strong> আপনার ইন্টারনেট কানেকশন প্রদানকারী
+                                কোম্পানি।</li>
+                            <li><strong>DNS (Domain Name System):</strong> এটি ইন্টারনেটের 'ফোনবুক'। এটি মানুষের
+                                পাঠযোগ্য নাম (google.com) কে আইপি ঠিকানায় রূপান্তর করে।</li>
+                        </ul>
+
+                        <h2>৩. ইন্টারনেটের বহুমুখী প্রয়োগ (Applications)</h2>
+                        <div class="table-wrapper">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>ক্ষেত্র</th>
+                                        <th>ব্যবহারের ধরন</th>
+                                        <th>উদাহরণ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>যোগাযোগ</strong></td>
+                                        <td>ইমেইল, ইনস্ট্যান্ট মেসেজিং, ভিডিও কল</td>
+                                        <td>WhatsApp, Zoom, Gmail</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>তথ্য ও শিক্ষা</strong></td>
+                                        <td>সার্চ ইঞ্জিন, ডিজিটাল লাইব্রেরি, অনলাইন কোর্স</td>
+                                        <td>Google Search, Wikipedia, Coursera</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>কেনাকাটা ও অর্থ</strong></td>
+                                        <td>ই-কমার্স, অনলাইন ব্যাংকিং, ডিজিটাল পেমেন্ট</td>
+                                        <td>Amazon, Digital Banking Apps</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>বিনোদন</strong></td>
+                                        <td>অন-ডিমান্ড স্ট্রিমিং, অনলাইন সোশ্যাল মিডিয়া</td>
+                                        <td>Netflix, YouTube, Instagram</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h2>৪. অনলাইন নিরাপত্তা (Internet Safety)</h2>
+                        <p>ইন্টারনেট যতটা শক্তিশালী, অসাবধানতায় এটি ততটাই ঝুঁকিপূর্ণ হতে পারে। নিজেকে নিরাপদ রাখতে
+                            করণীয়:</p>
+                        <ul>
+                            <li><strong>শক্তিশালী পাসওয়ার্ড:</strong> প্রতিটি অ্যাকাউন্টের জন্য আলাদা ও কঠিন পাসওয়ার্ড
+                                ব্যবহার করা।</li>
+                            <li><strong>ফিশিং সচেতনতা:</strong> কোনো অচেনা লিঙ্কে ক্লিক না করা বা ব্যক্তিগত তথ্য শেয়ার
+                                না করা।</li>
+                            <li><strong>সিকিউরিটি সফটওয়্যার:</strong> নির্ভরযোগ্য অ্যান্টিভাইরাস ব্যবহার করা এবং
+                                ফায়ারওয়্যাল অন রাখা।</li>
+                        </ul>
+
+                        <h2>৫. ইন্টারনেটের ভবিষ্যৎ কী?</h2>
+                        <p>প্রযুক্তি থেমে নেই, ইন্টারনেট প্রতিনিয়ত বিবর্তিত হচ্ছে:</p>
+                        <ul>
+                            <li><strong>IoT (Internet of Things):</strong> আপনার ফ্রিজ, গাড়ি বা ঘড়ি—সবই এখন ইন্টারনেটের
+                                সাথে যুক্ত।</li>
+                            <li><strong>5G ও ফাইবার অপটিক্স:</strong> যেখানে গতির কোনো সীমা থাকবে না।</li>
+                            <li><strong>Artificial Intelligence (AI):</strong> আপনার প্রয়োজনগুলো আগে থেকেই বুঝে নিয়ে
+                                সার্ভিস দেবে।</li>
+                            <li><strong>Web 3.0:</strong> ব্লকচেইন এবং এআই চালিত এক বিকেন্দ্রীভূত ও বুদ্ধিমান ইন্টারনেট।
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer class="glass-footer">
+            <div class="container">
+                <p>&copy; ২০২৬ enablement.info. সর্বস্বত্ব সংরক্ষিত।</p>
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/network-background.js"></script>
+</body>
+
+</html>

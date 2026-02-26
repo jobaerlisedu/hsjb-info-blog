@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>কম্পিউটার নেটওয়ার্কের প্রকারভেদ - LAN, WAN এবং MAN | enablement.info</title>
+
+
+
+    <!-- Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <style>
+        .blog-content-wrapper {
+            padding-top: 20px;
+            padding-bottom: 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-main);
+        }
+
+        .article-body h2,
+        .article-body h3 {
+            font-family: 'Times New Roman', 'Nikosh', serif;
+            color: var(--primary-color);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .article-body h2 {
+            font-size: 1.8rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .article-body li {
+            margin-bottom: 10px;
+        }
+
+        .article-body img {
+            max-width: 100%;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 1px solid var(--glass-border);
+        }
+
+        .article-body figcaption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            margin-top: -10px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="network-canvas"></canvas>
+    <div class="overlay">
+        <header class="glass-header">
+            <div class="container">
+                <nav class="main-nav">
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                <i class='bx bx-home-alt-2'></i>
+                                <span class="nav-text">হোম</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../blogs.html" class="active">
+                                <i class='bx bx-book-content'></i>
+                                <span class="nav-text">ব্লগ</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="blog-content-wrapper">
+            <div class="container">
+                <a href="../blogs.html" class="back-btn">
+                    <i class='bx bx-arrow-back'></i>
+                    <span>আগের পেজে ফিরে যান</span>
+                </a>
+
+                <article class="glass-panel">
+                    <header class="article-header">
+                        <h1>কম্পিউটার নেটওয়ার্কের প্রকারভেদ - LAN, WAN এবং MAN</h1>
+                        <div class="article-meta">
+                            <span><i class='bx bx-calendar'></i> ৩০ ডিসেম্বর, ২০২৫</span>
+                            <span style="margin: 0 10px;">|</span>
+                            <span><i class='bx bx-category'></i> নেটওয়ার্কিং</span>
+                        </div>
+                    </header>
+
+                    <div class="article-body">
+                        <h2><i class="bi bi-lightbulb"></i> ভূমিকা</h2>
+                        <p>কম্পিউটার নেটওয়ার্ক বিভিন্ন ধরনের হতে পারে। ভৌগোলিক বিস্তৃতি, ডেটা আদান-প্রদানের মাধ্যম এবং
+                            অ্যাক্সেস কন্ট্রোলের ওপর ভিত্তি করে এই নেটওয়ার্কগুলোকে বিভিন্ন ভাগে ভাগ করা হয়। নিচে এদের
+                            বিস্তারিত আলোচনা করা হলো:</p>
+
+                        <h2>১. ভৌগোলিক পরিধির ভিত্তিতে শ্রেণীবিন্যাস</h2>
+                        <p>নেটওয়ার্ক কতটুকু জায়গা জুড়ে বিস্তৃত, তার ওপর ভিত্তি করে একে প্রধানত ৫টি ভাগে ভাগ করা যায়।
+                            প্রতিটি প্রকারের রয়েছে নিজস্ব প্রযুক্তি এবং ব্যবহারের ক্ষেত্র:</p>
+
+                        <div class="table-wrapper">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>নেটওয়ার্ক টাইপ</th>
+                                        <th>ব্যপ্তি (Range)</th>
+                                        <th>টেকনোলজি</th>
+                                        <th>রিয়েল-ওয়ার্ল্ড উদাহরণ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>PAN</strong> (Personal Area Network)</td>
+                                        <td>১-১০ মিটার</td>
+                                        <td>Bluetooth, NFC, Infrared</td>
+                                        <td>স্মার্টফোন এবং ওয়্যারলেস ইয়ারবাডস।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>LAN</strong> (Local Area Network)</td>
+                                        <td>বিল্ডিং বা অফিস</td>
+                                        <td>Ethernet, Wi-Fi</td>
+                                        <td>হোম বা অফিস ওয়াই-ফাই নেটওয়ার্ক।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>CAN</strong> (Campus Area Network)</td>
+                                        <td>বিশ্ববিদ্যালয় বা বড় ক্যাম্পাস</td>
+                                        <td>Ethernet, Fiber Optics</td>
+                                        <td>কলেজ বা কর্পোরেট ক্যাম্পাস নেটওয়ার্ক।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>MAN</strong> (Metropolitan Area Network)</td>
+                                        <td>পুরো একটি শহর</td>
+                                        <td>Fiber Optics, Microwave</td>
+                                        <td>সিটি-ওয়াইড ISP নেটওয়ার্ক।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>WAN</strong> (Wide Area Network)</td>
+                                        <td>দেশ বা বিশ্বজুড়ে</td>
+                                        <td>Satellite, Leased lines</td>
+                                        <td>ইন্টারনেট (The Internet)।</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3>কখন কোন নেটওয়ার্ক ব্যবহার করা হয়?</h3>
+                        <ul>
+                            <li><strong>PAN:</strong> যখন আপনি নিজের ব্যক্তিগত ডিভাইসগুলোর মধ্যে দ্রুত ডেটা শেয়ার করতে
+                                চান।</li>
+                            <li><strong>LAN:</strong> একটি নির্দিষ্ট অফিসের সব কম্পিউটারে দ্রুত ফাইল শেয়ারিং ও প্রিন্টার
+                                কানেকশনের জন্য।</li>
+                            <li><strong>CAN:</strong> যখন একটি বিশ্ববিদ্যালয়ের বিভিন্ন ডিপার্টমেন্টের আলাদা ল্যানগুলোকে
+                                একটি সেন্ট্রাল ম্যানেজমেন্টের আওতায় আনতে হয়।</li>
+                            <li><strong>MAN:</strong> শহরের বিভিন্ন প্রান্তের ব্যাংকিং শাখা বা সরকারি অফিসগুলোকে সংযুক্ত
+                                করার জন্য।</li>
+                            <li><strong>WAN:</strong> এক দেশ থেকে অন্য দেশে বা বিশ্বব্যাপী দীর্ঘ দূরত্বের যোগাযোগের
+                                জন্য।</li>
+                        </ul>
+
+                        <h2>২. ট্রান্সমিশন প্রযুক্তির ভিত্তিতে শ্রেণীবিন্যাস</h2>
+                        <p>ডেটা কীভাবে এক ডিভাইস থেকে অন্য ডিভাইসে পৌঁছায় তার ওপর ভিত্তি করে একে ২ ভাগে ভাগ করা যায়:</p>
+
+                        <div class="content-box">
+                            <h3>ব্রডকাস্ট নেটওয়ার্ক (Broadcast)</h3>
+                            <ul>
+                                <li><strong>কমন মিডিয়া:</strong> সব ডিভাইস একটি মাত্র কমন মিডিয়া শেয়ার করে।</li>
+                                <li><strong>এক-থেকে-অনেক:</strong> একজন ডেটা পাঠালে সবাই পায়, তবে যার ঠিকানা (Address)
+                                    মিলে যায় কেবল সেই প্রসেস করে।</li>
+                                <li><strong>ব্যবহার:</strong> মূলত লোকাল এরিয়া নেটওয়ার্ক (LAN) এবং ওয়াই-ফাইতে ব্যবহৃত
+                                    হয়।</li>
+                                <li><strong>উদাহরণ:</strong> ইথারনেট (Bus-based) ও ওয়্যারলেস ল্যান।</li>
+                            </ul>
+                        </div>
+
+                        <div class="content-box">
+                            <h3>পয়েন্ট-টু-পয়েন্ট নেটওয়ার্ক (Point-to-Point)</h3>
+                            <ul>
+                                <li><strong>ডেডিকেটেড লিংক:</strong> সরাসরি দুটি ডিভাইসের মধ্যে সংযোগ থাকে।</li>
+                                <li><strong>এক-থেকে-এক:</strong> ডেটা সরাসরি গন্তব্যে পৌঁছায়, মাঝে কোনো কমন ইউজার থাকে
+                                    না।</li>
+                                <li><strong>রাউটিং:</strong> সঠিক পথ নির্ধারণের জন্য এতে রাউটিং অ্যালগরিদম ব্যবহৃত হয়।
+                                </li>
+                                <li><strong>উদাহরণ:</strong> ইন্টারনেট, টেলিফোন নেটওয়ার্ক এবং লিজড লাইন (Leased line)।
+                                </li>
+                            </ul>
+                        </div>
+
+                        <h2>৩. মালিকানা ও অ্যাক্সেস কন্ট্রোলের ভিত্তিতে শ্রেণীবিন্যাস</h2>
+                        <p>অ্যাডমিনিস্ট্রেটিভ কন্ট্রোল এবং এক্সেসিবিলিটির ওপর ভিত্তি করে নেটওয়ার্ক প্রধানত ৩ প্রকার:
+                        </p>
+                        <ul>
+                            <li><strong>প্রাইভেট নেটওয়ার্ক (Private):</strong> এটি কোনো ব্যক্তি বা প্রতিষ্ঠানের নিজস্ব।
+                                এক্সেস সীমিত এবং ইউজারনেম/পাসওয়ার্ড প্রয়োজন। (উদাহরণ: কর্পোরেট ল্যান, প্রাইভেট ক্লাউড)।
+                            </li>
+                            <li><strong>পাবলিক নেটওয়ার্ক (Public):</strong> সবার জন্য উন্মুক্ত, সরকার বা বড়
+                                অর্গানাইজেশন চালায়। (উদাহরণ: ইন্টারনেট, পাবলিক ওয়াই-ফাই)।</li>
+                            <li><strong>হাইব্রিড নেটওয়ার্ক (Hybrid):</strong> প্রতিষ্ঠানের অভ্যন্তরীণ নিরাপত্তা বজায়
+                                রেখেও বাইরের সাধারণ ইউজারদের কিছু অংশ ব্যবহারের সুযোগ দেওয়া। (উদাহরণ: ব্যাংক সিস্টেম
+                                যেখানে কাস্টমার ও স্টাফ আলাদা লেভেলে এক্সেস পায়)।</li>
+                        </ul>
+
+                        <h2>৪. ইন্টারনেটওয়ার্ক (Internetwork): ইন্ট্রানেট ও এক্সট্রানেট</h2>
+                        <p>একাধিক নেটওয়ার্ক যখন প্রোটোকল মেনে একে অপরের সাথে যুক্ত হয়, তখন তাকে ইন্টারনেটওয়ার্ক বলে।
+                        </p>
+
+                        <div class="table-wrapper">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>বৈশিষ্ট্য</th>
+                                        <th>ইন্ট্রানেট (Intranet)</th>
+                                        <th>এক্সট্রানেট (Extranet)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>এক্সেস</strong></td>
+                                        <td>কেবল প্রতিষ্ঠানের অভ্যন্তরীণ লোক</td>
+                                        <td>অভ্যন্তরীণ লোক + বিশ্বস্ত পার্টনার/ভেন্ডর</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>নিরাপত্তা</strong></td>
+                                        <td>উচ্চ (Firewall সংরক্ষিত)</td>
+                                        <td>মাঝারি থেকে উচ্চ (VPN ব্যবহারের মাধ্যমে)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>ব্যবহার</strong></td>
+                                        <td>এমপ্লয়ি পোর্টাল, ফাইল শেয়ারিং</td>
+                                        <td>সাপ্লাই চেইন, কাস্টমার পোর্টাল</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>উদাহরণ</strong></td>
+                                        <td>ভার্সিটির স্টুডেন্ট পোর্টাল</td>
+                                        <td>অনলাইন ব্যাংকিং পোর্টাল</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h2>৫. একনজরে LAN, MAN ও WAN এর পার্থক্য</h2>
+                        <div class="table-wrapper">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>বৈশিষ্ট্য</th>
+                                        <th>LAN</th>
+                                        <th>MAN</th>
+                                        <th>WAN</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>গতি</td>
+                                        <td>খুব বেশি</td>
+                                        <td>মাঝারি</td>
+                                        <td>তুলনামূলক কম</td>
+                                    </tr>
+                                    <tr>
+                                        <td>মালিকানা</td>
+                                        <td>একক মালিকানা</td>
+                                        <td>সাধারণত শেয়ার্ড</td>
+                                        <td>পাবলিক বা গ্লোবাল</td>
+                                    </tr>
+                                    <tr>
+                                        <td>এরর রেট</td>
+                                        <td>খুবই কম</td>
+                                        <td>মাঝারি</td>
+                                        <td>বেশি</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer class="glass-footer">
+            <div class="container">
+                <p>&copy; ২০২৬ enablement.info. সর্বস্বত্ব সংরক্ষিত।</p>
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/network-background.js"></script>
+</body>
+
+</html>

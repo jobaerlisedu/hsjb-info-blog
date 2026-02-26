@@ -1,3 +1,5 @@
+@import url("https://db.onlinewebfonts.com/c/aec382221b330b8581963c1bcc7c61d9?family=Nikosh");
+
 :root {
     --primary-color: #2196f3;
     --secondary-color: #1976d2;
@@ -10,11 +12,16 @@
     --gradient-text: linear-gradient(135deg, #2196f3, #1976d2);
 }
 
+html {
+    font-size: 112.5%;
+    /* Base 18px (16px + 2px) */
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Times New Roman', 'Nikosh', serif;
 }
 
 img {
@@ -119,8 +126,8 @@ body {
     width: 54px;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    padding: 0 16px;
+    justify-content: center;
+    padding: 0;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     white-space: nowrap;
     overflow: hidden;
@@ -132,9 +139,10 @@ body {
 }
 
 .nav-text {
+    display: none;
+    /* Fix: prevents span from affecting icon centering in collapsed state */
     opacity: 0;
-    transform: translateX(-10px);
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease;
     font-weight: 600;
     font-size: 0.95rem;
 }
@@ -151,11 +159,14 @@ body {
     color: white;
     border-color: var(--primary-color);
     box-shadow: 0 8px 25px rgba(33, 150, 243, 0.3);
+    justify-content: flex-start;
+    padding-left: 16px;
 }
 
 .main-nav a:hover .nav-text {
+    display: block;
+    /* Fix: shows span only when menu is expanded */
     opacity: 1;
-    transform: translateX(0);
     margin-left: 12px;
 }
 
@@ -259,7 +270,7 @@ body {
 h1,
 h2,
 h3 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Times New Roman', 'Nikosh', serif;
 }
 
 h1 {
@@ -556,7 +567,7 @@ h1 {
 }
 
 .section-header h2 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Times New Roman', 'Nikosh', serif;
     font-size: 2rem;
 }
 
@@ -773,4 +784,23 @@ h1 {
 
 .back-btn:hover i {
     transform: translateX(-3px);
+}
+/* Specific Content Elements */
+.content-box {
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 4px solid var(--primary-color);
+    padding: 20px 25px;
+    padding-left: 30px;
+    border-radius: 4px 12px 12px 4px;
+    margin: 30px 0;
+}
+
+.content-box h3 {
+    margin-top: 5px !important;
+    margin-bottom: 15px !important;
+}
+
+.content-box ul,
+.content-box ol {
+    margin-bottom: 20px !important;
 }

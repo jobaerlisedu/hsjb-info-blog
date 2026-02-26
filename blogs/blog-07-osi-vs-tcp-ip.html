@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSI এবং TCP/IP মডেলের মধ্যে পার্থক্য | enablement.info</title>
+
+
+
+    <!-- Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <style>
+        .blog-content-wrapper {
+            padding-top: 20px;
+            padding-bottom: 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d0d0e0;
+        }
+
+        .article-body h2,
+        .article-body h3 {
+            font-family: 'Times New Roman', 'Nikosh', serif;
+            color: var(--primary-color);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .article-body h2 {
+            font-size: 1.8rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .article-body li {
+            margin-bottom: 10px;
+        }
+
+        .article-body img {
+            max-width: 100%;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 1px solid var(--glass-border);
+        }
+
+        .article-body figcaption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: -10px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="network-canvas"></canvas>
+    <div class="overlay">
+        <header class="glass-header">
+            <div class="container">
+                <nav class="main-nav">
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                <i class='bx bx-home-alt-2'></i>
+                                <span class="nav-text">Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../blogs.html" class="active">
+                                <i class='bx bx-book-content'></i>
+                                <span class="nav-text">Blogs</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="blog-content-wrapper">
+            <div class="container">
+                <a href="../blogs.html" class="back-btn">
+                    <i class='bx bx-arrow-back'></i>
+                    <span>আগের পেজে ফিরে যান</span>
+                </a>
+
+                <article class="glass-panel">
+                    <header class="article-header">
+                        <h1>OSI এবং TCP/IP মডেলের মধ্যে পার্থক্য (Difference between OSI and TCP/IP Model)</h1>
+                        <div class="article-meta">
+                            <span><i class='bx bx-calendar'></i> Jan 02, 2026</span>
+                            <span style="margin: 0 10px;">|</span>
+                            <span><i class='bx bx-category'></i> প্রোটোকল</span>
+                        </div>
+                    </header>
+
+                    <div class="article-body">
+                        <h2><i class="bi bi-lightbulb"></i> ভূমিকা</h2>
+                        <p>কম্পিউটার নেটওয়ার্কিং জগতে <strong>OSI (Open Systems Interconnection)</strong> এবং
+                            <strong>TCP/IP (Transmission Control Protocol / Internet Protocol)</strong>— এই দুটি মডেলই
+                            তথ্য আদান-প্রদানের মূল ভিত্তি। যদিও এরা আলাদা উদ্দেশ্যে তৈরি হয়েছে, তবে এদের প্রধান কাজ হলো
+                            একটি নেটওয়ার্কের মাধ্যমে দুটি ডিভাইসের মধ্যে ডেটা কীভাবে প্রবাহিত হবে তা সংজ্ঞায়িত করা।
+                            OSI একটি তাত্ত্বিক রেফারেন্স মডেল হিসেবে কাজ করে, অন্যদিকে TCP/IP হলো আধুনিক ইন্টারনেটের
+                            বাস্তবসম্মত ভিত্তি।
+                        </p>
+
+                        <hr>
+
+                        <h2><i class="bi bi-layers"></i> OSI মডেল (৭টি লেয়ার)</h2>
+                        <p>OSI মডেলটি ১৯৭০-এর দশকের শেষদিকে <strong>ISO</strong> দ্বারা তৈরি একটি তাত্ত্বিক
+                            ফ্রেমওয়ার্ক। এতে মোট ৭টি লেয়ার থাকে:</p>
+
+                        <div class="content-box mb-4">
+                            <h3 class="h5 text-white">১. Physical Layer (ফিজিক্যাল লেয়ার)</h3>
+                            <ul>
+                                <li>ফিজিক্যাল মিডিয়ার (তার, কানেক্টর) মাধ্যমে র বিট (Raw bits) ট্রান্সমিট করে।</li>
+                                <li>ডিজিটাল ডেটাকে ইলেকট্রিক্যাল, অপটিক্যাল বা রেডিও সিগন্যালে রূপান্তর করে।</li>
+                                <li>ডেটা রেট, মডুলেশন এবং ফিজিক্যাল টপোলজি (যেমন: বাস, স্টার) সংজ্ঞায়িত করে।</li>
+                                <li>হাব (Hub) এবং রিপিটার (Repeater) এই লেয়ারে কাজ করে।</li>
+                            </ul>
+
+                            <h3 class="h5 text-white">২. Data Link Layer (ডেটা লিঙ্ক লেয়ার)</h3>
+                            <ul>
+                                <li>নোড-টু-নোড নির্ভরযোগ্য ডেটা ট্রান্সফার এবং ফ্রেমিং (Framing) নিশ্চিত করে।</li>
+                                <li>ডিভাইস শনাক্তকরণের জন্য MAC অ্যাড্রেস ব্যবহার করে।</li>
+                                <li>এরর ডিটেকশন (FCS) এবং ফ্লো কন্ট্রোল ম্যানেজ করে।</li>
+                                <li>সুইচ (Switch) এবং ব্রিজ (Bridge) এই লেয়ারে কাজ করে।</li>
+                            </ul>
+
+                            <h3 class="h5 text-white">৩. Network Layer (নেটওয়ার্ক লেয়ার)</h3>
+                            <ul>
+                                <li>প্যাকেটের লজিক্যাল অ্যাড্রেসিং এবং আইপি রাউটিং হ্যান্ডেল করে।</li>
+                                <li>IP অ্যাড্রেস ব্যবহার করে গন্তব্যে পৌঁছানোর সেরা পথ নির্ধারণ করে।</li>
+                                <li>প্যাকেট ফরওয়ার্ডিং এবং রাউটিং টেবিল ম্যানেজ করে।</li>
+                                <li>রাউটার (Router) এই লেয়ারে কাজ করে।</li>
+                            </ul>
+
+                            <h3 class="h5 text-white">৪. Transport Layer (ট্রান্সপোর্ট লেয়ার)</h3>
+                            <ul>
+                                <li>এন্ড-টু-এন্ড নির্ভরযোগ্য বা দ্রুত ডেটা ডেলিভারি নিশ্চিত করে।</li>
+                                <li>TCP (Reliable/Connection-oriented) এবং UDP (Fast/Connectionless) প্রোটোকল ব্যবহার
+                                    করে।</li>
+                                <li>ডেটা সেগমেন্টেশন, সিকোয়েন্সিং এবং রি-অ্যাসেম্বলি করে।</li>
+                                <li>ফ্লো কন্ট্রোল এবং এরর রিকভারি প্রদান করে।</li>
+                            </ul>
+
+                            <h3 class="h5 text-white">৫. Session Layer (সেশন লেয়ার)</h3>
+                            <ul>
+                                <li>ডিভাইসের মধ্যে সেশন তৈরি, পরিচালনা এবং সমাপ্ত করে।</li>
+                                <li>এটি ডায়ালগ কন্ট্রোল (Half-duplex / Full-duplex) করে।</li>
+                                <li>সেশন চেকপয়েন্ট এবং অথেন্টিকেশন বজায় রাখে।</li>
+                                <li>RPC এবং NetBIOS এর মতো প্রোটোকল এখানে কাজ করে।</li>
+                            </ul>
+
+                            <h3 class="h5 text-white">৬. Presentation Layer (প্রেজেন্টেশন লেয়ার)</h3>
+                            <ul>
+                                <li>ডেটা ট্রান্সলেশন, এনক্রিপশন এবং ফরম্যাটিং হ্যান্ডেল করে।</li>
+                                <li>ডেটা ফরম্যাট কনভার্ট (Encoding/Decoding) করে যাতে অ্যাপ্লিকেশন লেয়ার তা বুঝতে পারে।
+                                </li>
+                                <li>নিরাপত্তার জন্য এনক্রিপশন/ডিক্রিপশন (SSL/TLS) প্রয়োগ করে।</li>
+                                <li>দক্ষ ট্রান্সমিশনের জন্য ডেটা কমপ্রেশন (Compression) করে।</li>
+                            </ul>
+
+                            <h3 class="h5 text-white">৭. Application Layer (অ্যাপ্লিকেশন লেয়ার)</h3>
+                            <ul>
+                                <li>সরাসরি এন্ড-ইউজার অ্যাপ্লিকেশনকে নেটওয়ার্ক সার্ভিস প্রদান করে।</li>
+                                <li>HTTP, FTP, SMTP, DNS এবং SNMP-এর মতো প্রোটোকল সমর্থন করে।</li>
+                                <li>ইমেল, ওয়েব ব্রাউজিং এবং ফাইল ট্রান্সফারের মতো অনলাইন সেবাগুলো নিশ্চিত করে।</li>
+                            </ul>
+                        </div>
+
+                        <h2><i class="bi bi-cpu"></i> TCP/IP মডেল (৫টি লেয়ার)</h2>
+                        <p>TCP/IP মডেলটি ইন্টারনেটের জন্য তৈরি একটি প্রাকটিক্যাল ফ্রেমওয়ার্ক। এটি বর্তমানে বিশ্বজুড়ে
+                            ব্যবহৃত হয় এবং এতে নিচের ৫টি লেয়ারের বিস্তারিত কাজ রয়েছে:</p>
+
+                        <div class="content-box mb-4">
+                            <h3 class="h5 text-white">১. Physical Layer (ফিজিক্যাল লেয়ার)</h3>
+                            <ul>
+                                <li>ফিজিক্যাল মিডিয়ার মাধ্যমে র বিট (Raw bits) ট্রান্সমিট করে।</li>
+                                <li>ফিজিক্যাল হার্ডওয়্যার যেমন: কেবল, সিগন্যাল এবং কানেক্টর নিয়ে কাজ করে।</li>
+                                <li>হাব (Hub), রিপিটার (Repeater) এবং NIC এই লেয়ারের অংশ।</li>
+                            </ul>
+
+                            <h3 class="h5 text-white">২. Data Link Layer (ডেটা লিঙ্ক লেয়ার)</h3>
+                            <ul>
+                                <li>নোড-টু-নোড যোগাযোগ এবং ফ্রেমিং (Framing) নিশ্চিত করে।</li>
+                                <li>ডিভাইস শনাক্তকরণের জন্য MAC অ্যাড্রেস ব্যবহার করে।</li>
+                                <li>ফ্রেমিং, এরর ডিটেকশন (FCS) এবং ফ্লো কন্ট্রোলের জন্য দায়ী।</li>
+                                <li>ফিজিক্যাল মিডিয়ামে (Ethernet, Wi-Fi) অ্যাক্সেস হ্যান্ডেল করে।</li>
+                                <li>সুইচ (Switch) এই লেয়ারে কাজ করে।</li>
+                            </ul>
+
+                            <h3 class="h5 text-white">৩. Network (Internet) Layer (নেটওয়ার্ক / ইন্টারনেট লেয়ার)</h3>
+                            <ul>
+                                <li>লজিক্যাল অ্যাড্রেসিং এবং প্যাকেট রাউটিং হ্যান্ডেল করে।</li>
+                                <li>IP অ্যাড্রেসিং (IPv4/IPv6) ব্যবহার করে।</li>
+                                <li>গন্তব্যে পৌঁছানোর জন্য সেরা পথ নির্ধারণ করে।</li>
+                                <li>প্যাকেট রাউটিং এবং ফ্র্যাগমেন্টেশন (Fragmentation) সম্পন্ন করে।</li>
+                                <li>প্রধান প্রোটোকল: IP, ICMP, ARP, RARP।</li>
+                            </ul>
+
+                            <h3 class="h5 text-white">৪. Transport Layer (ট্রান্সপোর্ট লেয়ার)</h3>
+                            <ul>
+                                <li>এন্ড-টু-এন্ড যোগাযোগ এবং নির্ভরযোগ্যতা নিশ্চিত করে।</li>
+                                <li>TCP (Reliable, Connection-oriented) এবং UDP (Fast, Connectionless) ব্যবহার করে।</li>
+                                <li>ডেটা সেগমেন্টেশন, সিকোয়েন্সিং এবং রি-অ্যাসেম্বলি করে।</li>
+                                <li>এরর ডিটেকশন, কারেকশন এবং ফ্লো কন্ট্রোল প্রদান করে।</li>
+                            </ul>
+
+                            <h3 class="h5 text-white">৫. Application Layer (অ্যাপ্লিকেশন লেয়ার)</h3>
+                            <ul>
+                                <li>এন্ড-ইউজার অ্যাপ্লিকেশনকে সরাসরি নেটওয়ার্ক সার্ভিস প্রদান করে।</li>
+                                <li>HTTP, FTP, SMTP, DNS, DHCP এবং SNMP প্রোটোকল সমর্থন করে।</li>
+                                <li>ডেটা ফরম্যাটিং এবং কমিউনিকেশন সার্ভিস প্রদানের জন্য দায়ী।</li>
+                                <li>এটি OSI মডেলের Session, Presentation এবং Application লেয়ারের কাজগুলো একসাথে সম্পন্ন
+                                    করে।</li>
+                            </ul>
+                        </div>
+
+                        <h2><i class="bi bi-arrow-left-right"></i> OSI এবং TCP/IP মডেলের মধ্যে বিস্তারিত পার্থক্য</h2>
+                        <div class="table-wrapper">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>বৈশিষ্ট্য</th>
+                                        <th>OSI মডেল</th>
+                                        <th>TCP/IP মডেল</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>লেয়ার সংখ্যা</strong></td>
+                                        <td>৭টি লেয়ার থাকে।</td>
+                                        <td>৫টি (বা ৪টি) লেয়ার থাকে।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>সেশন ও প্রেজেন্টেশন লেয়ার</strong></td>
+                                        <td>আলাদা সেশন এবং প্রেজেন্টেশন লেয়ার থাকে।</td>
+                                        <td>আলাদা কোনো লেয়ার নেই; এগুলো অ্যাপ্লিকেশন লেয়ারের অংশ।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>প্রকৃতি</strong></td>
+                                        <td>এটি একটি থিওরিটিক্যাল (Theoretical) রেফারেন্স মডেল।</td>
+                                        <td>এটি একটি প্রাকটিক্যাল (Practical) ইমপ্লিমেন্টেশন মডেল।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>তৈরি ও বিকাশ</strong></td>
+                                        <td>ISO দ্বারা ইন্টারনেটের ব্যাপক প্রসারের আগে তৈরি।</td>
+                                        <td>DoD (Department of Defense) দ্বারা ইন্টারনেটের জন্য তৈরি।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>নির্ভরশীলতা</strong></td>
+                                        <td>প্রতিটি লেয়ার কঠোরভাবে সীমানা নির্দিষ্ট এবং স্বাধীন।</td>
+                                        <td>লেয়ারগুলো অনেক বেশি ইন্টিগ্রেটেড এবং সীমানা কম কঠোর।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>প্রোটোকল</strong></td>
+                                        <td>কোনো নির্দিষ্ট প্রোটোকল নির্ধারণ করে না, শুধু ফাংশন বর্ণনা করে।</td>
+                                        <td>নির্দিষ্ট প্রোটোকল (TCP, IP, UDP, HTTP) সংজ্ঞায়িত করে।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>তৈরির ক্রম</strong></td>
+                                        <td>আগে মডেল তৈরি করা হয়েছে, পরে প্রোটোকল।</td>
+                                        <td>আগে প্রোটোকল তৈরি করা হয়েছে, পরে মডেল।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>ব্যবহার</strong></td>
+                                        <td>মূলত শিক্ষাদান এবং নেটওয়ার্ক ডিজাইনের রেফারেন্স হিসেবে ব্যবহৃত হয়।</td>
+                                        <td>ইন্টারনেটে যোগাযোগের জন্য প্রধান প্রোটোকল স্ট্যাক হিসেবে ব্যবহৃত হয়।</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h2><i class="bi bi-info-circle"></i> সারসংক্ষেপ</h2>
+                        <p>सहज কথায়, OSI মডেল আমাদের শেখায় কীভাবে প্রোটোকলগুলো কাজ করা উচিত, অন্যদিকে TCP/IP মডেল
+                            ইন্টারনেটের বাস্তব যোগাযোগ ব্যবস্থা নিশ্চিত করে। কোনো নেটওয়ার্ক ইঞ্জিনিয়ার যদি সিস্টেমে
+                            কোনো সমস্যা খুঁজে বের করতে চান (Troubleshooting), তবে তিনি সাধারণত OSI মডেলের লেয়ারগুলোকেই
+                            রেফারেন্স হিসেবে ব্যবহার করেন।</p>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer class="glass-footer">
+            <div class="container">
+                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/network-background.js"></script>
+</body>
+
+</html>

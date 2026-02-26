@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ট্রান্সমিশন মিডিয়া: গাইডেড এবং আনগাইডেড মিডিয়া | enablement.info</title>
+
+    <!-- Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <style>
+        .blog-content-wrapper {
+            padding-top: 20px;
+            padding-bottom: 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d0d0e0;
+        }
+
+        .article-body h2,
+        .article-body h3 {
+            font-family: 'Times New Roman', 'Nikosh', serif;
+            color: var(--primary-color);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .article-body h2 {
+            font-size: 1.8rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .article-body li {
+            margin-bottom: 10px;
+        }
+
+        /* Topology SVG Styles */
+        .topology-diagram {
+            display: block;
+            margin: 30px auto;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .diagram-label {
+            fill: #fff;
+            font-size: 12px;
+            text-anchor: middle;
+            font-family: 'Nikosh', sans-serif;
+        }
+
+        .topology-node {
+            fill: var(--primary-color);
+            filter: drop-shadow(0 0 5px var(--primary-color));
+        }
+
+        .topology-link {
+            stroke: rgba(33, 150, 243, 0.8);
+            stroke-width: 2;
+            fill: none;
+            stroke-dasharray: 5;
+            animation: flow 2s linear infinite;
+        }
+
+        @keyframes flow {
+            from {
+                stroke-dashoffset: 20;
+            }
+
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .fiber-core {
+            stroke: #fff;
+            stroke-width: 4;
+            fill: none;
+        }
+
+        .fiber-cladding {
+            stroke: rgba(255, 255, 255, 0.2);
+            stroke-width: 12;
+            fill: none;
+        }
+
+        .light-ray {
+            stroke: #ffff00;
+            stroke-width: 2;
+            fill: none;
+            filter: drop-shadow(0 0 5px #ffff00);
+        }
+
+        .article-body ul,
+        .article-body ol {
+            display: inline-block;
+            text-align: left;
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="network-canvas"></canvas>
+    <div class="overlay">
+        <header class="glass-header">
+            <div class="container">
+                <nav class="main-nav">
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                <i class='bx bx-home-alt-2'></i>
+                                <span class="nav-text">হোম</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../blogs.html" class="active">
+                                <i class='bx bx-book-content'></i>
+                                <span class="nav-text">ব্লগ</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="blog-content-wrapper">
+            <div class="container">
+                <a href="../blogs.html" class="back-btn">
+                    <i class='bx bx-arrow-back'></i>
+                    <span>আগের পেজে ফিরে যান</span>
+                </a>
+
+                <article class="glass-panel">
+                    <header class="article-header">
+                        <h1>ট্রান্সমিশন মিডিয়া: বিস্তারিত গাইড</h1>
+                        <div class="article-meta">
+                            <span><i class='bx bx-calendar'></i> জানুয়ারি ০২, ২০২৬</span>
+                            <span style="margin: 0 10px;">|</span>
+                            <span><i class='bx bx-category'></i> Networking</span>
+                        </div>
+                    </header>
+
+                    <div class="article-body">
+                        <h2><i class="bi bi-broadcast"></i> ট্রান্সমিশন মিডিয়া কী?</h2>
+                        <p>ট্রান্সমিশন মিডিয়া (Transmission Media) হলো একটি ফিজিক্যাল বা ওয়্যারলেস কমিউনিকেশন চ্যানেল
+                            যা একটি কম্পিউটার নেটওয়ার্কের এক ডিভাইস থেকে অন্য ডিভাইসে ডেটা সিগন্যাল বহন করতে ব্যবহৃত
+                            হয়। এটি তথ্যের চলাচলের মূল পথ তৈরি করে এবং নেটওয়ার্ক করা ডিভাইসগুলোর মধ্যে সংযোগ নিশ্চিত
+                            করে।</p>
+
+                        <div class="content-box">
+                            <p><strong>ট্রান্সমিশন মিডিয়া নির্বাচনের ক্ষেত্রে কিছু গুরুত্বপূর্ণ বিষয় বিবেচনা করা
+                                    হয়:</strong></p>
+                            <ul>
+                                <li><strong>দূরত্ব (Distance):</strong> কতটুকু দূর পর্যন্ত ডেটা পাঠাতে হবে।</li>
+                                <li><strong>ব্যান্ডউইথ (Bandwidth):</strong> ডেটা স্থানান্তরের গতি।</li>
+                                <li><strong>ইন্টারফারেন্স (Interference):</strong> নয়েজ বা সিগন্যালে বাধার সম্ভাবনা।
+                                </li>
+                                <li><strong>খরচ এবং ইনস্টলেশন:</strong> বাজেট এবং ক্যাবল স্থাপনের জটিলতা।</li>
+                            </ul>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-diagram-2"></i> ট্রান্সমিশন মিডিয়ার শ্রেণবিভাগ</h2>
+                        <p>ডেটা বা সিগন্যাল প্রবাহের পথের ওপর ভিত্তি করে ট্রান্সমিশন মিডিয়াকে প্রধানত দুই ভাগে ভাগ করা
+                            যায়:</p>
+
+                        <svg class="topology-diagram" viewBox="0 0 500 200">
+                            <!-- Root -->
+                            <rect x="175" y="20" width="150" height="40" rx="5" fill="rgba(33, 150, 243, 0.2)"
+                                stroke="#2196f3" />
+                            <text x="250" y="45" class="diagram-label" font-weight="bold">ট্রান্সমিশন মিডিয়া</text>
+
+                            <!-- Links -->
+                            <line x1="250" y1="60" x2="125" y2="100" stroke="#2196f3" stroke-width="2" />
+                            <line x1="250" y1="60" x2="375" y2="100" stroke="#2196f3" stroke-width="2" />
+
+                            <!-- Guided -->
+                            <rect x="50" y="100" width="150" height="40" rx="5" fill="rgba(33, 150, 243, 0.1)"
+                                stroke="#2196f3" />
+                            <text x="125" y="125" class="diagram-label">গাইডেড (Guided)</text>
+                            <text x="125" y="160" class="diagram-label" font-size="10"
+                                fill="#aaa">(wired/bounded)</text>
+
+                            <!-- Unguided -->
+                            <rect x="300" y="100" width="150" height="40" rx="5" fill="rgba(255, 51, 102, 0.1)"
+                                stroke="#ff3366" />
+                            <text x="375" y="125" class="diagram-label">আনগাইডেড (Unguided)</text>
+                            <text x="375" y="160" class="diagram-label" font-size="10"
+                                fill="#aaa">(wireless/unbounded)</text>
+                        </svg>
+
+                        <div class="content-box">
+                            <h3>১. গাইডেড মিডিয়া (Guided Media)</h3>
+                            <p>গাইডেড মিডিয়া বা ওয়্যারড (Wired) ট্রান্সমিশন মিডিয়ায় ডেটা একটি ফিজিক্যাল পথের (যেমন
+                                ক্যাবল) মাধ্যমে প্রবাহিত হয়। এখানে সিগন্যাল একটি নির্দিষ্ট সীমানার মধ্যে আবদ্ধ থাকে এবং
+                                ডিভাইসের মধ্যে সরাসরি সংযোগ নিশ্চিত করে।</p>
+                            <ul>
+                                <li><strong>ফিজিক্যাল ক্যাবল:</strong> ডেটা পাঠাতে ফিজিক্যাল ক্যাবল ব্যবহার করা হয়।
+                                </li>
+                                <li><strong>উচ্চ গতি:</strong> ওয়্যারলেস মিডিয়ার তুলনায় সাধারণত বেশি উচ্চ গতি
+                                    সম্পন্ন।</li>
+                                <li><strong>নিরাপত্তা:</strong> ফিজিক্যাল সংযোগ থাকায় এটি বেশি নিরাপদ।</li>
+                                <li><strong>প্রধান প্রকারভেদ:</strong> টুইস্টেড পেয়ার ক্যাবল, কোঅ্যাক্সিয়াল ক্যাবল এবং
+                                    ফাইবার অপটিক ক্যাবল।</li>
+                            </ul>
+                        </div>
+
+                        <h3>(ক) টুইস্টেড পেয়ার ক্যাবল (Twisted Pair Cable)</h3>
+                        <p>এটি সবচেয়ে সাধারণ ক্যাবল যেখানে দুটি ইনসুলেটেড কপার তার একে অপরের সাথে পেঁচিয়ে থাকে। এই
+                            পেঁচানো বা টুইষ্টিং ইলেকট্রোম্যাগনেটিক ইন্টারফারেন্স (EMI) এবং নয়েজ কমাতে সাহায্য করে।</p>
+
+                        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                            <div class="content-box" style="flex: 1; min-width: 250px;">
+                                <p><strong>UTP (Unshielded Twisted Pair):</strong> এটি সস্তা এবং সাধারণ LAN নেটওয়ার্কে
+                                    ব্যবহৃত হয়। তবে এতে নয়েজের সম্ভাবনা বেশি থাকে।</p>
+                            </div>
+                            <div class="content-box" style="flex: 1; min-width: 250px;">
+                                <p><strong>STP (Shielded Twisted Pair):</strong> এতে একটি অতিরিক্ত মেটালিক শিল্ডিং থাকে
+                                    যা নয়েজ এবং ইন্টারফারেন্স থেকে সিগন্যালকে রক্ষা করে।</p>
+                            </div>
+                        </div>
+
+                        <h3>(খ) কোঅ্যাক্সিয়াল ক্যাবল (Coaxial Cable)</h3>
+                        <p>কোঅ্যাক্সিয়াল ক্যাবলে একটি সেন্ট্রাল কপার কন্ডাক্টর থাকে যা নয়েজ থেকে সুরক্ষার জন্য একাধিক
+                            ইনসুলেশন স্তর এবং শিল্ডিং দ্বারা পরিবেষ্টিত থাকে। এটি সাধারণত ক্যাবল টেলিভিশন (CATV) এবং
+                            ব্রডব্যান্ড নেটওয়ার্কে ব্যবহৃত হয়।</p>
+
+                        <svg class="topology-diagram" viewBox="0 0 500 200">
+                            <!-- Coaxial layers -->
+                            <circle cx="250" cy="100" r="10" fill="#cd7f32" /> <!-- Core -->
+                            <circle cx="250" cy="100" r="25" fill="none" stroke="#fff" stroke-width="30"
+                                opacity="0.1" /> <!-- Dielectric -->
+                            <circle cx="250" cy="100" r="45" fill="none" stroke="#2196f3" stroke-width="10"
+                                stroke-dasharray="2,2" /> <!-- Shield -->
+                            <circle cx="250" cy="100" r="60" fill="none" stroke="#333" stroke-width="20" />
+                            <!-- Jacket -->
+
+                            <!-- Labels with lines -->
+                            <line x1="250" y1="100" x2="350" y2="40" stroke="#aaa" />
+                            <text x="360" y="45" class="diagram-label" text-anchor="start">কপার কোর (Core)</text>
+
+                            <line x1="250" y1="125" x2="350" y2="100" stroke="#aaa" />
+                            <text x="360" y="105" class="diagram-label" text-anchor="start">ডাই-ইলেকট্রিক
+                                ইনসুলেটর</text>
+
+                            <line x1="250" y1="145" x2="350" y2="160" stroke="#aaa" />
+                            <text x="360" y="165" class="diagram-label" text-anchor="start">মেটালিক শিল্ড</text>
+                        </svg>
+
+                        <h3>(গ) ফাইবার অপটিক ক্যাবল (Optical Fiber Cable)</h3>
+                        <p>ফাইবার অপটিক ক্যাবল ডেটা পাঠানোর জন্য ইলেকট্রিক্যাল সিগন্যালের পরিবর্তে আলোক সংকেত (Light
+                            Signals) ব্যবহার করে। এটি কাঁচ বা প্লাস্টিকের সূক্ষ্ম তন্তুর মাধ্যমে কাজ করে এবং 'টোটাল
+                            ইন্টারনাল রিফ্লেকশন' নীতি অনুসরণ করে।</p>
+
+                        <div class="content-box">
+                            <ul>
+                                <li><strong>গতি:</strong> অত্যন্ত দ্রুত গতির ডেটা ট্রান্সমিশন (গিগাবিট বা ততোধিক)।</li>
+                                <li><strong>দূরত্ব:</strong> সিগন্যাল লস খুব কম হওয়ায় দীর্ঘ দূরত্বে ডেটা পাঠানো যায়।
+                                </li>
+                                <li><strong>ইন্টারফারেন্স:</strong> ইলেকট্রোম্যাগনেটিক ইন্টারফারেন্স (EMI) থেকে মুক্ত।
+                                </li>
+                                <li><strong>নিরাপত্তা:</strong> ক্যাবল থেকে ডেটা চুরি করা প্রায় অসম্ভব।</li>
+                            </ul>
+                        </div>
+
+                        <svg class="topology-diagram" viewBox="0 0 500 150">
+                            <!-- Fiber Core -->
+                            <path d="M 50,75 L 450,75" class="fiber-cladding" />
+                            <path d="M 50,75 L 450,75" class="fiber-core" />
+
+                            <!-- Light ray reflection -->
+                            <path d="M 50,75 L 100,55 L 200,95 L 300,55 L 400,95 L 450,75" class="light-ray">
+                                <animate attributeName="stroke-dasharray" from="0,500" to="500,0" dur="2s"
+                                    repeatCount="indefinite" />
+                            </path>
+
+                            <text x="250" y="130" class="diagram-label">টোটাল ইন্টারনাল রিফ্লেকশন (TIR)</text>
+                        </svg>
+
+                        <hr>
+
+                        <div class="content-box">
+                            <h3>২. আনগাইডেড মিডিয়া (Unguided Media)</h3>
+                            <p>আনগাইডেড মিডিয়া বা ওয়্যারলেস (Wireless) মিডিয়ায় ডেটা পরিবহনের জন্য কোনো ফিজিক্যাল
+                                ক্যাবল ব্যবহার করা হয় না। সিগন্যাল বাতাস বা শূন্যস্থানের মাধ্যমে ইলেকট্রোম্যাগনেটিক
+                                ওয়েভ হিসেবে প্রবাহিত হয়।</p>
+                            <ul>
+                                <li><strong>মাধ্যম:</strong> বাতাস বা মহাশূন্য।</li>
+                                <li><strong>নমনীয়তা:</strong> ডিভাইস চলাচলের সময়ও সংযোগ সচল থাকে।</li>
+                                <li><strong>ভৌগোলিক পরিধি:</strong> দুর্গম স্থানেও যোগাযোগ করা সম্ভব যেখানে ক্যাবল নেওয়া
+                                    কঠিন।</li>
+                                <li><strong>প্রধান প্রকারভেদ:</strong> রেডিও ওয়েভ, মাইক্রোওয়েভ এবং ইনফ্রারেড।</li>
+                            </ul>
+                        </div>
+
+                        <h3>(ক) রেডিও ওয়েভ (Radio Waves)</h3>
+                        <p>রেডিও ওয়েভ বিল্ডিং বা অন্যান্য বাধা অতিক্রম করে সহজেই চলাচল করতে পারে। এটি ওমনিডিরেকশনাল
+                            (Omnidirectional), অর্থাৎ সিগন্যাল সব দিকে ছড়িয়ে পড়ে। AM/FM রেডিও, টেলিভিশন এবং মোবাইল
+                            যোগাযোগের ক্ষেত্রে এটি ব্যাপক ব্যবহৃত হয়।</p>
+
+                        <h3>(খ) মাইক্রোওয়েভ (Microwaves)</h3>
+                        <p>মাইক্রোওয়েভ একমুখী (Unidirectional) বা লাইন-অফ-সাইট কমিউনিকেশন হিসেবে কাজ করে। এখানে প্রেরক
+                            এবং গ্রাহক এন্টেনার সরাসরি একে অপরের মুখোমুখি থাকা প্রয়োজন। এটি সাধারণত স্যাটেলাইট এবং
+                            লম্বা দূরত্বের টাওয়ার কমিউনিকেশনে ব্যবহৃত হয়।</p>
+
+                        <h3>(গ) ইনফ্রারেড (Infrared)</h3>
+                        <p>ইনফ্রারেড সাধারণত খুব ছোট দূরত্বের ওয়্যারলেস যোগাযোগের জন্য ব্যবহৃত হয়। এটি দেয়াল বা কোনো
+                            শক্ত বাধা ভেদ করতে পারে না, যা ইন্টারফারেন্স কমাতে সাহায্য করে। উদাহরণ: টিভির রিমোট
+                            কন্ট্রোল, ওয়্যারলেস কিবোর্ড এবং মাউস।</p>
+
+                        <hr>
+
+                        <h2><i class="bi bi-exclamation-triangle"></i> ট্রান্সমিশন ইম্পেয়ারমেন্ট (Transmission
+                            Impairment)</h2>
+                        <p>ডেটা বা সিগন্যাল যখন একটি মিডিয়ার মধ্য দিয়ে যায়, তখন তা বিকৃত বা দুর্বল হয়ে পড়তে পারে।
+                            একেই ট্রান্সমিশন ইম্পেয়ারমেন্ট বলা হয়। প্রধান কারণগুলো নিচে আলোচনা করা হলো:</p>
+
+                        <div
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                            <div class="content-box">
+                                <h3>১. অ্যাটেনুয়েশন (Attenuation)</h3>
+                                <p>দূরত্ব অতিক্রম করার সাথে সাথে সিগন্যালের শক্তির যে ক্ষয় হয় তাকে অ্যাটেনুয়েশন বলে।
+                                    এর সমাধানে রিপিটার বা অ্যাম্প্লিফায়ার ব্যবহার করা হয়।</p>
+                            </div>
+                            <div class="content-box">
+                                <h3>২. ডিসটর্শন (Distortion)</h3>
+                                <p>যখন সিগন্যালের গঠন বা আকৃতি পরিবর্তিত হয়ে যায়, তখন তাকে ডিসটর্শন বলে। এটি সাধারণত
+                                    কম্পোজিট সিগন্যালে ঘটে যেখানে বিভিন্ন ফ্রিকুয়েন্সি আলাদা গতিতে চলে।</p>
+                            </div>
+                            <div class="content-box">
+                                <h3>৩. নয়েজ (Noise)</h3>
+                                <p>অযাচিত সিগন্যাল যা মূল সিগন্যালের সাথে যুক্ত হয়ে তথ্যকে অস্পষ্ট বা নষ্ট করে দেয়।
+                                    ক্রসটক (Crosstalk) বা থার্মাল নয়েজ এর অন্যতম উদাহরণ।</p>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-info-circle"></i> সারসংক্ষেপ</h2>
+                        <p>সঠিক ট্রান্সমিশন মিডিয়া নির্বাচন করা একটি কার্যকরী নেটওয়ার্ক ডিজাইনের সবচেয়ে গুরুত্বপূর্ণ
+                            ধাপ। যেখানে উচ্চ গতি রক্ষা এবং নিরাপত্তা জরুরি সেখানে ফাইবার অপটিক এবং যেখানে সহজলভ্যতা ও
+                            পোর্টেবিলিটি প্রয়োজন সেখানে আনগাইডেড বা ওয়্যারলেস মিডিয়া সবচেয়ে সেরা সমাধান।</p>
+
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer class="glass-footer">
+            <div class="container">
+                <p>&copy; ২০২৬ enablement.info. সর্বস্বত্ব সংরক্ষিত।</p>
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/network-background.js"></script>
+</body>
+
+</html>
