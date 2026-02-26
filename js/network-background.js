@@ -40,7 +40,7 @@ const textures = [tex0Blue, tex1Blue, tex0DarkBlue, tex1DarkBlue];
 for (let i = 0; i < columnCount; i++) {
     const x = (Math.random() - 0.5) * 40;
     const z = (Math.random() - 0.5) * 15;
-    const speed = Math.random() * 0.05 + 0.02;
+    const speed = Math.random() * 0.013 + 0.005;
 
     for (let j = 0; j < digitsPerColumn; j++) {
         const texture = textures[Math.floor(Math.random() * textures.length)];

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>সুইচিং: সার্কিট, মেসেজ এবং প্যাকেট সুইচিং | enablement.info</title>
+
+    <!-- Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <style>
+        .blog-content-wrapper {
+            padding-top: 20px;
+            padding-bottom: 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d0d0e0;
+        }
+
+        .article-body h2,
+        .article-body h3 {
+            font-family: 'Times New Roman', 'Nikosh', serif;
+            color: var(--primary-color);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .article-body h2 {
+            font-size: 1.8rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .article-body li {
+            margin-bottom: 10px;
+        }
+
+        .diagram-container {
+            display: block;
+            margin: 30px auto;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .diagram-label {
+            fill: #fff;
+            font-size: 12px;
+            text-anchor: middle;
+            font-family: 'Nikosh', sans-serif;
+        }
+
+        .process-step {
+            fill: rgba(33, 150, 243, 0.1);
+            stroke: var(--primary-color);
+            stroke-width: 1.5;
+        }
+
+        .analogy-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+            color: #b0b0cf;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="network-canvas"></canvas>
+    <div class="overlay">
+        <header class="glass-header">
+            <div class="container">
+                <nav class="main-nav">
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                <i class='bx bx-home-alt-2'></i>
+                                <span class="nav-text">হোম</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../blogs.html" class="active">
+                                <i class='bx bx-book-content'></i>
+                                <span class="nav-text">ব্লগ</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="blog-content-wrapper">
+            <div class="container">
+                <a href="../blogs.html" class="back-btn">
+                    <i class='bx bx-arrow-back'></i>
+                    <span>আগের পেজে ফিরে যান</span>
+                </a>
+
+                <article class="glass-panel">
+                    <header class="article-header">
+                        <h1>সুইচিং: বিস্তারিত গাইড</h1>
+                        <div class="article-meta">
+                            <span><i class='bx bx-calendar'></i> জানুয়ারি ২০, ২০২৬</span>
+                            <span style="margin: 0 10px;">|</span>
+                            <span><i class='bx bx-category'></i> Networking</span>
+                        </div>
+                    </header>
+
+                    <div class="article-body">
+                        <h2><i class="bi bi-arrow-left-right"></i> সুইচিং (Switching) কী?</h2>
+                        <p>সুইচিং হলো একটি নেটওয়ার্কের মধ্যে বা বিভিন্ন নেটওয়ার্কের মধ্যে সুইচের মাধ্যমে ডেটা
+                            আদান-প্রদান করার প্রক্রিয়া। এটি প্রধানত ওএসআই মডেলের ডেটা লিঙ্ক লেয়ারে (Layer 2) ঘটে,
+                            যেখানে ম্যাক অ্যাড্রেসের (MAC Address) ওপর ভিত্তি করে ডেটা ফ্রেমগুলো সঠিক গন্তব্যে পাঠানো
+                            হয়।</p>
+
+                        <div class="content-box">
+                            <ul>
+                                <li>সুইচ একটি নেটওয়ার্কের একাধিক ডিভাইসকে সংযুক্ত করে।</li>
+                                <li>এটি শুধুমাত্র নির্দিষ্ট প্রাপকের কাছে ডেটা পাঠিয়ে ইন্টারফারেন্স (Interference)
+                                    কমায়।</li>
+                                <li>ম্যাক অ্যাড্রেস টেবিল ব্যবহার করে সঠিক পোর্টে ডেটা ফরওয়ার্ড করে।</li>
+                                <li>স্থানীয় নেটওয়ার্কের বাইরের যোগাযোগের জন্য ডেটা রাউটারে পাঠায়।</li>
+                            </ul>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-diagram-2"></i> নেটওয়ার্ক সুইচিংয়ের কার্যপদ্ধতিসমূহ</h2>
+                        <p>সুইচিং প্রক্রিয়ায় বেশ কিছু ধারাবাহিক ধাপ অনুসরণ করা হয়:</p>
+
+                        <div class="diagram-container" style="max-width:100%;">
+                            <div
+                                style="display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:8px; padding:10px 0;">
+                                <!-- Step 1 -->
+                                <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+                                    <div
+                                        style="width:70px;height:70px;border-radius:50%;border:2px solid var(--primary-color);background:rgba(33,150,243,0.1);display:flex;align-items:center;justify-content:center;">
+                                        <i class="bi bi-arrow-down-circle"
+                                            style="font-size:1.8rem;color:var(--primary-color);"></i>
+                                    </div>
+                                    <span style="font-size:0.8rem;color:#ccc;text-align:center;">১. ফ্রেম গ্রহণ</span>
+                                </div>
+                                <i class="bi bi-arrow-right"
+                                    style="color:rgba(255,255,255,0.3);font-size:1.2rem;margin-bottom:20px;"></i>
+                                <!-- Step 2 -->
+                                <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+                                    <div
+                                        style="width:70px;height:70px;border-radius:50%;border:2px solid var(--primary-color);background:rgba(33,150,243,0.1);display:flex;align-items:center;justify-content:center;">
+                                        <i class="bi bi-upc-scan"
+                                            style="font-size:1.8rem;color:var(--primary-color);"></i>
+                                    </div>
+                                    <span style="font-size:0.8rem;color:#ccc;text-align:center;">২. ম্যাক সংগ্রহ</span>
+                                </div>
+                                <i class="bi bi-arrow-right"
+                                    style="color:rgba(255,255,255,0.3);font-size:1.2rem;margin-bottom:20px;"></i>
+                                <!-- Step 3 -->
+                                <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+                                    <div
+                                        style="width:70px;height:70px;border-radius:50%;border:2px solid var(--primary-color);background:rgba(33,150,243,0.1);display:flex;align-items:center;justify-content:center;">
+                                        <i class="bi bi-table" style="font-size:1.8rem;color:var(--primary-color);"></i>
+                                    </div>
+                                    <span style="font-size:0.8rem;color:#ccc;text-align:center;">৩. টেবিল চেক</span>
+                                </div>
+                                <i class="bi bi-arrow-right"
+                                    style="color:rgba(255,255,255,0.3);font-size:1.2rem;margin-bottom:20px;"></i>
+                                <!-- Step 4 -->
+                                <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+                                    <div
+                                        style="width:70px;height:70px;border-radius:50%;border:2px solid var(--primary-color);background:rgba(33,150,243,0.1);display:flex;align-items:center;justify-content:center;">
+                                        <i class="bi bi-send" style="font-size:1.8rem;color:var(--primary-color);"></i>
+                                    </div>
+                                    <span style="font-size:0.8rem;color:#ccc;text-align:center;">৪. ফরওয়ার্ডিং</span>
+                                </div>
+                                <i class="bi bi-arrow-right"
+                                    style="color:rgba(255,255,255,0.3);font-size:1.2rem;margin-bottom:20px;"></i>
+                                <!-- Step 5 -->
+                                <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+                                    <div
+                                        style="width:70px;height:70px;border-radius:50%;border:2px solid var(--primary-color);background:rgba(33,150,243,0.1);display:flex;align-items:center;justify-content:center;">
+                                        <i class="bi bi-arrow-repeat"
+                                            style="font-size:1.8rem;color:var(--primary-color);"></i>
+                                    </div>
+                                    <span style="font-size:0.8rem;color:#ccc;text-align:center;">৫. টেবিল আপডেট</span>
+                                </div>
+                                <i class="bi bi-arrow-right"
+                                    style="color:rgba(255,255,255,0.3);font-size:1.2rem;margin-bottom:20px;"></i>
+                                <!-- Step 6 -->
+                                <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+                                    <div
+                                        style="width:70px;height:70px;border-radius:50%;border:2px solid #4caf50;background:rgba(76,175,80,0.1);display:flex;align-items:center;justify-content:center;">
+                                        <i class="bi bi-check-circle" style="font-size:1.8rem;color:#4caf50;"></i>
+                                    </div>
+                                    <span style="font-size:0.8rem;color:#ccc;text-align:center;">৬. ট্রান্সমিশন</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-box">
+                            <ol>
+                                <li><strong>Frame Reception:</strong> সুইচ সংযুক্ত ডিভাইস থেকে ডেটা ফ্রেম গ্রহণ করে।
+                                </li>
+                                <li><strong>MAC Extraction:</strong> ফ্রেম হেডার থেকে গন্তব্য ম্যাক অ্যাড্রেসটি পড়ে
+                                    নেয়।</li>
+                                <li><strong>Lookup:</strong> সুইচের নিজস্ব ম্যাক টেবিলে গন্তব্য অ্যাড্রেসটি খোঁজে।</li>
+                                <li><strong>Forwarding & Flooding:</strong> অ্যাড্রেস খুঁজে পেলে সেই পোর্টে পাঠায়, না
+                                    পেলে 'Flooding' প্রক্রিয়ার মাধ্যমে সব পোর্টে পাঠায়।</li>
+                                <li><strong>Table Update:</strong> প্রেরক ডিভাইসের ম্যাক অ্যাড্রেস দিয়ে টেবিল আপডেট
+                                    করে।</li>
+                                <li><strong>Transmission:</strong> ফ্রেমটি চূড়ান্ত গন্তব্যে পৌঁছায়।</li>
+                            </ol>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-grid-3x3-gap"></i> সুইচিংয়ের প্রকারভেদ (Types of Switching)</h2>
+                        <p>ডেটা আদান-প্রদানের পদ্ধতির ওপর ভিত্তি করে সুইচিংকে তিন ভাগে ভাগ করা যায়:</p>
+
+                        <h3>১. সার্কিট সুইচিং (Circuit Switching)</h3>
+                        <p>এটি একটি কানেকশন-ওরিয়েন্টেড পদ্ধতি যা সাধারণত টেলিফোন নেটওয়ার্কে ব্যবহৃত হয়। এখানে ডেটা
+                            পাঠানোর আগে প্রেরক ও প্রাপকের মধ্যে একটি সুনির্দিষ্ট পথ তৈরি করা হয়।</p>
+                        <ul>
+                            <li>পুরো সেশন চলাকালীন পথটি সংরক্ষিত থাকে।</li>
+                            <li>নির্দিষ্ট ব্যান্ডউইথ এবং কম ল্যাটেন্সি নিশ্চিত করে।</li>
+                        </ul>
+                        <div class="analogy-box">
+                            <p><strong>কল্পনা করুন:</strong> একটি ব্যক্তিগত রাস্তা যা আপনার পুরো যাত্রার জন্য সংরক্ষিত,
+                                এমনকি যদি রাস্তায় কোনো গাড়ি নাও থাকে তবুও অন্য কেউ তা ব্যবহার করতে পারবে না।</p>
+                        </div>
+
+                        <h3>২. মেসেজ সুইচিং (Message Switching)</h3>
+                        <p>এটি একটি প্রাচীন পদ্ধতি যেখানে পুরো মেসেজটি একটি ইন্টারমিডিয়েট নোডে পাঠানো হয়।</p>
+                        <ul>
+                            <li>মেসেজটি পরবর্তী নোডে পাঠানোর আগে অস্থায়ীভাবে স্টোর করা হয় (Store and Forward)।</li>
+                            <li>প্রেরক ও প্রাপকের মধ্যে কোনো ডেডিকেটেড পাথের প্রয়োজন হয় না।</li>
+                        </ul>
+                        <div class="analogy-box">
+                            <p><strong>কল্পনা করুন:</strong> পোস্ট অফিসে চিঠি পাঠানোর মতো; চিঠিটি প্রথমে একটি শাখায় জমা
+                                হয় এবং সেখান থেকে পরবর্তী গন্তব্যে যায়।</p>
+                        </div>
+
+                        <h3>৩. প্যাকেট সুইচিং (Packet Switching)</h3>
+                        <p>এটি আধুনিক ইন্টারনেটের মূল ভিত্তি। এখানে ডেটাকে ছোট ছোট প্যাকেটে ভাগ করা হয়।</p>
+                        <ul>
+                            <li>প্রতিটি প্যাকেটে গন্তব্য অ্যাড্রেস থাকে এবং সেগুলো ভিন্ন ভিন্ন পথে চলতে পারে।</li>
+                            <li>গন্তব্যে পৌঁছানোর পর প্যাকেটগুলো আবার সিরিয়াল অনুযায়ী সাজানো হয়।</li>
+                        </ul>
+                        <div class="analogy-box">
+                            <p><strong>কল্পনা করুন:</strong> একটি আস্ত বইকে আলাদা আলাদা অধ্যায়ে ভাগ করে ভিন্ন ভিন্ন
+                                কুরিয়ার সার্ভিসের মাধ্যমে পাঠানো এবং সবার শেষে গন্তব্যে পৌঁছে আবার বই আকারে সাজানো।</p>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-info-circle"></i> সারসংক্ষেপ</h2>
+                        <p>সুইচিং নেটওয়ার্কিংয়ের অত্যন্ত গুরুত্বপূর্ণ একটি অংশ। টেলিফোন বা লাইভ যোগাযোগের জন্য সার্কিট
+                            সুইচিং কার্যকর হলেও, ইন্টারনেটের বিশাল ডেটা প্রবাহকে দক্ষতার সাথে পরিচালনা করার জন্য প্যাকেট
+                            সুইচিং হলো বর্তমান বিশ্বের সবচেয়ে শক্তিশালী এবং নির্ভরযোগ্য প্রযুক্তি।</p>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer class="glass-footer">
+            <div class="container">
+                <p>&copy; ২০২৬ enablement.info. সর্বস্বত্ব সংরক্ষিত।</p>
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/network-background.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ডেটা লিঙ্ক লেয়ারে ফ্রেমিং: বিস্তারিত গাইড | enablement.info</title>
+
+    <!-- Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <style>
+        .blog-content-wrapper {
+            padding-top: 20px;
+            padding-bottom: 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d0d0e0;
+        }
+
+        .article-body h2,
+        .article-body h3,
+        .article-body h4 {
+            font-family: 'Times New Roman', 'Nikosh', serif;
+            color: var(--primary-color);
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .article-body h2 {
+            font-size: 1.8rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        .article-body h4 {
+            font-size: 1.15rem;
+            color: #a0c4ff;
+            margin-top: 25px;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .article-body li {
+            margin-bottom: 10px;
+        }
+
+        .note-box {
+            background: rgba(33, 150, 243, 0.07);
+            border-left: 4px solid var(--primary-color);
+            padding: 14px 18px;
+            margin: 18px 0;
+            border-radius: 0 8px 8px 0;
+            color: #b0c4de;
+        }
+
+        .code-block {
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 16px 22px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            color: #a8ff78;
+            overflow-x: auto;
+            margin: 16px 0;
+            line-height: 1.8;
+        }
+
+        .frame-diagram {
+            display: flex;
+            gap: 2px;
+            margin: 24px 0;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+        }
+
+        .frame-segment {
+            flex: 1;
+            min-width: 70px;
+            background: rgba(33, 150, 243, 0.15);
+            border: 1px solid var(--primary-color);
+            border-radius: 6px;
+            padding: 10px 6px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #cce;
+        }
+
+        .frame-segment.data {
+            flex: 3;
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .frame-segment.flag {
+            background: rgba(255, 193, 7, 0.1);
+            border-color: #ffc107;
+            color: #ffd54f;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="network-canvas"></canvas>
+    <div class="overlay">
+        <header class="glass-header">
+            <div class="container">
+                <nav class="main-nav">
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                <i class='bx bx-home-alt-2'></i>
+                                <span class="nav-text">হোম</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../blogs.html" class="active">
+                                <i class='bx bx-book-content'></i>
+                                <span class="nav-text">ব্লগ</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="blog-content-wrapper">
+            <div class="container">
+                <a href="../blogs.html" class="back-btn">
+                    <i class='bx bx-arrow-back'></i>
+                    <span>আগের পেজে ফিরে যান</span>
+                </a>
+
+                <article class="glass-panel">
+                    <header class="article-header">
+                        <h1>ডেটা লিঙ্ক লেয়ারে ফ্রেমিং: বিস্তারিত গাইড</h1>
+                        <div class="article-meta">
+                            <span><i class='bx bx-calendar'></i> ফেব্রুয়ারি ০১, ২০২৬</span>
+                            <span style="margin: 0 10px;">|</span>
+                            <span><i class='bx bx-category'></i> Networking</span>
+                        </div>
+                    </header>
+
+                    <div class="article-body">
+
+                        <!-- ১. ফ্রেমিং কী -->
+                        <h2><i class="bi bi-bounding-box"></i> ফ্রেমিং (Framing) কী?</h2>
+                        <p>একটি <strong>ফ্রেম (Frame)</strong> হলো ডেটা লিঙ্ক লেয়ারে ডেটা ট্রান্সমিশনের মৌলিক একক। এটি
+                            বিট (bit)-এর একটি সংগঠিত গোষ্ঠী যেখানে মূল তথ্য ছাড়াও ঠিকানা ও ত্রুটি শনাক্তকরণের মতো
+                            নিয়ন্ত্রণ তথ্য (control information) থাকে।</p>
+
+                        <!-- ফ্রেম কাঠামোর দৃশ্যমান চিত্র -->
+                        <div class="frame-diagram">
+                            <div class="frame-segment flag">Preamble / Flag</div>
+                            <div class="frame-segment">Dest. Address</div>
+                            <div class="frame-segment">Src. Address</div>
+                            <div class="frame-segment">Length / Type</div>
+                            <div class="frame-segment data">Data (Payload)</div>
+                            <div class="frame-segment">FCS / CRC</div>
+                            <div class="frame-segment flag">End Flag</div>
+                        </div>
+
+                        <div class="content-box">
+                            <ul>
+                                <li>ফ্রেমে ঠিকানা (addressing) ও ত্রুটি শনাক্তকরণের মতো নিয়ন্ত্রণ তথ্য থাকে।</li>
+                                <li>এটি ডেটা লিঙ্ক লেয়ারে (DLL) সম্পাদিত হয়।</li>
+                                <li>বিটের একটানা প্রবাহকে (bit stream) ছোট ও অর্থবহ এককে বিভক্ত করে।</li>
+                                <li>প্রেরক ও প্রাপকের মধ্যে সিঙ্ক্রোনাইজেশন (synchronization) নিশ্চিত করে।</li>
+                                <li>প্রাপকের কাছে নির্ভরযোগ্য ট্রান্সমিশন ও সঠিক প্রসেসিং নিশ্চিত করে।</li>
+                            </ul>
+                        </div>
+
+                        <div class="note-box">
+                            <strong><i class="bi bi-info-circle"></i> উল্লেখ্য:</strong> ফ্রেমিং টাইম ডিভিশন
+                            মাল্টিপ্লেক্সিং (TDM)-এর মতো কৌশলেও অত্যন্ত গুরুত্বপূর্ণ, যেখানে ডেটা নির্দিষ্ট টাইম স্লটে
+                            পাঠানো হয়। Ethernet, Token Ring এবং Frame Relay-এর মতো প্রযুক্তি সুনির্দিষ্ট ফ্রেম ফরম্যাট
+                            ব্যবহার করে।
+                        </div>
+
+                        <hr>
+
+                        <!-- ২. ফ্রেমিংয়ের উদ্দেশ্য -->
+                        <h2><i class="bi bi-bullseye"></i> ফ্রেমিংয়ের উদ্দেশ্য (Purpose of Framing)</h2>
+                        <div class="content-box">
+                            <ul>
+                                <li><strong>ফ্রেম সীমানা নির্ধারণ:</strong> স্পষ্ট সীমানা নির্ধারণ করে যাতে প্রাপক
+                                    প্রতিটি ফ্রেম সঠিকভাবে চিহ্নিত করতে পারে।</li>
+                                <li><strong>ঠিকানা সংযোজন:</strong> সোর্স ও ডেস্টিনেশন অ্যাড্রেস বহন করে সঠিক
+                                    পয়েন্ট-টু-পয়েন্ট যোগাযোগ নিশ্চিত করে।</li>
+                                <li><strong>ত্রুটি শনাক্তকরণ ও সংশোধন:</strong> ডেটার অখণ্ডতা (data integrity) বজায়
+                                    রাখতে সহায়তা করে।</li>
+                                <li><strong>নির্ভরযোগ্য ট্রান্সমিশন:</strong> সুসংগঠিত ও নির্ভরযোগ্য ডেটা পাঠানো নিশ্চিত
+                                    করে।</li>
+                            </ul>
+                        </div>
+                        <div class="note-box">
+                            <strong><i class="bi bi-lightbulb"></i> মনে রাখুন:</strong> ফ্রেমিং ও পুনর্গঠন (reassembly)
+                            প্রক্রিয়া সম্পূর্ণভাবে ডেটা লিঙ্ক লেয়ার দ্বারা পরিচালিত হয় এবং ব্যবহারকারীর কাছে এটি
+                            সম্পূর্ণ স্বচ্ছ (transparent) থাকে।
+                        </div>
+
+                        <hr>
+
+                        <!-- ৩. ফ্রেমিংয়ের প্রকারভেদ -->
+                        <h2><i class="bi bi-grid-3x3-gap"></i> ফ্রেমিংয়ের প্রকারভেদ (Types of Framing)</h2>
+
+                        <h3>১. ফিক্সড-সাইজ ফ্রেমিং (Fixed-Size Framing)</h3>
+                        <p>এই পদ্ধতিতে প্রতিটি ফ্রেমের একটি পূর্বনির্ধারিত স্থায়ী আকার থাকে।</p>
+                        <ul>
+                            <li>ফ্রেমের দৈর্ঘ্যই সীমানা নির্ধারণ করে বলে আলাদা delimiter-এর প্রয়োজন হয় না।</li>
+                            <li><strong>অসুবিধা:</strong> যখন ডেটা ফ্রেমের আকারের চেয়ে ছোট হয়, তখন <em>Internal
+                                    Fragmentation</em> হয়, যা ব্যান্ডউইথের অপচয় করে।</li>
+                            <li><strong>সমাধান:</strong> অব্যবহৃত স্থান পূরণ করতে <strong>Padding</strong> ব্যবহার করা
+                                হয়।</li>
+                        </ul>
+
+                        <h3>২. ভেরিয়েবল-সাইজ ফ্রেমিং (Variable-Size Framing)</h3>
+                        <p>এই পদ্ধতিতে ফ্রেমের শুরু ও শেষ চিহ্নিত করার জন্য স্পষ্ট সীমানা নির্দেশক ব্যবহার করা হয়। দুটি
+                            উপায়ে এটি করা হয়:</p>
+
+                        <div
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px;">
+                            <div class="content-box">
+                                <strong>লেংথ ফিল্ড (Length Field):</strong>
+                                <p>ফ্রেমের মধ্যে একটি ফিল্ড থাকে যা ফ্রেমের আকার নির্দেশ করে (IEEE 802.3 Ethernet-এ
+                                    ব্যবহৃত)। এই ফিল্ড নষ্ট হলে প্রাপক ফ্রেমটি সঠিকভাবে বুঝতে পারে না।</p>
+                            </div>
+                            <div class="content-box">
+                                <strong>এন্ড ডিলিমিটার (End Delimiter):</strong>
+                                <p>একটি অনন্য প্যাটার্ন ব্যবহার করে ফ্রেমের শেষ চিহ্নিত করা হয় (Token Ring-এ ব্যবহৃত)।
+                                    তবে এই প্যাটার্ন ডেটার ভেতরেও থাকতে পারে, যা সমস্যা তৈরি করে।</p>
+                            </div>
+                        </div>
+
+                        <p>এই সমস্যা সমাধানের জন্য <strong>Stuffing</strong> কৌশল ব্যবহার করা হয়:</p>
+
+                        <h4>(ক) ক্যারেক্টার/বাইট স্টাফিং (Character/Byte Stuffing)</h4>
+                        <ul>
+                            <li>ক্যারেক্টার-ভিত্তিক ডেটার ক্ষেত্রে ব্যবহৃত হয়।</li>
+                            <li>যদি ডেটার মধ্যে বিশেষ delimiter ক্যারেক্টার (যেমন <code>$</code>) থাকে, তাহলে তার আগে
+                                একটি Escape ক্যারেক্টার (যেমন <code>\O</code>) যোগ করা হয়।</li>
+                        </ul>
+
+                        <div class="code-block">
+                            উদাহরণ:<br>
+                            ED (End Delimiter) = $<br>
+                            মূল ডেটা: Hello $ World<br>
+                            স্টাফিং-এর পরে: Hello \O$ World<br>
+                            <br>
+                            অসুবিধা: প্রসেসিং ওভারহেড বেশি এবং আধুনিক সিস্টেমে এটি পুরনো।
+                        </div>
+
+                        <h4>(খ) বিট স্টাফিং (Bit Stuffing)</h4>
+                        <ul>
+                            <li>এন্ড ডিলিমিটার (ED) হলো একটি বিট সিকোয়েন্স, যেমন <code>01111</code>।</li>
+                            <li>যখনই ডেটায় এই প্যাটার্ন দেখা যায়, বিভ্রান্তি এড়াতে একটি অতিরিক্ত <code>0</code> বিট
+                                প্রবেশ করানো হয়।</li>
+                        </ul>
+
+                        <div class="code-block">
+                            উদাহরণ ১:<br>
+                            মূল ডেটা: 011100011110<br>
+                            ED প্যাটার্ন: 0111<br>
+                            বিট স্টাফিং-এর পরে: 011010001101100<br>
+                            <br>
+                            উদাহরণ ২:<br>
+                            মূল ডেটা: 110001001<br>
+                            ED প্যাটার্ন: 1000<br>
+                            বিট স্টাফিং-এর পরে: 11001010011
+                        </div>
+
+                        <hr>
+
+                        <!-- ৪. ফ্রেমিংয়ের সমস্যাসমূহ -->
+                        <h2><i class="bi bi-exclamation-triangle"></i> ফ্রেমিংয়ের সমস্যাসমূহ (Problems in Framing)</h2>
+                        <div
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px;">
+                            <div class="content-box">
+                                <strong><i class="bi bi-flag"></i> শুরু ও শেষ শনাক্তকরণ:</strong>
+                                <p>প্রাপককে অবশ্যই delimiter বা flag ব্যবহার করে ফ্রেম সীমানা সঠিকভাবে চিহ্নিত করতে হবে।
+                                </p>
+                            </div>
+                            <div class="content-box">
+                                <strong><i class="bi bi-clock-history"></i> সিঙ্ক্রোনাইজেশন:</strong>
+                                <p>উচ্চ-গতির নেটওয়ার্কে প্রেরক ও প্রাপককে ফ্রেমের টাইমিংয়ে একমত থাকতে হবে।</p>
+                            </div>
+                            <div class="content-box">
+                                <strong><i class="bi bi-bug"></i> ত্রুটি হ্যান্ডলিং:</strong>
+                                <p>নয়েজ ডেটা বা delimiter নষ্ট করতে পারে। CRC বা Checksum-এর মতো পদ্ধতি ব্যবহার করা
+                                    হয়।</p>
+                            </div>
+                            <div class="content-box">
+                                <strong><i class="bi bi-bar-chart-line"></i> ওভারহেড:</strong>
+                                <p>হেডার ও ট্রেলার নিয়ন্ত্রণ তথ্য বহন করে কিন্তু ব্যবহারযোগ্য ব্যান্ডউইথ কমিয়ে দেয়।
+                                </p>
+                            </div>
+                            <div class="content-box">
+                                <strong><i class="bi bi-speedometer2"></i> দক্ষতা:</strong>
+                                <p>ওভারহেড ও প্রসেসিং বিলম্ব কমিয়ে পেলোড (payload) সর্বাধিক করাই লক্ষ্য।</p>
+                            </div>
+                            <div class="content-box">
+                                <strong><i class="bi bi-gear-wide-connected"></i> সামঞ্জস্যতা:</strong>
+                                <p>ভিন্ন ডিভাইস ভিন্ন ফ্রেমিং পদ্ধতি ব্যবহার করতে পারে, যা ডেটার ভুল ব্যাখ্যা করার কারণ
+                                    হতে পারে।</p>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <!-- ৫. সারসংক্ষেপ -->
+                        <h2><i class="bi bi-check2-circle"></i> সারসংক্ষেপ</h2>
+                        <p>ফ্রেমিং হলো ডেটা লিঙ্ক লেয়ারের একটি মৌলিক প্রক্রিয়া যা বিটের অবিচ্ছিন্ন প্রবাহকে অর্থবহ
+                            এককে বিভক্ত করে। Fixed-size ফ্রেমিং সহজ হলেও Padding-এর প্রয়োজন হয়, আর Variable-size
+                            ফ্রেমিং নমনীয় হলেও Stuffing কৌশলের মাধ্যমে delimiter-এর সমস্যা সামলাতে হয়। সঠিক ফ্রেমিং
+                            ছাড়া নির্ভরযোগ্য নেটওয়ার্ক যোগাযোগ সম্ভব নয়।</p>
+
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer class="glass-footer">
+            <div class="container">
+                <p>&copy; ২০২৬ enablement.info. সর্বস্বত্ব সংরক্ষিত।</p>
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/network-background.js"></script>
+</body>
+
+</html>

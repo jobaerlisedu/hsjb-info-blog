@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ফ্লো কন্ট্রোল: ডেটা লিঙ্ক লেয়ার | enablement.info</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script
+        type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+    <style>
+        .blog-content-wrapper {
+            padding-top: 20px;
+            padding-bottom: 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d0d0e0;
+        }
+
+        .article-body h2,
+        .article-body h3,
+        .article-body h4 {
+            font-family: 'Times New Roman', serif;
+            color: var(--primary-color);
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .article-body h2 {
+            font-size: 1.8rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        .article-body h4 {
+            font-size: 1.1rem;
+            color: #a0c4ff;
+            margin-top: 20px;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .article-body li {
+            margin-bottom: 10px;
+        }
+
+        .note-box {
+            background: rgba(33, 150, 243, 0.07);
+            border-left: 4px solid var(--primary-color);
+            padding: 14px 18px;
+            margin: 18px 0;
+            border-radius: 0 8px 8px 0;
+            color: #b0c4de;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="network-canvas"></canvas>
+    <div class="overlay">
+        <header class="glass-header">
+            <div class="container">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span
+                                    class="nav-text">হোম</span></a></li>
+                        <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
+                                    class="nav-text">ব্লগ</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="blog-content-wrapper">
+            <div class="container">
+                <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>আগের পেজে ফিরে
+                        যান</span></a>
+
+                <article class="glass-panel">
+                    <header class="article-header">
+                        <h1>ফ্লো কন্ট্রোল: ডেটা লিঙ্ক লেয়ার</h1>
+                        <div class="article-meta">
+                            <span><i class='bx bx-calendar'></i> ফেব্রুয়ারি ০৮, ২০২৬</span>
+                            <span style="margin:0 10px;">|</span>
+                            <span><i class='bx bx-category'></i> Networking</span>
+                        </div>
+                    </header>
+
+                    <div class="article-body">
+
+                        <h2><i class="bi bi-speedometer2"></i> ফ্লো কন্ট্রোল (Flow Control) কী?</h2>
+                        <p><strong>Flow Control</strong> হলো OSI মডেলের ডেটা লিঙ্ক লেয়ারের একটি প্রক্রিয়া যা প্রেরক ও
+                            প্রাপকের মধ্যে ডেটা ট্রান্সমিশনের গতি নিয়ন্ত্রণ করে। এটি নিশ্চিত করে যে প্রেরক এমন গতিতে
+                            ডেটা পাঠায় যা প্রাপক সামলাতে পারে — বাফার ওভারফ্লো এবং ডেটা হারানো রোধ করে।</p>
+
+                        <div class="content-box">
+                            <ul>
+                                <li>প্রেরক ও প্রাপকের মধ্যে ডেটার প্রবাহ নিয়ন্ত্রণ করে।</li>
+                                <li>ট্রান্সমিশন গতি ও প্রসেসিং সক্ষমতার পার্থক্য সামলায়।</li>
+                                <li>বাফার ওভারফ্লো ও ডেটা হারানো রোধ করে।</li>
+                                <li>ডিভাইসগুলির মধ্যে একটি স্পিড-ম্যাচিং মেকানিজম হিসেবে কাজ করে।</li>
+                                <li>ACK পাওয়ার আগে কতটি ফ্রেম পাঠাবে তা নিয়ন্ত্রণ করে।</li>
+                                <li>ডেটা ট্রান্সমিশন হার ও মেমরি ক্যাপাসিটির মধ্যে ভারসাম্য রাখে।</li>
+                            </ul>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-diagram-3"></i> ফ্লো কন্ট্রোলের পদ্ধতিসমূহ (Approaches)</h2>
+
+                        <h3>১. ফিডব্যাক-ভিত্তিক ফ্লো কন্ট্রোল (Feedback-Based)</h3>
+                        <p>এখানে প্রাপক ডেটা পাওয়ার ক্ষমতা সম্পর্কে প্রেরককে সরাসরি ফিডব্যাক পাঠায় এবং প্রেরক সেই
+                            অনুযায়ী গতি সামঞ্জস্য করে।</p>
+                        <ul>
+                            <li>প্রেরক ACK বা উইন্ডো আপডেট পাওয়ার পরেই ডেটা পাঠায়।</li>
+                            <li>ডেটা পাঠানোর হার প্রাপকের বর্তমান অবস্থা বা নেটওয়ার্ক পরিবেশ অনুযায়ী গতিশীলভাবে
+                                পরিবর্তিত হয়।</li>
+                            <li>TCP-এর মতো প্রোটোকলে ব্যাপকভাবে ব্যবহৃত হয়।</li>
+                        </ul>
+
+                        <h4>কম্পিউটার আর্কিটেকচারে ব্যবহৃত কৌশল:</h4>
+                        <div
+                            style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;margin-bottom:20px;">
+                            <div class="content-box">
+                                <strong>Ready-Signal Handshaking:</strong>
+                                <p>ভিন্ন গতির কম্পোনেন্টের মধ্যে ব্যবহৃত হয়। প্রাপক "ready" সিগনাল পাঠালে তবেই ডেটা
+                                    ট্রান্সফার শুরু হয়।</p>
+                            </div>
+                            <div class="content-box">
+                                <strong>Credit-Based Flow Control:</strong>
+                                <ul>
+                                    <li>Fibre Channel-এর মতো হাই-স্পিড প্রোটোকলে ব্যবহৃত।</li>
+                                    <li>প্রাপক বাফার স্পেসের সমপরিমাণ ক্রেডিট দেয়; প্রেরক প্রতিটি ক্রেডিটের বিপরীতে
+                                        একটি ফ্রেম পাঠাতে পারে।</li>
+                                    <li>প্রাপক ডেটা প্রসেস করার সাথে সাথে ক্রেডিট পুনরুদ্ধার হয়।</li>
+                                    <li>সাধারণ Stop-and-Wait ফ্লো কন্ট্রোলের চেয়ে বেশি দক্ষ।</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h3>২. রেট-ভিত্তিক ফ্লো কন্ট্রোল (Rate-Based)</h3>
+                        <p>প্রেরক প্রাপকের ক্রমাগত ফিডব্যাক ছাড়াই একটি নির্দিষ্ট বা পূর্বনির্ধারিত হারে ডেটা পাঠায়।
+                        </p>
+                        <ul>
+                            <li>প্রেরক স্বাধীনভাবে ট্রান্সমিশন হার নিয়ন্ত্রণ করে।</li>
+                            <li>ACK বা উইন্ডো আপডেটের ওপর নির্ভর করে না।</li>
+                            <li>স্ট্রিমিং, মাল্টিমিডিয়া ও হার্ডওয়্যার সিস্টেমে উপযুক্ত।</li>
+                        </ul>
+
+                        <h4>কম্পিউটার আর্কিটেকচারে ব্যবহৃত কৌশল:</h4>
+                        <div
+                            style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-bottom:20px;">
+                            <div class="content-box">
+                                <strong><i class="bi bi-bucket"></i> Leaky Bucket Algorithm:</strong>
+                                <p>ইনপুট ট্র্যাফিককে একটি নির্দিষ্ট হারে আউটপুট করে, বার্স্টি (bursty) ট্র্যাফিককে মসৃণ
+                                    করে।</p>
+                            </div>
+                            <div class="content-box">
+                                <strong><i class="bi bi-coin"></i> Token Bucket Algorithm:</strong>
+                                <p>নির্দিষ্ট হারে টোকেন তৈরি হয়; টোকেন থাকলেই ডেটা পাঠানো যায়। বড় বাকেট ছোট বার্স্ট
+                                    সাপোর্ট করে।</p>
+                            </div>
+                            <div class="content-box">
+                                <strong><i class="bi bi-filter"></i> Traffic Shaping & Policing:</strong>
+                                <p>শেপিং অতিরিক্ত প্যাকেট বিলম্বিত করে, পলিসিং অতিরিক্ত প্যাকেট বাদ দেয়।</p>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-play-circle"></i> ফ্লো কন্ট্রোলের কৌশলসমূহ (Techniques)</h2>
+
+                        <h3>১. Stop-and-Wait ফ্লো কন্ট্রোল</h3>
+                        <p>একটি সহজ ফিডব্যাক-ভিত্তিক পদ্ধতি যেখানে প্রেরক একটি ফ্রেম পাঠিয়ে ACK পাওয়ার জন্য অপেক্ষা
+                            করে, তারপর পরের ফ্রেম পাঠায়।</p>
+                        <div class="content-box">
+                            <ul>
+                                <li><strong>সহজ ও বাস্তবায়নযোগ্য।</strong></li>
+                                <li>নির্ভরযোগ্য ডেটা ট্রান্সমিশন নিশ্চিত করে।</li>
+                                <li><strong>অসুবিধা:</strong> হাই-লেটেন্সি বা হাই-ব্যান্ডউইথ নেটওয়ার্কে খারাপ লিঙ্ক
+                                    ব্যবহার — অপেক্ষার কারণে লাইন খালি পড়ে থাকে।</li>
+                            </ul>
+                        </div>
+
+                        <h3>২. Sliding Window ফ্লো কন্ট্রোল</h3>
+                        <p>প্রেরক ACK পাওয়ার আগেই একাধিক ফ্রেম পাঠাতে পারে। প্রাপকের ACK পাওয়ার সাথে সাথে উইন্ডো সামনে
+                            এগিয়ে (slide) যায়, যা পাইপলাইনড ট্রান্সমিশন সম্ভব করে।</p>
+                        <div class="content-box">
+                            <ul>
+                                <li>পাইপলাইনড ট্রান্সমিশনের মাধ্যমে ব্যান্ডউইথ ব্যবহার উন্নত করে।</li>
+                                <li>একই সাথে একাধিক ফ্রেম ট্রান্সিটে থাকতে পারে।</li>
+                                <li>উইন্ডো ও বাফার ম্যানেজমেন্টের জন্য অতিরিক্ত মেমরি ও জটিলতা প্রয়োজন।</li>
+                            </ul>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-award"></i> ফ্লো কন্ট্রোলের গুরুত্ব</h2>
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;">
+                            <div class="content-box">
+                                <strong><i class="bi bi-shield-check"></i> ডেটা হারানো রোধ:</strong>
+                                <p>প্রাপকের বাফার ওভারফ্লো এড়াতে ট্রান্সমিশন হার নিয়ন্ত্রণ করে।</p>
+                            </div>
+                            <div class="content-box">
+                                <strong><i class="bi bi-graph-up-arrow"></i> থ্রুপুট উন্নতি:</strong>
+                                <p>কোনো ডিভাইসকে ওভারলোড না করে দক্ষতার সাথে নেটওয়ার্ক রিসোর্স ব্যবহার নিশ্চিত করে।</p>
+                            </div>
+                            <div class="content-box">
+                                <strong><i class="bi bi-activity"></i> সিস্টেম স্থিতিশীলতা:</strong>
+                                <p>অতিরিক্ত ডেটা ইনপুটের কারণে হার্ডওয়্যার ও সফটওয়্যার স্তব্ধ হওয়া বা ব্যর্থ হওয়া
+                                    রোধ করে।</p>
+                            </div>
+                            <div class="content-box">
+                                <strong><i class="bi bi-balance-scale"></i> ন্যায্যতা নিশ্চিতকরণ:</strong>
+                                <p>সুইচ ও রাউটারের মতো শেয়ার্ড পরিবেশে একাধিক সংযোগে সুষম ডেটা ট্রান্সমিশন নিশ্চিত করে।
+                                </p>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-check2-circle"></i> সারসংক্ষেপ</h2>
+                        <p>Flow Control ডেটা লিঙ্ক লেয়ারের একটি অবিচ্ছেদ্য অংশ। Stop-and-Wait পদ্ধতি সহজ কিন্তু কম
+                            দক্ষ, আর Sliding Window পদ্ধতি বেশি দক্ষ ও আধুনিক নেটওয়ার্কে ব্যাপকভাবে ব্যবহৃত হয়।
+                            Feedback-based ও Rate-based দুটি পদ্ধতিই বিভিন্ন পরিস্থিতিতে নেটওয়ার্কের কার্যকারিতা
+                            নিশ্চিত করে।</p>
+
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer class="glass-footer">
+            <div class="container">
+                <p>&copy; ২০২৬ enablement.info. সর্বস্বত্ব সংরক্ষিত।</p>
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/network-background.js"></script>
+</body>
+
+</html>

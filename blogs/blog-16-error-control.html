@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ডেটা লিঙ্ক লেয়ারে এরর কন্ট্রোল | enablement.info</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script
+        type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+    <style>
+        .blog-content-wrapper {
+            padding-top: 20px;
+            padding-bottom: 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d0d0e0;
+        }
+
+        .article-body h2,
+        .article-body h3 {
+            font-family: 'Times New Roman', serif;
+            color: var(--primary-color);
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .article-body h2 {
+            font-size: 1.8rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .article-body li {
+            margin-bottom: 10px;
+        }
+
+        .note-box {
+            background: rgba(33, 150, 243, 0.07);
+            border-left: 4px solid var(--primary-color);
+            padding: 14px 18px;
+            margin: 18px 0;
+            border-radius: 0 8px 8px 0;
+            color: #b0c4de;
+        }
+
+        .arq-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .arq-step {
+            background: rgba(33, 150, 243, 0.12);
+            border: 1px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 10px 16px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #cce;
+            min-width: 100px;
+        }
+
+        .arq-arrow {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="network-canvas"></canvas>
+    <div class="overlay">
+        <header class="glass-header">
+            <div class="container">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span
+                                    class="nav-text">হোম</span></a></li>
+                        <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
+                                    class="nav-text">ব্লগ</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="blog-content-wrapper">
+            <div class="container">
+                <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>আগের পেজে ফিরে
+                        যান</span></a>
+
+                <article class="glass-panel">
+                    <header class="article-header">
+                        <h1>ডেটা লিঙ্ক লেয়ারে এরর কন্ট্রোল</h1>
+                        <div class="article-meta">
+                            <span><i class='bx bx-calendar'></i> ফেব্রুয়ারি ০৫, ২০২৬</span>
+                            <span style="margin:0 10px;">|</span>
+                            <span><i class='bx bx-category'></i> Networking</span>
+                        </div>
+                    </header>
+
+                    <div class="article-body">
+
+                        <h2><i class="bi bi-shield-exclamation"></i> এরর কন্ট্রোল (Error Control) কী?</h2>
+                        <p>ডেটা লিঙ্ক লেয়ারে <strong>Error Control</strong> নিশ্চিত করে যে প্রেরক কর্তৃক পাঠানো
+                            ফ্রেমগুলো প্রাপকের কাছে সঠিকভাবে ও নির্ভরযোগ্যভাবে পৌঁছায়। এটি মূলত তিনটি কাজ করে:</p>
+                        <div class="content-box">
+                            <ul>
+                                <li>ডেটা ট্রান্সমিশনের সময় ঘটা ত্রুটি শনাক্ত করা।</li>
+                                <li>পুনরায় ট্রান্সমিশনের মাধ্যমে ত্রুটি সংশোধন করা।</li>
+                                <li>নয়েজযুক্ত চ্যানেলে নির্ভরযোগ্য ফ্রেম ডেলিভারি নিশ্চিত করা।</li>
+                            </ul>
+                        </div>
+                        <p>এরর কন্ট্রোলের প্রাথমিক পদ্ধতি হলো <strong>Automatic Repeat Request (ARQ)</strong>। ARQ-এ যদি
+                            ত্রুটি শনাক্ত হয় বা ACK পাওয়া না যায়, তাহলে প্রেরক ফ্রেমটি পুনরায় পাঠায়।</p>
+
+                        <hr>
+
+                        <h2><i class="bi bi-arrow-repeat"></i> এরর কন্ট্রোলের দুটি পদ্ধতি</h2>
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;">
+                            <div class="content-box">
+                                <h3><i class="bi bi-search"></i> Error Detection</h3>
+                                <p>ট্রান্সমিটেড ডেটায় ত্রুটি শনাক্ত করার প্রক্রিয়া। যোগাযোগ ব্যবস্থায় ট্রান্সমিটার
+                                    থেকে রিসিভারে ডেটা পাঠানোর সময় নয়েজ বা অন্যান্য সমস্যার কারণে ত্রুটি হতে পারে। এটি
+                                    নষ্ট, বিকৃত বা অস্পষ্ট ডেটা আরও প্রসেস করার আগে চিহ্নিত করার কৌশল ব্যবহার করে।</p>
+                            </div>
+                            <div class="content-box">
+                                <h3><i class="bi bi-wrench-adjustable"></i> Error Correction</h3>
+                                <p>শনাক্ত হওয়া ত্রুটি সংশোধন করে মূল ত্রুটিমুক্ত ডেটা পুনরুদ্ধার করার প্রক্রিয়া। এটি
+                                    অতিরিক্ত তথ্য ব্যবহার করে বা পুনরায় ট্রান্সমিশনের মাধ্যমে সঠিক ডেটা পুনর্গঠন করে।
+                                    তবে ত্রুটি সংশোধন কৌশল সাধারণত জটিল, ব্যয়বহুল ও সম্পদ-নিবিড় হওয়ায় এটি বেছে বেছে
+                                    ব্যবহার করা হয়।</p>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-diagram-2"></i> এরর কন্ট্রোলের কৌশলসমূহ (Techniques)</h2>
+
+                        <h3>১. Stop-and-Wait ARQ</h3>
+                        <p>এই পদ্ধতিতে প্রেরক একটি ডেটা ফ্রেম পাঠায় এবং প্রাপকের কাছ থেকে ACK (Acknowledgment) পাওয়ার
+                            আগ পর্যন্ত অপেক্ষা করে।</p>
+
+                        <div class="arq-flow">
+                            <div class="arq-step">প্রেরক<br>ফ্রেম পাঠায়</div>
+                            <i class="bi bi-arrow-right arq-arrow"></i>
+                            <div class="arq-step">প্রাপক<br>ফ্রেম নেয়</div>
+                            <i class="bi bi-arrow-right arq-arrow"></i>
+                            <div class="arq-step">ACK<br>পাঠায়</div>
+                            <i class="bi bi-arrow-right arq-arrow"></i>
+                            <div class="arq-step">প্রেরক<br>পরের ফ্রেম পাঠায়</div>
+                        </div>
+
+                        <div class="content-box">
+                            <ul>
+                                <li>একটি ফ্রেম পাঠিয়ে ACK না পাওয়া পর্যন্ত অপেক্ষা করে।</li>
+                                <li>সময়সীমার মধ্যে ACK না পেলে ফ্রেম পুনরায় পাঠানো হয়।</li>
+                                <li>সকল ফ্রেম সফলভাবে পৌঁছানো পর্যন্ত এই প্রক্রিয়া চলে।</li>
+                            </ul>
+                        </div>
+
+                        <h3>২. Sliding Window ARQ</h3>
+                        <p>এটি কন্টিনিউয়াস ডেটা ট্রান্সমিশনের জন্য ব্যবহৃত হয়। প্রেরক প্রতিটি ফ্রেমের ACK-এর জন্য
+                            অপেক্ষা না করেই একাধিক ফ্রেম পাঠাতে পারে, যা চ্যানেল ব্যবহারের দক্ষতা বাড়ায়।</p>
+
+                        <p>Sliding Window ARQ প্রধানত দুই ধরনের:</p>
+
+                        <div
+                            style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px;margin-bottom:20px;">
+                            <div class="content-box">
+                                <h3><i class="bi bi-skip-backward"></i> Go-Back-N ARQ</h3>
+                                <ul>
+                                    <li>প্রেরক একটি নির্দিষ্ট উইন্ডো সাইজ পর্যন্ত ACK ছাড়াই ফ্রেম পাঠাতে পারে।</li>
+                                    <li>প্রাপক সঠিকভাবে ফ্রেম পেলে ACK পাঠায়।</li>
+                                    <li>কোনো ফ্রেম হারিয়ে গেলে বা ত্রুটিযুক্ত হলে প্রাপক সেই ফ্রেম এবং পরবর্তী সব ফ্রেম
+                                        বাদ দেয়।</li>
+                                    <li>প্রেরক তখন সেই ত্রুটিপূর্ণ ফ্রেম এবং তার পরে পাঠানো সব ফ্রেম পুনরায় পাঠায়।
+                                    </li>
+                                    <li>ত্রুটি না থাকলে এটি সাধারণ Sliding Window মেকানিজম হিসেবে কাজ করে।</li>
+                                    <li>বাস্তবায়ন সহজ, তবে অপ্রয়োজনীয় পুনরায় পাঠানো হতে পারে।</li>
+                                </ul>
+                            </div>
+                            <div class="content-box">
+                                <h3><i class="bi bi-fast-forward"></i> Selective Repeat ARQ</h3>
+                                <ul>
+                                    <li>Go-Back-N-এর মতো একাধিক ফ্রেম পুনরায় না পাঠিয়ে এটি দক্ষতা উন্নত করে।</li>
+                                    <li>প্রেরক শুধুমাত্র সেই ফ্রেমগুলো পুনরায় পাঠায় যেগুলোর জন্য NAK পাওয়া গেছে বা
+                                        Timeout হয়েছে।</li>
+                                    <li>প্রতিটি ফ্রেম আলাদাভাবে স্বীকৃত হয়, যা সঠিকভাবে প্রাপ্ত ফ্রেমগুলো গ্রহণ ও
+                                        সংরক্ষণ করার সুবিধা দেয়।</li>
+                                    <li>অতিরিক্ত বাফারিং ও ট্র্যাকিংয়ের প্রয়োজনে বাস্তবায়ন জটিল, যা সরল ARQ-এর
+                                        তুলনায় এর ব্যবহার সীমিত করে।</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="note-box">
+                            <strong><i class="bi bi-info-circle"></i> মূল পার্থক্য:</strong> Go-Back-N ARQ-এ ত্রুটিপূর্ণ
+                            ফ্রেমসহ পরবর্তী সব ফ্রেম পুনরায় পাঠানো হয়, কিন্তু Selective Repeat ARQ-এ শুধুমাত্র
+                            ক্ষতিগ্রস্ত ফ্রেমটিই পাঠানো হয়, যা এটিকে আরও দক্ষ করে তোলে।
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-check2-circle"></i> সারসংক্ষেপ</h2>
+                        <p>Error Control ডেটা লিঙ্ক লেয়ারের একটি অপরিহার্য কার্যকারিতা। Stop-and-Wait ARQ সহজ কিন্তু
+                            ধীর, আর Sliding Window ARQ (Go-Back-N ও Selective Repeat) বেশি দক্ষ ও আধুনিক নেটওয়ার্কে
+                            ব্যাপকভাবে ব্যবহৃত হয়।</p>
+
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer class="glass-footer">
+            <div class="container">
+                <p>&copy; ২০২৬ enablement.info. সর্বস্বত্ব সংরক্ষিত।</p>
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/network-background.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ভার্চুয়াল ল্যান (VLAN): বিস্তারিত গাইড | enablement.info</title>
+
+    <!-- Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <style>
+        .blog-content-wrapper {
+            padding-top: 20px;
+            padding-bottom: 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d0d0e0;
+        }
+
+        .article-body h2,
+        .article-body h3 {
+            font-family: 'Times New Roman', 'Nikosh', serif;
+            color: var(--primary-color);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .article-body h2 {
+            font-size: 1.8rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .article-body li {
+            margin-bottom: 10px;
+        }
+
+        .note-box {
+            background: rgba(33, 150, 243, 0.07);
+            border-left: 4px solid var(--primary-color);
+            padding: 14px 18px;
+            margin: 18px 0;
+            border-radius: 0 8px 8px 0;
+            color: #b0c4de;
+        }
+
+        .code-block {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 18px 22px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #a8ff78;
+            overflow-x: auto;
+            margin: 20px 0;
+            line-height: 1.7;
+        }
+
+        .vlan-id-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .vlan-id-table th,
+        .vlan-id-table td {
+            padding: 12px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .vlan-id-table th {
+            background: rgba(33, 150, 243, 0.2);
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .vlan-id-table tr:nth-child(even) td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .vlan-id-table tr:hover td {
+            background: rgba(33, 150, 243, 0.07);
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="network-canvas"></canvas>
+    <div class="overlay">
+        <header class="glass-header">
+            <div class="container">
+                <nav class="main-nav">
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                <i class='bx bx-home-alt-2'></i>
+                                <span class="nav-text">হোম</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../blogs.html" class="active">
+                                <i class='bx bx-book-content'></i>
+                                <span class="nav-text">ব্লগ</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="blog-content-wrapper">
+            <div class="container">
+                <a href="../blogs.html" class="back-btn">
+                    <i class='bx bx-arrow-back'></i>
+                    <span>আগের পেজে ফিরে যান</span>
+                </a>
+
+                <article class="glass-panel">
+                    <header class="article-header">
+                        <h1>ভার্চুয়াল ল্যান (VLAN): বিস্তারিত গাইড</h1>
+                        <div class="article-meta">
+                            <span><i class='bx bx-calendar'></i> জানুয়ারি ২৫, ২০২৬</span>
+                            <span style="margin: 0 10px;">|</span>
+                            <span><i class='bx bx-category'></i> Networking</span>
+                        </div>
+                    </header>
+
+                    <div class="article-body">
+
+                        <!-- ১. ভূমিকা -->
+                        <h2><i class="bi bi-diagram-3"></i> ভার্চুয়াল ল্যান (VLAN) কী?</h2>
+                        <p>Virtual Local Area Network বা VLAN হলো একটি Layer 2 (ডেটা লিঙ্ক লেয়ার) নেটওয়ার্কের লজিক্যাল
+                            বিভাজন, যা ডিভাইসগুলোকে তাদের ফিজিক্যাল অবস্থান নির্বিশেষে আলাদা আলাদা লজিক্যাল নেটওয়ার্কে
+                            গ্রুপ করে। সাধারণ LAN-এর মতো ফিজিক্যাল টপোলজির ওপর নির্ভর না করে, VLAN সুইচে <strong>IEEE
+                                802.1Q ফ্রেম ট্যাগিং</strong>-এর মাধ্যমে কাজ করে।</p>
+                        <p>একটি ফিজিক্যাল সুইচ নেটওয়ার্ককে একাধিক লজিক্যাল ব্রডকাস্ট ডোমেইনে বিভক্ত করে VLAN
+                            অপ্রয়োজনীয় ব্রডকাস্ট ট্র্যাফিক কমায়, নিরাপত্তা বাড়ায় এবং নেটওয়ার্ক পারফর্ম্যান্স ও
+                            ব্যবস্থাপনার মান উন্নত করে।</p>
+
+                        <div class="content-box">
+                            <ul>
+                                <li><strong>একই VLAN-এ:</strong> ডিভাইসগুলো সরাসরি একই ব্রডকাস্ট ডোমেইনের মধ্যে যোগাযোগ
+                                    করতে পারে।</li>
+                                <li><strong>ভিন্ন VLAN-এ:</strong> যোগাযোগের জন্য একটি রাউটার বা Layer 3 সুইচের (SVI)
+                                    মাধ্যমে <strong>Inter-VLAN Routing</strong> প্রয়োজন।</li>
+                            </ul>
+                        </div>
+
+                        <div class="note-box">
+                            <strong><i class="bi bi-info-circle"></i> উল্লেখ্য:</strong> VLAN ছাড়া একটি সাধারণ LAN-এ
+                            সুইচের সাথে সংযুক্ত সকল ডিভাইস একটি মাত্র ব্রডকাস্ট ডোমেইনে থাকে। ফলে ব্রডকাস্ট ফ্রেম সব
+                            পোর্টে ছড়িয়ে পড়ে, যা অপ্রয়োজনীয় নেটওয়ার্ক ওভারহেড এবং নিরাপত্তার ঝুঁকি তৈরি করে।
+                        </div>
+
+                        <hr>
+
+                        <!-- ২. VLAN ID রেঞ্জ -->
+                        <h2><i class="bi bi-list-ol"></i> VLAN ID রেঞ্জ (Cisco স্ট্যান্ডার্ড)</h2>
+                        <p>Cisco-এর স্ট্যান্ডার্ড অনুযায়ী VLAN ID-গুলোকে নিচের ভাগে ভাগ করা হয়:</p>
+
+                        <table class="vlan-id-table">
+                            <thead>
+                                <tr>
+                                    <th>VLAN ID রেঞ্জ</th>
+                                    <th>ধরন</th>
+                                    <th>বিবরণ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>VLAN 0 ও VLAN 4095</strong></td>
+                                    <td>Reserved</td>
+                                    <td>IEEE 802.1Q দ্বারা সংরক্ষিত। প্রোটোকল অপারেশনের জন্য ব্যবহৃত; কনফিগার করা যায়
+                                        না।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>VLAN 1</strong></td>
+                                    <td>Default VLAN</td>
+                                    <td>Cisco সুইচের ডিফল্ট VLAN। সব পোর্ট ডিফল্টে এখানে থাকে। STP, CDP, VTP-র জন্য
+                                        ব্যবহৃত। মুছে ফেলা যায় না।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>VLAN 2–1001</strong></td>
+                                    <td>Normal VLAN</td>
+                                    <td>সাধারণ VLAN কনফিগারেশনের জন্য ব্যবহৃত। সম্পূর্ণ কনফিগারযোগ্য এবং সুইচের VLAN
+                                        ডেটাবেজে সংরক্ষিত।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>VLAN 1002–1005</strong></td>
+                                    <td>Reserved (Legacy)</td>
+                                    <td>FDDI এবং Token Ring-এর মতো পুরনো প্রযুক্তির জন্য সংরক্ষিত। মুছে ফেলা যায় না।
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>VLAN 1006–4094</strong></td>
+                                    <td>Extended VLAN</td>
+                                    <td>বড় নেটওয়ার্কের জন্য ডিজাইন করা। Running configuration-এ সংরক্ষিত এবং VTP
+                                        transparent mode প্রয়োজন।</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <hr>
+
+                        <!-- ৩. কনফিগারেশন উদাহরণ -->
+                        <h2><i class="bi bi-terminal"></i> VLAN কনফিগারেশন উদাহরণ</h2>
+                        <p>নিচে Cisco সুইচে VLAN তৈরি এবং পোর্টে অ্যাসাইন করার একটি বাস্তব উদাহরণ দেওয়া হলো:</p>
+
+                        <p><strong>ধাপ ১: VLAN তৈরি করুন</strong></p>
+                        <div class="code-block">Switch(config)# vlan 2<br>
+                            Switch(config-vlan)# name Accounts<br>
+                            Switch(config)# vlan 3<br>
+                            Switch(config-vlan)# name HR</div>
+
+                        <p><strong>ধাপ ২: সুইচ পোর্টে VLAN অ্যাসাইন করুন</strong></p>
+                        <div class="code-block">Switch(config)# interface fa0/0<br>
+                            Switch(config-if)# switchport mode access<br>
+                            Switch(config-if)# switchport access vlan 2<br>
+                            <br>
+                            Switch(config)# interface fa0/1<br>
+                            Switch(config-if)# switchport mode access<br>
+                            Switch(config-if)# switchport access vlan 3
+                        </div>
+
+                        <div class="note-box">
+                            এখানে <strong>Fa0/0</strong> পোর্টটি VLAN 2 (Accounts)-এ এবং <strong>Fa0/1</strong> পোর্টটি
+                            VLAN 3 (HR)-এ অ্যাসাইন করা হয়েছে। যেহেতু এই দুটি আলাদা ব্রডকাস্ট ডোমেইন, তাই এদের মধ্যে
+                            যোগাযোগের জন্য Inter-VLAN Routing প্রয়োজন।
+                        </div>
+
+                        <hr>
+
+                        <!-- ৪. VLAN লিঙ্কের ধরন -->
+                        <h2><i class="bi bi-link-45deg"></i> VLAN লিঙ্কের ধরনসমূহ</h2>
+                        <div
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px;">
+                            <div class="content-box">
+                                <h3><i class="bi bi-pc-display"></i> Access Link</h3>
+                                <p>VLAN সম্পর্কে অজ্ঞ এন্ড-ডিভাইস (যেমন PC) থেকে VLAN-aware সুইচে সংযোগ। ফ্রেমগুলো
+                                    Untagged হয় এবং একটি মাত্র VLAN-এর অন্তর্গত থাকে।</p>
+                            </div>
+                            <div class="content-box">
+                                <h3><i class="bi bi-hdd-network"></i> Trunk Link</h3>
+                                <p>দুটি VLAN-aware ডিভাইসের মধ্যে (যেমন Switch-to-Switch বা Switch-to-Router) সংযোগ।
+                                    IEEE 802.1Q ট্যাগিং ব্যবহার করে একাধিক VLAN-এর ট্র্যাফিক বহন করে।</p>
+                            </div>
+                            <div class="content-box">
+                                <h3><i class="bi bi-shuffle"></i> Hybrid Link</h3>
+                                <p>একই লিঙ্কে Tagged এবং Untagged উভয় ফ্রেম সমর্থন করে। এটি সাধারণত Vendor-specific এবং
+                                    IEEE 802.1Q স্ট্যান্ডার্ডের অংশ নয়।</p>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <!-- ৫. VLAN ফিচার -->
+                        <h2><i class="bi bi-stars"></i> VLAN-এর বৈশিষ্ট্যসমূহ (Features)</h2>
+                        <div class="content-box">
+                            <ul>
+                                <li><strong>VLAN Tagging (IEEE 802.1Q):</strong> ইথারনেট ফ্রেমে একটি 4-byte VLAN ট্যাগ
+                                    যোগ করা হয় যা ফ্রেমটি কোন VLAN-এর তা চিহ্নিত করে।</li>
+                                <li><strong>VLAN Membership:</strong> ডিভাইসগুলোকে সুইচ পোর্ট, MAC অ্যাড্রেস বা প্রোটোকল
+                                    টাইপের ভিত্তিতে VLAN-এ অ্যাসাইন করা যায়।</li>
+                                <li><strong>VLAN Trunking:</strong> একটি ফিজিক্যাল লিঙ্কে একাধিক VLAN-এর ট্র্যাফিক
+                                    শেয়ার করার সুবিধা দেয়।</li>
+                                <li><strong>Dynamic VLANs:</strong> পূর্বনির্ধারিত নীতি বা প্রমাণীকরণ প্রক্রিয়ার ওপর
+                                    ভিত্তি করে স্বয়ংক্রিয়ভাবে ডিভাইসকে VLAN-এ অ্যাসাইন করা হয়।</li>
+                            </ul>
+                        </div>
+
+                        <hr>
+
+                        <!-- ৬. রিয়েল-টাইম প্রয়োগ -->
+                        <h2><i class="bi bi-broadcast"></i> VLAN-এর বাস্তব প্রয়োগসমূহ</h2>
+                        <div
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px;">
+                            <div class="content-box">
+                                <strong><i class="bi bi-telephone"></i> VoIP:</strong>
+                                <p>ডেডিকেটেড ভয়েস VLAN কোয়ালিটি অব সার্ভিস (QoS) নিশ্চিত করে ভয়েস ট্র্যাফিককে
+                                    অগ্রাধিকার দেয়।</p>
+                            </div>
+                            <div class="content-box">
+                                <strong><i class="bi bi-camera-video"></i> ভিডিও কনফারেন্সিং:</strong>
+                                <p>VLAN প্রাধান্য লেটেন্সি এবং জিটার কমিয়ে কল কোয়ালিটি উন্নত করে।</p>
+                            </div>
+                            <div class="content-box">
+                                <strong><i class="bi bi-cloud"></i> ক্লাউড ও ডেটা সেন্টার:</strong>
+                                <p>নিরাপত্তা ও ট্র্যাফিক পৃথকীকরণের জন্য ভাড়াটে ওয়ার্কলোড লজিক্যালি বিচ্ছিন্ন রাখা
+                                    হয়।</p>
+                            </div>
+                            <div class="content-box">
+                                <strong><i class="bi bi-cpu"></i> IoT নেটওয়ার্ক:</strong>
+                                <p>IoT ডিভাইসগুলো আলাদা VLAN-এ রাখা সিকিউরিটি ঝুঁকি কমায়।</p>
+                            </div>
+                            <div class="content-box">
+                                <strong><i class="bi bi-controller"></i> গেমিং নেটওয়ার্ক:</strong>
+                                <p>VLAN গেমিং ট্র্যাফিককে অগ্রাধিকার দিয়ে ল্যাগ ও প্যাকেট লস কমায়।</p>
+                            </div>
+                            <div class="content-box">
+                                <strong><i class="bi bi-shield-lock"></i> রিমোট অ্যাক্সেস:</strong>
+                                <p>নিরাপদ VLAN VPN ব্যবহারকারী ও বাহ্যিক সংযোগ পরিচালনা করে নেটওয়ার্ক বিচ্ছিন্ন রাখে।
+                                </p>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <!-- ৭. সুবিধা ও অসুবিধা -->
+                        <h2><i class="bi bi-bar-chart"></i> VLAN-এর সুবিধা ও অসুবিধা</h2>
+                        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                            <div style="flex: 1; min-width: 280px;">
+                                <h3 style="color: #4caf50;"><i class="bi bi-check-circle"></i> সুবিধা (Pros)</h3>
+                                <ul>
+                                    <li><strong>উন্নত নিরাপত্তা:</strong> সংবেদনশীল ট্র্যাফিক আলাদা VLAN-এ বিচ্ছিন্ন
+                                        থাকে।</li>
+                                    <li><strong>বেটার পারফর্ম্যান্স:</strong> ব্রডকাস্ট ট্র্যাফিক সীমিত করে নেটওয়ার্ক
+                                        লোড কমায়।</li>
+                                    <li><strong>সহজ ব্যবস্থাপনা:</strong> বিভাগ অনুযায়ী (HR, Finance) লজিক্যাল গ্রুপিং
+                                        করা সহজ।</li>
+                                    <li><strong>নমনীয়তা:</strong> ফিজিক্যাল ক্যাবল পরিবর্তন ছাড়াই ডিভাইস VLAN পরিবর্তন
+                                        করা যায়।</li>
+                                    <li><strong>সাশ্রয়ী:</strong> অতিরিক্ত ফিজিক্যাল নেটওয়ার্ক ও রাউটিং হার্ডওয়্যারের
+                                        প্রয়োজনীয়তা কমায়।</li>
+                                    <li><strong>স্কেলেবিলিটি:</strong> বড় নেটওয়ার্ককে ছোট ছোট পরিচালনাযোগ্য অংশে ভাগ
+                                        করা যায়।</li>
+                                </ul>
+                            </div>
+                            <div style="flex: 1; min-width: 280px;">
+                                <h3 style="color: #f44336;"><i class="bi bi-x-circle"></i> অসুবিধা (Cons)</h3>
+                                <ul>
+                                    <li><strong>কনফিগারেশন জটিলতা:</strong> সঠিক পরিকল্পনা ও কনফিগারেশন প্রয়োজন।</li>
+                                    <li><strong>VLAN ID সীমাবদ্ধতা:</strong> স্ট্যান্ডার্ড VLAN ID সীমিত, যা অনেক বড়
+                                        নেটওয়ার্কে সমস্যা হতে পারে।</li>
+                                    <li><strong>নিরাপত্তা ঝুঁকি:</strong> ভুল কনফিগারেশন VLAN Hopping Attack-এর সুযোগ
+                                        তৈরি করতে পারে।</li>
+                                    <li><strong>আন্তঃপরিচালনার সমস্যা:</strong> নন-স্ট্যান্ডার্ড বা পুরনো ডিভাইসের সাথে
+                                        সামঞ্জস্য সমস্যা দেখা দিতে পারে।</li>
+                                    <li><strong>ট্রাবলশুটিং কঠিন:</strong> বিচ্ছিন্ন ট্র্যাফিক প্রবাহ ত্রুটি নির্ণয়কে
+                                        জটিল করে তোলে।</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <!-- ৮. সারসংক্ষেপ -->
+                        <h2><i class="bi bi-check2-circle"></i> সারসংক্ষেপ</h2>
+                        <p>VLAN আধুনিক নেটওয়ার্ক ডিজাইনের একটি অপরিহার্য উপাদান। এটি একটি ফিজিক্যাল অবকাঠামোতে একাধিক
+                            লজিক্যাল নেটওয়ার্ক তৈরির সুবিধা দেয়, নিরাপত্তা বাড়ায় এবং পারফর্ম্যান্স উন্নত করে।
+                            সঠিকভাবে কনফিগার করা হলে VLAN যেকোনো আকারের নেটওয়ার্কের দক্ষতা ও নিরাপত্তা নিশ্চিত করতে
+                            সক্ষম।</p>
+
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer class="glass-footer">
+            <div class="container">
+                <p>&copy; ২০২৬ enablement.info. সর্বস্বত্ব সংরক্ষিত।</p>
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/network-background.js"></script>
+</body>
+
+</html>
