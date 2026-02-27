@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ওএসআই মডেলে নেটওয়ার্ক লেয়ার (Network Layer) | enablement.info</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script
+        type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+    <style>
+        .blog-content-wrapper {
+            padding-top: 20px;
+            padding-bottom: 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d0d0e0;
+        }
+
+        .article-body h2,
+        .article-body h3 {
+            font-family: 'Times New Roman', serif;
+            color: var(--primary-color);
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .article-body h2 {
+            font-size: 1.8rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .article-body li {
+            margin-bottom: 10px;
+        }
+
+        .note-box {
+            background: rgba(33, 150, 243, 0.07);
+            border-left: 4px solid var(--primary-color);
+            padding: 14px 18px;
+            margin: 18px 0;
+            border-radius: 0 8px 8px 0;
+            color: #b0c4de;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .comparison-table th {
+            background: rgba(33, 150, 243, 0.2);
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="network-canvas"></canvas>
+    <div class="overlay">
+        <header class="glass-header">
+            <div class="container">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span
+                                    class="nav-text">হোম</span></a></li>
+                        <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
+                                    class="nav-text">ব্লগ</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="blog-content-wrapper">
+            <div class="container">
+                <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>আগের পেজে ফিরে
+                        যান</span></a>
+
+                <article class="glass-panel">
+                    <header class="article-header">
+                        <h1>ওএসআই মডেলে নেটওয়ার্ক লেয়ার (Network Layer)</h1>
+                        <div class="article-meta">
+                            <span><i class='bx bx-calendar'></i> ফেব্রুয়ারি ২৭, ২০২৬</span>
+                            <span style="margin:0 10px;">|</span>
+                            <span><i class='bx bx-category'></i> Networking</span>
+                        </div>
+                    </header>
+
+                    <div class="article-body">
+                        <p><strong>নেটওয়ার্ক লেয়ার (Network Layer)</strong> হলো ওএসআই (OSI) মডেলের তৃতীয় লেয়ার যা
+                            লজিক্যাল অ্যাড্রেসিং, রাউটিং এবং ইন্টারকানেক্টেড নেটওয়ার্কগুলোর মাধ্যমে এন্ড-টু-এন্ড
+                            প্যাকেট ডেলিভারির জন্য দায়ী।</p>
+
+                        <div class="content-box">
+                            <ul>
+                                <li>ডিভাইসের লজিক্যাল (IP) অ্যাড্রেসিং পরিচালনা করে।</li>
+                                <li>নেটওয়ার্কগুলোর মধ্যে সর্বোত্তম রাউটিং পথ নির্ধারণ করে।</li>
+                                <li>একাধিক নেটওয়ার্ক জুড়ে হোস্ট-টু-হোস্ট যোগাযোগ সক্ষম করে।</li>
+                            </ul>
+                        </div>
+
+                        <p>যেকোনো ডেটা লিঙ্ক লেয়ারের বিপরীতে, যা শুধুমাত্র একটি একক নেটওয়ার্ক সেগমেন্টের মধ্যে
+                            নোড-টু-নোড ডেলিভারিতে ফোকাস করে, নেটওয়ার্ক লেয়ার নিশ্চিত করে যে ডেটা সোর্স হোস্ট থেকে
+                            ডেস্টিনেশন হোস্টে পৌঁছাবে, এমনকি তারা ভিন্ন ভিন্ন নেটওয়ার্কে থাকলেও।</p>
+
+                        <hr>
+
+                        <h2><i class="bi bi-list-check"></i> নেটওয়ার্ক লেয়ারের প্রধান দায়িত্বসমূহ</h2>
+                        <div class="content-box">
+                            <ul>
+                                <li><strong>লজিক্যাল অ্যাড্রেসিং (Logical Addressing):</strong> প্রতিটি ডিভাইসে একটি
+                                    ইউনিক আইপি (IP) অ্যাড্রেস প্রদান করে, যা সঠিক যোগাযোগ নিশ্চিত করে।</li>
+                                <li><strong>প্যাকেটাইজেশন (Packetization):</strong> ট্রান্সপোর্ট লেয়ার থেকে আসা
+                                    সেগমেন্টগুলোকে প্যাকেটে রূপান্তর করে।</li>
+                                <li><strong>হোস্ট-টু-হোস্ট ডেলিভারি (Host-to-Host Delivery):</strong> বিভিন্ন
+                                    নেটওয়ার্কের মাধ্যমে প্রেরক থেকে প্রাপকের কাছে প্যাকেটের নির্ভরযোগ্য ডেলিভারি
+                                    নিশ্চিত করে।</li>
+                                <li><strong>ফরোয়ার্ডিং (Forwarding):</strong> ডেস্টিনেশন আইপি-এর ভিত্তিতে রাউটারের
+                                    ইনপুট ইন্টারফেস থেকে আউটপুট ইন্টারফেসে প্যাকেট পাঠায়।</li>
+                                <li><strong>রাউটিং (Routing):</strong> রাউটিং অ্যালগরিদম ব্যবহার করে প্যাকেটের জন্য
+                                    সবচেয়ে ভালো পথ নির্ধারণ করে।</li>
+                                <li><strong>ফ্র্যাগমেন্টেশন এবং রিয়্যাসেম্বলি (Fragmentation and Reassembly):</strong>
+                                    বড় প্যাকেটগুলোকে ছোট ছোট টুকরো করে এবং গন্তব্যে আবার জোড়া লাগায়।</li>
+                                <li><strong>সাবনেটিং (Subnetting):</strong> বড় নেটওয়ার্ককে ছোট ছোট অংশে ভাগ করে
+                                    ট্রাফিক ম্যানেজমেন্ট সহজ করে।</li>
+                                <li><strong>নেটওয়ার্ক অ্যাড্রেস ট্রান্সলেশন (NAT):</strong> প্রাইভেট আইপি-কে পাবলিক
+                                    আইপি-তে রূপান্তর করে অ্যাড্রেস স্পেস সাশ্রয় করে।</li>
+                            </ul>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-gear-wide-connected"></i> নেটওয়ার্ক লেয়ার কীভাবে কাজ করে?</h2>
+                        <div class="content-box">
+                            <ol>
+                                <li>প্রতিটি ডিভাইসকে একটি ইউনিক লজিক্যাল অ্যাড্রেস (আইপি অ্যাড্রেস) দেওয়া হয়।</li>
+                                <li>ট্রান্সপোর্ট লেয়ারের ডেটাকে প্যাকেটে রূপান্তর করা হয়, যেখানে সোর্স এবং ডেস্টিনেশন
+                                    আইপি যুক্ত থাকে।</li>
+                                <li>রাউটার গন্তব্য ঠিকানা বিশ্লেষণ করে এবং সেরা পথ নির্ধারণ করে।</li>
+                                <li>প্যাকেটগুলো এক রাউটার থেকে অন্য রাউটারে (hop-by-hop) গন্তব্যে পৌঁছানো পর্যন্ত চলতে
+                                    থাকে।</li>
+                                <li>গন্তব্যে প্যাকেটগুলো পুনরায় জোড়া লাগানো হয় এবং উপরের লেয়ারে পাঠানো হয়।</li>
+                            </ol>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-diagram-3"></i> নেটওয়ার্ক লেয়ারের প্রোটোকলসমূহ</h2>
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
+                            <div class="content-box">
+                                <h3><i class="bi bi-shield-lock"></i> প্রধান প্রোটোকল</h3>
+                                <ul>
+                                    <li><strong>IP (v4/v6):</strong> লজিক্যাল অ্যাড্রেসিং এবং প্যাকেট ডেলিভারি নিশ্চিত
+                                        করে।</li>
+                                    <li><strong>ICMP:</strong> এরর রিপোর্ট এবং ডায়াগনস্টিক মেসেজ পাঠায় (যেমন: পিং)।
+                                    </li>
+                                    <li><strong>ARP:</strong> আইপি অ্যাড্রেসকে ম্যাক (MAC) অ্যাড্রেসে রূপান্তর করে।</li>
+                                    <li><strong>RARP:</strong> ম্যাক অ্যাড্রেস ব্যবহার করে ডিভাইসের আইপি অ্যাড্রেস খুঁজে
+                                        বের করে।</li>
+                                    <li><strong>IPSec:</strong> এনক্রিপশনের মাধ্যমে আইপি যোগাযোগ সুরক্ষিত করে।</li>
+                                    <li><strong>MPLS:</strong> লেবেল ব্যবহারের মাধ্যমে প্যাকেট ফরোয়ার্ডিং সহজ ও ট্রাফিক
+                                        ম্যানেজমেন্ট উন্নত করে।</li>
+                                </ul>
+                            </div>
+                            <div class="content-box">
+                                <h3><i class="bi bi-signpost-split"></i> রাউটিং প্রোটোকল</h3>
+                                <ul>
+                                    <li><strong>RIP:</strong> দূরত্ব বা হপ কাউন্টের ওপর ভিত্তি করে পথ নির্বাচন করে।</li>
+                                    <li><strong>OSPF:</strong> নেটওয়ার্ক টপোলজি ব্যবহার করে সংক্ষিপ্ততম পথ খুঁজে বের
+                                        করে।</li>
+                                    <li><strong>BGP:</strong> ইন্টারনেটে বিভিন্ন অটোনিমাস সিস্টেমের মধ্যে ডেটা রাউট করে।
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-plus-circle"></i> নেটওয়ার্ক লেয়ারের সুবিধা</h2>
+                        <div class="content-box">
+                            <ul>
+                                <li>ভিন্ন ভিন্ন নেটওয়ার্কের মধ্যে এন্ড-টু-এন্ড যোগাযোগ সম্ভব করে।</li>
+                                <li>সাবনেটিং এবং হায়ারার্কিক্যাল অ্যাড্রেসিংয়ের মাধ্যমে স্কেলেবিলিটি সাপোর্ট করে।</li>
+                                <li>ডায়নামিক রাউটিং অ্যালগরিদম ব্যবহার করে কার্যকরভাবে প্যাকেট পাঠায়।</li>
+                            </ul>
+                        </div>
+
+                        <h2><i class="bi bi-dash-circle"></i> নেটওয়ার্ক লেয়ারের সীমাবদ্ধতা</h2>
+                        <div class="content-box">
+                            <ul>
+                                <li>সরাসরি কোনো ফ্লো কন্ট্রোল (Flow Control) মেকানিজম নেই।</li>
+                                <li>নির্ভরযোগ্যতার জন্য মূলত উপরের স্তরগুলোর (যেমন TCP) ওপর নির্ভর করে।</li>
+                                <li>অতিরিক্ত লোডের সময় রাউটার প্যাকেট ড্রপ করতে পারে, যা ডেটা লস ঘটাতে পারে।</li>
+                            </ul>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-arrow-down-up"></i> রাউটিং (Routing) বনাম ফ্লাডিং (Flooding)</h2>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>বৈশিষ্ট্য</th>
+                                    <th>রাউটিং (Routing)</th>
+                                    <th>ফ্লাডিং (Flooding)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>রাউটিং টেবিল</td>
+                                    <td>টেবিল প্রয়োজন হয়।</td>
+                                    <td>টেবিল প্রয়োজন হয় না।</td>
+                                </tr>
+                                <tr>
+                                    <td>সংক্ষিপ্ত পথ</td>
+                                    <td>সবসময় হতে পারে না।</td>
+                                    <td>সবসময় সংক্ষিপ্ত পথ নিশ্চিত করে।</td>
+                                </tr>
+                                <tr>
+                                    <td>নির্ভরযোগ্যতা</td>
+                                    <td>তুলনামূলক কম।</td>
+                                    <td>অত্যন্ত নির্ভরযোগ্য।</td>
+                                </tr>
+                                <tr>
+                                    <td>ট্রাফিক</td>
+                                    <td>ট্রাফিক কম থাকে।</td>
+                                    <td>অত্যধিক ট্রাফিক সৃষ্টি হয়।</td>
+                                </tr>
+                                <tr>
+                                    <td>ডুপ্লিকেট প্যাকেট</td>
+                                    <td>থাকে না।</td>
+                                    <td>অনেক ডুপ্লিকেট প্যাকেট থাকে।</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <hr>
+
+                        <h2><i class="bi bi-check2-circle"></i> সারসংক্ষেপ</h2>
+                        <p>নেটওয়ার্ক লেয়ার হলো আধুনিক ইন্টারনেটের মেরুদণ্ড। এটি ছাড়া বিভিন্ন নেটওয়ার্কের মধ্যে
+                            যোগাযোগ অসম্ভব হতো। এটি ডেটা প্যাকেটগুলোকে সঠিক গন্তব্যে পৌঁছানোর জন্য লজিক্যাল ঠিকানা এবং
+                            কার্যকরি রাউটিং পথ নিশ্চিত করে।</p>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer class="glass-footer">
+            <div class="container">
+                <p>&copy; ২০২৬ enablement.info. সর্বস্বত্ব সংরক্ষিত।</p>
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/network-background.js"></script>
+</body>
+
+</html>

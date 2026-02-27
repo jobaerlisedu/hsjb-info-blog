@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ক্লাসফুল আইপি অ্যাড্রেসিং (Classful IP Addressing) | enablement.info</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script
+        type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+    <style>
+        .blog-content-wrapper {
+            padding-top: 20px;
+            padding-bottom: 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d0d0e0;
+        }
+
+        .article-body h2,
+        .article-body h3 {
+            font-family: 'Times New Roman', serif;
+            color: var(--primary-color);
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .article-body h2 {
+            font-size: 1.8rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .article-body li {
+            margin-bottom: 10px;
+        }
+
+        .note-box {
+            background: rgba(33, 150, 243, 0.07);
+            border-left: 4px solid var(--primary-color);
+            padding: 14px 18px;
+            margin: 18px 0;
+            border-radius: 0 8px 8px 0;
+            color: #b0c4de;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .comparison-table th {
+            background: rgba(33, 150, 243, 0.2);
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .ip-class-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .ip-class-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--primary-color);
+        }
+
+        .class-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .class-a {
+            background: rgba(33, 150, 243, 0.2);
+            color: #2196f3;
+        }
+
+        .class-b {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+        }
+
+        .class-c {
+            background: rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+        }
+
+        .class-d {
+            background: rgba(156, 39, 176, 0.2);
+            color: #9c27b0;
+        }
+
+        .class-e {
+            background: rgba(244, 67, 54, 0.2);
+            color: #f44336;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="network-canvas"></canvas>
+    <div class="overlay">
+        <header class="glass-header">
+            <div class="container">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span
+                                    class="nav-text">হোম</span></a></li>
+                        <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
+                                    class="nav-text">ব্লগ</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="blog-content-wrapper">
+            <div class="container">
+                <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>আগের পেজে ফিরে
+                        যান</span></a>
+
+                <article class="glass-panel">
+                    <header class="article-header">
+                        <h1>ক্লাসফুল আইপি অ্যাড্রেসিং (Classful IP Addressing)</h1>
+                        <div class="article-meta">
+                            <span><i class='bx bx-calendar'></i> ফেব্রুয়ারি ২৭, ২০২৬</span>
+                            <span style="margin:0 10px;">|</span>
+                            <span><i class='bx bx-category'></i> Networking</span>
+                        </div>
+                    </header>
+
+                    <div class="article-body">
+                        <p><strong>ক্লাসফুল আইপি অ্যাড্রেসিং (Classful IP Addressing)</strong> ছিল আইপি অ্যাড্রেস
+                            অ্যাসাইন করার একটি প্রাথমিক পদ্ধতি (১৯৮১-১৯৯৩), যেখানে IPv4 অ্যাড্রেস স্পেসকে পাঁচটি
+                            নির্দিষ্ট ক্লাসে বিভক্ত করা হতো। প্রতিটি আইপি অ্যাড্রেসের অগ্রণী বিটগুলোর ওপর ভিত্তি করে তার
+                            ক্লাস নির্ধারিত হতো, যা নেটওয়ার্ক এবং হোস্ট অংশের বিভাজন নির্ধারণ করত।</p>
+
+                        <div class="note-box">
+                            <i class="bi bi-info-circle"></i> বর্তমানে ক্লাসফুল অ্যাড্রেসিংয়ের পরিবর্তে <strong>CIDR
+                                (Classless Inter-Domain Routing)</strong> ব্যবহৃত হয়, যা আরও নমনীয় এবং দক্ষ।
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-display"></i> আইপি অ্যাড্রেসের নোটেশনসমূহ</h2>
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">
+                            <div class="content-box">
+                                <h3><i class="bi bi-dot"></i> ডটেড ডেসিমাল (Dotted Decimal)</h3>
+                                <p>এটি মানুষের জন্য পাঠযোগ্য ফরম্যাট, যেখানে ৩২-বিট বাইনারি অ্যাড্রেসকে চারটি ৮-বিট
+                                    সেগমেন্টে (অক্টেট) ভাগ করে ডট দিয়ে লেখা হয়।</p>
+                                <ul>
+                                    <li>প্রতিটি সেগমেন্ট ০ থেকে ২৫৫ পর্যন্ত হয়।</li>
+                                    <li>উদাহরণ: 192.168.1.1</li>
+                                </ul>
+                            </div>
+                            <div class="content-box">
+                                <h3><i class="bi bi-hash"></i> হেক্সাডেসিমাল (Hexadecimal)</h3>
+                                <p>নেটওয়ার্কিং এবং ডিবাগিংয়ের জন্য ব্যবহৃত হয়, যেখানে আইপি অ্যাড্রেসকে বেস-১৬ সংখ্যায়
+                                    লেখা হয়।</p>
+                                <ul>
+                                    <li>প্রতিটি বাইটকে দুটি হেক্সাডেসিমাল ডিজিটে প্রকাশ করা হয়।</li>
+                                    <li>বাইনারির তুলনায় এটি সংক্ষিপ্ত।</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-patch-question"></i> কেন ক্লাসফুল অ্যাড্রেসিং প্রয়োজন ছিল?</h2>
+                        <div class="content-box">
+                            <ul>
+                                <li><strong>সহজ বরাদ্দ:</strong> নির্দিষ্ট ক্লাসের মাধ্যমে আইপি বরাদ্দ করা সহজ ছিল।</li>
+                                <li><strong>দ্রুত রাউটিং:</strong> রাউটারগুলো প্রথম বিট দেখেই ক্লাস এবং নেটওয়ার্ক আইডি
+                                    বুঝতে পারত।</li>
+                                <li><strong>স্কেলেবিলিটি:</strong> বড় এবং ছোট উভয় ধরনের নেটওয়ার্কের জন্য আলাদা ক্লাস
+                                    (A, B, C) ছিল।</li>
+                                <li><strong>স্ট্যান্ডার্ডাইজেশন:</strong> সমস্ত ডিভাইসের মধ্যে সামঞ্জস্য নিশ্চিত করত।
+                                </li>
+                            </ul>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-diagram-3"></i> আইপি অ্যাড্রেস ম্যানেজমেন্ট</h2>
+                        <div class="content-box">
+                            <p>আইপি অ্যাড্রেসগুলো বিশ্বব্যাপী <strong>Internet Assigned Numbers Authority
+                                    (IANA)</strong> এবং <strong>Regional Internet Registries (RIRs)</strong> দ্বারা
+                                পরিচালিত হয়। তারা নিশ্চিত করে যে আইপি বরাদ্দ যেন সুশৃঙ্খল এবং ইউনিক হয়।</p>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-table"></i> ক্লাসফুল অ্যাড্রেসিংয়ের গঠন (Structure)</h2>
+                        <p>নিচের টেবিলে প্রতিটি ক্লাসের বিট বিভাজন এবং অ্যাড্রেস রেঞ্জ দেখানো হলো:</p>
+                        <div class="table-responsive">
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>ক্লাস</th>
+                                        <th>লিডিং বিটস</th>
+                                        <th>নেট আইডি (বিট)</th>
+                                        <th>হোস্ট আইডি (বিট)</th>
+                                        <th>মোট নেটওয়ার্ক</th>
+                                        <th>ব্যবহারযোগ্য হোস্ট</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Class A</td>
+                                        <td>0</td>
+                                        <td>8</td>
+                                        <td>24</td>
+                                        <td>128 (2⁷)</td>
+                                        <td>16,777,214</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Class B</td>
+                                        <td>10</td>
+                                        <td>16</td>
+                                        <td>16</td>
+                                        <td>16,384 (2¹⁴)</td>
+                                        <td>65,534</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Class C</td>
+                                        <td>110</td>
+                                        <td>24</td>
+                                        <td>8</td>
+                                        <td>2,097,152 (2²¹)</td>
+                                        <td>254</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Class D</td>
+                                        <td>1110</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Class E</td>
+                                        <td>1111</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="article-meta"><strong>দ্রষ্টব্য:</strong> Class A-তে মূলত ১২৭টি নেটওয়ার্ক ধরা হয়
+                            (0.0.0.0 এবং 127.0.0.0 বিশেষ কারণে বাদ দেওয়া হয়)।</p>
+
+                        <hr>
+
+                        <h2><i class="bi bi-grid-3x3-gap"></i> আইপি অ্যাড্রেসের ক্লাসসমূহ (বিস্তারিত)</h2>
+                        <p>৩২-বিটের আইপি অ্যাড্রেসকে নিম্নোক্ত ৫টি উপ-ক্লাসে ভাগ করা হয়:</p>
+
+                        <div class="ip-class-card">
+                            <span class="class-badge class-a">Class A</span>
+                            <p>অনেক বিশাল সংখ্যক হোস্ট প্রয়োজন এমন নেটওয়ার্কের জন্য ব্যবহৃত হয়।</p>
+                            <ul>
+                                <li><strong>প্রথম বিট:</strong> সব সময় '0' থাকে।</li>
+                                <li><strong>অ্যাড্রেস রেঞ্জ:</strong> 0.0.0.0 থেকে 127.255.255.255</li>
+                                <li><strong>নেটওয়ার্ক আইডি:</strong> ৮ বিট | <strong>হোস্ট আইডি:</strong> ২৪ বিট</li>
+                                <li><strong>ব্যবহারযোগ্য হোস্ট:</strong> ১,৬৭,৭৭,২১৪ টি (প্রতি নেটওয়ার্কে)।</li>
+                                <li><strong>সাবনেট মাস্ক:</strong> 255.0.0.0</li>
+                            </ul>
+                        </div>
+
+                        <div class="ip-class-card">
+                            <span class="class-badge class-b">Class B</span>
+                            <p>মাঝারি থেকে বড় আকারের নেটওয়ার্কের জন্য বরাদ্দ করা হয়।</p>
+                            <ul>
+                                <li><strong>প্রথম দুই বিট:</strong> সব সময় '10' থাকে।</li>
+                                <li><strong>অ্যাড্রেস রেঞ্জ:</strong> 128.0.0.0 থেকে 191.255.255.255</li>
+                                <li><strong>নেটওয়ার্ক আইডি:</strong> ১৬ বিট | <strong>হোস্ট আইডি:</strong> ১৬ বিট</li>
+                                <li><strong>ব্যবহারযোগ্য হোস্ট:</strong> ৬৫,৫৩৪ টি।</li>
+                                <li><strong>সাবনেট মাস্ক:</strong> 255.255.0.0</li>
+                            </ul>
+                        </div>
+
+                        <div class="ip-class-card">
+                            <span class="class-badge class-c">Class C</span>
+                            <p>ছোট আকারের নেটওয়ার্কের জন্য ব্যবহৃত হয়।</p>
+                            <ul>
+                                <li><strong>প্রথম তিন বিট:</strong> সব সময় '110' থাকে।</li>
+                                <li><strong>অ্যাড্রেস রেঞ্জ:</strong> 192.0.0.0 থেকে 223.255.255.255</li>
+                                <li><strong>নেটওয়ার্ক আইডি:</strong> ২৪ বিট | <strong>হোস্ট আইডি:</strong> ৮ বিট</li>
+                                <li><strong>ব্যবহারযোগ্য হোস্ট:</strong> ২৫৪ টি।</li>
+                                <li><strong>সাবনেট মাস্ক:</strong> 255.255.255.0</li>
+                            </ul>
+                        </div>
+
+                        <div class="ip-class-card">
+                            <span class="class-badge class-d">Class D</span>
+                            <p><strong>মাল্টিকাস্ট (Multicast)</strong> যোগাযোগের জন্য সংরক্ষিত।</p>
+                            <ul>
+                                <li><strong>প্রথম চার বিট:</strong> সব সময় '1110' থাকে।</li>
+                                <li><strong>অ্যাড্রেস রেঞ্জ:</strong> 224.0.0.0 থেকে 239.255.255.255</li>
+                                <li>কোনো নেটওয়ার্ক বা হোস্ট আইডি বিভাজন নেই।</li>
+                            </ul>
+                        </div>
+
+                        <div class="ip-class-card">
+                            <span class="class-badge class-e">Class E</span>
+                            <p><strong>গবেষণা এবং পরীক্ষামূলক (Experimental)</strong> কাজের জন্য সংরক্ষিত।</p>
+                            <ul>
+                                <li><strong>প্রথম চার বিট:</strong> সব সময় '1111' থাকে।</li>
+                                <li><strong>অ্যাড্রেস রেঞ্জ:</strong> 240.0.0.0 থেকে 255.255.255.255</li>
+                            </ul>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-star"></i> বিশেষ আইপি অ্যাড্রেস রেঞ্জ</h2>
+                        <div class="content-box">
+                            <ul>
+                                <li><strong>127.0.0.0 - 127.255.255.255:</strong> লুপব্যাক (Loopback) অ্যাড্রেস, নিজের
+                                    কম্পিউটার পরীক্ষা করার জন্য ব্যবহৃত হয়।</li>
+                                <li><strong>169.254.0.0 - 169.254.255.255:</strong> লিঙ্ক-লোকাল (Link-Local) অ্যাড্রেস,
+                                    যখন DHCP সার্ভার থেকে আইপি পাওয়া যায় না।</li>
+                                <li><strong>0.0.0.0:</strong> এটি বর্তমান নেটওয়ার্ককে বোঝায়।</li>
+                            </ul>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-rules"></i> আইডি অ্যাসাইন করার নিয়মাবলি</h2>
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;">
+                            <div class="content-box">
+                                <h3>হোস্ট আইডি (Host ID)</h3>
+                                <ul>
+                                    <li>প্রতিটি হোস্ট আইডি অবশ্যই ইউনিক হতে হবে।</li>
+                                    <li>সব বিট '0' হতে পারবে না (এটি নেটওয়ার্ক অ্যাড্রেস)।</li>
+                                    <li>সব বিট '1' হতে পারবে না (এটি ব্রডকাস্ট অ্যাড্রেস)।</li>
+                                </ul>
+                            </div>
+                            <div class="content-box">
+                                <h3>নেটওয়ার্ক আইডি (Network ID)</h3>
+                                <ul>
+                                    <li>নেটওয়ার্ক আইডি 127 দিয়ে শুরু হতে পারবে না।</li>
+                                    <li>সব বিট '1' ব্রডকাস্টের জন্য সংরক্ষিত।</li>
+                                    <li>সব বিট '0' লোকাল নেটওয়ার্কের জন্য।</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-exclamation-triangle"></i> ক্লাসফুল অ্যাড্রেসিংয়ের সমস্যাসমূহ</h2>
+                        <div class="content-box">
+                            <p>ক্লাসফুল অ্যাড্রেসিংয়ের প্রধান সমস্যা ছিল আইপি অ্যাড্রেসের অপচয়। উদাহরণস্বরূপ:</p>
+                            <ul>
+                                <li>Class A এবং B নেটওয়ার্কে অনেক বেশি আইপি অপচয় হতো।</li>
+                                <li>Class C নেটওয়ার্কে হোস্ট সংখ্যা খুব কম (২৫৪ টি) ছিল যা বড় প্রতিষ্ঠানের জন্য
+                                    পর্যাপ্ত নয়।</li>
+                                <li>অ্যাড্রেসিংয়ে নমনীয়তা এবং স্কেলেবিলিটির অভাব ছিল।</li>
+                            </ul>
+                            <p>এই সমস্যাগুলোর কারণেই ১৯৯৩ সালে <strong>CIDR</strong> প্রবর্তন করা হয়।</p>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-arrow-left-right"></i> ক্লাসফুল বনাম ক্লাসলেস অ্যাড্রেসিং</h2>
+                        <div class="table-responsive">
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>বৈশিষ্ট্য</th>
+                                        <th>ক্লাসফুল অ্যাড্রেসিং</th>
+                                        <th>ক্লাসলেস অ্যাড্রেসিং (CIDR)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>বিভাজন</strong></td>
+                                        <td>স্থায়ী ক্লাস (A, B, C, D, E) ভিত্তিক।</td>
+                                        <td>ফ্লেক্সিবল প্রিফিক্স দৈর্ঘ্য ভিত্তিক।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>সাবনেটিং</strong></td>
+                                        <td>ডিফল্টভাবে সাবনেটিং সাপোর্ট করে না।</td>
+                                        <td>সাবনেটিং এবং VLSM সাপোর্ট করে।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>আইপি অপচয়</strong></td>
+                                        <td>অত্যধিক আইপি অপচয় ঘটে।</td>
+                                        <td>আইপি অ্যাড্রেসের দক্ষ ব্যবহার নিশ্চিত করে।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>রাউটিং টেবিল</strong></td>
+                                        <td>বড় রাউটিং টেবিল তৈরি হয়।</td>
+                                        <td>রাউট অ্যাগ্রিগেশনের মাধ্যমে ছোট টেবিল তৈরি হয়।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>স্কেলেবিলিটি</strong></td>
+                                        <td>খুবই সীমিত।</td>
+                                        <td>আধুনিক নেটওয়ার্কের জন্য অত্যন্ত স্কেলেবল।</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer class="glass-footer">
+            <div class="container">
+                <p>&copy; ২০২৬ enablement.info. সর্বস্বত্ব সংরক্ষিত।</p>
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/network-background.js"></script>
+</body>
+
+</html>
