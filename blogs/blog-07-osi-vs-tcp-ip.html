@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSI এবং TCP/IP মডেলের মধ্যে পার্থক্য | enablement.info</title>
+    <title>Difference Between OSI and TCP/IP Models | enablement.info</title>
 
 
 
@@ -124,201 +124,202 @@
             <div class="container">
                 <a href="../blogs.html" class="back-btn">
                     <i class='bx bx-arrow-back'></i>
-                    <span>আগের পেজে ফিরে যান</span>
+                    <span>Return to Previous Page</span>
                 </a>
 
                 <article class="glass-panel">
                     <header class="article-header">
-                        <h1>OSI এবং TCP/IP মডেলের মধ্যে পার্থক্য (Difference between OSI and TCP/IP Model)</h1>
+                        <h1>Difference between OSI and TCP/IP Models</h1>
                         <div class="article-meta">
                             <span><i class='bx bx-calendar'></i> Jan 02, 2026</span>
                             <span style="margin: 0 10px;">|</span>
-                            <span><i class='bx bx-category'></i> প্রোটোকল</span>
+                            <span><i class='bx bx-category'></i> Protocol</span>
                         </div>
                     </header>
 
                     <div class="article-body">
                         <h2><i class="bi bi-lightbulb"></i> ভূমিকা</h2>
-                        <p>কম্পিউটার নেটওয়ার্কিং জগতে <strong>OSI (Open Systems Interconnection)</strong> এবং
-                            <strong>TCP/IP (Transmission Control Protocol / Internet Protocol)</strong>— এই দুটি মডেলই
-                            তথ্য আদান-প্রদানের মূল ভিত্তি। যদিও এরা আলাদা উদ্দেশ্যে তৈরি হয়েছে, তবে এদের প্রধান কাজ হলো
-                            একটি নেটওয়ার্কের মাধ্যমে দুটি ডিভাইসের মধ্যে ডেটা কীভাবে প্রবাহিত হবে তা সংজ্ঞায়িত করা।
-                            OSI একটি তাত্ত্বিক রেফারেন্স মডেল হিসেবে কাজ করে, অন্যদিকে TCP/IP হলো আধুনিক ইন্টারনেটের
+                        <p>Computer Networking জগতে <strong>OSI (Open Systems Interconnection)</strong> এবং
+                            <strong>TCP/IP (Transmission Control Protocol / Internet Protocol)</strong>— এই দুটি Model-ই
+                            Information আদান-প্রদানের মূল ভিত্তি। যদিও এরা Separate Purposeে Creation হয়েছে, তবে এদের প্রধান Task হলো
+                            একটি Network-এর মাধ্যMay দুটি Device-এর মধ্যে Data কীভাবে প্রবাহিত হবে তা সংজ্ঞায়িত করা।
+                            OSI একটি Theoretical Reference Model হিসেবে Task করে, অন্যDirectionে TCP/IP হলো Modern Internet-এর
                             বাস্তবসম্মত ভিত্তি।
                         </p>
 
                         <hr>
 
-                        <h2><i class="bi bi-layers"></i> OSI মডেল (৭টি লেয়ার)</h2>
-                        <p>OSI মডেলটি ১৯৭০-এর দশকের শেষদিকে <strong>ISO</strong> দ্বারা তৈরি একটি তাত্ত্বিক
-                            ফ্রেমওয়ার্ক। এতে মোট ৭টি লেয়ার থাকে:</p>
+                        <h2><i class="bi bi-layers"></i> OSI Model (৭টি Layer)</h2>
+                        <p>OSI Model-টি ১৯৭০-এর দশকের শেষDirectionে <strong>ISO</strong> দ্বারা Creation একটি Theoretical
+                            Framework। এতে মোট ৭টি Layer থাকে:</p>
 
                         <div class="content-box mb-4">
-                            <h3 class="h5 text-white">১. Physical Layer (ফিজিক্যাল লেয়ার)</h3>
+                            <h3 class="h5 text-white">1. Physical Layer</h3>
                             <ul>
-                                <li>ফিজিক্যাল মিডিয়ার (তার, কানেক্টর) মাধ্যমে র বিট (Raw bits) ট্রান্সমিট করে।</li>
-                                <li>ডিজিটাল ডেটাকে ইলেকট্রিক্যাল, অপটিক্যাল বা রেডিও সিগন্যালে রূপান্তর করে।</li>
-                                <li>ডেটা রেট, মডুলেশন এবং ফিজিক্যাল টপোলজি (যেমন: বাস, স্টার) সংজ্ঞায়িত করে।</li>
-                                <li>হাব (Hub) এবং রিপিটার (Repeater) এই লেয়ারে কাজ করে।</li>
+                                <li>Physical Media-র (তার, Connector) মাধ্যMay Raw Bits ট্রান্সমিট করে।</li>
+                                <li>Digital Data-কে Electrical, Optical বা Radio Signal-এ রূপান্তর করে।</li>
+                                <li>Data Rate, Modulation এবং Physical Topology (যেমন: Bus, Star) সংজ্ঞায়িত করে।</li>
+                                <li>Hub এবং Repeater এই Layer-এ Task করে।</li>
                             </ul>
 
-                            <h3 class="h5 text-white">২. Data Link Layer (ডেটা লিঙ্ক লেয়ার)</h3>
+                            <h3 class="h5 text-white">2. Data Link Layer</h3>
                             <ul>
-                                <li>নোড-টু-নোড নির্ভরযোগ্য ডেটা ট্রান্সফার এবং ফ্রেমিং (Framing) নিশ্চিত করে।</li>
-                                <li>ডিভাইস শনাক্তকরণের জন্য MAC অ্যাড্রেস ব্যবহার করে।</li>
-                                <li>এরর ডিটেকশন (FCS) এবং ফ্লো কন্ট্রোল ম্যানেজ করে।</li>
-                                <li>সুইচ (Switch) এবং ব্রিজ (Bridge) এই লেয়ারে কাজ করে।</li>
+                                <li>Node-to-Node Reliable Data Transfer এবং Framing নিশ্চিত করে।</li>
+                                <li>Device শনাক্তকরণের জন্য MAC Address ব্যবহার করে।</li>
+                                <li>Error Detection (FCS) এবং Flow Control Manage করে।</li>
+                                <li>Switch এবং Bridge এই Layer-এ Task করে।</li>
                             </ul>
 
-                            <h3 class="h5 text-white">৩. Network Layer (নেটওয়ার্ক লেয়ার)</h3>
+                            <h3 class="h5 text-white">3. Network Layer</h3>
                             <ul>
-                                <li>প্যাকেটের লজিক্যাল অ্যাড্রেসিং এবং আইপি রাউটিং হ্যান্ডেল করে।</li>
-                                <li>IP অ্যাড্রেস ব্যবহার করে গন্তব্যে পৌঁছানোর সেরা পথ নির্ধারণ করে।</li>
-                                <li>প্যাকেট ফরওয়ার্ডিং এবং রাউটিং টেবিল ম্যানেজ করে।</li>
-                                <li>রাউটার (Router) এই লেয়ারে কাজ করে।</li>
+                                <li>Packet-এর Logical Addressing এবং IP Routing Handle করে।</li>
+                                <li>IP Address ব্যবহার করে Destinationে পৌঁছানোর সেরা Path Determination করে।</li>
+                                <li>Packet Forwarding এবং Routing Table Manage করে।</li>
+                                <li>Router এই Layer-এ Task করে।</li>
                             </ul>
 
-                            <h3 class="h5 text-white">৪. Transport Layer (ট্রান্সপোর্ট লেয়ার)</h3>
+                            <h3 class="h5 text-white">4. Transport Layer</h3>
                             <ul>
-                                <li>এন্ড-টু-এন্ড নির্ভরযোগ্য বা দ্রুত ডেটা ডেলিভারি নিশ্চিত করে।</li>
-                                <li>TCP (Reliable/Connection-oriented) এবং UDP (Fast/Connectionless) প্রোটোকল ব্যবহার
+                                <li>End-to-End Reliable বা Fast Data Delivery নিশ্চিত করে।</li>
+                                <li>TCP (Reliable/Connection-oriented) এবং UDP (Fast/Connectionless) Protocol ব্যবহার
                                     করে।</li>
-                                <li>ডেটা সেগমেন্টেশন, সিকোয়েন্সিং এবং রি-অ্যাসেম্বলি করে।</li>
-                                <li>ফ্লো কন্ট্রোল এবং এরর রিকভারি প্রদান করে।</li>
+                                <li>Data Segmentation, Sequencing এবং Re-assembly করে।</li>
+                                <li>Flow Control এবং Error Recovery প্রদান করে।</li>
                             </ul>
 
-                            <h3 class="h5 text-white">৫. Session Layer (সেশন লেয়ার)</h3>
+                            <h3 class="h5 text-white">5. Session Layer</h3>
                             <ul>
-                                <li>ডিভাইসের মধ্যে সেশন তৈরি, পরিচালনা এবং সমাপ্ত করে।</li>
-                                <li>এটি ডায়ালগ কন্ট্রোল (Half-duplex / Full-duplex) করে।</li>
-                                <li>সেশন চেকপয়েন্ট এবং অথেন্টিকেশন বজায় রাখে।</li>
-                                <li>RPC এবং NetBIOS এর মতো প্রোটোকল এখানে কাজ করে।</li>
+                                <li>Device-এর মধ্যে Session Creation, Operation এবং সমাপ্ত করে।</li>
+                                <li>এটি Dialogue Control (Half-duplex / Full-duplex) করে।</li>
+                                <li>Session Checkpoint এবং Authentication বজায় রাখে।</li>
+                                <li>RPC এবং NetBIOS-এর মতো Protocol এখানে Task করে।</li>
                             </ul>
 
-                            <h3 class="h5 text-white">৬. Presentation Layer (প্রেজেন্টেশন লেয়ার)</h3>
+                            <h3 class="h5 text-white">6. Presentation Layer</h3>
                             <ul>
-                                <li>ডেটা ট্রান্সলেশন, এনক্রিপশন এবং ফরম্যাটিং হ্যান্ডেল করে।</li>
-                                <li>ডেটা ফরম্যাট কনভার্ট (Encoding/Decoding) করে যাতে অ্যাপ্লিকেশন লেয়ার তা বুঝতে পারে।
+                                <li>Data Translation, Encryption এবং Formatting Handle করে।</li>
+                                <li>Data Format Convert (Encoding/Decoding) করে যাতে Application Layer তা বুঝতে পারে।
                                 </li>
-                                <li>নিরাপত্তার জন্য এনক্রিপশন/ডিক্রিপশন (SSL/TLS) প্রয়োগ করে।</li>
-                                <li>দক্ষ ট্রান্সমিশনের জন্য ডেটা কমপ্রেশন (Compression) করে।</li>
+                                <li>Securityর জন্য Encryption/Decryption (SSL/TLS) প্রয়োগ করে।</li>
+                                <li>দক্ষ Transmission-এর জন্য Data Compression করে।</li>
                             </ul>
 
-                            <h3 class="h5 text-white">৭. Application Layer (অ্যাপ্লিকেশন লেয়ার)</h3>
+                            <h3 class="h5 text-white">7. Application Layer</h3>
                             <ul>
-                                <li>সরাসরি এন্ড-ইউজার অ্যাপ্লিকেশনকে নেটওয়ার্ক সার্ভিস প্রদান করে।</li>
-                                <li>HTTP, FTP, SMTP, DNS এবং SNMP-এর মতো প্রোটোকল সমর্থন করে।</li>
-                                <li>ইমেল, ওয়েব ব্রাউজিং এবং ফাইল ট্রান্সফারের মতো অনলাইন সেবাগুলো নিশ্চিত করে।</li>
+                                <li>সরাসরি End-user Application-কে Network Service প্রদান করে।</li>
+                                <li>HTTP, FTP, SMTP, DNS এবং SNMP-এর মতো Protocol সমর্থন করে।</li>
+                                <li>Email, Web Browsing এবং File Transfer-এর মতো অনলাইন সেবাগুলো নিশ্চিত করে।</li>
                             </ul>
                         </div>
 
-                        <h2><i class="bi bi-cpu"></i> TCP/IP মডেল (৫টি লেয়ার)</h2>
-                        <p>TCP/IP মডেলটি ইন্টারনেটের জন্য তৈরি একটি প্রাকটিক্যাল ফ্রেমওয়ার্ক। এটি বর্তমানে বিশ্বজুড়ে
-                            ব্যবহৃত হয় এবং এতে নিচের ৫টি লেয়ারের বিস্তারিত কাজ রয়েছে:</p>
+                        <h2><i class="bi bi-cpu"></i> TCP/IP Model (৫টি Layer)</h2>
+                        <p>TCP/IP Model-টি Internet-এর জন্য Creation একটি Practical Framework। এটি বর্তমানে বিশ্বজুড়ে
+                            ব্যব্যহৃত হয় এবং এতে নিচের ৫টি Layer-এর Detailed Task রয়েছে:</p>
 
                         <div class="content-box mb-4">
-                            <h3 class="h5 text-white">১. Physical Layer (ফিজিক্যাল লেয়ার)</h3>
+                            <h3 class="h5 text-white">1. Physical Layer</h3>
                             <ul>
-                                <li>ফিজিক্যাল মিডিয়ার মাধ্যমে র বিট (Raw bits) ট্রান্সমিট করে।</li>
-                                <li>ফিজিক্যাল হার্ডওয়্যার যেমন: কেবল, সিগন্যাল এবং কানেক্টর নিয়ে কাজ করে।</li>
-                                <li>হাব (Hub), রিপিটার (Repeater) এবং NIC এই লেয়ারের অংশ।</li>
+                                <li>Physical Media-র মাধ্যMay Raw Bits ট্রান্সমিট করে।</li>
+                                <li>Physical Hardware যেমন: Cable, Signal এবং Connector নিয়ে Task করে।</li>
+                                <li>Hub, Repeater এবং NIC এই Layer-এর অংশ।</li>
                             </ul>
 
-                            <h3 class="h5 text-white">২. Data Link Layer (ডেটা লিঙ্ক লেয়ার)</h3>
+                            <h3 class="h5 text-white">2. Data Link Layer</h3>
                             <ul>
-                                <li>নোড-টু-নোড যোগাযোগ এবং ফ্রেমিং (Framing) নিশ্চিত করে।</li>
-                                <li>ডিভাইস শনাক্তকরণের জন্য MAC অ্যাড্রেস ব্যবহার করে।</li>
-                                <li>ফ্রেমিং, এরর ডিটেকশন (FCS) এবং ফ্লো কন্ট্রোলের জন্য দায়ী।</li>
-                                <li>ফিজিক্যাল মিডিয়ামে (Ethernet, Wi-Fi) অ্যাক্সেস হ্যান্ডেল করে।</li>
-                                <li>সুইচ (Switch) এই লেয়ারে কাজ করে।</li>
+                                <li>Node-to-Node যোগাযোগ এবং Framing নিশ্চিত করে।</li>
+                                <li>Device শনাক্তকরণের জন্য MAC Address ব্যবহার করে।</li>
+                                <li>Framing, Error Detection (FCS) এবং Flow Control-এর জন্য দায়ী।</li>
+                                <li>Physical Medium-এ (Ethernet, Wi-Fi) Access Handle করে।</li>
+                                <li>Switch এই Layer-এ Task করে।</li>
                             </ul>
 
-                            <h3 class="h5 text-white">৩. Network (Internet) Layer (নেটওয়ার্ক / ইন্টারনেট লেয়ার)</h3>
+                            <h3 class="h5 text-white">3. Network (Internet) Layer</h3>
                             <ul>
-                                <li>লজিক্যাল অ্যাড্রেসিং এবং প্যাকেট রাউটিং হ্যান্ডেল করে।</li>
-                                <li>IP অ্যাড্রেসিং (IPv4/IPv6) ব্যবহার করে।</li>
-                                <li>গন্তব্যে পৌঁছানোর জন্য সেরা পথ নির্ধারণ করে।</li>
-                                <li>প্যাকেট রাউটিং এবং ফ্র্যাগমেন্টেশন (Fragmentation) সম্পন্ন করে।</li>
-                                <li>প্রধান প্রোটোকল: IP, ICMP, ARP, RARP।</li>
+                                <li>Logical Addressing এবং Packet Routing Handle করে।</li>
+                                <li>IP Addressing (IPv4/IPv6) ব্যবহার করে।</li>
+                                <li>Destinationে পৌঁছানোর জন্য সেরা Path Determination করে।</li>
+                                <li>Packet Routing এবং Fragmentation সম্পন্ন করে।</li>
+                                <li>প্রধান Protocol: IP, ICMP, ARP, RARP।</li>
                             </ul>
 
-                            <h3 class="h5 text-white">৪. Transport Layer (ট্রান্সপোর্ট লেয়ার)</h3>
+                            <h3 class="h5 text-white">4. Transport Layer</h3>
                             <ul>
-                                <li>এন্ড-টু-এন্ড যোগাযোগ এবং নির্ভরযোগ্যতা নিশ্চিত করে।</li>
+                                <li>End-to-End যোগাযোগ এবং Reliableতা নিশ্চিত করে।</li>
                                 <li>TCP (Reliable, Connection-oriented) এবং UDP (Fast, Connectionless) ব্যবহার করে।</li>
-                                <li>ডেটা সেগমেন্টেশন, সিকোয়েন্সিং এবং রি-অ্যাসেম্বলি করে।</li>
-                                <li>এরর ডিটেকশন, কারেকশন এবং ফ্লো কন্ট্রোল প্রদান করে।</li>
+                                <li>Data Segmentation, Sequencing and Re-assembly করে।</li>
+                                <li>Error Detection, Correction এবং Flow Control প্রদান করে।</li>
                             </ul>
 
-                            <h3 class="h5 text-white">৫. Application Layer (অ্যাপ্লিকেশন লেয়ার)</h3>
+                            <h3 class="h5 text-white">5. Application Layer</h3>
                             <ul>
-                                <li>এন্ড-ইউজার অ্যাপ্লিকেশনকে সরাসরি নেটওয়ার্ক সার্ভিস প্রদান করে।</li>
-                                <li>HTTP, FTP, SMTP, DNS, DHCP এবং SNMP প্রোটোকল সমর্থন করে।</li>
-                                <li>ডেটা ফরম্যাটিং এবং কমিউনিকেশন সার্ভিস প্রদানের জন্য দায়ী।</li>
-                                <li>এটি OSI মডেলের Session, Presentation এবং Application লেয়ারের কাজগুলো একসাথে সম্পন্ন
+                                <li>End-user Application-কে সরাসরি Network Service প্রদান করে।</li>
+                                <li>HTTP, FTP, SMTP, DNS, DHCP এবং SNMP Protocol সমর্থন করে।</li>
+                                <li>Data Formatting এবং Communication Service প্রদানের জন্য দায়ী।</li>
+                                <li>এটি OSI Model-এর Session, Presentation এবং Application Layer-এর Taskগুলো একসাথে
+                                    সম্পন্ন
                                     করে।</li>
                             </ul>
                         </div>
 
-                        <h2><i class="bi bi-arrow-left-right"></i> OSI এবং TCP/IP মডেলের মধ্যে বিস্তারিত পার্থক্য</h2>
+                        <h2><i class="bi bi-arrow-left-right"></i> OSI এবং TCP/IP Model-এর মধ্যে Detailed পার্থক্য</h2>
                         <div class="table-wrapper">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>বৈশিষ্ট্য</th>
-                                        <th>OSI মডেল</th>
-                                        <th>TCP/IP মডেল</th>
+                                        <th>Feature</th>
+                                        <th>OSI Model</th>
+                                        <th>TCP/IP Model</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><strong>লেয়ার সংখ্যা</strong></td>
-                                        <td>৭টি লেয়ার থাকে।</td>
-                                        <td>৫টি (বা ৪টি) লেয়ার থাকে।</td>
+                                        <td><strong>Layer সংখ্যা</strong></td>
+                                        <td>৭টি Layer থাকে।</td>
+                                        <td>৫টি (বা ৪টি) Layer থাকে।</td>
                                     </tr>
                                     <tr>
-                                        <td><strong>সেশন ও প্রেজেন্টেশন লেয়ার</strong></td>
-                                        <td>আলাদা সেশন এবং প্রেজেন্টেশন লেয়ার থাকে।</td>
-                                        <td>আলাদা কোনো লেয়ার নেই; এগুলো অ্যাপ্লিকেশন লেয়ারের অংশ।</td>
+                                        <td><strong>Session ও Presentation Layer</strong></td>
+                                        <td>Separate Session এবং Presentation Layer থাকে।</td>
+                                        <td>Separate কোনো Layer নেই; এগুলো Application Layer-এর অংশ।</td>
                                     </tr>
                                     <tr>
                                         <td><strong>প্রকৃতি</strong></td>
-                                        <td>এটি একটি থিওরিটিক্যাল (Theoretical) রেফারেন্স মডেল।</td>
-                                        <td>এটি একটি প্রাকটিক্যাল (Practical) ইমপ্লিমেন্টেশন মডেল।</td>
+                                        <td>এটি একটি Theoretical Reference Model।</td>
+                                        <td>এটি একটি Practical Implementation Model।</td>
                                     </tr>
                                     <tr>
-                                        <td><strong>তৈরি ও বিকাশ</strong></td>
-                                        <td>ISO দ্বারা ইন্টারনেটের ব্যাপক প্রসারের আগে তৈরি।</td>
-                                        <td>DoD (Department of Defense) দ্বারা ইন্টারনেটের জন্য তৈরি।</td>
+                                        <td><strong>Creation ও বিকাশ</strong></td>
+                                        <td>ISO দ্বারা Internet-এর ব্যাপক প্রসারের আগে Creation।</td>
+                                        <td>DoD (Department of Defense) দ্বারা Internet-এর জন্য Creation।</td>
                                     </tr>
                                     <tr>
                                         <td><strong>নির্ভরশীলতা</strong></td>
-                                        <td>প্রতিটি লেয়ার কঠোরভাবে সীমানা নির্দিষ্ট এবং স্বাধীন।</td>
-                                        <td>লেয়ারগুলো অনেক বেশি ইন্টিগ্রেটেড এবং সীমানা কম কঠোর।</td>
+                                        <td>প্রতিটি Layer কঠোরভাবে সীমানা নির্দিষ্ট এবং স্বাধীন।</td>
+                                        <td>Layer-গুলো অনেক High Integrated এবং সীমানা কম কঠোর।</td>
                                     </tr>
                                     <tr>
-                                        <td><strong>প্রোটোকল</strong></td>
-                                        <td>কোনো নির্দিষ্ট প্রোটোকল নির্ধারণ করে না, শুধু ফাংশন বর্ণনা করে।</td>
-                                        <td>নির্দিষ্ট প্রোটোকল (TCP, IP, UDP, HTTP) সংজ্ঞায়িত করে।</td>
+                                        <td><strong>Protocol</strong></td>
+                                        <td>কোনো নির্দিষ্ট Protocol Determination করে না, শুধু Function বর্ণনা করে।</td>
+                                        <td>নির্দিষ্ট Protocol (TCP, IP, UDP, HTTP) সংজ্ঞায়িত করে।</td>
                                     </tr>
                                     <tr>
-                                        <td><strong>তৈরির ক্রম</strong></td>
-                                        <td>আগে মডেল তৈরি করা হয়েছে, পরে প্রোটোকল।</td>
-                                        <td>আগে প্রোটোকল তৈরি করা হয়েছে, পরে মডেল।</td>
+                                        <td><strong>Creationর ক্রম</strong></td>
+                                        <td>আগে Model Creation করা হয়েছে, পরে Protocol।</td>
+                                        <td>আগে Protocol Creation করা হয়েছে, পরে Model।</td>
                                     </tr>
                                     <tr>
                                         <td><strong>ব্যবহার</strong></td>
-                                        <td>মূলত শিক্ষাদান এবং নেটওয়ার্ক ডিজাইনের রেফারেন্স হিসেবে ব্যবহৃত হয়।</td>
-                                        <td>ইন্টারনেটে যোগাযোগের জন্য প্রধান প্রোটোকল স্ট্যাক হিসেবে ব্যবহৃত হয়।</td>
+                                        <td>মূলত শিক্ষাদান এবং Network Design-এর Reference হিসেবে ব্যবহৃত হয়।</td>
+                                        <td>Internet-এ যোগাযোগের জন্য প্রধান Protocol Stack হিসেবে ব্যবহৃত হয়।</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
 
-                        <h2><i class="bi bi-info-circle"></i> সারসংক্ষেপ</h2>
-                        <p>सहज কথায়, OSI মডেল আমাদের শেখায় কীভাবে প্রোটোকলগুলো কাজ করা উচিত, অন্যদিকে TCP/IP মডেল
-                            ইন্টারনেটের বাস্তব যোগাযোগ ব্যবস্থা নিশ্চিত করে। কোনো নেটওয়ার্ক ইঞ্জিনিয়ার যদি সিস্টেমে
-                            কোনো সমস্যা খুঁজে বের করতে চান (Troubleshooting), তবে তিনি সাধারণত OSI মডেলের লেয়ারগুলোকেই
+                        <h2><i class="bi bi-info-circle"></i> Summary</h2>
+                        <p>सहज কথায়, OSI Model আমাদের শেখায় কীভাবে Protocol Task করা উচিত, অন্যDirectionে TCP/IP Model
+                            Internetের বাস্তব যোগাযোগ ব্যবস্থা নিশ্চিত করে। কোনো Network Engineer যদি সিস্টেMay
+                            কোনো সমস্যা খুঁজে বের করতে চান (Troubleshooting), তবে তিনি সাধারণত OSI Model Layerকেই
                             রেফারেন্স হিসেবে ব্যবহার করেন।</p>
                     </div>
                 </article>

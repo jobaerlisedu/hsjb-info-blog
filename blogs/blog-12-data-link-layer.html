@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ডেটা লিঙ্ক লেয়ার: ওএসআই মডেলের দ্বিতীয় স্তর | enablement.info</title>
+    <title>Data Link Layer: Second Layer of OSI Model | enablement.info</title>
 
     <!-- Icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -127,13 +127,13 @@
                         <li>
                             <a href="../index.html">
                                 <i class='bx bx-home-alt-2'></i>
-                                <span class="nav-text">হোম</span>
+                                <span class="nav-text">Home</span>
                             </a>
                         </li>
                         <li>
                             <a href="../blogs.html" class="active">
                                 <i class='bx bx-book-content'></i>
-                                <span class="nav-text">ব্লগ</span>
+                                <span class="nav-text">Blog</span>
                             </a>
                         </li>
                     </ul>
@@ -145,177 +145,178 @@
             <div class="container">
                 <a href="../blogs.html" class="back-btn">
                     <i class='bx bx-arrow-back'></i>
-                    <span>আগের পেজে ফিরে যান</span>
+                    <span>Return to Previous Page</span>
                 </a>
 
                 <article class="glass-panel">
                     <header class="article-header">
-                        <h1>ডেটা লিঙ্ক লেয়ার: বিস্তারিত গাইড</h1>
+                        <h1>Data Link Layer: Detailed Guide</h1>
                         <div class="article-meta">
-                            <span><i class='bx bx-calendar'></i> জানুয়ারি ১৫, ২০২৬</span>
+                            <span><i class='bx bx-calendar'></i> January ১৫, 2026</span>
                             <span style="margin: 0 10px;">|</span>
                             <span><i class='bx bx-category'></i> Networking</span>
                         </div>
                     </header>
 
                     <div class="article-body">
-                        <h2><i class="bi bi-layers"></i> ডেটা লিঙ্ক লেয়ার (Data Link Layer) কী?</h2>
-                        <p>ডেটা লিঙ্ক লেয়ার হলো ওএসআই (OSI) মডেলের নিচ থেকে দ্বিতীয় স্তর। এটি মূলত একই স্থানীয়
-                            নেটওয়ার্কের মধ্যে এক নোড (Node) থেকে অন্য নোডে ডেটা পৌঁছানোর দায়িত্ব পালন করে। একে ওএসআই
-                            মডেলের সবচেয়ে জটিল লেয়ার বলা হয় কারণ এটি পরবর্তী উপরের লেয়ারগুলো থেকে হার্ডওয়্যারের
-                            জটিলতাগুলো আড়াল করে রাখে।</p>
+                        <h2><i class="bi bi-layers"></i> Data Link Layer What is?</h2>
+                        <p>Data Link Layer হলো OSI Model-এর নিচ থেকে দ্বিতীয় স্তর। এটি মূলত একই স্থানীয়
+                            Network-এর মধ্যে এক Node থেকে অন্য Node-এ Data পৌঁছানোর Responsibility পালন করে। একে OSI
+                            Model-এর সবচেয়ে জটিল Layer বলা হয় Reason এটি Next উপরের Layer-গুলো থেকে Hardware-এর
+                            Complexityগুলো আড়াল করে রাখে।</p>
 
                         <div class="content-box">
                             <ul>
-                                <li><strong>নোড-টু-নোড ডেলিভারি:</strong> একই লোকাল নেটওয়ার্কের মধ্যে ডেটা স্থানান্তর
+                                <li><strong>Node-to-Node Delivery:</strong> একই local network-এর মধ্যে data স্থানান্তর
                                     নিশ্চিত করে।</li>
-                                <li><strong>নির্ভুল ট্রান্সমিশন:</strong> তথ্যের নির্ভুলতা এবং ত্রুটিহীন আদান-প্রদান
-                                    নিশ্চিত করা এর মূল কাজ।</li>
-                                <li><strong>এনকোডিং ও ডিকোডিং:</strong> আগত ও বহির্গত ডেটাকে সাজানো এবং সংকেতে রূপান্তর
+                                <li><strong>Reliable Transmission:</strong> Informationের Accurateতা এবং Errorহীন আদান-প্রদান
+                                    নিশ্চিত করা এর মূল Task।</li>
+                                <li><strong>Encoding & Decoding:</strong> আগত ও বহির্গত data-কে সাজানো এবং সংকেতে
+                                    রূপান্তর
                                     করা।</li>
                             </ul>
                         </div>
 
                         <hr>
 
-                        <h2><i class="bi bi-diagram-3"></i> ডেটা লিঙ্ক লেয়ারের সাব-লেয়ারসমূহ</h2>
-                        <p>ডেটা লিঙ্ক লেয়ারকে আরও দুটি গুরুত্বপূর্ণ উপ-স্তরে বা সাব-লেয়ারে ভাগ করা হয়েছে:</p>
+                        <h2><i class="bi bi-diagram-3"></i> Data Link Layer-এর Sub-layer-সমূহ</h2>
+                        <p>Data Link Layer-কে আরও দুটি গুরুত্বপূর্ণ উপ-স্তরে বা Sub-layer-এ ভাগ করা হয়েছে:</p>
 
                         <div class="diagram-container">
                             <svg viewBox="0 0 400 200" width="100%">
                                 <!-- DLL Box -->
                                 <rect x="50" y="20" width="300" height="160" rx="10" class="layer-box" />
-                                <text x="200" y="45" class="diagram-label" font-weight="bold">ডেটা লিঙ্ক লেয়ার
+                                <text x="200" y="45" class="diagram-label" font-weight="bold">Data Link Layer
                                     (DLL)</text>
 
                                 <!-- LLC Box -->
                                 <rect x="75" y="60" width="250" height="50" rx="5" class="sublayer-box" />
-                                <text x="200" y="90" class="diagram-label">১. লজিক্যাল লিঙ্ক কন্ট্রোল (LLC)</text>
+                                <text x="200" y="90" class="diagram-label">1. Logical Link Control (LLC)</text>
 
                                 <!-- MAC Box -->
                                 <rect x="75" y="120" width="250" height="50" rx="5" class="sublayer-box" />
-                                <text x="200" y="150" class="diagram-label">২. মিডিয়া অ্যাক্সেস কন্ট্রোল (MAC)</text>
+                                <text x="200" y="150" class="diagram-label">2. Media Access Control (MAC)</text>
                             </svg>
                         </div>
 
-                        <h3>১. লজিক্যাল লিঙ্ক কন্ট্রোল (LLC)</h3>
-                        <p>LLC সাব-লেয়ারটি নেটওয়ার্ক লেয়ার এবং ম্যাক সাব-লেয়ারের মধ্যে সেতুবন্ধন হিসেবে কাজ করে। এর
-                            কাজগুলো হলো:</p>
+                        <h3>1. Logical Link Control (LLC)</h3>
+                        <p>LLC Sub-layer-টি Network Layer এবং MAC Sub-layer-এর মধ্যে সেতুবন্ধন হিসেবে Task করে। এর
+                            Taskগুলো হলো:</p>
                         <ul>
-                            <li>অ্যাপ্লিকেশনগুলোর মধ্যে ডেটার প্রবাহ (Flow) এবং মাল্টিপ্লেক্সিং পরিচালনা করা।</li>
-                            <li>এরর মেসেজ প্রদান এবং প্রাপ্তি স্বীকার (Acknowledgment) নিশ্চিত করা।</li>
+                            <li>Application-গুলোর মধ্যে data-র প্রবাহ (Flow) এবং Multiplexing Operation করা।</li>
+                            <li>Error Message প্রদান এবং প্রাপ্তি স্বীকার (Acknowledgment) নিশ্চিত করা।</li>
                         </ul>
 
-                        <h3>২. মিডিয়া অ্যাক্সেস কন্ট্রোল (MAC)</h3>
-                        <p>MAC সাব-লেয়ারটি সরাসরি ফিজিক্যাল মিডিয়ার সাথে যোগাযোগ রক্ষা করে। এর কাজগুলো হলো:</p>
+                        <h3>2. Media Access Control (MAC)</h3>
+                        <p>MAC Sub-layer-টি সরাসরি physical media-র সাথে যোগাযোগ রক্ষা করে। এর Taskগুলো হলো:</p>
                         <ul>
-                            <li>ডিভাইসের ফিজিক্যাল বা ম্যাক অ্যাড্রেস (MAC Address) ব্যবহার করে ফ্রেম তৈরি করা।</li>
-                            <li>নেটওয়ার্ক লেয়ার থেকে পাওয়া প্যাকেটগুলোকে 'ফ্রেম'-এ বিভক্ত করে বিট বাই বিট ফিজিক্যাল
-                                লেয়ারে পাঠানো।</li>
-                            <li>ফিজিক্যাল মিডিয়া অ্যাক্সেস নিয়ন্ত্রণ করা।</li>
+                            <li>Device-এর Physical বা MAC Address ব্যবহার করে Frame Creation করা।</li>
+                            <li>Network Layer থেকে পাওয়া Packet-গুলোকে 'Frame'-এ বিভক্ত করে bit by bit physical
+                                Layer-এ পাঠানো।</li>
+                            <li>Physical Media Access নিয়ন্ত্রণ করা।</li>
                         </ul>
 
                         <hr>
 
-                        <h2><i class="bi bi-gear"></i> ডেটা লিঙ্ক লেয়ারের প্রধান কাজসমূহ (Functions)</h2>
+                        <h2><i class="bi bi-gear"></i> Data Link Layer-এর প্রধান Taskসমূহ (Functions)</h2>
                         <div class="content-box">
-                            <p>ডেটা লিঙ্ক লেয়ারের প্রধান কাজগুলো নিচে বিস্তারিত আলোচনা করা হলো:</p>
+                            <p>Data Link Layer-এর প্রধান Taskগুলো নিচে Detailed Discussion করা হলো:</p>
                             <ul>
-                                <li><strong>ফ্রেমিং (Framing):</strong> প্যাকেটগুলোকে ফ্রেমে সাজানো যাতে প্রাপক ফ্রেমের
+                                <li><strong>Framing:</strong> Packet-গুলোকে Frame-এ সাজানো যাতে Receiver Frame-এর
                                     শুরু এবং শেষ বুঝতে পারে।</li>
-                                <li><strong>ফিজিক্যাল অ্যাড্রেসিং (Addressing):</strong> প্রতিটি ফ্রেমের হেডারে প্রেরক ও
-                                    প্রাপকের ম্যাক অ্যাড্রেস যুক্ত করা।</li>
-                                <li><strong>ফ্লো কন্ট্রোল (Flow Control):</strong> একটি নির্দিষ্ট গতিতে ডেটা পাঠানো
-                                    নিশ্চিত করা যাতে প্রাপক ডিভাইসটি অতিরিক্ত ডেটার চাপে না পড়ে।</li>
-                                <li><strong>এরর কন্ট্রোল (Error Control):</strong> ফ্রেম ড্যামেজ বা হারিয়ে গেলে তা
-                                    শনাক্ত করা এবং পুনরায় পাঠানোর ব্যবস্থা করা। এটি ট্রেলারে (Trailer) রিডানড্যান্ট
-                                    ডেটা যুক্ত করে করা হয়।</li>
-                                <li><strong>অ্যাক্সেস কন্ট্রোল (Access Control):</strong> যখন একাধিক ডিভাইস একই লিঙ্ক
-                                    শেয়ার করে, তখন কোন ডিভাইসটি কখন ডেটা পাঠাবে তা নিয়ন্ত্রণ করা।</li>
+                                <li><strong>Physical Addressing:</strong> প্রতিটি Frame-এর Header-এ Sender ও
+                                    Receiver-এর MAC Address যুক্ত করা।</li>
+                                <li><strong>Flow Control:</strong> একটি নির্দিষ্ট Speedতে data পাঠানো
+                                    নিশ্চিত করা যাতে Receiver device-টি অতিরিক্ত data-র চাপে না পড়ে।</li>
+                                <li><strong>Error Control:</strong> Frame Damage বা হারিয়ে গেলে তা
+                                    শনাক্ত করা এবং পুনরায় পাঠানোর ব্যবস্থা করা। এটি trailer-এ redundant
+                                    data যুক্ত করে করা হয়।</li>
+                                <li><strong>Access Control:</strong> যখন Multiple device একই link
+                                    share করে, তখন কোন device-টি কখন data পাঠাবে তা নিয়ন্ত্রণ করা।</li>
                             </ul>
                         </div>
 
                         <hr>
 
-                        <h2><i class="bi bi-shield-check"></i> ডেটা লিঙ্ক লেয়ারের প্রোটোকলসমূহ</h2>
-                        <p>এই লেয়ারে নিরবিচ্ছিন্ন যোগাযোগের জন্য বিভিন্ন প্রোটোকল ব্যবহৃত হয়:</p>
+                        <h2><i class="bi bi-shield-check"></i> Data Link Layer-এর Protocol-সমূহ</h2>
+                        <p>এই Layer-এ নিরবিচ্ছিন্ন যোগাযোগের জন্য বিভিন্ন protocol ব্যবহৃত হয়:</p>
                         <ul>
-                            <li><strong>SDLC (Synchronous Data Link Control):</strong> আইবিএম দ্বারা তৈরি প্রাচীন
-                                প্রোটোকল।</li>
-                            <li><strong>HDLC (High-Level Data Link Control):</strong> এটি বিট-ওরিয়েন্টেড প্রোটোকল যা
-                                ডেটা ট্রান্সমিশনে ব্যবহৃত হয়।</li>
-                            <li><strong>SLIP (Serial Line Interface Protocol):</strong> সিরিয়াল পোর্ট এবং মডেম
-                                কানেকশনের জন্য ব্যবহৃত হয়।</li>
-                            <li><strong>PPP (Point-to-Point Protocol):</strong> সরাসরি দুটি কম্পিউটারের মধ্যে আইপি
-                                ট্রাফিক ট্রান্সমিট করতে ব্যবহৃত হয়।</li>
-                            <li><strong>LAP (Link Access Procedure):</strong> এক্স.২৫ (X.25) ফ্রেম গঠনের প্রোটোকল।</li>
-                            <li><strong>LCP & NCP:</strong> লিঙ্ক কন্ট্রোল এবং নেটওয়ার্ক কন্ট্রোল প্রোটোকল যা PPP এর
-                                সাথে কাজ করে।</li>
+                            <li><strong>SDLC (Synchronous Data Link Control):</strong> IBM দ্বারা Creation প্রাচীন
+                                Protocol।</li>
+                            <li><strong>HDLC (High-Level Data Link Control):</strong> এটি bit-oriented protocol যা
+                                data transmission-এ ব্যবহৃত হয়।</li>
+                            <li><strong>SLIP (Serial Line Interface Protocol):</strong> Serial port এবং Modem
+                                connection-এর জন্য ব্যবহৃত হয়।</li>
+                            <li><strong>PPP (Point-to-Point Protocol):</strong> সরাসরি দুটি Computerের মধ্যে IP
+                                Traffic transmit করতে ব্যবহৃত হয়।</li>
+                            <li><strong>LAP (Link Access Procedure):</strong> X.25 Frame Structureের protocol।</li>
+                            <li><strong>LCP & NCP:</strong> Link Control এবং Network Control protocol যা PPP-এর
+                                সাথে Task করে।</li>
                         </ul>
 
                         <hr>
 
-                        <h2><i class="bi bi-cpu"></i> ডেটা লিঙ্ক লেয়ারে ব্যবহৃত ডিভাইসসমূহ</h2>
-                        <p>এই লেয়ারে তথ্যের সঠিক আদান-প্রদান নিশ্চিত করতে বেশ কিছু হার্ডওয়্যার ডিভাইস কাজ করে:</p>
+                        <h2><i class="bi bi-cpu"></i> Data Link Layer-এ ব্যবহৃত Device-সমূহ</h2>
+                        <p>এই Layout-এ Informationের সঠিক আদান-প্রদান নিশ্চিত করতে বেশ কিছু Hardware Device Task করে:</p>
                         <div
                             style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
                             <div class="content-box">
-                                <h3>১. সুইচ (Switch)</h3>
-                                <p>ম্যাক অ্যাড্রেস টেবিল ব্যবহার করে ফ্রেমগুলোকে সঠিক ডিভাইসে ফরওয়ার্ড করে।</p>
+                                <h3>1. Switch</h3>
+                                <p>MAC Address Table ব্যবহার করে Frame-গুলোকে সঠিক Device-এ forward করে।</p>
                             </div>
                             <div class="content-box">
-                                <h3>২. ব্রিজ (Bridge)</h3>
-                                <p>দুটি ল্যান (LAN) কে সংযুক্ত করে একটি নেটওয়ার্ক সেগমেন্ট তৈরি করে এবং ট্রাফিক কমায়।
+                                <h3>2. Bridge</h3>
+                                <p>দুটি LAN-কে সংযুক্ত করে একটি network segment Creation করে এবং traffic কমায়।
                                 </p>
                             </div>
                             <div class="content-box">
-                                <h3>৩. NIC (Network Interface Card)</h3>
-                                <p>কম্পিউটারের ফিজিক্যাল যোগাযোগ ইউনিট যা ম্যাক অ্যাড্রেস ব্যবহার করে ফ্রেম পাঠায় ও
+                                <h3>3. NIC (Network Interface Card)</h3>
+                                <p>Computerের physical যোগাযোগ unit যা MAC address ব্যবহার করে frame পাঠায় ও
                                     গ্রহণ করে।</p>
                             </div>
                             <div class="content-box">
-                                <h3>৪. Wireless Access Point (WAP)</h3>
-                                <p>ওয়্যারলেস ডিভাইসগুলোকে ওয়্যারড নেটওয়ার্কের সাথে সংযুক্ত করে ওয়াই-ফাই প্রোটোকল
+                                <h3>4. Wireless Access Point (WAP)</h3>
+                                <p>Wireless device-গুলোকে wired network-এর সাথে সংযুক্ত করে Wi-Fi protocol
                                     ব্যবহার করে।</p>
                             </div>
                         </div>
 
                         <div class="warning-box">
-                            <p><strong><i class="bi bi-shield-slash"></i> নিরাপত্তা ঝুঁকি:</strong> ডেটা লিঙ্ক লেয়ার
-                                অনেক সময় <strong>MAC Spoofing</strong> বা <strong>ARP Poisoning</strong> এর মতো সাইবার
-                                আক্রমণের শিকার হতে পারে। এই আক্রমণগুলো সম্পর্কে জ্ঞান থাকা নেটওয়ার্ক সুরক্ষার জন্য
+                            <p><strong><i class="bi bi-shield-slash"></i> Security Risk:</strong> Data Link Layer
+                                অনেক সময় <strong>MAC Spoofing</strong> বা <strong>ARP Poisoning</strong>-এর মতো Cyber
+                                Attackের শিকার হতে পারে। এই Attackগুলো সম্পর্কে জ্ঞান থাকা network সুরক্ষার জন্য
                                 অপরিহার্য।</p>
                         </div>
 
                         <hr>
 
-                        <h2><i class="bi bi-exclamation-octagon"></i> সীমাবদ্ধতা ও প্রয়োগ (Applications)</h2>
+                        <h2><i class="bi bi-exclamation-octagon"></i> সীমাবদ্ধতা ও প্রয়োগ (Applications)</h2>
                         <div style="display: flex; gap: 20px; flex-wrap: wrap;">
                             <div style="flex: 1; min-width: 280px;">
                                 <h3>সীমাবদ্ধতা:</h3>
                                 <ul>
-                                    <li>সীমিত পরিধি: শুধুমাত্র স্থানীয় নেটওয়ার্কের মধ্যে কাজ করতে পারে।</li>
-                                    <li>ওভারহেড বৃদ্ধি: হেডার ও ট্রেলার যুক্ত করার ফলে ডেটার সাইজ বেড়ে যায়।</li>
-                                    <li>রাউটিং অক্ষমতা: এটি নেটওয়ার্কের বাইরে রাউটিং করতে পারে না।</li>
+                                    <li>সীমিত Scope: শুধুমাত্র স্থানীয় network-এর মধ্যে Task করতে পারে।</li>
+                                    <li>Overhead বৃদ্ধি: Header ও trailer যুক্ত করার ফলে data-র size বেড়ে যায়।</li>
+                                    <li>Routing অCapacity: এটি network-এর বাইরে routing করতে পারে না।</li>
                                 </ul>
                             </div>
                             <div style="flex: 1; min-width: 280px;">
-                                <h3>প্রয়োগ:</h3>
+                                <h3>প্রয়োগ:</h3>
                                 <ul>
-                                    <li>ইথারনেট (Ethernet) এবং ল্যান (LAN) পরিচালনা।</li>
-                                    <li>ওয়াই-ফাই (IEEE 802.11) কমিউনিকেশন।</li>
-                                    <li>পয়েন্ট-টু-পয়েন্ট প্রোটকলের মাধ্যমে সরাসরি সংযোগ।</li>
-                                    <li>সুইচিং অপারেশন পরিচালনা।</li>
+                                    <li>Ethernet এবং LAN Operation।</li>
+                                    <li>Wi-Fi (IEEE 802.11) communication।</li>
+                                    <li>Point-to-point protocol-এর মাধ্যMay সরাসরি সংযোগ।</li>
+                                    <li>Switching operation Operation।</li>
                                 </ul>
                             </div>
                         </div>
 
                         <hr>
 
-                        <h2><i class="bi bi-check2-circle"></i> সারসংক্ষেপ</h2>
-                        <p>ডেটা লিঙ্ক লেয়ার নেটওয়ার্কিংয়ের অত্যন্ত গুরুত্বপূর্ণ একটি স্তর যা বিটগুলোকে ফ্রেমে
-                            রূপান্তর করে ডেটার নির্ভরযোগ্যতা নিশ্চিত করে। এর ফ্লো কন্ট্রোল, এরর হ্যান্ডলিং এবং
-                            অ্যাড্রেসিং ব্যবস্থা ছাড়া ইন্টারনেটের মতো বিশাল নেটওয়ার্কে তথ্যের আদান-প্রদান করা অসম্ভব
+                        <h2><i class="bi bi-check2-circle"></i> Summary</h2>
+                        <p>Data Link Layer Networking-এর অত্যন্ত গুরুত্বপূর্ণ একটি স্তর যা bit-গুলোকে frame-এ
+                            রূপান্তর করে data-র Reliableতা নিশ্চিত করে। এর flow control, error handling এবং
+                            addressing ব্যবস্থা ছাড়া Internet-এর মতো বিশাল network-এ Informationের আদান-প্রদান করা অসম্ভব
                             ছিল।</p>
                     </div>
                 </article>
@@ -324,7 +325,7 @@
 
         <footer class="glass-footer">
             <div class="container">
-                <p>&copy; ২০২৬ enablement.info. সর্বস্বত্ব সংরক্ষিত।</p>
+                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
             </div>
         </footer>
     </div>

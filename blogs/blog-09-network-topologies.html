@@ -178,12 +178,12 @@
             <div class="container">
                 <a href="../blogs.html" class="back-btn">
                     <i class='bx bx-arrow-back'></i>
-                    <span>আগের পেজে ফিরে যান</span>
+                    <span>Return to Previous Page</span>
                 </a>
 
                 <article class="glass-panel">
                     <header class="article-header">
-                        <h1>কম্পিউটার নেটওয়ার্ক টপোলজি: বিস্তারিত গাইড</h1>
+                        <h1>Computer Network Topology: Detailed Guide</h1>
                         <div class="article-meta">
                             <span><i class='bx bx-calendar'></i> Jan 02, 2026</span>
                             <span style="margin: 0 10px;">|</span>
@@ -192,26 +192,27 @@
                     </header>
 
                     <div class="article-body">
-                        <h2><i class="bi bi-lightbulb"></i> নেটওয়ার্ক টপোলজি কী?</h2>
-                        <p>নেটওয়ার্ক টপোলজি হলো একটি নেটওয়ার্কের ডিভাইস (নোড) এবং সংযোগগুলোর (লিংক) জ্যামিতিক বিন্যাস।
-                            এটি নির্ধারণ করে যে কীভাবে কম্পিউটার, সার্ভার এবং অন্যান্য ডিভাইসগুলো একে অপরের সাথে যুক্ত
-                            এবং কীভাবে তাদের মধ্যে ডেটা প্রবাহিত হয়। টপোলজি মূলত দুই প্রকার:</p>
+                        <h2><i class="bi bi-lightbulb"></i> Network Topology What is?</h2>
+                        <p>Network Topology হলো একটি Network-এর Device (Node) এবং সংযোগগুলোর (Link) জ্যামিতিক বিন্যাস।
+                            এটি Determination করে যে কীভাবে Computer, Server এবং অন্যান্য Deviceগুলো একে অপরের সাথে যুক্ত
+                            এবং কীভাবে তাদের মধ্যে Data প্রবাহিত হয়। Topology মূলত দুই প্রকার:</p>
                         <ul>
-                            <li><strong>Physical Topology:</strong> ক্যাবল এবং ডিভাইসের প্রকৃত শারীরিক বিন্যাস।</li>
-                            <li><strong>Logical Topology:</strong> শারীরিক বিন্যাস যাই হোক না কেন, ডেটা কীভাবে
-                                নেটওয়ার্কের মাধ্যমে প্রবাহিত হয়।</li>
+                            <li><strong>Physical Topology:</strong> Cable এবং Deviceের প্রকৃত শারীরিক বিন্যাস।</li>
+                            <li><strong>Logical Topology:</strong> শারীরিক বিন্যাস যাই হোক না কেন, Data কীভাবে
+                                Networkের মাধ্যMay প্রবাহিত হয়।</li>
                         </ul>
 
                         <hr>
 
-                        <h2><i class="bi bi-diagram-3"></i> টপোলজির প্রকারভেদ (Types of Topologies)</h2>
-                        <p>GeeksforGeeks-এর তথ্য অনুযায়ী প্রধান টপোলজিগুলো নিচে বিস্তারিত আলোচনা করা হলো:</p>
+                        <h2><i class="bi bi-diagram-3"></i> Topology-র Classification (Types of Topologies)</h2>
+                        <p>GeeksforGeeks-এর Information অনুযায়ী প্রধান Topologyগুলো নিচে Detailed Discussion করা হলো:</p>
 
                         <div class="content-box mb-4">
-                            <h3>১. Point-to-Point Topology</h3>
-                            <p>এটি সবচেয়ে সহজ যোগাযোগ পদ্ধতি যেখানে দুটি নোডের মধ্যে একটি সরাসরি লিংক থাকে। একজন প্রেরক
+                            <h3>1. Point-to-Point Topology</h3>
+                            <p>এটি সবচেয়ে সহজ যোগাযোগ Method যেখানে দুটি Node-এর মধ্যে একটি সরাসরি Link থাকে। একজন
+                                Sender
                                 এবং
-                                একজন প্রাপক থাকে। এটি উচ্চ ব্যান্ডউইথ প্রদান করে।</p>
+                                একজন receiver থাকে। এটি High Bandwidth প্রদান করে।</p>
 
                             <svg class="topology-diagram" viewBox="0 0 400 150">
                                 <line x1="100" y1="75" x2="300" y2="75" class="topology-link" />
@@ -223,8 +224,8 @@
                         </div>
 
                         <div class="content-box mb-4">
-                            <h3>২. Mesh Topology (মেশ টপোলজি)</h3>
-                            <p>মেশ টপোলজিতে প্রতিটি ডিভাইস অন্য প্রতিটি ডিভাইসের সাথে সরাসরি যুক্ত থাকে।</p>
+                            <h3>2. Mesh Topology (Mayশ Topology)</h3>
+                            <p>Mayশ Topology-তে প্রতিটি Device অন্য প্রতিটি Device-এর সাথে সরাসরি যুক্ত থাকে।</p>
 
                             <svg class="topology-diagram" viewBox="0 0 400 300">
                                 <!-- Links -->
@@ -251,17 +252,18 @@
                             </svg>
 
                             <ul>
-                                <li><strong>লিংক সংখ্যা:</strong> $N$ সংখ্যক ডিভাইসের জন্য মোট লিংক প্রয়োজন $N(N-1)/2$।
+                                <li><strong>Link সংখ্যা:</strong> $N$ সংখ্যক Device-এর জন্য মোট Link প্রয়োজন
+                                    $N(N-1)/2$।
                                 </li>
-                                <li><strong>সুবিধা:</strong> অত্যন্ত নির্ভরযোগ্য (Robust), দ্রুত যোগাযোগ এবং উচ্চ
-                                    নিরাপত্তা। একটি লিংক নষ্ট হলেও পুরো নেটওয়ার্ক সচল থাকে।</li>
-                                <li><strong>অসুবিধা:</strong> ইনস্টলেশন কঠিন এবং ক্যাবলিং খরচ অনেক বেশি।</li>
+                                <li><strong>Advantage:</strong> অত্যন্ত Reliable (Robust), Fast যোগাযোগ এবং High
+                                    Security। একটি Link নষ্ট হলেও পুরো Network সচল থাকে।</li>
+                                <li><strong>অAdvantage:</strong> Installation কঠিন এবং Cabling Cost অনেক High।</li>
                             </ul>
                         </div>
 
                         <div class="content-box mb-4">
-                            <h3>৩. Star Topology (স্টার টপোলজি)</h3>
-                            <p>এখানে সব ডিভাইস একটি কেন্দ্রীয় হাব বা সুইচের সাথে যুক্ত থাকে।</p>
+                            <h3>3. Star Topology (স্টার Topology)</h3>
+                            <p>এখানে সব Device একটি কেন্দ্রীয় Hub বা Switch-এর সাথে যুক্ত থাকে।</p>
 
                             <svg class="topology-diagram" viewBox="0 0 400 300">
                                 <line x1="200" y1="150" x2="200" y2="50" class="topology-link" />
@@ -284,16 +286,16 @@
                             </svg>
 
                             <ul>
-                                <li><strong>সুবিধা:</strong> সহজে সেটআপ করা যায়, একটি লিংক নষ্ট হলে অন্যগুলো প্রভাবিত হয়
-                                    না, ফল্ট শনাক্ত করা সহজ।</li>
-                                <li><strong>অসুবিধা:</strong> কেন্দ্রীয় হাব নষ্ট হলে পুরো নেটওয়ার্ক অচল হয়ে পড়ে। হাবের
-                                    পারফরম্যান্সের ওপর পুরো নেটওয়ার্ক নির্ভরশীল।</li>
+                                <li><strong>Advantage:</strong> সহজে Setup করা যায়, একটি Link নষ্ট হলে অন্যগুলো প্রভাবিত হয়
+                                    না, Fault শনাক্ত করা সহজ।</li>
+                                <li><strong>অAdvantage:</strong> কেন্দ্রীয় Hub নষ্ট হলে পুরো Network অচল হয়ে পড়ে। Hub-এর
+                                    Performance-এর ওপর পুরো Network নির্ভরশীল।</li>
                             </ul>
                         </div>
 
                         <div class="content-box mb-4">
-                            <h3>৪. Bus Topology (বাস টপোলজি)</h3>
-                            <p>সব ডিভাইস একটি সাধারণ ব্যাকবোন ক্যাবলের সাথে যুক্ত থাকে। এটি দ্বিমুখী (Bi-directional)
+                            <h3>4. Bus Topology (বাস Topology)</h3>
+                            <p>সব Device একটি সাধারণ Backbone Cable-এর সাথে যুক্ত থাকে। এটি দ্বিমুখী (Bi-directional)
                                 যোগাযোগ সমর্থন করে।</p>
 
                             <svg class="topology-diagram" viewBox="0 0 400 200">
@@ -312,16 +314,16 @@
                             </svg>
 
                             <ul>
-                                <li><strong>সুবিধা:</strong> ছোট নেটওয়ার্কের জন্য সস্তা এবং সহজ।</li>
-                                <li><strong>অসুবিধা:</strong> মূল ক্যাবল নষ্ট হলে পুরো নেটওয়ার্ক অচল হয়। ট্রাফিক বেশি
-                                    হলে কলিশন (Collision) বাড়ে। নিরাপত্তা কম।</li>
+                                <li><strong>Advantage:</strong> ছোট Network-এর জন্য সস্তা এবং সহজ।</li>
+                                <li><strong>অAdvantage:</strong> মূল Cable নষ্ট হলে পুরো Network অচল হয়। Traffic High
+                                    হলে Collision বাড়ে। Security কম।</li>
                             </ul>
                         </div>
 
                         <div class="content-box mb-4">
-                            <h3>৫. Ring Topology (রিং টপোলজি)</h3>
-                            <p>প্রতিটি ডিভাইস তার পাশের দুটি ডিভাইসের সাথে যুক্ত হয়ে একটি বৃত্ত বা রিং তৈরি করে। এখানে
-                                'Token Passing' পদ্ধতি ব্যবহার করা হয়।</p>
+                            <h3>5. Ring Topology (রিং Topology)</h3>
+                            <p>প্রতিটি Device তার পাশের দুটি Device-এর সাথে যুক্ত হয়ে একটি বৃত্ত বা Ring Creation করে। এখানে
+                                'Token Passing' Method ব্যবহার করা হয়।</p>
 
                             <svg class="topology-diagram" viewBox="0 0 400 300">
                                 <circle cx="200" cy="150" r="80" fill="none" stroke="rgba(33, 150, 243, 0.3)"
@@ -338,16 +340,16 @@
                             </svg>
 
                             <ul>
-                                <li><strong>সুবিধা:</strong> ডেটা কলিশন কম হয়, ইনস্টলেশন খরচ তুলনামূলক কম।</li>
-                                <li><strong>অসুবিধা:</strong> যেকোনো একটি নোড নষ্ট হলে পুরো নেটওয়ার্ক অচল হয়ে যায়।
-                                    ট্রাবলশুটিং কঠিন।</li>
+                                <li><strong>Advantage:</strong> Data Collision কম হয়, Installation Cost Relatively low।</li>
+                                <li><strong>অAdvantage:</strong> যেকোনো একটি Node নষ্ট হলে পুরো Network অচল হয়ে যায়।
+                                    Troubleshooting কঠিন।</li>
                             </ul>
                         </div>
 
                         <div class="content-box mb-4">
-                            <h3>৬. Tree Topology (ট্রি টপোলজি)</h3>
-                            <p>এটি স্টার টপোলজির একটি উন্নত রূপ যা হায়ারার্কিকাল (Hierarchical) গঠন অনুসরণ করে। একটি
-                                মেইন হাবের সাথে অনেকগুলো সেকেন্ডারি হাব যুক্ত থাকে।</p>
+                            <h3>6. Tree Topology (Tree Topology)</h3>
+                            <p>এটি Star Topology-র একটি Advanced রূপ যা হায়ারার্কিকাল (Hierarchical) Structure অনুসরণ করে। একটি
+                                Main Hub-এর সাথে অনেকগুলো Secondary Hub যুক্ত থাকে।</p>
 
                             <svg class="topology-diagram" viewBox="0 0 400 300">
                                 <line x1="200" y1="50" x2="120" y2="130" class="topology-link" />
@@ -366,15 +368,15 @@
                             </svg>
 
                             <ul>
-                                <li><strong>সুবিধা:</strong> বড় নেটওয়ার্কের জন্য উপযোগী, নতুন ডিভাইস যোগ করা সহজ।</li>
-                                <li><strong>অসুবিধা:</strong> মেইন হাব নষ্ট হলে নিচের সব শাখা অচল হয়ে যায়। ক্যাবলিং খরচ
-                                    বেশি।</li>
+                                <li><strong>Advantage:</strong> বড় Network-এর জন্য উপযোগী, নতুন Device যোগ করা সহজ।</li>
+                                <li><strong>অAdvantage:</strong> Main Hub নষ্ট হলে নিচের সব শাখা অচল হয়ে যায়। Cabling Cost
+                                    High।</li>
                             </ul>
                         </div>
 
                         <div class="content-box mb-4">
-                            <h3>৭. Hybrid Topology (হাইব্রিড টপোলজি)</h3>
-                            <p>দুই বা ততোধিক ভিন্ন ধরণের টপোলজির সমন্বয়ে এটি তৈরি হয়। যেমন- স্টার এবং বাস টপোলজির
+                            <h3>7. Hybrid Topology (হাইব্রিড Topology)</h3>
+                            <p>দুই বা ততোধিক ভিন্ন ধরণের Topologyর সমন্বয়ে এটি Creation হয়। যেমন- স্টার এবং বাস Topologyর
                                 মিশ্রণ।</p>
 
                             <svg class="topology-diagram" viewBox="0 0 400 250">
@@ -397,27 +399,27 @@
                             </svg>
 
                             <ul>
-                                <li><strong>সুবিধা:</strong> অত্যন্ত নমনীয় (Flexible) এবং বড় নেটওয়ার্কের পরিধি বাড়ানো
+                                <li><strong>Advantage:</strong> অত্যন্ত Flexible (Flexible) এবং বড় Network-এর Scope বাড়ানো
                                     সহজ।</li>
-                                <li><strong>অসুবিধা:</strong> ডিজাইন করা জটিল এবং মেইনটেন্যান্স খরচ বেশি।</li>
+                                <li><strong>অAdvantage:</strong> Design করা জটিল এবং Maintenance Cost High।</li>
                             </ul>
                         </div>
 
-                        <h2><i class="bi bi-info-circle"></i> টপোলজির গুরুত্ব</h2>
+                        <h2><i class="bi bi-info-circle"></i> Topology-র গুরুত্ব</h2>
                         <ul>
-                            <li><strong>পারফরম্যান্স:</strong> সঠিক টপোলজি নির্বাচন করলে নেটওয়ার্কের গতি বৃদ্ধি পায়।
+                            <li><strong>Performance:</strong> সঠিক Topology Selection করলে Network-এর Speed বৃদ্ধি পায়।
                             </li>
-                            <li><strong>নির্ভরযোগ্যতা:</strong> মেশ বা স্টার টপোলজি ব্যাকআপ সংযোগ প্রদান করে
-                                নির্ভরযোগ্যতা বাড়ায়।</li>
-                            <li><strong>বিস্তৃতি:</strong> সঠিক পরিকল্পনা থাকলে ভবিষ্যতে নেটওয়ার্ক বাড়ানো সহজ হয়।</li>
-                            <li><strong>নিরাপত্তা:</strong> টপোলজি অনুযায়ী ডেটা প্রবাহ নিয়ন্ত্রণ করে উন্নত নিরাপত্তা
+                            <li><strong>Reliableতা:</strong> Mesh বা Star Topology Backup সংযোগ প্রদান করে
+                                Reliableতা বাড়ায়।</li>
+                            <li><strong>বিস্তৃতি:</strong> সঠিক Plan থাকলে ভবিষ্যতে Network বাড়ানো সহজ হয়।</li>
+                            <li><strong>Security:</strong> Topology অনুযায়ী Data প্রবাহ নিয়ন্ত্রণ করে Advanced Security
                                 নিশ্চিত করা সম্ভব।</li>
                         </ul>
 
                         <div class="content-box mt-4">
-                            <p><strong>সারসংক্ষেপ:</strong> নেটওয়ার্কের আকার, বাজেট এবং প্রয়োজনীয়তার ওপর ভিত্তি করে
-                                সঠিক টপোলজি নির্বাচন করা অত্যন্ত জরুরি। আধুনিক কর্পোরেট নেটওয়ার্কে সাধারণত স্টার বা
-                                হাইব্রিড টপোলজি বেশি ব্যবহৃত হয়।</p>
+                            <p><strong>Summary:</strong> Network-এর Size, Budget এবং প্রয়োজনীয়তার ওপর ভিত্তি করে
+                                সঠিক Topology Selection করা অত্যন্ত জরুরি। Modern Corporate Network-এ সাধারণত Star বা
+                                Hybrid Topology High ব্যবহৃত হয়।</p>
                         </div>
                     </div>
                 </article>
