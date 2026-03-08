@@ -1,273 +1,277 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="bn">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flow Control: Data Link Layer | enablement.info</title>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <script
-        type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
-    <style>
-        .blog-content-wrapper {
-            padding-top: 20px;
-            padding-bottom: 60px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flow Control: Data Link Layer | enablement.info</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <script
+    type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+  <style>
+    .blog-content-wrapper {
+      padding-top: 20px;
+      padding-bottom: 60px;
+    }
 
-        .article-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    .article-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
 
-        .article-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
+    .article-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
 
-        .article-meta {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
+    .article-meta {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
 
-        .article-body {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #d0d0e0;
-        }
+    .article-body {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #d0d0e0;
+    }
 
-        .article-body h2,
-        .article-body h3,
-        .article-body h4 {
-            font-family: 'Times New Roman', serif;
-            color: var(--primary-color);
-            margin-top: 35px;
-            margin-bottom: 15px;
-            font-weight: 800;
-        }
+    .article-body h2,
+    .article-body h3,
+    .article-body h4 {
+      font-family: 'Times New Roman', serif;
+      color: var(--primary-color);
+      margin-top: 35px;
+      margin-bottom: 15px;
+      font-weight: 800;
+    }
 
-        .article-body h2 {
-            font-size: 1.8rem;
-        }
+    .article-body h2 {
+      font-size: 1.8rem;
+    }
 
-        .article-body h3 {
-            font-size: 1.4rem;
-            color: #fff;
-        }
+    .article-body h3 {
+      font-size: 1.4rem;
+      color: #fff;
+    }
 
-        .article-body h4 {
-            font-size: 1.1rem;
-            color: #a0c4ff;
-            margin-top: 20px;
-        }
+    .article-body h4 {
+      font-size: 1.1rem;
+      color: #a0c4ff;
+      margin-top: 20px;
+    }
 
-        .article-body ul,
-        .article-body ol {
-            margin-bottom: 20px;
-            padding-left: 20px;
-        }
+    .article-body ul,
+    .article-body ol {
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
 
-        .article-body li {
-            margin-bottom: 10px;
-        }
+    .article-body li {
+      margin-bottom: 10px;
+    }
 
-        .note-box {
-            background: rgba(33, 150, 243, 0.07);
-            border-left: 4px solid var(--primary-color);
-            padding: 14px 18px;
-            margin: 18px 0;
-            border-radius: 0 8px 8px 0;
-            color: #b0c4de;
-        }
-    </style>
+    .note-box {
+      background: rgba(33, 150, 243, 0.07);
+      border-left: 4px solid var(--primary-color);
+      padding: 14px 18px;
+      margin: 18px 0;
+      border-radius: 0 8px 8px 0;
+      color: #b0c4de;
+    }
+  </style>
 </head>
 
 <body>
-    <canvas id="network-canvas"></canvas>
-    <div class="overlay">
-        <header class="glass-header">
-            <div class="container">
-                <nav class="main-nav">
-                    <ul>
-                        <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span
-                                    class="nav-text">Home</span></a></li>
-                        <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
-                                    class="nav-text">Blog</span></a></li>
-                    </ul>
-                </nav>
+  <canvas id="network-canvas"></canvas>
+  <div class="overlay">
+    <header class="glass-header">
+      <div class="container container-blog">
+        <nav class="main-nav">
+          <ul>
+            <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span
+                  class="nav-text">Home</span></a></li>
+            <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
+                  class="nav-text">Blog</span></a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="blog-content-wrapper">
+      <div class="container container-blog">
+        <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>আগের Page-এ ফিরে
+            যান</span></a>
+
+        <article class="glass-panel">
+          <header class="article-header">
+            <h1>Flow Control: Data Link Layer</h1>
+            <div class="article-meta">
+              <span><i class='bx bx-calendar'></i> February 08, 2026</span>
+              <span style="margin:0 10px;">|</span>
+              <span><i class='bx bx-category'></i> Networking</span>
             </div>
-        </header>
+          </header>
 
-        <main class="blog-content-wrapper">
-            <div class="container">
-                <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>আগের Page-এ ফিরে
-                        যান</span></a>
+          <div class="article-body">
 
-                <article class="glass-panel">
-                    <header class="article-header">
-                        <h1>Flow Control: Data Link Layer</h1>
-                        <div class="article-meta">
-                            <span><i class='bx bx-calendar'></i> February ০৮, 2026</span>
-                            <span style="margin:0 10px;">|</span>
-                            <span><i class='bx bx-category'></i> Networking</span>
-                        </div>
-                    </header>
+            <h2><i class="bi bi-speedometer2"></i> Flow Control What is?</h2>
+            <p><strong>Flow Control</strong> হলো OSI Model-এর Data Link Layer-এর একটি প্রক্রিয়া যা Sender ও
+              Receiver মধ্যে Data Transmission-এর Speed নিয়ন্ত্রণ করে। এটি নিশ্চিত করে যে Sender এমন Speed তে
+              Data পাঠায় যা Receiver সামলাতে পারে — Buffer Overflow এবং Data হারানো রোধ করে।</p>
 
-                    <div class="article-body">
-
-                        <h2><i class="bi bi-speedometer2"></i> Flow Control What is?</h2>
-                        <p><strong>Flow Control</strong> হলো OSI Model-এর Data Link Layer-এর একটি প্রক্রিয়া যা Sender ও
-                            Receiver মধ্যে Data Transmission-এর Speed নিয়ন্ত্রণ করে। এটি নিশ্চিত করে যে Sender এমন Speedতে
-                            Data পাঠায় যা Receiver সামলাতে পারে — Buffer Overflow এবং Data হারানো রোধ করে।</p>
-
-                        <div class="content-box">
-                            <ul>
-                                <li>Sender ও Receiver-এর মধ্যে Data-র প্রবাহ নিয়ন্ত্রণ করে।</li>
-                                <li>Transmission Speed ও Processing সCapacityর পার্থক্য সামলায়।</li>
-                                <li>Buffer Overflow ও Data হারানো রোধ করে।</li>
-                                <li>Device-গুলির মধ্যে একটি Speed-matching mechanism হিসেবে Task করে।</li>
-                                <li>ACK পাওয়ার আগে কতটি Frame পাঠাবে তা নিয়ন্ত্রণ করে।</li>
-                                <li>Data Transmission Rate ও Memory Capacity-র মধ্যে ভারসাম্য রাখে।</li>
-                            </ul>
-                        </div>
-
-                        <hr>
-
-                        <h2><i class="bi bi-diagram-3"></i> Flow Control-এর Methodসমূহ (Approaches)</h2>
-
-                        <h3>1. Feedback-Based Flow Control</h3>
-                        <p>এখানে Receiver Data পাওয়ার Capacity সম্পর্কে Sender-কে সরাসরি Feedback পাঠায় এবং Sender সেই
-                            অনুযায়ী Speed সামঞ্জস্য করে।</p>
-                        <ul>
-                            <li>Sender ACK বা Window Update পাওয়ার পরেই Data পাঠায়।</li>
-                            <li>Data পাঠানোর হার Receiver-এর বর্তমান অবস্থা বা Network Environment অনুযায়ী Speedশীলভাবে
-                                পরিবর্তিত হয়।</li>
-                            <li>TCP-এর মতো Protocol-এ ব্যাপকভাবে ব্যবহৃত হয়।</li>
-                        </ul>
-
-                        <h4>Computer Architecture-এ ব্যবহৃত Technique:</h4>
-                        <div
-                            style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;margin-bottom:20px;">
-                            <div class="content-box">
-                                <strong>Ready-Signal Handshaking:</strong>
-                                <p>ভিন্ন Speedর Component-এর মধ্যে ব্যবহৃত হয়। Receiver "ready" Signal পাঠালে তবেই Data
-                                    Transfer শুরু হয়।</p>
-                            </div>
-                            <div class="content-box">
-                                <strong>Credit-Based Flow Control:</strong>
-                                <ul>
-                                    <li>Fibre Channel-এর মতো High-speed Protocol-এ ব্যবহৃত।</li>
-                                    <li>Receiver Buffer Space-এর সমপরিমাণ Credit দেয়; Sender প্রতিটি Credit-এর বিপরীতে
-                                        একটি Frame পাঠাতে পারে।</li>
-                                    <li>Receiver Data Process করার সাথে সাথে Credit পুনরুদ্ধার হয়।</li>
-                                    <li>সাধারণ Stop-and-Wait Flow Control-এর চেয়ে High দক্ষ।</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <h3>2. Rate-Based Flow Control</h3>
-                        <p>Sender Receiver-এর ক্রমাগত Feedback ছাড়াই একটি নির্দিষ্ট বা পূর্বFixed হারে Data পাঠায়।
-                        </p>
-                        <ul>
-                            <li>Sender স্বাধীনভাবে Transmission Rate নিয়ন্ত্রণ করে।</li>
-                            <li>ACK বা Window Update-এর ওপর নির্ভর করে না।</li>
-                            <li>Streaming, Multimedia ও Hardware System-এ উপযুক্ত।</li>
-                        </ul>
-
-                        <h4>Computer Architecture-এ ব্যবহৃত Technique:</h4>
-                        <div
-                            style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-bottom:20px;">
-                            <div class="content-box">
-                                <strong><i class="bi bi-bucket"></i> Leaky Bucket Algorithm:</strong>
-                                <p>Input Traffic-কে একটি নির্দিষ্ট হারে Output করে, Bursty Traffic-কে মসৃণ
-                                    করে।</p>
-                            </div>
-                            <div class="content-box">
-                                <strong><i class="bi bi-coin"></i> Token Bucket Algorithm:</strong>
-                                <p>নির্দিষ্ট হারে Token Creation হয়; Token থাকলেই Data পাঠানো যায়। বড় Bucket ছোট Burst
-                                    Support করে।</p>
-                            </div>
-                            <div class="content-box">
-                                <strong><i class="bi bi-filter"></i> Traffic Shaping & Policing:</strong>
-                                <p>Shaping অতিরিক্ত Packet বিলম্বিত করে, Policing অতিরিক্ত Packet বাদ দেয়।</p>
-                            </div>
-                        </div>
-
-                        <hr>
-
-                        <h2><i class="bi bi-play-circle"></i> Flow Control-এর Techniqueসমূহ (Techniques)</h2>
-
-                        <h3>1. Stop-and-Wait Flow Control</h3>
-                        <p>একটি সহজ Feedback-Based Method যেখানে Sender একটি Frame পাঠিয়ে ACK পাওয়ার জন্য অপেক্ষা
-                            করে, তারপর পরের Frame পাঠায়।</p>
-                        <div class="content-box">
-                            <ul>
-                                <li><strong>সহজ ও বাস্তবায়নযোগ্য।</strong></li>
-                                <li>Reliable Data Transmission নিশ্চিত করে।</li>
-                                <li><strong>অAdvantage:</strong> High-Latency বা High-Bandwidth Network-এ খারাপ Link
-                                    ব্যবহার — অপেক্ষার Reasonে Line খালি পড়ে থাকে।</li>
-                            </ul>
-                        </div>
-
-                        <h3>2. Sliding Window Flow Control</h3>
-                        <p>Sender ACK পাওয়ার আগেই Multiple Frame পাঠাতে পারে। Receiver-এর ACK পাওয়ার সাথে সাথে Window
-                            সামনে
-                            এগিয়ে (slide) যায়, যা Pipelined Transmission সম্ভব করে।</p>
-                        <div class="content-box">
-                            <ul>
-                                <li>Pipelined Transmission-এর মাধ্যMay Bandwidth ব্যবহার Advanced করে।</li>
-                                <li>একই সাথে Multiple Frame Transit-এ থাকতে পারে।</li>
-                                <li>Window ও Buffer Management-এর জন্য অতিরিক্ত Memory ও Complexity প্রয়োজন।</li>
-                            </ul>
-                        </div>
-
-                        <hr>
-
-                        <h2><i class="bi bi-award"></i> Flow Control-এর গুরুত্ব</h2>
-                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;">
-                            <div class="content-box">
-                                <strong><i class="bi bi-shield-check"></i> Data হারানো রোধ:</strong>
-                                <p>Receiver-এর Buffer Overflow এড়াতে Transmission Rate নিয়ন্ত্রণ করে।</p>
-                            </div>
-                            <div class="content-box">
-                                <strong><i class="bi bi-graph-up-arrow"></i> Throughput Advancedি:</strong>
-                                <p>কোনো Device-কে Overload না করে দক্ষতার সাথে Network Resource ব্যবহার নিশ্চিত করে।</p>
-                            </div>
-                            <div class="content-box">
-                                <strong><i class="bi bi-activity"></i> System Stability:</strong>
-                                <p>অতিরিক্ত Data Input-এর Reasonে Hardware ও Software স্তব্ধ হওয়া বা ব্যর্থ হওয়া
-                                    রোধ করে।</p>
-                            </div>
-                            <div class="content-box">
-                                <strong><i class="bi bi-balance-scale"></i> Fairness নিশ্চিতকরণ:</strong>
-                                <p>Switch ও Router-এর মতো Shared Environmentে Multiple সংযোগে সুষম Data Transmission নিশ্চিত
-                                    করে।
-                                </p>
-                            </div>
-                        </div>
-
-                        <hr>
-
-                        <h2><i class="bi bi-check2-circle"></i> Summary</h2>
-                        <p>Flow Control Data Link Layer-এর একটি অবিচ্ছেদ্য অংশ। Stop-and-Wait Method সহজ কিন্তু কম
-                            দক্ষ, আর Sliding Window Method High দক্ষ ও Modern Network-এ ব্যাপকভাবে ব্যবহৃত হয়।
-                            Feedback-based ও Rate-based দুটি Methodই বিভিন্ন Situationতে Network-এর কার্যকারিতা
-                            নিশ্চিত করে।</p>
-
-                    </div>
-                </article>
+            <div class="content-box">
+              <ul>
+                <li>Sender ও Receiver-এর মধ্যে Data-র প্রবাহ নিয়ন্ত্রণ করে।</li>
+                <li>Transmission Speed ও Processing স Capacity র পার্থক্য সামলায়।</li>
+                <li>Buffer Overflow ও Data হারানো রোধ করে।</li>
+                <li>Device-গুলির মধ্যে একটি Speed-matching mechanism হিসেবে Task করে।</li>
+                <li>ACK পাওয়ার আগে কতটি Frame পাঠাবে তা নিয়ন্ত্রণ করে।</li>
+                <li>Data Transmission Rate ও Memory Capacity-র মধ্যে ভারসাম্য রাখে।</li>
+              </ul>
             </div>
-        </main>
 
-        <footer class="glass-footer">
-            <div class="container">
-                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+            <hr>
+
+            <h2><i class="bi bi-diagram-3"></i> Flow Control-এর Method সমূহ (Approaches)</h2>
+
+            <h3>1. Feedback-Based Flow Control</h3>
+            <p>এখানে Receiver Data পাওয়ার Capacity সম্পর্কে Sender-কে সরাসরি Feedback পাঠায় এবং Sender সেই
+              অনুযায়ী Speed সামঞ্জস্য করে।</p>
+            <ul>
+              <li>Sender ACK বা Window Update পাওয়ার পরেই Data পাঠায়।</li>
+              <li>Data পাঠানোর হার Receiver-এর বর্তমান অবস্থা বা Network Environment অনুযায়ী Speed শীলভাবে
+                পরিবর্তিত হয়।</li>
+              <li>TCP-এর মতো Protocol-এ ব্যাপকভাবে ব্যবহৃত হয়।</li>
+            </ul>
+
+            <h4>Computer Architecture-এ ব্যবহৃত Technique:</h4>
+            <div
+              style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;margin-bottom:20px;">
+              <div class="content-box">
+                <strong>Ready-Signal Handshaking:</strong>
+                <p>ভিন্ন Speed র Component-এর মধ্যে ব্যবহৃত হয়। Receiver "ready" Signal পাঠালে তবেই Data
+                  Transfer শুরু হয়।</p>
+              </div>
+              <div class="content-box">
+                <strong>Credit-Based Flow Control:</strong>
+                <ul>
+                  <li>Fibre Channel-এর মতো High-speed Protocol-এ ব্যবহৃত।</li>
+                  <li>Receiver Buffer Space-এর সমপরিমাণ Credit দেয়; Sender প্রতিটি Credit-এর বিপরীতে
+                    একটি Frame পাঠাতে পারে।</li>
+                  <li>Receiver Data Process করার সাথে সাথে Credit পুনরুদ্ধার হয়।</li>
+                  <li>সাধারণ Stop-and-Wait Flow Control-এর চেয়ে High দক্ষ।</li>
+                </ul>
+              </div>
             </div>
-        </footer>
-    </div>
-    <script type="module" src="../js/main.js"></script>
-    <script type="module" src="../js/network-background.js"></script>
+
+            <h3>2. Rate-Based Flow Control</h3>
+            <p>Sender Receiver-এর ক্রমাগত Feedback ছাড়াই একটি নির্দিষ্ট বা পূর্ব Fixed হারে Data পাঠায়।
+            </p>
+            <ul>
+              <li>Sender স্বাধীনভাবে Transmission Rate নিয়ন্ত্রণ করে।</li>
+              <li>ACK বা Window Update-এর ওপর নির্ভর করে না।</li>
+              <li>Streaming, Multimedia ও Hardware System-এ উপযুক্ত।</li>
+            </ul>
+
+            <h4>Computer Architecture-এ ব্যবহৃত Technique:</h4>
+            <div
+              style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-bottom:20px;">
+              <div class="content-box">
+                <strong><i class="bi bi-bucket"></i> Leaky Bucket Algorithm:</strong>
+                <p>Input Traffic-কে একটি নির্দিষ্ট হারে Output করে, Bursty Traffic-কে মসৃণ
+                  করে।</p>
+              </div>
+              <div class="content-box">
+                <strong><i class="bi bi-coin"></i> Token Bucket Algorithm:</strong>
+                <p>নির্দিষ্ট হারে Token Creation হয়; Token থাকলেই Data পাঠানো যায়। বড় Bucket ছোট Burst
+                  Support করে।</p>
+              </div>
+              <div class="content-box">
+                <strong><i class="bi bi-filter"></i> Traffic Shaping & Policing:</strong>
+                <p>Shaping অতিরিক্ত Packet বিলম্বিত করে, Policing অতিরিক্ত Packet বাদ দেয়।</p>
+              </div>
+            </div>
+
+            <hr>
+
+            <h2><i class="bi bi-play-circle"></i> Flow Control-এর Technique সমূহ (Techniques)</h2>
+
+            <h3>1. Stop-and-Wait Flow Control</h3>
+            <p>একটি সহজ Feedback-Based Method যেখানে Sender একটি Frame পাঠিয়ে ACK পাওয়ার জন্য অপেক্ষা
+              করে, তারপর পরের Frame পাঠায়।</p>
+            <div class="content-box">
+              <ul>
+                <li><strong>সহজ ও বাস্তবায়নযোগ্য।</strong></li>
+                <li>Reliable Data Transmission নিশ্চিত করে।</li>
+                <li><strong>অ Advantage:</strong> High-Latency বা High-Bandwidth Network-এ খারাপ Link
+                  ব্যবহার — অপেক্ষার Reason ে Line খালি পড়ে থাকে।</li>
+              </ul>
+            </div>
+
+            <h3>2. Sliding Window Flow Control</h3>
+            <p>Sender ACK পাওয়ার আগেই Multiple Frame পাঠাতে পারে। Receiver-এর ACK পাওয়ার সাথে সাথে Window
+              সামনে
+              এগিয়ে (slide) যায়, যা Pipelined Transmission সম্ভব করে।</p>
+            <div class="content-box">
+              <ul>
+                <li>Pipelined Transmission-এর মাধ্যমে Bandwidth ব্যবহার Advanced করে।</li>
+                <li>একই সাথে Multiple Frame Transit-এ থাকতে পারে।</li>
+                <li>Window ও Buffer Management-এর জন্য অতিরিক্ত Memory ও Complexity প্রয়োজন।</li>
+              </ul>
+            </div>
+
+            <hr>
+
+            <h2><i class="bi bi-award"></i> Flow Control-এর গুরুত্ব</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;">
+              <div class="content-box">
+                <strong><i class="bi bi-shield-check"></i> Data হারানো রোধ:</strong>
+                <p>Receiver-এর Buffer Overflow এড়াতে Transmission Rate নিয়ন্ত্রণ করে।</p>
+              </div>
+              <div class="content-box">
+                <strong><i class="bi bi-graph-up-arrow"></i> Throughput Advanced ি:</strong>
+                <p>কোনো Device-কে Overload না করে দক্ষতার সাথে Network Resource ব্যবহার নিশ্চিত করে।</p>
+              </div>
+              <div class="content-box">
+                <strong><i class="bi bi-activity"></i> System Stability:</strong>
+                <p>অতিরিক্ত Data Input-এর Reason ে Hardware ও Software স্তব্ধ হওয়া বা ব্যর্থ হওয়া
+                  রোধ করে।</p>
+              </div>
+              <div class="content-box">
+                <strong><i class="bi bi-balance-scale"></i> Fairness নিশ্চিতকরণ:</strong>
+                <p>Switch ও Router-এর মতো Shared Environment ে Multiple সংযোগে সুষম Data Transmission নিশ্চিত
+                  করে।
+                </p>
+              </div>
+            </div>
+
+            <hr>
+
+            <h2><i class="bi bi-check2-circle"></i> Summary</h2>
+            <p>Flow Control Data Link Layer-এর একটি অবিচ্ছেদ্য অংশ। Stop-and-Wait Method সহজ কিন্তু কম
+              দক্ষ, আর Sliding Window Method High দক্ষ ও Modern Network-এ ব্যাপকভাবে ব্যবহৃত হয়।
+              Feedback-based ও Rate-based দুটি Method ই বিভিন্ন Situation তে Network-এর কার্যকারিতা
+              নিশ্চিত করে।</p>
+
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="glass-footer">
+      <div class="container container-blog">
+        <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </div>
+  <script type="module" src="../js/main.js"></script>
+  <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>
+
+
+
+

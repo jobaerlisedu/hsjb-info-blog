@@ -1,282 +1,286 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What is Internet? - History and Working Process | enablement.info</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What is Internet? - History and Working Process | enablement.info</title>
 
 
 
-    <!-- Icons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Icons -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css">
 
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-            }
-        }
-    </script>
-    <style>
-        .blog-content-wrapper {
-            padding-top: 20px;
-            padding-bottom: 60px;
-        }
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+  <style>
+    .blog-content-wrapper {
+      padding-top: 20px;
+      padding-bottom: 60px;
+    }
 
-        .article-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    .article-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
 
-        .article-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
+    .article-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
 
-        .article-meta {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
+    .article-meta {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
 
-        .article-body {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #d0d0e0;
-        }
+    .article-body {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #d0d0e0;
+    }
 
-        .article-body h2,
-        .article-body h3 {
-            font-family: 'Times New Roman', 'Nikosh', serif;
-            color: var(--primary-color);
-            margin-top: 40px;
-            margin-bottom: 20px;
-            font-weight: 800;
-        }
+    .article-body h2,
+    .article-body h3 {
+      font-family: 'Times New Roman', 'Nikosh', serif;
+      color: var(--primary-color);
+      margin-top: 40px;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
 
-        .article-body h2 {
-            font-size: 1.8rem;
-        }
+    .article-body h2 {
+      font-size: 1.8rem;
+    }
 
-        .article-body h3 {
-            font-size: 1.4rem;
-            color: #fff;
-        }
+    .article-body h3 {
+      font-size: 1.4rem;
+      color: #fff;
+    }
 
-        .article-body ul,
-        .article-body ol {
-            margin-bottom: 20px;
-            padding-left: 20px;
-        }
+    .article-body ul,
+    .article-body ol {
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
 
-        .article-body li {
-            margin-bottom: 10px;
-        }
+    .article-body li {
+      margin-bottom: 10px;
+    }
 
-        .article-body img {
-            max-width: 100%;
-            border-radius: 12px;
-            margin: 20px 0;
-            border: 1px solid var(--glass-border);
-        }
+    .article-body img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin: 20px 0;
+      border: 1px solid var(--glass-border);
+    }
 
-        .article-body figcaption {
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-top: -10px;
-            margin-bottom: 30px;
-            font-style: italic;
-        }
-    </style>
+    .article-body figcaption {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: -10px;
+      margin-bottom: 30px;
+      font-style: italic;
+    }
+  </style>
 </head>
 
 <body>
-    <canvas id="network-canvas"></canvas>
-    <div class="overlay">
-        <header class="glass-header">
-            <div class="container">
-                <nav class="main-nav">
-                    <ul>
-                        <li>
-                            <a href="../index.html">
-                                <i class='bx bx-home-alt-2'></i>
-                                <span class="nav-text">Home</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../blogs.html" class="active">
-                                <i class='bx bx-book-content'></i>
-                                <span class="nav-text">Blog</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+  <canvas id="network-canvas"></canvas>
+  <div class="overlay">
+    <header class="glass-header">
+      <div class="container container-blog">
+        <nav class="main-nav">
+          <ul>
+            <li>
+              <a href="../index.html">
+                <i class='bx bx-home-alt-2'></i>
+                <span class="nav-text">Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="../blogs.html" class="active">
+                <i class='bx bx-book-content'></i>
+                <span class="nav-text">Blog</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="blog-content-wrapper">
+      <div class="container container-blog">
+        <a href="../blogs.html" class="back-btn">
+          <i class='bx bx-arrow-back'></i>
+          <span>Return to Previous Page</span>
+        </a>
+
+        <article class="glass-panel">
+          <header class="article-header">
+            <h1>What is Internet? - History and Working Process of the Internet</h1>
+            <div class="article-meta">
+              <span><i class='bx bx-calendar'></i> 30 December, 2025</span>
+              <span style="margin: 0 10px;">|</span>
+              <span><i class='bx bx-category'></i> Networking</span>
             </div>
-        </header>
+          </header>
 
-        <main class="blog-content-wrapper">
-            <div class="container">
-                <a href="../blogs.html" class="back-btn">
-                    <i class='bx bx-arrow-back'></i>
-                    <span>Return to Previous Page</span>
-                </a>
+          <div class="article-body">
+            <h2><i class="bi bi-lightbulb"></i> Introduction: What is the Internet?</h2>
+            <p>Internet হলো বিশ্বজুড়ে ছড়িয়ে থাকা কোটি কোটি Computer এবং Smartphone-এর একটি বিশাল সমন্বিত
+              Network। এটিকে বলা হয় "Network-এর Network"। এটি মূলত একটি বিশাল মহাসড়কের মতো, যেখানে
+              Information ের ছোট ছোট 'Packet' এক Device থেকে অন্য Device-এ চলাফেরা করে।</p>
 
-                <article class="glass-panel">
-                    <header class="article-header">
-                        <h1>What is Internet? - History and Working Process of the Internet</h1>
-                        <div class="article-meta">
-                            <span><i class='bx bx-calendar'></i> 30 December, 2025</span>
-                            <span style="margin: 0 10px;">|</span>
-                            <span><i class='bx bx-category'></i> Networking</span>
-                        </div>
-                    </header>
-
-                    <div class="article-body">
-                        <h2><i class="bi bi-lightbulb"></i> Introduction: What is the Internet?</h2>
-                        <p>Internet হলো বিশ্বজুড়ে ছড়িয়ে থাকা কোটি কোটি Computer এবং Smartphone-এর একটি বিশাল সমন্বিত
-                            Network। এটিকে বলা হয় "Network-এর Network"। এটি মূলত একটি বিশাল মহাসড়কের মতো, যেখানে
-                            Informationের ছোট ছোট 'Packet' এক Device থেকে অন্য Device-এ চলাফেরা করে।</p>
-
-                        <div class="content-box">
-                            <h3>Internet vs World ওয়াইড Web (WWW)</h3>
-                            <p>অনেকেই Internet এবং WWW (World Wide Web)-কে এক মনে করেন, কিন্তু তারা Separate:</p>
-                            <ul>
-                                <li><strong>Internet:</strong> এটি হলো Hardware Infrastructure — Cable, Satellite এবং
-                                    Router-এর বিশাল শারীরিক Network।</li>
-                                <li><strong>World Wide Web:</strong> এটি Internet-এর ওপর চলা একটি Service মাত্র
-                                    — যেখানে Website এবং Web Page-গুলো অবস্থান করে।</li>
-                            </ul>
-                        </div>
-
-                        <h2>1. Internet-এর History ও Public Revolution</h2>
-                        <p>Internet-এর যাত্রা অনেক আগে শুরু হলেও, সাধারণ মানুষের জন্য এর বিপ্লব ঘটে নব্বইয়ের দশকের
-                            শুরুতে।</p>
-                        <div class="content-box">
-                            <h3>স্যার Team বার্নার্স-লি ও WWW (১৯৮৯-১৯৯১)</h3>
-                            <p>ব্রিটিশ বিজ্ঞানী <strong>স্যার Team বার্নার্স-লি</strong> CERN-এ Task করার সময়
-                                World Wide Web উদ্ভাবন করেন। তিনি তিনটি মূল ভিত্তি Creation করেছিলেন:</p>
-                            <ul>
-                                <li><strong>HTML (HyperText Markup Language):</strong> Web Page Creationর ভাষা।</li>
-                                <li><strong>HTTP (HyperText Transfer Protocol):</strong> Browser এবং Server-এর মধ্যে
-                                    যোগাযোগের Rule।</li>
-                                <li><strong>URLs (Uniform Resource Locators):</strong> Web Page-এর নির্দিষ্ট Address।
-                                </li>
-                            </ul>
-                            <p>মিড-নব্বইয়ের দশকে <strong>Mosaic</strong> এবং <strong>Netscape Navigator</strong>-এর মতো
-                                Browser-গুলো আসার পর Internet সাধারণ মানুষের জন্য সহজ হয়ে ওঠে।</p>
-                        </div>
-
-                        <h2>2. Internet কীভাবে Task করে? (Technical Deep-Dive)</h2>
-                        <p>প্রতিটি সেকেন্ডে লক্ষ লক্ষ Data Packet আদান-প্রদান হয়। এই বিশাল প্রক্রিয়াটি তিনটি মূল
-                            স্তম্ভের ওপর দাঁড়িয়ে আছে:</p>
-
-                        <h3>ক. Data Packet (Data Packets)</h3>
-                        <p>আপনি যখন কোনো Image বা Email পাঠান, সেটি ছোট ছোট Chunk বা 'Packet'-এ ভাগ হয়ে যায়। প্রতিটি
-                            Packet Separate Separate Path দিয়ে Internet-এ ভ্রমণ করতে পারে এবং Destinationে পৌঁছানোর পর আবার আগের
-                            মতো Complete ফাইলে রূপান্তরিত হয়।</p>
-
-                        <h3>খ. Protocol: Informationের মহাসড়কের Rule</h3>
-                        <ul>
-                            <li><strong>TCP (Transmission Control Protocol):</strong> Data-কে Packet-এ ভাগ করে এবং
-                                প্রতিটি Packet সঠিকভাবে পৌঁছানো নিশ্চিত করে।</li>
-                            <li><strong>IP (Internet Protocol):</strong> প্রতিটি Device-এর জন্য একটি অনন্য Address (IP
-                                Address) Determination করে। যেমন: <code>192.168.1.1</code>। বর্তমানে আমরা IPv4 থেকে Modern
-                                <strong>IPv6</strong>-এ স্থানান্তরিত হচ্ছি।
-                            </li>
-                            <li><strong>HTTP/HTTPS:</strong> Website দেখার জন্য ব্যবহৃত হয়।</li>
-                            <li><strong>SMTP:</strong> Professional Email আদান-প্রদানের জন্য ব্যবহৃত Rule।</li>
-                        </ul>
-
-                        <h3>গ. Network-এর মূল Component</h3>
-                        <ul>
-                            <li><strong>Routers:</strong> Traffic Police-এর মতো প্রতিটি Packet-কে সবচেয়ে Fast ও সঠিক
-                                Pathে
-                                পাঠায়।</li>
-                            <li><strong>Servers:</strong> যেখানে আমাদের Website, Video এবং App-এর Data জমা থাকে।</li>
-                            <li><strong>ISPs (Internet Service Providers):</strong> আপনার Internet Connection প্রদানকারী
-                                Company।</li>
-                            <li><strong>DNS (Domain Name System):</strong> এটি Internet-এর 'Phonebook'। এটি মানুষের
-                                পাঠযোগ্য নাম (google.com) কে IP Address-এ রূপান্তর করে।</li>
-                        </ul>
-
-                        <h2>3. Internet-এর বহুমুখী প্রয়োগ (Applications)</h2>
-                        <div class="table-wrapper">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Field</th>
-                                        <th>Usage Type</th>
-                                        <th>Examples</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>Communication</strong></td>
-                                        <td>Email, Instant Messaging, Video Call</td>
-                                        <td>WhatsApp, Zoom, Gmail</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Info & Education</strong></td>
-                                        <td>Search Engine, Digital Library, Online Course</td>
-                                        <td>Google Search, Wikipedia, Coursera</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Shopping & Finance</strong></td>
-                                        <td>E-commerce, Online Banking, Digital Payment</td>
-                                        <td>Amazon, Digital Banking Apps</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Entertainment</strong></td>
-                                        <td>On-demand Streaming, Online Social Media</td>
-                                        <td>Netflix, YouTube, Instagram</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <h2>4. Online Security (Internet Safety)</h2>
-                        <p>Internet যতটা শক্তিশালী, অসাবধানতায় এটি ততটাই Riskপূর্ণ হতে পারে। নিজেকে Secure রাখতে
-                            করণীয়:</p>
-                        <ul>
-                            <li><strong>Strong Password:</strong> প্রতিটি Account-এর জন্য Separate ও কঠিন Password
-                                ব্যবহার করা।</li>
-                            <li><strong>Phishing Awareness:</strong> কোনো অচেনা Link-এ ক্লিক না করা বা ব্যক্তিগত Information
-                                Share
-                                না করা।</li>
-                            <li><strong>Security Software:</strong> Reliable Antivirus ব্যবহার করা এবং
-                                Firewall অন রাখা।</li>
-                        </ul>
-
-                        <h2>5. Internet-এর ভবিষ্যৎ কী (What is the Future of Internet)?</h2>
-                        <p>প্রযুক্তি থেMay নেই, Internet প্রতিনিয়ত বিবর্তিত হচ্ছে:</p>
-                        <ul>
-                            <li><strong>IoT (Internet of Things):</strong> আপনার ফ্রিজ, Car বা Clock—সবই এখন Internet-এর
-                                সাথে যুক্ত।</li>
-                            <li><strong>5G ও Fiber Optics:</strong> যেখানে Speedর কোনো সীমা থাকবে না।</li>
-                            <li><strong>Artificial Intelligence (AI):</strong> আপনার প্রয়োজনগুলো আগে থেকেই বুঝে নিয়ে
-                                Service দেবে।</li>
-                            <li><strong>Web 3.0:</strong> Blockchain এবং AI চালিত এক বিকেন্দ্রীভূত ও বুদ্ধিমান Internet।
-                            </li>
-                        </ul>
-                    </div>
-                </article>
+            <div class="content-box">
+              <h3>Internet vs World ওয়াইড Web (WWW)</h3>
+              <p>অনেকেই Internet এবং WWW (World Wide Web)-কে এক মনে করেন, কিন্তু তারা Separate:</p>
+              <ul>
+                <li><strong>Internet:</strong> এটি হলো Hardware Infrastructure — Cable, Satellite এবং
+                  Router-এর বিশাল শারীরিক Network।</li>
+                <li><strong>World Wide Web:</strong> এটি Internet-এর ওপর চলা একটি Service মাত্র
+                  — যেখানে Website এবং Web Page-গুলো অবস্থান করে।</li>
+              </ul>
             </div>
-        </main>
 
-        <footer class="glass-footer">
-            <div class="container">
-                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+            <h2>1. Internet-এর History ও Public Revolution</h2>
+            <p>Internet-এর যাত্রা অনেক আগে শুরু হলেও, সাধারণ মানুষের জন্য এর বিপ্লব ঘটে নব্বইয়ের দশকের
+              শুরুতে।</p>
+            <div class="content-box">
+              <h3>স্যার Team বার্নার্স-লি ও WWW (1989-1991)</h3>
+              <p>ব্রিটিশ বিজ্ঞানী <strong>স্যার Team বার্নার্স-লি</strong> CERN-এ Task করার সময়
+                World Wide Web উদ্ভাবন করেন। তিনি তিনটি মূল ভিত্তি Creation করেছিলেন:</p>
+              <ul>
+                <li><strong>HTML (HyperText Markup Language):</strong> Web Page Creation র ভাষা।</li>
+                <li><strong>HTTP (HyperText Transfer Protocol):</strong> Browser এবং Server-এর মধ্যে
+                  যোগাযোগের Rule।</li>
+                <li><strong>URLs (Uniform Resource Locators):</strong> Web Page-এর নির্দিষ্ট Address।
+                </li>
+              </ul>
+              <p>মিড-নব্বইয়ের দশকে <strong>Mosaic</strong> এবং <strong>Netscape Navigator</strong>-এর মতো
+                Browser-গুলো আসার পর Internet সাধারণ মানুষের জন্য সহজ হয়ে ওঠে।</p>
             </div>
-        </footer>
-    </div>
-    <script type="module" src="../js/main.js"></script>
-    <script type="module" src="../js/network-background.js"></script>
+
+            <h2>2. Internet কীভাবে Task করে? (Technical Deep-Dive)</h2>
+            <p>প্রতিটি সেকেন্ডে লক্ষ লক্ষ Data Packet আদান-প্রদান হয়। এই বিশাল প্রক্রিয়াটি তিনটি মূল
+              স্তম্ভের ওপর দাঁড়িয়ে আছে:</p>
+
+            <h3>ক. Data Packet (Data Packets)</h3>
+            <p>আপনি যখন কোনো Image বা Email পাঠান, সেটি ছোট ছোট Chunk বা 'Packet'-এ ভাগ হয়ে যায়। প্রতিটি
+              Packet Separate Separate Path দিয়ে Internet-এ ভ্রমণ করতে পারে এবং Destination এ পৌঁছানোর পর আবার আগের
+              মতো Complete ফাইলে রূপান্তরিত হয়।</p>
+
+            <h3>খ. Protocol: Information ের মহাসড়কের Rule</h3>
+            <ul>
+              <li><strong>TCP (Transmission Control Protocol):</strong> Data-কে Packet-এ ভাগ করে এবং
+                প্রতিটি Packet সঠিকভাবে পৌঁছানো নিশ্চিত করে।</li>
+              <li><strong>IP (Internet Protocol):</strong> প্রতিটি Device-এর জন্য একটি অনন্য Address (IP
+                Address) Determination করে। যেমন: <code>192.168.1.1</code>। বর্তমানে আমরা IPv4 থেকে Modern
+                <strong>IPv6</strong>-এ স্থানান্তরিত হচ্ছি।
+              </li>
+              <li><strong>HTTP/HTTPS:</strong> Website দেখার জন্য ব্যবহৃত হয়।</li>
+              <li><strong>SMTP:</strong> Professional Email আদান-প্রদানের জন্য ব্যবহৃত Rule।</li>
+            </ul>
+
+            <h3>গ. Network-এর মূল Component</h3>
+            <ul>
+              <li><strong>Routers:</strong> Traffic Police-এর মতো প্রতিটি Packet-কে সবচেয়ে Fast ও সঠিক
+                Path ে
+                পাঠায়।</li>
+              <li><strong>Servers:</strong> যেখানে আমাদের Website, Video এবং App-এর Data জমা থাকে।</li>
+              <li><strong>ISPs (Internet Service Providers):</strong> আপনার Internet Connection প্রদানকারী
+                Company।</li>
+              <li><strong>DNS (Domain Name System):</strong> এটি Internet-এর 'Phonebook'। এটি মানুষের
+                পাঠযোগ্য নাম (google.com) কে IP Address-এ রূপান্তর করে।</li>
+            </ul>
+
+            <h2>3. Internet-এর বহুমুখী প্রয়োগ (Applications)</h2>
+            <div class="table-wrapper">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Field</th>
+                    <th>Usage Type</th>
+                    <th>Examples</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Communication</strong></td>
+                    <td>Email, Instant Messaging, Video Call</td>
+                    <td>WhatsApp, Zoom, Gmail</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Info & Education</strong></td>
+                    <td>Search Engine, Digital Library, Online Course</td>
+                    <td>Google Search, Wikipedia, Coursera</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Shopping & Finance</strong></td>
+                    <td>E-commerce, Online Banking, Digital Payment</td>
+                    <td>Amazon, Digital Banking Apps</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Entertainment</strong></td>
+                    <td>On-demand Streaming, Online Social Media</td>
+                    <td>Netflix, YouTube, Instagram</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2>4. Online Security (Internet Safety)</h2>
+            <p>Internet যতটা শক্তিশালী, অসাবধানতায় এটি ততটাই Risk পূর্ণ হতে পারে। নিজেকে Secure রাখতে
+              করণীয়:</p>
+            <ul>
+              <li><strong>Strong Password:</strong> প্রতিটি Account-এর জন্য Separate ও কঠিন Password
+                ব্যবহার করা।</li>
+              <li><strong>Phishing Awareness:</strong> কোনো অচেনা Link-এ ক্লিক না করা বা ব্যক্তিগত Information
+                Share
+                না করা।</li>
+              <li><strong>Security Software:</strong> Reliable Antivirus ব্যবহার করা এবং
+                Firewall অন রাখা।</li>
+            </ul>
+
+            <h2>5. Internet-এর ভবিষ্যৎ কী (What is the Future of Internet)?</h2>
+            <p>প্রযুক্তি থে মেনেই, Internet প্রতিনিয়ত বিবর্তিত হচ্ছে:</p>
+            <ul>
+              <li><strong>IoT (Internet of Things):</strong> আপনার ফ্রিজ, Car বা Clock—সবই এখন Internet-এর
+                সাথে যুক্ত।</li>
+              <li><strong>5G ও Fiber Optics:</strong> যেখানে Speed র কোনো সীমা থাকবে না।</li>
+              <li><strong>Artificial Intelligence (AI):</strong> আপনার প্রয়োজনগুলো আগে থেকেই বুঝে নিয়ে
+                Service দেবে।</li>
+              <li><strong>Web 3.0:</strong> Blockchain এবং AI চালিত এক বিকেন্দ্রীভূত ও বুদ্ধিমান Internet।
+              </li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="glass-footer">
+      <div class="container container-blog">
+        <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </div>
+  <script type="module" src="../js/main.js"></script>
+  <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>
+
+
+
+

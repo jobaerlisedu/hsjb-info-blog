@@ -1,321 +1,377 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>enablement.info | Technical Blog</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>enablement.info | Technical Blog</title>
 
 
 
-    <!-- Icons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <!-- Icons -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
 
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-            }
-        }
-    </script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
 </head>
 
 <body>
 
-    <canvas id="network-canvas"></canvas>
+  <canvas id="network-canvas"></canvas>
 
-    <div class="overlay">
-        <header class="glass-header">
-            <nav class="main-nav">
-                <ul>
-                    <li>
-                        <a href="index.html" class="active">
-                            <i class='bx bx-home-alt-2'></i>
-                            <span class="nav-text">Home</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="blogs.html">
-                            <i class='bx bx-book-content'></i>
-                            <span class="nav-text">Blog</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
+  <div class="overlay">
+    <header class="glass-header">
+      <nav class="main-nav">
+        <ul>
+          <li>
+            <a href="index.html" class="active">
+              <i class='bx bx-home-alt-2'></i>
+              <span class="nav-text">Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="blogs.html">
+              <i class='bx bx-book-content'></i>
+              <span class="nav-text">Blog</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-        <main>
-            <section class="hero-section">
-                <div class="container">
-                    <div class="hero-content glass-panel">
-                        <span class="badge">Networking and Tech</span>
-                        <h1>সহজে শিখুন <br> <span class="gradient-text">Network Engineering</span></h1>
-                        <p>A Technical Blog about the world of Protocol, Architecture and Connectivity for Tech
-                            Enthusiasts and Professionals.</p>
-                        <div class="cta-group">
-                            <a href="blogs.html" class="btn btn-primary">Read Blog <i
-                                    class='bx bx-right-arrow-alt'></i></a>
-                            <a href="https://github.com/jobaerlisedu" target="_blank" class="btn btn-outline"><i
-                                    class='bx bxl-github'></i> GitHub</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="recent-posts">
-                <div class="container">
-                    <div class="section-header">
-                        <h2>Recent Post</h2>
-                        <a href="blogs.html" class="btn btn-outline">View All <i class='bx bx-right-arrow-alt'></i></a>
-                    </div>
-
-                    <div class="posts-grid">
-                        <!-- Post 1 -->
-                        <article class="post-card glass-panel">
-                            <div class="post-meta">
-                                <span class="category">Networking</span>
-                                <span class="date">25 December, 2025</span>
-                            </div>
-                            <h3><a href="blogs/blog-01-basics-of-networking.html">Computer Networking-এর Basics</a>
-                            </h3>
-                            <p>Network কীভাবে কাজ করে, নোড থেকে গ্লোবাল Connectivity পর্যন্ত সবকিছুর বিস্তারিত গাইড।
-                            </p>
-                            <div class="card-actions">
-                                <a href="blogs/blog-01-basics-of-networking.html" class="read-more">সম্পূর্ণ পড়ুন</a>
-                                <div class="share-group">
-                                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-01-basics-of-networking.html"
-                                        target="_blank" class="share-btn fb" title="Share on Facebook"><i
-                                            class='bx bxl-facebook'></i></a>
-                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-01-basics-of-networking.html"
-                                        target="_blank" class="share-btn li" title="Share on LinkedIn"><i
-                                            class='bx bxl-linkedin'></i></a>
-                                    <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-01-basics-of-networking.html"
-                                        target="_blank" class="share-btn x" title="Share on X"><i
-                                            class='bx bxl-twitter'></i></a>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Post 2 -->
-                        <article class="post-card glass-panel">
-                            <div class="post-meta">
-                                <span class="category">Networking</span>
-                                <span class="date">25 December, 2025</span>
-                            </div>
-                            <h3><a href="blogs/blog-02-types-of-network.html">Computer Network-এর প্রকারভেদ</a></h3>
-                            <p>ভৌগোলিক পরিধি, Transmission মাধ্যম এবং অ্যাক্সেস কন্ট্রোলের ভিত্তিতে Network-এর
-                                বিস্তারিত প্রকারভেদ।</p>
-                            <div class="card-actions">
-                                <a href="blogs/blog-02-types-of-network.html" class="read-more">সম্পূর্ণ পড়ুন</a>
-                                <div class="share-group">
-                                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-02-types-of-network.html"
-                                        target="_blank" class="share-btn fb" title="Share on Facebook"><i
-                                            class='bx bxl-facebook'></i></a>
-                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-02-types-of-network.html"
-                                        target="_blank" class="share-btn li" title="Share on LinkedIn"><i
-                                            class='bx bxl-linkedin'></i></a>
-                                    <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-02-types-of-network.html"
-                                        target="_blank" class="share-btn x" title="Share on X"><i
-                                            class='bx bxl-twitter'></i></a>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Post 3 -->
-                        <article class="post-card glass-panel">
-                            <div class="post-meta">
-                                <span class="category">Protocol</span>
-                                <span class="date">25 December, 2025</span>
-                            </div>
-                            <h3><a href="blogs/blog-03-basics-of-internet.html">Internet কী? - সহজ ধারণা</a></h3>
-                            <p>Internet-এর ইতিহাস, এটি কীভাবে কাজ করে এবং এর সুবিধা-অসুবিধা সম্পর্কে একটি বিস্তারিত
-                                গাইড।</p>
-                            <div class="card-actions">
-                                <a href="blogs/blog-03-basics-of-internet.html" class="read-more">সম্পূর্ণ পড়ুন</a>
-                                <div class="share-group">
-                                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-03-basics-of-internet.html"
-                                        target="_blank" class="share-btn fb" title="Share on Facebook"><i
-                                            class='bx bxl-facebook'></i></a>
-                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-03-basics-of-internet.html"
-                                        target="_blank" class="share-btn li" title="Share on LinkedIn"><i
-                                            class='bx bxl-linkedin'></i></a>
-                                    <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-03-basics-of-internet.html"
-                                        target="_blank" class="share-btn x" title="Share on X"><i
-                                            class='bx bxl-twitter'></i></a>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Post 4 -->
-                        <article class="post-card glass-panel">
-                            <div class="post-meta">
-                                <span class="category">Networking</span>
-                                <span class="date">25 December, 2025</span>
-                            </div>
-                            <h3><a href="blogs/blog-04-network-devices.html">Network Devicesসমূহ</a></h3>
-                            <p>Router, Switch, Hub এবং Bridge: Network Hardware-এর গুরুত্বপূর্ণ ভূমিকা।</p>
-                            <div class="card-actions">
-                                <a href="blogs/blog-04-network-devices.html" class="read-more">সম্পূর্ণ পড়ুন</a>
-                                <div class="share-group">
-                                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-04-network-devices.html"
-                                        target="_blank" class="share-btn fb" title="Share on Facebook"><i
-                                            class='bx bxl-facebook'></i></a>
-                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-04-network-devices.html"
-                                        target="_blank" class="share-btn li" title="Share on LinkedIn"><i
-                                            class='bx bxl-linkedin'></i></a>
-                                    <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-04-network-devices.html"
-                                        target="_blank" class="share-btn x" title="Share on X"><i
-                                            class='bx bxl-twitter'></i></a>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Post 5 -->
-                        <article class="post-card glass-panel">
-                            <div class="post-meta">
-                                <span class="category">Protocol</span>
-                                <span class="date">02 January, 2026</span>
-                            </div>
-                            <h3><a href="blogs/blog-05-osi-model.html">OSI Model এবং এর Layerসমূহ</a></h3>
-                            <p>Computer Network-এর ৭টি Layer এবং Data কীভাবে এক Device থেকে অন্য Device-এ পৌঁছায় তার
-                                বিস্তারিত আলোচনা।</p>
-                            <div class="card-actions">
-                                <a href="blogs/blog-05-osi-model.html" class="read-more">সম্পূর্ণ পড়ুন</a>
-                                <div class="share-group">
-                                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-05-osi-model.html"
-                                        target="_blank" class="share-btn fb" title="Share on Facebook"><i
-                                            class='bx bxl-facebook'></i></a>
-                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-05-osi-model.html"
-                                        target="_blank" class="share-btn li" title="Share on LinkedIn"><i
-                                            class='bx bxl-linkedin'></i></a>
-                                    <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-05-osi-model.html"
-                                        target="_blank" class="share-btn x" title="Share on X"><i
-                                            class='bx bxl-twitter'></i></a>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Post 6 -->
-                        <article class="post-card glass-panel">
-                            <div class="post-meta">
-                                <span class="category">Protocol</span>
-                                <span class="date">02 January, 2026</span>
-                            </div>
-                            <h3><a href="blogs/blog-06-tcp-ip-model.html">TCP/IP Model এবং এর Layerসমূহ</a></h3>
-                            <p>আধুনিক Internet-এর মূল ভিত্তি TCP/IP Model-এর ৪টি Layer এবং এর কার্যপদ্ধতি সম্পর্কে
-                                বিস্তারিত আলোচনা।</p>
-                            <div class="card-actions">
-                                <a href="blogs/blog-06-tcp-ip-model.html" class="read-more">সম্পূর্ণ পড়ুন</a>
-                                <div class="share-group">
-                                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-06-tcp-ip-model.html"
-                                        target="_blank" class="share-btn fb" title="Share on Facebook"><i
-                                            class='bx bxl-facebook'></i></a>
-                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-06-tcp-ip-model.html"
-                                        target="_blank" class="share-btn li" title="Share on LinkedIn"><i
-                                            class='bx bxl-linkedin'></i></a>
-                                    <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-06-tcp-ip-model.html"
-                                        target="_blank" class="share-btn x" title="Share on X"><i
-                                            class='bx bxl-twitter'></i></a>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Post 7 -->
-                        <article class="post-card glass-panel">
-                            <div class="post-meta">
-                                <span class="category">Protocol</span>
-                                <span class="date">02 January, 2026</span>
-                            </div>
-                            <h3><a href="blogs/blog-07-osi-vs-tcp-ip.html">OSI এবং TCP/IP: মূল পার্থক্যসমূহ</a></h3>
-                            <p>OSI এবং TCP/IP Model-এর মধ্যে প্রধান পার্থক্য এবং Internet-এ এদের ভূমিকা নিয়ে বিস্তারিত
-                                আলোচনা।</p>
-                            <div class="card-actions">
-                                <a href="blogs/blog-07-osi-vs-tcp-ip.html" class="read-more">সম্পূর্ণ পড়ুন</a>
-                                <div class="share-group">
-                                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-07-osi-vs-tcp-ip.html"
-                                        target="_blank" class="share-btn fb" title="Share on Facebook"><i
-                                            class='bx bxl-facebook'></i></a>
-                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-07-osi-vs-tcp-ip.html"
-                                        target="_blank" class="share-btn li" title="Share on LinkedIn"><i
-                                            class='bx bxl-linkedin'></i></a>
-                                    <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-07-osi-vs-tcp-ip.html"
-                                        target="_blank" class="share-btn x" title="Share on X"><i
-                                            class='bx bxl-twitter'></i></a>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Post 8 -->
-                        <article class="post-card glass-panel">
-                            <div class="post-meta">
-                                <span class="category">OSI Model</span>
-                                <span class="date">02 January, 2026</span>
-                            </div>
-                            <h3><a href="blogs/blog-08-physical-layer.html">OSI Model-এর Physical Layer: বিস্তারিত
-                                    আলোচনা</a></h3>
-                            <p>OSI Model-এর প্রথম Layer বা Physical Layer-এর কাজ, Protocol এবং Security নিয়ে বিস্তারিত
-                                আলোচনা।</p>
-                            <div class="card-actions">
-                                <a href="blogs/blog-08-physical-layer.html" class="read-more">সম্পূর্ণ পড়ুন</a>
-                                <div class="share-group">
-                                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-08-physical-layer.html"
-                                        target="_blank" class="share-btn fb" title="Share on Facebook"><i
-                                            class='bx bxl-facebook'></i></a>
-                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-08-physical-layer.html"
-                                        target="_blank" class="share-btn li" title="Share on LinkedIn"><i
-                                            class='bx bxl-linkedin'></i></a>
-                                    <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-08-physical-layer.html"
-                                        target="_blank" class="share-btn x" title="Share on X"><i
-                                            class='bx bxl-twitter'></i></a>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Post 9 -->
-                        <article class="post-card glass-panel">
-                            <div class="post-meta">
-                                <span class="category">Networking</span>
-                                <span class="date">02 January, 2026</span>
-                            </div>
-                            <h3><a href="blogs/blog-09-network-topologies.html">Computer Network Topology: বিস্তারিত
-                                    গাইড</a></h3>
-                            <p>Mesh, Star, Bus এবং Ring Topology-র গঠন, সুবিধা ও অসুবিধা নিয়ে পূর্ণাঙ্গ আলোচনা।</p>
-                            <div class="card-actions">
-                                <a href="blogs/blog-09-network-topologies.html" class="read-more">সম্পূর্ণ পড়ুন</a>
-                                <div class="share-group">
-                                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-09-network-topologies.html"
-                                        target="_blank" class="share-btn fb" title="Share on Facebook"><i
-                                            class='bx bxl-facebook'></i></a>
-                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-09-network-topologies.html"
-                                        target="_blank" class="share-btn li" title="Share on LinkedIn"><i
-                                            class='bx bxl-linkedin'></i></a>
-                                    <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-09-network-topologies.html"
-                                        target="_blank" class="share-btn x" title="Share on X"><i
-                                            class='bx bxl-twitter'></i></a>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-
-
-
-        <footer class="glass-footer">
-            <div class="container">
-                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+    <main>
+      <section class="hero-section">
+        <div class="container">
+          <div class="hero-content glass-panel">
+            <span class="badge">Networking and Tech</span>
+            <h1>সহজে শিখুন <br> <span class="gradient-text">Network Engineering</span></h1>
+            <p>A Technical Blog about the world of Protocol, Architecture and Connectivity for Tech
+              Enthusiasts and Professionals.</p>
+            <div class="cta-group">
+              <a href="blogs.html" class="btn btn-primary">Read Blog <i class='bx bx-right-arrow-alt'></i></a>
+              <a href="https://github.com/jobaerlisedu" target="_blank" class="btn btn-outline"><i
+                  class='bx bxl-github'></i> GitHub</a>
             </div>
-        </footer>
-    </div>
+          </div>
+        </div>
+      </section>
 
-    <script type="module" src="js/main.js"></script>
-    <script type="module" src="js/network-background.js"></script>
+      <section class="recent-posts">
+        <div class="container">
+          <div class="section-header">
+            <h2>Recent Post</h2>
+            <a href="blogs.html" class="btn btn-outline">View All <i class='bx bx-right-arrow-alt'></i></a>
+          </div>
+
+          <div class="posts-grid">
+            <!-- Post 26 -->
+            <article class="post-card glass-panel">
+              <div class="post-meta">
+                <span class="category">Networking</span>
+                <span class="date">8 March, 2026</span>
+              </div>
+              <h3><a href="blogs/blog-26-network-layer-protocols.html">Network Layer Protocols</a></h3>
+              <p>Network Layer-এর প্রধান Protocol যেমন IP, ARP, RARP, ICMP ও IGMP কী, এগুলো কীভাবে কাজ করে এবং
+                নেটওয়ার্ক লেয়ারের পাঁচটি প্রধান কাজ নিয়ে বিস্তারিত গাইড।</p>
+              <div class="card-actions">
+                <a href="blogs/blog-26-network-layer-protocols.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <div class="share-group">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-26-network-layer-protocols.html"
+                    target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-26-network-layer-protocols.html"
+                    target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                  <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-26-network-layer-protocols.html"
+                    target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+                </div>
+              </div>
+            </article>
+            <!-- Post 25 -->
+            <article class="post-card glass-panel">
+              <div class="post-meta">
+                <span class="category">Networking</span>
+                <span class="date">8 March, 2026</span>
+              </div>
+              <h3><a href="blogs/blog-25-routing.html">What is Routing?</a></h3>
+              <p>Routing কী, এটি কীভাবে কাজ করে, Static, Dynamic ও Default Routing-এর পার্থক্য এবং RIP, OSPF, BGP সহ
+                গুরুত্বপূর্ণ Routing Protocol নিয়ে বিস্তারিত গাইড।</p>
+              <div class="card-actions">
+                <a href="blogs/blog-25-routing.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <div class="share-group">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-25-routing.html"
+                    target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-25-routing.html"
+                    target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                  <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-25-routing.html"
+                    target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+                </div>
+              </div>
+            </article>
+            <!-- Post 24 -->
+            <article class="post-card glass-panel">
+              <div class="post-meta">
+                <span class="category">Networking</span>
+                <span class="date">8 March, 2026</span>
+              </div>
+              <h3><a href="blogs/blog-24-subnetting.html">Introduction to Subnetting</a></h3>
+              <p>Subnetting কী, এটি কেন প্রয়োজন এবং সাবনেট মাস্ক ও CIDR নোটেশন ব্যবহার করে কীভাবে নেটওয়ার্ক ভাগ করা হয়
+                তার বিস্তারিত গাইড।</p>
+              <div class="card-actions">
+                <a href="blogs/blog-24-subnetting.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <div class="share-group">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-24-subnetting.html"
+                    target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-24-subnetting.html"
+                    target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                  <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-24-subnetting.html"
+                    target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+                </div>
+              </div>
+            </article>
+            <!-- Post 23 -->
+            <article class="post-card glass-panel">
+              <div class="post-meta">
+                <span class="category">Networking</span>
+                <span class="date">8 March, 2026</span>
+              </div>
+              <h3><a href="blogs/blog-23-ipv4-vs-ipv6.html">Difference Between IPv4 and IPv6</a></h3>
+              <p>IPv4 এবং IPv6-এর মধ্যে মূল পার্থক্যসমূহ, তাদের সুবিধা-অসুবিধা এবং ভবিষ্যতে কেন IPv6 অপরিহার্য তা নিয়ে
+                বিস্তারিত গাইড।</p>
+              <div class="card-actions">
+                <a href="blogs/blog-23-ipv4-vs-ipv6.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <div class="share-group">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-23-ipv4-vs-ipv6.html"
+                    target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-23-ipv4-vs-ipv6.html"
+                    target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                  <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-23-ipv4-vs-ipv6.html"
+                    target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+                </div>
+              </div>
+            </article>
+            <!-- Post 1 -->
+            <article class="post-card glass-panel">
+              <div class="post-meta">
+                <span class="category">Networking</span>
+                <span class="date">25 December, 2025</span>
+              </div>
+              <h3><a href="blogs/blog-01-basics-of-networking.html">Computer Networking-এর Basics</a>
+              </h3>
+              <p>Network কীভাবে কাজ করে, নোড থেকে গ্লোবাল Connectivity পর্যন্ত সবকিছুর বিস্তারিত গাইড।
+              </p>
+              <div class="card-actions">
+                <a href="blogs/blog-01-basics-of-networking.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <div class="share-group">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-01-basics-of-networking.html"
+                    target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-01-basics-of-networking.html"
+                    target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                  <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-01-basics-of-networking.html"
+                    target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Post 2 -->
+            <article class="post-card glass-panel">
+              <div class="post-meta">
+                <span class="category">Networking</span>
+                <span class="date">25 December, 2025</span>
+              </div>
+              <h3><a href="blogs/blog-02-types-of-network.html">Computer Network-এর প্রকারভেদ</a></h3>
+              <p>ভৌগোলিক পরিধি, Transmission মাধ্যম এবং অ্যাক্সেস কন্ট্রোলের ভিত্তিতে Network-এর
+                বিস্তারিত প্রকারভেদ।</p>
+              <div class="card-actions">
+                <a href="blogs/blog-02-types-of-network.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <div class="share-group">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-02-types-of-network.html"
+                    target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-02-types-of-network.html"
+                    target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                  <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-02-types-of-network.html"
+                    target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Post 3 -->
+            <article class="post-card glass-panel">
+              <div class="post-meta">
+                <span class="category">Protocol</span>
+                <span class="date">25 December, 2025</span>
+              </div>
+              <h3><a href="blogs/blog-03-basics-of-internet.html">Internet কী? - সহজ ধারণা</a></h3>
+              <p>Internet-এর ইতিহাস, এটি কীভাবে কাজ করে এবং এর সুবিধা-অসুবিধা সম্পর্কে একটি বিস্তারিত
+                গাইড।</p>
+              <div class="card-actions">
+                <a href="blogs/blog-03-basics-of-internet.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <div class="share-group">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-03-basics-of-internet.html"
+                    target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-03-basics-of-internet.html"
+                    target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                  <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-03-basics-of-internet.html"
+                    target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Post 4 -->
+            <article class="post-card glass-panel">
+              <div class="post-meta">
+                <span class="category">Networking</span>
+                <span class="date">25 December, 2025</span>
+              </div>
+              <h3><a href="blogs/blog-04-network-devices.html">Network Devices সমূহ</a></h3>
+              <p>Router, Switch, Hub এবং Bridge: Network Hardware-এর গুরুত্বপূর্ণ ভূমিকা।</p>
+              <div class="card-actions">
+                <a href="blogs/blog-04-network-devices.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <div class="share-group">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-04-network-devices.html"
+                    target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-04-network-devices.html"
+                    target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                  <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-04-network-devices.html"
+                    target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Post 5 -->
+            <article class="post-card glass-panel">
+              <div class="post-meta">
+                <span class="category">Protocol</span>
+                <span class="date">02 January, 2026</span>
+              </div>
+              <h3><a href="blogs/blog-05-osi-model.html">OSI Model এবং এর Layer সমূহ</a></h3>
+              <p>Computer Network-এর 7টি Layer এবং Data কীভাবে এক Device থেকে অন্য Device-এ পৌঁছায় তার
+                বিস্তারিত আলোচনা।</p>
+              <div class="card-actions">
+                <a href="blogs/blog-05-osi-model.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <div class="share-group">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-05-osi-model.html"
+                    target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-05-osi-model.html"
+                    target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                  <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-05-osi-model.html"
+                    target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Post 6 -->
+            <article class="post-card glass-panel">
+              <div class="post-meta">
+                <span class="category">Protocol</span>
+                <span class="date">02 January, 2026</span>
+              </div>
+              <h3><a href="blogs/blog-06-tcp-ip-model.html">TCP/IP Model এবং এর Layer সমূহ</a></h3>
+              <p>আধুনিক Internet-এর মূল ভিত্তি TCP/IP Model-এর 4টি Layer এবং এর কার্যপদ্ধতি সম্পর্কে
+                বিস্তারিত আলোচনা।</p>
+              <div class="card-actions">
+                <a href="blogs/blog-06-tcp-ip-model.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <div class="share-group">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-06-tcp-ip-model.html"
+                    target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-06-tcp-ip-model.html"
+                    target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                  <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-06-tcp-ip-model.html"
+                    target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Post 7 -->
+            <article class="post-card glass-panel">
+              <div class="post-meta">
+                <span class="category">Protocol</span>
+                <span class="date">02 January, 2026</span>
+              </div>
+              <h3><a href="blogs/blog-07-osi-vs-tcp-ip.html">OSI এবং TCP/IP: মূল পার্থক্যসমূহ</a></h3>
+              <p>OSI এবং TCP/IP Model-এর মধ্যে প্রধান পার্থক্য এবং Internet-এ এদের ভূমিকা নিয়ে বিস্তারিত
+                আলোচনা।</p>
+              <div class="card-actions">
+                <a href="blogs/blog-07-osi-vs-tcp-ip.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <div class="share-group">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-07-osi-vs-tcp-ip.html"
+                    target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-07-osi-vs-tcp-ip.html"
+                    target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                  <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-07-osi-vs-tcp-ip.html"
+                    target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Post 8 -->
+            <article class="post-card glass-panel">
+              <div class="post-meta">
+                <span class="category">OSI Model</span>
+                <span class="date">02 January, 2026</span>
+              </div>
+              <h3><a href="blogs/blog-08-physical-layer.html">OSI Model-এর Physical Layer: বিস্তারিত
+                  আলোচনা</a></h3>
+              <p>OSI Model-এর প্রথম Layer বা Physical Layer-এর কাজ, Protocol এবং Security নিয়ে বিস্তারিত
+                আলোচনা।</p>
+              <div class="card-actions">
+                <a href="blogs/blog-08-physical-layer.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <div class="share-group">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-08-physical-layer.html"
+                    target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-08-physical-layer.html"
+                    target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                  <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-08-physical-layer.html"
+                    target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Post 9 -->
+            <article class="post-card glass-panel">
+              <div class="post-meta">
+                <span class="category">Networking</span>
+                <span class="date">02 January, 2026</span>
+              </div>
+              <h3><a href="blogs/blog-09-network-topologies.html">Computer Network Topology: বিস্তারিত
+                  গাইড</a></h3>
+              <p>Mesh, Star, Bus এবং Ring Topology-র গঠন, সুবিধা ও অসুবিধা নিয়ে পূর্ণাঙ্গ আলোচনা।</p>
+              <div class="card-actions">
+                <a href="blogs/blog-09-network-topologies.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <div class="share-group">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-09-network-topologies.html"
+                    target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-09-network-topologies.html"
+                    target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                  <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-09-network-topologies.html"
+                    target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+
+
+
+    <footer class="glass-footer">
+      <div class="container">
+        <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/network-background.js"></script>
 
 
 </body>

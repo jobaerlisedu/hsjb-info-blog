@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Routing? | enablement.info</title>
+    <meta name="description"
+        content="Routing কী, এটি কীভাবে কাজ করে, Static, Dynamic ও Default Routing এর পার্থক্য এবং RIP, OSPF, BGP সহ গুরুত্বপূর্ণ Routing Protocol নিয়ে বিস্তারিত গাইড।">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script
+        type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+    <style>
+        .blog-content-wrapper {
+            padding-top: 20px;
+            padding-bottom: 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d0d0e0;
+        }
+
+        .article-body h2,
+        .article-body h3 {
+            font-family: 'Times New Roman', serif;
+            color: var(--primary-color);
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .article-body h2 {
+            font-size: 1.8rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .article-body li {
+            margin-bottom: 10px;
+        }
+
+        .content-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .concept-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .protocol-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .protocol-table th,
+        .protocol-table td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .protocol-table th {
+            background: rgba(33, 150, 243, 0.2);
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .protocol-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .step-box {
+            background: rgba(33, 150, 243, 0.06);
+            border-left: 4px solid var(--primary-color);
+            padding: 14px 20px;
+            border-radius: 4px 12px 12px 4px;
+            margin-bottom: 12px;
+        }
+
+        .step-number {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="network-canvas"></canvas>
+    <div class="overlay">
+        <header class="glass-header">
+            <div class="container container-blog">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span
+                                    class="nav-text">Home</span></a></li>
+                        <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
+                                    class="nav-text">Blog</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="blog-content-wrapper">
+            <div class="container container-blog">
+                <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>আগের Page-এ ফিরে
+                        যান</span></a>
+
+                <article class="glass-panel">
+                    <header class="article-header">
+                        <h1>What is Routing?</h1>
+                        <div class="article-meta">
+                            <span><i class='bx bx-calendar'></i> March 8, 2026</span>
+                            <span style="margin:0 10px;">|</span>
+                            <span><i class='bx bx-category'></i> Networking</span>
+                        </div>
+                    </header>
+
+                    <div class="article-body">
+
+                        <p><strong>Network Routing</strong> হলো একটি বা একাধিক নেটওয়ার্কের মধ্য দিয়ে Data প্যাকেট
+                            পাঠানোর সর্বোত্তম পথ নির্বাচন করার প্রক্রিয়া। ইন্টারনেটে Data প্যাকেটগুলো সঠিক গন্তব্যে
+                            দক্ষতার সাথে পৌঁছানো নিশ্চিত করতে Routing একটি অত্যন্ত গুরুত্বপূর্ণ ভূমিকা পালন করে।</p>
+
+                        <div class="content-box">
+                            <ul>
+                                <li>Routing, উৎস থেকে গন্তব্য পর্যন্ত IP প্যাকেট কোন পথে যাবে তা নির্ধারণ করে।</li>
+                                <li>এটি ইন্টারনেটের মতো Packet-switched নেটওয়ার্কে ব্যবহৃত হয়।</li>
+                                <li>গতি, নির্ভরযোগ্যতা এবং পারফরম্যান্স অপ্টিমাইজ করতে বিভিন্ন Routing পদ্ধতি ব্যবহার
+                                    করা হয়।</li>
+                            </ul>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-router"></i> Router কী?</h2>
+                        <p>একটি <strong>Router</strong> হলো একটি নেটওয়ার্কিং ডিভাইস যা গন্তব্য IP অ্যাড্রেস যাচাই করে
+                            এবং সেরা পথ বেছে নিয়ে বিভিন্ন নেটওয়ার্কের মধ্যে Data কীভাবে চলাচল করবে তা নিয়ন্ত্রণ করে।
+                        </p>
+                        <div class="content-box">
+                            <ul>
+                                <li>নেটওয়ার্কগুলোর মধ্যে Data প্যাকেট ফরোয়ার্ড করে।</li>
+                                <li>OSI Model-এর <strong>Layer 3 (Network Layer)</strong>-এ কাজ করে।</li>
+                                <li>Data ট্রান্সফারের জন্য সেরা রুট নির্বাচন করে।</li>
+                            </ul>
+                        </div>
+
+                        <p>একটি Data প্যাকেটের Routing নিম্নলিখিতভাবে হয়:</p>
+                        <ol>
+                            <li><strong>Source Node (Sender)</strong> Data প্যাকেটটি নেটওয়ার্কে পাঠায় এবং প্যাকেটের
+                                Header-এ IP অ্যাড্রেস যুক্ত করে।</li>
+                            <li>নিকটতম Router Data প্যাকেটটি গ্রহণ করে এবং কিছু Metric-এর ভিত্তিতে অন্য Routers-এ
+                                পাঠিয়ে দেয়।</li>
+                            <li>Data প্যাকেটটি তার নির্দিষ্ট গন্তব্যে পৌঁছানো পর্যন্ত এই প্রক্রিয়া বারবার ঘটে।</li>
+                        </ol>
+                        <p class="note-box"><strong>গুরুত্বপূর্ণ তথ্য:</strong> একটি প্যাকেট সর্বোচ্চ যতটি Hop করতে পারে
+                            তার একটি সীমা (Limit) আছে। এই সীমা অতিক্রম করলে প্যাকেটটিকে Dropped বা Lost হিসেবে গণ্য করা
+                            হয়।</p>
+
+                        <hr>
+
+                        <h2><i class="bi bi-signpost-split"></i> Routing-এর বিভিন্ন ধরন (Types of Routing)</h2>
+                        <p>Routing সাধারণত ৩ ধরনের, প্রতিটি ভিন্ন উদ্দেশ্যে ব্যবহৃত হয় এবং আলাদা কার্যকারিতা প্রদান
+                            করে।</p>
+
+                        <div class="concept-card">
+                            <h3>১. Static Routing</h3>
+                            <p>Static Routing হলো একটি <strong>Non-adaptive (অ-অভিযোজিত)</strong> পদ্ধতি যেখানে
+                                নেটওয়ার্ক অ্যাডমিনিস্ট্রেটর ম্যানুয়ালি রুট কনফিগার করেন। এটি ছোট নেটওয়ার্কের জন্য
+                                সবচেয়ে উপযুক্ত এবং Routing সিদ্ধান্তের উপর সম্পূর্ণ নিয়ন্ত্রণ প্রদান করে।</p>
+                            <ul>
+                                <li>রুটগুলো ম্যানুয়ালি যুক্ত করা হয়।</li>
+                                <li>প্যাকেট Routing-এ সম্পূর্ণ নিয়ন্ত্রণ থাকে।</li>
+                                <li>সহজ কিন্তু বড় নেটওয়ার্কে পরিচালনা করা কঠিন।</li>
+                            </ul>
+                        </div>
+
+                        <div class="concept-card">
+                            <h3>২. Dynamic Routing</h3>
+                            <p>Dynamic Routing হলো একটি <strong>Automatic ও Adaptive (স্বয়ংক্রিয় ও অভিযোজিত)</strong>
+                                পদ্ধতি যেখানে Routers অ্যালগরিদম ব্যবহার করে পথ নির্বাচন করে। এর নমনীয়তার কারণে এটি
+                                আধুনিক নেটওয়ার্কে ব্যাপকভাবে ব্যবহৃত হয়।</p>
+                            <ul>
+                                <li>রুটগুলো স্বয়ংক্রিয়ভাবে আপডেট হয়।</li>
+                                <li>নেটওয়ার্কের পরিবর্তনে নিজেকে মানিয়ে নেয়।</li>
+                                <li>বড় নেটওয়ার্কের জন্য উপযুক্ত।</li>
+                            </ul>
+                        </div>
+
+                        <div class="concept-card">
+                            <h3>৩. Default Routing</h3>
+                            <p>Default Routing-এ যখন কোনো নির্দিষ্ট রুট পাওয়া যায় না, তখন প্যাকেটগুলো একটি
+                                পূর্বনির্ধারিত Gateway-তে পাঠানো হয়। এটি সাধারণত একটি মাত্র Exit Point আছে এমন
+                                নেটওয়ার্কে ব্যবহৃত হয়।</p>
+                            <ul>
+                                <li>কোনো রুট না পেলে ব্যবহার করা হয়।</li>
+                                <li>সহজ এবং দক্ষ সেটআপ।</li>
+                                <li>Default রুট: <strong>0.0.0.0/0</strong></li>
+                            </ul>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-gear-wide-connected"></i> Routing-এর কার্যপ্রণালী (Working Principle)</h2>
+                        <p>Routing, একটি নেটওয়ার্কে Source Node থেকে Destination Node পর্যন্ত সবচেয়ে ছোট পথ খুঁজে বের
+                            করার মাধ্যমে কাজ করে। নিচে ধাপে ধাপে Routing-এর কার্যপ্রণালী দেওয়া হলো:</p>
+
+                        <div class="step-box">
+                            <span class="step-number">Step 1: Communication Start</span> — একটি ডিভাইস (Client বা
+                            Server) HTTP প্রোটোকল ব্যবহার করে যোগাযোগ শুরু করে।
+                        </div>
+                        <div class="step-box">
+                            <span class="step-number">Step 2: Data Packets</span> — Data ছোট ছোট প্যাকেটে ভাগ করা হয়।
+                            প্রতিটি প্যাকেটে গন্তব্য IP অ্যাড্রেস ট্যাগ করা থাকে।
+                        </div>
+                        <div class="step-box">
+                            <span class="step-number">Step 3: Routing Table</span> — Routers একটি Routing Table ব্যবহার
+                            করে গন্তব্যে পৌঁছানোর সেরা ও সবচেয়ে ছোট পথ খুঁজে বের করে।
+                        </div>
+                        <div class="step-box">
+                            <span class="step-number">Step 4: Hopping</span> — প্যাকেটগুলো গন্তব্যে পৌঁছানোর জন্য একাধিক
+                            Routers (Hops) এর মধ্য দিয়ে ভ্রমণ করে। Hop সংখ্যার একটি সীমা আছে; অতিক্রম করলে প্যাকেট Drop
+                            হয় এবং পুনরায় পাঠানো হয়।
+                        </div>
+                        <div class="step-box">
+                            <span class="step-number">Step 5: Destination</span> — প্যাকেটগুলো গন্তব্যে পৌঁছায়, পুনরায়
+                            একত্রিত হয় এবং Error চেক করা হয়।
+                        </div>
+
+                        <p>একাধিক পথ থাকলেও সমস্ত উপযুক্ত Metric পূরণ হলে Data প্যাকেটগুলো সবচেয়ে কম Hop Count-এর
+                            (সবচেয়ে ছোট) পথে পাঠানো হয়।</p>
+
+                        <p>Routing-এর এই প্রক্রিয়ায় ৩টি প্রধান উপাদান থাকে:</p>
+                        <div class="content-box">
+                            <ul>
+                                <li><strong>Sender (প্রেরক):</strong> যে ডিভাইস থেকে Data পাঠানো হয়।</li>
+                                <li><strong>Receiver (প্রাপক):</strong> যে ডিভাইস Data গ্রহণ করে।</li>
+                                <li><strong>Routers:</strong> মধ্যবর্তী ডিভাইসগুলো যা সেরা পথ নির্ণয় করে Data প্যাকেট
+                                    পাঠায়।</li>
+                            </ul>
+                            <p>উৎস থেকে গন্তব্যে একাধিক পথ থাকলেও, সমস্ত শর্ত পূরণ হলে সবচেয়ে কম Hop Count-এর পথ
+                                (Shortest Path) ব্যবহার করা হয়।</p>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-diagram-3"></i> প্রধান Routing Protocols</h2>
+                        <div class="table-responsive">
+                            <table class="protocol-table">
+                                <thead>
+                                    <tr>
+                                        <th>Protocol</th>
+                                        <th>ধরন (Type)</th>
+                                        <th>বিবরণ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>RIP</strong></td>
+                                        <td>Distance-Vector</td>
+                                        <td>Hop Count ব্যবহার করে সেরা পথ নির্বাচন করে (Routing Information Protocol)।
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>OSPF</strong></td>
+                                        <td>Link-State</td>
+                                        <td>Dijkstra অ্যালগরিদম ব্যবহার করে সবচেয়ে ছোট পথ খোঁজে (Open Shortest Path
+                                            First)।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>EIGRP</strong></td>
+                                        <td>Hybrid</td>
+                                        <td>Distance-Vector ও Link-State উভয়ের বৈশিষ্ট্য একত্রিত করে (Enhanced Interior
+                                            Gateway Routing Protocol)।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>BGP</strong></td>
+                                        <td>Path-Vector</td>
+                                        <td>ইন্টারনেটে বিভিন্ন Autonomous System-এর মধ্যে Routing-এর জন্য ব্যবহৃত হয়
+                                            (Border Gateway Protocol)।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>IS-IS</strong></td>
+                                        <td>Link-State</td>
+                                        <td>ISP-এর মতো বড় নেটওয়ার্কে ব্যবহৃত হয় (Intermediate System to Intermediate
+                                            System)।</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-bar-chart-line"></i> Routing Metrics (পরিমাপ পদ্ধতি)</h2>
+                        <p>Routing Protocol-এর উদ্দেশ্য হলো সমস্ত উপলব্ধ পথ সম্পর্কে জানা, Routing Table তৈরি করা এবং
+                            নির্দিষ্ট Metric-এর ভিত্তিতে Routing সিদ্ধান্ত নেওয়া। দুটি প্রাথমিক ধরনের Routing Protocol
+                            আছে:</p>
+
+                        <div class="concept-card">
+                            <h3>১. Distance Vector Routing</h3>
+                            <p>এই ধরনের Routing Protocol-এ, নেটওয়ার্কের সকল Node নিয়মিত বিরতিতে তাদের সংলগ্ন নোডগুলোতে
+                                (সরাসরি সংযুক্ত) তাদের Routing Table বিজ্ঞাপন করে। প্রতিটি Router নিয়মিত আপডেট পেলেও সব
+                                Node-এর একই সঠিক নেটওয়ার্ক দৃশ্য পেতে সময় লাগতে পারে।</p>
+                            <ul>
+                                <li>Fixed Length Subnet ব্যবহার করে, Scaling-এর জন্য উপযুক্ত নয়।</li>
+                                <li>ব্যবহৃত Algorithm: <strong>Bellman-Ford Algorithm</strong> (সবচেয়ে ছোট পথ খোঁজার
+                                    জন্য)।</li>
+                            </ul>
+                        </div>
+
+                        <div class="concept-card">
+                            <h3>২. Link State Routing</h3>
+                            <p>Link State Routing হলো একটি Dynamic Routing Protocol যেখানে Routers শুধুমাত্র নেটওয়ার্কে
+                                পরিবর্তন হলে আপডেট পাঠায়, যা Bandwidth বাঁচায়। Routers সেরা পথ খুঁজে পেতে Link
+                                সম্পর্কিত তথ্য (Cost, Hop Count) শেয়ার করে।</p>
+                            <ul>
+                                <li>আরো ভালো ও Scalable অ্যাড্রেসিংয়ের জন্য <strong>VLSM (Variable Length Subnet
+                                        Mask)</strong> ব্যবহার করে।</li>
+                                <li>সবচেয়ে ছোট পথ গণনা করতে <strong>Dijkstra's Algorithm</strong> ব্যবহার করে।</li>
+                                <li>Node-গুলোর মধ্যে Cost বিভিন্ন Routing Metrics দ্বারা পরিমাপ করা হয় (যেমন: Hop
+                                    Count, Delay, Bandwidth)।</li>
+                            </ul>
+                        </div>
+
+                        <h3>Routing Metrics পরিমাপের বিভিন্ন উপায়:</h3>
+                        <div class="content-box">
+                            <ul>
+                                <li><strong>Hop Count:</strong> একটি Data প্যাকেট গন্তব্যে পৌঁছাতে কতটি Node অতিক্রম করে
+                                    তার সংখ্যা। কম Hop মানে ছোট এবং দ্রুত পথ।</li>
+                                <li><strong>Bandwidth Consumption:</strong> Routing এমন পথ বেছে নেয় যা Network
+                                    Bandwidth দক্ষতার সাথে ব্যবহার করে এবং Congestion এড়ায়।</li>
+                                <li><strong>Delay:</strong> উৎস থেকে গন্তব্যে Data প্যাকেট পৌঁছাতে কতক্ষণ সময় লাগে।
+                                    Routing এই Delay কমাতে চেষ্টা করে।</li>
+                                <li><strong>Load:</strong> একটি নেটওয়ার্ক পথ কতটা ব্যস্ত। দ্রুত Delivery-এর জন্য
+                                    প্যাকেটগুলো কম ব্যস্ত পথে পাঠানো হয়।</li>
+                                <li><strong>Reliability:</strong> Routing স্থিতিশীল ও সহজলভ্য পথ বেছে নেয় যাতে Data
+                                    নিরাপদে গন্তব্যে পৌঁছায়।</li>
+                            </ul>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-hand-thumbs-up"></i> সুবিধা ও অসুবিধা (Pros & Cons)</h2>
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
+                            <div class="content-box">
+                                <h4 style="color:#4caf50;">সুবিধাসমূহ (Advantages):</h4>
+                                <ul>
+                                    <li><strong>দক্ষ Data প্রেরণ:</strong> সেরা পথ বেছে নিয়ে দক্ষতার সাথে Data পাঠাতে
+                                        সাহায্য করে।</li>
+                                    <li><strong>Automated Routing:</strong> Algorithm ব্যবহার করে Manual কাজ কমায়, তবে
+                                        সরাসরি নিয়ন্ত্রণ কিছুটা কম থাকে।</li>
+                                    <li><strong>Manual Routing:</strong> আরও ভালো নিয়ন্ত্রণ প্রদান করে, যদিও পরিচালনা
+                                        করতে বেশি প্রচেষ্টা প্রয়োজন।</li>
+                                    <li><strong>Scalable Routing:</strong> বড় নেটওয়ার্কের জন্য ভালোভাবে কাজ করে এবং
+                                        Traffic ও Data Loss কমাতে Load Balancing সমর্থন করে।</li>
+                                </ul>
+                            </div>
+                            <div class="content-box">
+                                <h4 style="color:#f44336;">অসুবিধাসমূহ (Disadvantages):</h4>
+                                <ul>
+                                    <li><strong>Static Routing:</strong> শুধুমাত্র ছোট নেটওয়ার্কের জন্য উপযুক্ত; বড়
+                                        নেটওয়ার্কে পরিচালনা করা কঠিন এবং নিরাপত্তা কম।</li>
+                                    <li><strong>Dynamic Routing:</strong> Manual নিয়ন্ত্রণ কম এবং বেশি Bandwidth ও
+                                        System Resource ব্যবহার করে।</li>
+                                    <li><strong>Default Routing:</strong> ব্যবহার করা সহজ কিন্তু Default পথটি সঠিকভাবে
+                                        কনফিগার না হলে সমস্যা হতে পারে।</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer class="glass-footer">
+            <div class="container container-blog">
+                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/network-background.js"></script>
+</body>
+
+</html>

@@ -1,336 +1,340 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="bn">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Link Layer: Second Layer of OSI Model | enablement.info</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Link Layer: Second Layer of OSI Model | enablement.info</title>
 
-    <!-- Icons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Icons -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css">
 
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-            }
-        }
-    </script>
-    <style>
-        .blog-content-wrapper {
-            padding-top: 20px;
-            padding-bottom: 60px;
-        }
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+  <style>
+    .blog-content-wrapper {
+      padding-top: 20px;
+      padding-bottom: 60px;
+    }
 
-        .article-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    .article-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
 
-        .article-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
+    .article-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
 
-        .article-meta {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
+    .article-meta {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
 
-        .article-body {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #d0d0e0;
-        }
+    .article-body {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #d0d0e0;
+    }
 
-        .article-body h2,
-        .article-body h3 {
-            font-family: 'Times New Roman', 'Nikosh', serif;
-            color: var(--primary-color);
-            margin-top: 40px;
-            margin-bottom: 20px;
-            font-weight: 800;
-        }
+    .article-body h2,
+    .article-body h3 {
+      font-family: 'Times New Roman', 'Nikosh', serif;
+      color: var(--primary-color);
+      margin-top: 40px;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
 
-        .article-body h2 {
-            font-size: 1.8rem;
-        }
+    .article-body h2 {
+      font-size: 1.8rem;
+    }
 
-        .article-body h3 {
-            font-size: 1.4rem;
-            color: #fff;
-        }
+    .article-body h3 {
+      font-size: 1.4rem;
+      color: #fff;
+    }
 
-        .article-body ul,
-        .article-body ol {
-            margin-bottom: 20px;
-            padding-left: 20px;
-        }
+    .article-body ul,
+    .article-body ol {
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
 
-        .article-body li {
-            margin-bottom: 10px;
-        }
+    .article-body li {
+      margin-bottom: 10px;
+    }
 
-        .diagram-container {
-            display: block;
-            margin: 30px auto;
-            max-width: 600px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 12px;
-            padding: 20px;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            text-align: center;
-        }
+    .diagram-container {
+      display: block;
+      margin: 30px auto;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
 
-        .diagram-label {
-            fill: #fff;
-            font-size: 14px;
-            text-anchor: middle;
-            font-family: 'Nikosh', sans-serif;
-        }
+    .diagram-label {
+      fill: #fff;
+      font-size: 14px;
+      text-anchor: middle;
+      font-family: 'Nikosh', sans-serif;
+    }
 
-        .layer-box {
-            fill: rgba(33, 150, 243, 0.1);
-            stroke: var(--primary-color);
-            stroke-width: 2;
-        }
+    .layer-box {
+      fill: rgba(33, 150, 243, 0.1);
+      stroke: var(--primary-color);
+      stroke-width: 2;
+    }
 
-        .sublayer-box {
-            fill: rgba(255, 255, 255, 0.05);
-            stroke: rgba(255, 255, 255, 0.2);
-            stroke-width: 1;
-        }
+    .sublayer-box {
+      fill: rgba(255, 255, 255, 0.05);
+      stroke: rgba(255, 255, 255, 0.2);
+      stroke-width: 1;
+    }
 
-        .warning-box {
-            background: rgba(255, 193, 7, 0.05);
-            border: 1px solid #ffc107;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 20px 0;
-        }
-    </style>
+    .warning-box {
+      background: rgba(255, 193, 7, 0.05);
+      border: 1px solid #ffc107;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+    }
+  </style>
 </head>
 
 <body>
-    <canvas id="network-canvas"></canvas>
-    <div class="overlay">
-        <header class="glass-header">
-            <div class="container">
-                <nav class="main-nav">
-                    <ul>
-                        <li>
-                            <a href="../index.html">
-                                <i class='bx bx-home-alt-2'></i>
-                                <span class="nav-text">Home</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../blogs.html" class="active">
-                                <i class='bx bx-book-content'></i>
-                                <span class="nav-text">Blog</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+  <canvas id="network-canvas"></canvas>
+  <div class="overlay">
+    <header class="glass-header">
+      <div class="container container-blog">
+        <nav class="main-nav">
+          <ul>
+            <li>
+              <a href="../index.html">
+                <i class='bx bx-home-alt-2'></i>
+                <span class="nav-text">Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="../blogs.html" class="active">
+                <i class='bx bx-book-content'></i>
+                <span class="nav-text">Blog</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="blog-content-wrapper">
+      <div class="container container-blog">
+        <a href="../blogs.html" class="back-btn">
+          <i class='bx bx-arrow-back'></i>
+          <span>Return to Previous Page</span>
+        </a>
+
+        <article class="glass-panel">
+          <header class="article-header">
+            <h1>Data Link Layer: Detailed Guide</h1>
+            <div class="article-meta">
+              <span><i class='bx bx-calendar'></i> January 15, 2026</span>
+              <span style="margin: 0 10px;">|</span>
+              <span><i class='bx bx-category'></i> Networking</span>
             </div>
-        </header>
+          </header>
 
-        <main class="blog-content-wrapper">
-            <div class="container">
-                <a href="../blogs.html" class="back-btn">
-                    <i class='bx bx-arrow-back'></i>
-                    <span>Return to Previous Page</span>
-                </a>
+          <div class="article-body">
+            <h2><i class="bi bi-layers"></i> Data Link Layer What is?</h2>
+            <p>Data Link Layer হলো OSI Model-এর নিচ থেকে দ্বিতীয় স্তর। এটি মূলত একই স্থানীয়
+              Network-এর মধ্যে এক Node থেকে অন্য Node-এ Data পৌঁছানোর Responsibility পালন করে। একে OSI
+              Model-এর সবচেয়ে জটিল Layer বলা হয় Reason এটি Next উপরের Layer-গুলো থেকে Hardware-এর
+              Complexity গুলো আড়াল করে রাখে।</p>
 
-                <article class="glass-panel">
-                    <header class="article-header">
-                        <h1>Data Link Layer: Detailed Guide</h1>
-                        <div class="article-meta">
-                            <span><i class='bx bx-calendar'></i> January ১৫, 2026</span>
-                            <span style="margin: 0 10px;">|</span>
-                            <span><i class='bx bx-category'></i> Networking</span>
-                        </div>
-                    </header>
-
-                    <div class="article-body">
-                        <h2><i class="bi bi-layers"></i> Data Link Layer What is?</h2>
-                        <p>Data Link Layer হলো OSI Model-এর নিচ থেকে দ্বিতীয় স্তর। এটি মূলত একই স্থানীয়
-                            Network-এর মধ্যে এক Node থেকে অন্য Node-এ Data পৌঁছানোর Responsibility পালন করে। একে OSI
-                            Model-এর সবচেয়ে জটিল Layer বলা হয় Reason এটি Next উপরের Layer-গুলো থেকে Hardware-এর
-                            Complexityগুলো আড়াল করে রাখে।</p>
-
-                        <div class="content-box">
-                            <ul>
-                                <li><strong>Node-to-Node Delivery:</strong> একই local network-এর মধ্যে data স্থানান্তর
-                                    নিশ্চিত করে।</li>
-                                <li><strong>Reliable Transmission:</strong> Informationের Accurateতা এবং Errorহীন আদান-প্রদান
-                                    নিশ্চিত করা এর মূল Task।</li>
-                                <li><strong>Encoding & Decoding:</strong> আগত ও বহির্গত data-কে সাজানো এবং সংকেতে
-                                    রূপান্তর
-                                    করা।</li>
-                            </ul>
-                        </div>
-
-                        <hr>
-
-                        <h2><i class="bi bi-diagram-3"></i> Data Link Layer-এর Sub-layer-সমূহ</h2>
-                        <p>Data Link Layer-কে আরও দুটি গুরুত্বপূর্ণ উপ-স্তরে বা Sub-layer-এ ভাগ করা হয়েছে:</p>
-
-                        <div class="diagram-container">
-                            <svg viewBox="0 0 400 200" width="100%">
-                                <!-- DLL Box -->
-                                <rect x="50" y="20" width="300" height="160" rx="10" class="layer-box" />
-                                <text x="200" y="45" class="diagram-label" font-weight="bold">Data Link Layer
-                                    (DLL)</text>
-
-                                <!-- LLC Box -->
-                                <rect x="75" y="60" width="250" height="50" rx="5" class="sublayer-box" />
-                                <text x="200" y="90" class="diagram-label">1. Logical Link Control (LLC)</text>
-
-                                <!-- MAC Box -->
-                                <rect x="75" y="120" width="250" height="50" rx="5" class="sublayer-box" />
-                                <text x="200" y="150" class="diagram-label">2. Media Access Control (MAC)</text>
-                            </svg>
-                        </div>
-
-                        <h3>1. Logical Link Control (LLC)</h3>
-                        <p>LLC Sub-layer-টি Network Layer এবং MAC Sub-layer-এর মধ্যে সেতুবন্ধন হিসেবে Task করে। এর
-                            Taskগুলো হলো:</p>
-                        <ul>
-                            <li>Application-গুলোর মধ্যে data-র প্রবাহ (Flow) এবং Multiplexing Operation করা।</li>
-                            <li>Error Message প্রদান এবং প্রাপ্তি স্বীকার (Acknowledgment) নিশ্চিত করা।</li>
-                        </ul>
-
-                        <h3>2. Media Access Control (MAC)</h3>
-                        <p>MAC Sub-layer-টি সরাসরি physical media-র সাথে যোগাযোগ রক্ষা করে। এর Taskগুলো হলো:</p>
-                        <ul>
-                            <li>Device-এর Physical বা MAC Address ব্যবহার করে Frame Creation করা।</li>
-                            <li>Network Layer থেকে পাওয়া Packet-গুলোকে 'Frame'-এ বিভক্ত করে bit by bit physical
-                                Layer-এ পাঠানো।</li>
-                            <li>Physical Media Access নিয়ন্ত্রণ করা।</li>
-                        </ul>
-
-                        <hr>
-
-                        <h2><i class="bi bi-gear"></i> Data Link Layer-এর প্রধান Taskসমূহ (Functions)</h2>
-                        <div class="content-box">
-                            <p>Data Link Layer-এর প্রধান Taskগুলো নিচে Detailed Discussion করা হলো:</p>
-                            <ul>
-                                <li><strong>Framing:</strong> Packet-গুলোকে Frame-এ সাজানো যাতে Receiver Frame-এর
-                                    শুরু এবং শেষ বুঝতে পারে।</li>
-                                <li><strong>Physical Addressing:</strong> প্রতিটি Frame-এর Header-এ Sender ও
-                                    Receiver-এর MAC Address যুক্ত করা।</li>
-                                <li><strong>Flow Control:</strong> একটি নির্দিষ্ট Speedতে data পাঠানো
-                                    নিশ্চিত করা যাতে Receiver device-টি অতিরিক্ত data-র চাপে না পড়ে।</li>
-                                <li><strong>Error Control:</strong> Frame Damage বা হারিয়ে গেলে তা
-                                    শনাক্ত করা এবং পুনরায় পাঠানোর ব্যবস্থা করা। এটি trailer-এ redundant
-                                    data যুক্ত করে করা হয়।</li>
-                                <li><strong>Access Control:</strong> যখন Multiple device একই link
-                                    share করে, তখন কোন device-টি কখন data পাঠাবে তা নিয়ন্ত্রণ করা।</li>
-                            </ul>
-                        </div>
-
-                        <hr>
-
-                        <h2><i class="bi bi-shield-check"></i> Data Link Layer-এর Protocol-সমূহ</h2>
-                        <p>এই Layer-এ নিরবিচ্ছিন্ন যোগাযোগের জন্য বিভিন্ন protocol ব্যবহৃত হয়:</p>
-                        <ul>
-                            <li><strong>SDLC (Synchronous Data Link Control):</strong> IBM দ্বারা Creation প্রাচীন
-                                Protocol।</li>
-                            <li><strong>HDLC (High-Level Data Link Control):</strong> এটি bit-oriented protocol যা
-                                data transmission-এ ব্যবহৃত হয়।</li>
-                            <li><strong>SLIP (Serial Line Interface Protocol):</strong> Serial port এবং Modem
-                                connection-এর জন্য ব্যবহৃত হয়।</li>
-                            <li><strong>PPP (Point-to-Point Protocol):</strong> সরাসরি দুটি Computerের মধ্যে IP
-                                Traffic transmit করতে ব্যবহৃত হয়।</li>
-                            <li><strong>LAP (Link Access Procedure):</strong> X.25 Frame Structureের protocol।</li>
-                            <li><strong>LCP & NCP:</strong> Link Control এবং Network Control protocol যা PPP-এর
-                                সাথে Task করে।</li>
-                        </ul>
-
-                        <hr>
-
-                        <h2><i class="bi bi-cpu"></i> Data Link Layer-এ ব্যবহৃত Device-সমূহ</h2>
-                        <p>এই Layout-এ Informationের সঠিক আদান-প্রদান নিশ্চিত করতে বেশ কিছু Hardware Device Task করে:</p>
-                        <div
-                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
-                            <div class="content-box">
-                                <h3>1. Switch</h3>
-                                <p>MAC Address Table ব্যবহার করে Frame-গুলোকে সঠিক Device-এ forward করে।</p>
-                            </div>
-                            <div class="content-box">
-                                <h3>2. Bridge</h3>
-                                <p>দুটি LAN-কে সংযুক্ত করে একটি network segment Creation করে এবং traffic কমায়।
-                                </p>
-                            </div>
-                            <div class="content-box">
-                                <h3>3. NIC (Network Interface Card)</h3>
-                                <p>Computerের physical যোগাযোগ unit যা MAC address ব্যবহার করে frame পাঠায় ও
-                                    গ্রহণ করে।</p>
-                            </div>
-                            <div class="content-box">
-                                <h3>4. Wireless Access Point (WAP)</h3>
-                                <p>Wireless device-গুলোকে wired network-এর সাথে সংযুক্ত করে Wi-Fi protocol
-                                    ব্যবহার করে।</p>
-                            </div>
-                        </div>
-
-                        <div class="warning-box">
-                            <p><strong><i class="bi bi-shield-slash"></i> Security Risk:</strong> Data Link Layer
-                                অনেক সময় <strong>MAC Spoofing</strong> বা <strong>ARP Poisoning</strong>-এর মতো Cyber
-                                Attackের শিকার হতে পারে। এই Attackগুলো সম্পর্কে জ্ঞান থাকা network সুরক্ষার জন্য
-                                অপরিহার্য।</p>
-                        </div>
-
-                        <hr>
-
-                        <h2><i class="bi bi-exclamation-octagon"></i> সীমাবদ্ধতা ও প্রয়োগ (Applications)</h2>
-                        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                            <div style="flex: 1; min-width: 280px;">
-                                <h3>সীমাবদ্ধতা:</h3>
-                                <ul>
-                                    <li>সীমিত Scope: শুধুমাত্র স্থানীয় network-এর মধ্যে Task করতে পারে।</li>
-                                    <li>Overhead বৃদ্ধি: Header ও trailer যুক্ত করার ফলে data-র size বেড়ে যায়।</li>
-                                    <li>Routing অCapacity: এটি network-এর বাইরে routing করতে পারে না।</li>
-                                </ul>
-                            </div>
-                            <div style="flex: 1; min-width: 280px;">
-                                <h3>প্রয়োগ:</h3>
-                                <ul>
-                                    <li>Ethernet এবং LAN Operation।</li>
-                                    <li>Wi-Fi (IEEE 802.11) communication।</li>
-                                    <li>Point-to-point protocol-এর মাধ্যMay সরাসরি সংযোগ।</li>
-                                    <li>Switching operation Operation।</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <hr>
-
-                        <h2><i class="bi bi-check2-circle"></i> Summary</h2>
-                        <p>Data Link Layer Networking-এর অত্যন্ত গুরুত্বপূর্ণ একটি স্তর যা bit-গুলোকে frame-এ
-                            রূপান্তর করে data-র Reliableতা নিশ্চিত করে। এর flow control, error handling এবং
-                            addressing ব্যবস্থা ছাড়া Internet-এর মতো বিশাল network-এ Informationের আদান-প্রদান করা অসম্ভব
-                            ছিল।</p>
-                    </div>
-                </article>
+            <div class="content-box">
+              <ul>
+                <li><strong>Node-to-Node Delivery:</strong> একই local network-এর মধ্যে data স্থানান্তর
+                  নিশ্চিত করে।</li>
+                <li><strong>Reliable Transmission:</strong> Information ের Accurate তা এবং Error হীন আদান-প্রদান
+                  নিশ্চিত করা এর মূল Task।</li>
+                <li><strong>Encoding & Decoding:</strong> আগত ও বহির্গত data-কে সাজানো এবং সংকেতে
+                  রূপান্তর
+                  করা।</li>
+              </ul>
             </div>
-        </main>
 
-        <footer class="glass-footer">
-            <div class="container">
-                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+            <hr>
+
+            <h2><i class="bi bi-diagram-3"></i> Data Link Layer-এর Sub-layer-সমূহ</h2>
+            <p>Data Link Layer-কে আরও দুটি গুরুত্বপূর্ণ উপ-স্তরে বা Sub-layer-এ ভাগ করা হয়েছে:</p>
+
+            <div class="diagram-container">
+              <svg viewBox="0 0 400 200" width="100%">
+                <!-- DLL Box -->
+                <rect x="50" y="20" width="300" height="160" rx="10" class="layer-box" />
+                <text x="200" y="45" class="diagram-label" font-weight="bold">Data Link Layer
+                  (DLL)</text>
+
+                <!-- LLC Box -->
+                <rect x="75" y="60" width="250" height="50" rx="5" class="sublayer-box" />
+                <text x="200" y="90" class="diagram-label">1. Logical Link Control (LLC)</text>
+
+                <!-- MAC Box -->
+                <rect x="75" y="120" width="250" height="50" rx="5" class="sublayer-box" />
+                <text x="200" y="150" class="diagram-label">2. Media Access Control (MAC)</text>
+              </svg>
             </div>
-        </footer>
-    </div>
-    <script type="module" src="../js/main.js"></script>
-    <script type="module" src="../js/network-background.js"></script>
+
+            <h3>1. Logical Link Control (LLC)</h3>
+            <p>LLC Sub-layer-টি Network Layer এবং MAC Sub-layer-এর মধ্যে সেতুবন্ধন হিসেবে Task করে। এর
+              Task গুলো হলো:</p>
+            <ul>
+              <li>Application-গুলোর মধ্যে data-র প্রবাহ (Flow) এবং Multiplexing Operation করা।</li>
+              <li>Error Message প্রদান এবং প্রাপ্তি স্বীকার (Acknowledgment) নিশ্চিত করা।</li>
+            </ul>
+
+            <h3>2. Media Access Control (MAC)</h3>
+            <p>MAC Sub-layer-টি সরাসরি physical media-র সাথে যোগাযোগ রক্ষা করে। এর Task গুলো হলো:</p>
+            <ul>
+              <li>Device-এর Physical বা MAC Address ব্যবহার করে Frame Creation করা।</li>
+              <li>Network Layer থেকে পাওয়া Packet-গুলোকে 'Frame'-এ বিভক্ত করে bit by bit physical
+                Layer-এ পাঠানো।</li>
+              <li>Physical Media Access নিয়ন্ত্রণ করা।</li>
+            </ul>
+
+            <hr>
+
+            <h2><i class="bi bi-gear"></i> Data Link Layer-এর প্রধান Task সমূহ (Functions)</h2>
+            <div class="content-box">
+              <p>Data Link Layer-এর প্রধান Task গুলো নিচে Detailed Discussion করা হলো:</p>
+              <ul>
+                <li><strong>Framing:</strong> Packet-গুলোকে Frame-এ সাজানো যাতে Receiver Frame-এর
+                  শুরু এবং শেষ বুঝতে পারে।</li>
+                <li><strong>Physical Addressing:</strong> প্রতিটি Frame-এর Header-এ Sender ও
+                  Receiver-এর MAC Address যুক্ত করা।</li>
+                <li><strong>Flow Control:</strong> একটি নির্দিষ্ট Speed তে data পাঠানো
+                  নিশ্চিত করা যাতে Receiver device-টি অতিরিক্ত data-র চাপে না পড়ে।</li>
+                <li><strong>Error Control:</strong> Frame Damage বা হারিয়ে গেলে তা
+                  শনাক্ত করা এবং পুনরায় পাঠানোর ব্যবস্থা করা। এটি trailer-এ redundant
+                  data যুক্ত করে করা হয়।</li>
+                <li><strong>Access Control:</strong> যখন Multiple device একই link
+                  share করে, তখন কোন device-টি কখন data পাঠাবে তা নিয়ন্ত্রণ করা।</li>
+              </ul>
+            </div>
+
+            <hr>
+
+            <h2><i class="bi bi-shield-check"></i> Data Link Layer-এর Protocol-সমূহ</h2>
+            <p>এই Layer-এ নিরবিচ্ছিন্ন যোগাযোগের জন্য বিভিন্ন protocol ব্যবহৃত হয়:</p>
+            <ul>
+              <li><strong>SDLC (Synchronous Data Link Control):</strong> IBM দ্বারা Creation প্রাচীন
+                Protocol।</li>
+              <li><strong>HDLC (High-Level Data Link Control):</strong> এটি bit-oriented protocol যা
+                data transmission-এ ব্যবহৃত হয়।</li>
+              <li><strong>SLIP (Serial Line Interface Protocol):</strong> Serial port এবং Modem
+                connection-এর জন্য ব্যবহৃত হয়।</li>
+              <li><strong>PPP (Point-to-Point Protocol):</strong> সরাসরি দুটি Computer ের মধ্যে IP
+                Traffic transmit করতে ব্যবহৃত হয়।</li>
+              <li><strong>LAP (Link Access Procedure):</strong> X.25 Frame Structure ের protocol।</li>
+              <li><strong>LCP & NCP:</strong> Link Control এবং Network Control protocol যা PPP-এর
+                সাথে Task করে।</li>
+            </ul>
+
+            <hr>
+
+            <h2><i class="bi bi-cpu"></i> Data Link Layer-এ ব্যবহৃত Device-সমূহ</h2>
+            <p>এই Layout-এ Information ের সঠিক আদান-প্রদান নিশ্চিত করতে বেশ কিছু Hardware Device Task করে:</p>
+            <div
+              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+              <div class="content-box">
+                <h3>1. Switch</h3>
+                <p>MAC Address Table ব্যবহার করে Frame-গুলোকে সঠিক Device-এ forward করে।</p>
+              </div>
+              <div class="content-box">
+                <h3>2. Bridge</h3>
+                <p>দুটি LAN-কে সংযুক্ত করে একটি network segment Creation করে এবং traffic কমায়।
+                </p>
+              </div>
+              <div class="content-box">
+                <h3>3. NIC (Network Interface Card)</h3>
+                <p>Computer ের physical যোগাযোগ unit যা MAC address ব্যবহার করে frame পাঠায় ও
+                  গ্রহণ করে।</p>
+              </div>
+              <div class="content-box">
+                <h3>4. Wireless Access Point (WAP)</h3>
+                <p>Wireless device-গুলোকে wired network-এর সাথে সংযুক্ত করে Wi-Fi protocol
+                  ব্যবহার করে।</p>
+              </div>
+            </div>
+
+            <div class="warning-box">
+              <p><strong><i class="bi bi-shield-slash"></i> Security Risk:</strong> Data Link Layer
+                অনেক সময় <strong>MAC Spoofing</strong> বা <strong>ARP Poisoning</strong>-এর মতো Cyber
+                Attack ের শিকার হতে পারে। এই Attack গুলো সম্পর্কে জ্ঞান থাকা network সুরক্ষার জন্য
+                অপরিহার্য।</p>
+            </div>
+
+            <hr>
+
+            <h2><i class="bi bi-exclamation-octagon"></i> সীমাবদ্ধতা ও প্রয়োগ (Applications)</h2>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+              <div style="flex: 1; min-width: 280px;">
+                <h3>সীমাবদ্ধতা:</h3>
+                <ul>
+                  <li>সীমিত Scope: শুধুমাত্র স্থানীয় network-এর মধ্যে Task করতে পারে।</li>
+                  <li>Overhead বৃদ্ধি: Header ও trailer যুক্ত করার ফলে data-র size বেড়ে যায়।</li>
+                  <li>Routing অ Capacity: এটি network-এর বাইরে routing করতে পারে না।</li>
+                </ul>
+              </div>
+              <div style="flex: 1; min-width: 280px;">
+                <h3>প্রয়োগ:</h3>
+                <ul>
+                  <li>Ethernet এবং LAN Operation।</li>
+                  <li>Wi-Fi (IEEE 802.11) communication।</li>
+                  <li>Point-to-point protocol-এর মাধ্য মেসরাসরি সংযোগ।</li>
+                  <li>Switching operation Operation।</li>
+                </ul>
+              </div>
+            </div>
+
+            <hr>
+
+            <h2><i class="bi bi-check2-circle"></i> Summary</h2>
+            <p>Data Link Layer Networking-এর অত্যন্ত গুরুত্বপূর্ণ একটি স্তর যা bit-গুলোকে frame-এ
+              রূপান্তর করে data-র Reliable তা নিশ্চিত করে। এর flow control, error handling এবং
+              addressing ব্যবস্থা ছাড়া Internet-এর মতো বিশাল network-এ Information ের আদান-প্রদান করা অসম্ভব
+              ছিল।</p>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="glass-footer">
+      <div class="container container-blog">
+        <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </div>
+  <script type="module" src="../js/main.js"></script>
+  <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>
+
+
+
+

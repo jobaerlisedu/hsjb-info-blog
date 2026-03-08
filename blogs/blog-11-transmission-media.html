@@ -1,410 +1,414 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="bn">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transmission Media: Guided and Unguided Media | enablement.info</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transmission Media: Guided and Unguided Media | enablement.info</title>
 
-    <!-- Icons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Icons -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css">
 
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-            }
-        }
-    </script>
-    <style>
-        .blog-content-wrapper {
-            padding-top: 20px;
-            padding-bottom: 60px;
-        }
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+  <style>
+    .blog-content-wrapper {
+      padding-top: 20px;
+      padding-bottom: 60px;
+    }
 
-        .article-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    .article-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
 
-        .article-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
+    .article-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
 
-        .article-meta {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
+    .article-meta {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
 
-        .article-body {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #d0d0e0;
-        }
+    .article-body {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #d0d0e0;
+    }
 
-        .article-body h2,
-        .article-body h3 {
-            font-family: 'Times New Roman', 'Nikosh', serif;
-            color: var(--primary-color);
-            margin-top: 40px;
-            margin-bottom: 20px;
-            font-weight: 800;
-        }
+    .article-body h2,
+    .article-body h3 {
+      font-family: 'Times New Roman', 'Nikosh', serif;
+      color: var(--primary-color);
+      margin-top: 40px;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
 
-        .article-body h2 {
-            font-size: 1.8rem;
-        }
+    .article-body h2 {
+      font-size: 1.8rem;
+    }
 
-        .article-body h3 {
-            font-size: 1.4rem;
-            color: #fff;
-        }
+    .article-body h3 {
+      font-size: 1.4rem;
+      color: #fff;
+    }
 
-        .article-body ul,
-        .article-body ol {
-            margin-bottom: 20px;
-            padding-left: 20px;
-        }
+    .article-body ul,
+    .article-body ol {
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
 
-        .article-body li {
-            margin-bottom: 10px;
-        }
+    .article-body li {
+      margin-bottom: 10px;
+    }
 
-        /* Topology SVG Styles */
-        .topology-diagram {
-            display: block;
-            margin: 30px auto;
-            max-width: 500px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 12px;
-            padding: 20px;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
+    /* Topology SVG Styles */
+    .topology-diagram {
+      display: block;
+      margin: 30px auto;
+      max-width: 500px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
 
-        .diagram-label {
-            fill: #fff;
-            font-size: 12px;
-            text-anchor: middle;
-            font-family: 'Nikosh', sans-serif;
-        }
+    .diagram-label {
+      fill: #fff;
+      font-size: 12px;
+      text-anchor: middle;
+      font-family: 'Nikosh', sans-serif;
+    }
 
-        .topology-node {
-            fill: var(--primary-color);
-            filter: drop-shadow(0 0 5px var(--primary-color));
-        }
+    .topology-node {
+      fill: var(--primary-color);
+      filter: drop-shadow(0 0 5px var(--primary-color));
+    }
 
-        .topology-link {
-            stroke: rgba(33, 150, 243, 0.8);
-            stroke-width: 2;
-            fill: none;
-            stroke-dasharray: 5;
-            animation: flow 2s linear infinite;
-        }
+    .topology-link {
+      stroke: rgba(33, 150, 243, 0.8);
+      stroke-width: 2;
+      fill: none;
+      stroke-dasharray: 5;
+      animation: flow 2s linear infinite;
+    }
 
-        @keyframes flow {
-            from {
-                stroke-dashoffset: 20;
-            }
+    @keyframes flow {
+      from {
+        stroke-dashoffset: 20;
+      }
 
-            to {
-                stroke-dashoffset: 0;
-            }
-        }
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
 
-        .fiber-core {
-            stroke: #fff;
-            stroke-width: 4;
-            fill: none;
-        }
+    .fiber-core {
+      stroke: #fff;
+      stroke-width: 4;
+      fill: none;
+    }
 
-        .fiber-cladding {
-            stroke: rgba(255, 255, 255, 0.2);
-            stroke-width: 12;
-            fill: none;
-        }
+    .fiber-cladding {
+      stroke: rgba(255, 255, 255, 0.2);
+      stroke-width: 12;
+      fill: none;
+    }
 
-        .light-ray {
-            stroke: #ffff00;
-            stroke-width: 2;
-            fill: none;
-            filter: drop-shadow(0 0 5px #ffff00);
-        }
+    .light-ray {
+      stroke: #ffff00;
+      stroke-width: 2;
+      fill: none;
+      filter: drop-shadow(0 0 5px #ffff00);
+    }
 
-        .article-body ul,
-        .article-body ol {
-            display: inline-block;
-            text-align: left;
-            margin-bottom: 20px;
-            padding-left: 20px;
-        }
-    </style>
+    .article-body ul,
+    .article-body ol {
+      display: inline-block;
+      text-align: left;
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
+  </style>
 </head>
 
 <body>
-    <canvas id="network-canvas"></canvas>
-    <div class="overlay">
-        <header class="glass-header">
-            <div class="container">
-                <nav class="main-nav">
-                    <ul>
-                        <li>
-                            <a href="../index.html">
-                                <i class='bx bx-home-alt-2'></i>
-                                <span class="nav-text">Home</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../blogs.html" class="active">
-                                <i class='bx bx-book-content'></i>
-                                <span class="nav-text">Blog</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+  <canvas id="network-canvas"></canvas>
+  <div class="overlay">
+    <header class="glass-header">
+      <div class="container container-blog">
+        <nav class="main-nav">
+          <ul>
+            <li>
+              <a href="../index.html">
+                <i class='bx bx-home-alt-2'></i>
+                <span class="nav-text">Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="../blogs.html" class="active">
+                <i class='bx bx-book-content'></i>
+                <span class="nav-text">Blog</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="blog-content-wrapper">
+      <div class="container container-blog">
+        <a href="../blogs.html" class="back-btn">
+          <i class='bx bx-arrow-back'></i>
+          <span>Return to Previous Page</span>
+        </a>
+
+        <article class="glass-panel">
+          <header class="article-header">
+            <h1>Transmission Media: Detailed Guide</h1>
+            <div class="article-meta">
+              <span><i class='bx bx-calendar'></i> January 02, 2026</span>
+              <span style="margin: 0 10px;">|</span>
+              <span><i class='bx bx-category'></i> Networking</span>
             </div>
-        </header>
+          </header>
 
-        <main class="blog-content-wrapper">
-            <div class="container">
-                <a href="../blogs.html" class="back-btn">
-                    <i class='bx bx-arrow-back'></i>
-                    <span>Return to Previous Page</span>
-                </a>
+          <div class="article-body">
+            <h2><i class="bi bi-broadcast"></i> Transmission Media What is?</h2>
+            <p>Transmission Media হলো একটি Physical বা Wireless Communication Channel
+              যা একটি Computer Network-এর এক Device থেকে অন্য Device-এ Data Signal বহন করতে ব্যবহৃত
+              হয়। এটি Information ের Flow ের মূল Path Creation করে এবং Network করা Device-গুলোর মধ্যে সংযোগ নিশ্চিত
+              করে।</p>
 
-                <article class="glass-panel">
-                    <header class="article-header">
-                        <h1>Transmission Media: Detailed Guide</h1>
-                        <div class="article-meta">
-                            <span><i class='bx bx-calendar'></i> January ০২, 2026</span>
-                            <span style="margin: 0 10px;">|</span>
-                            <span><i class='bx bx-category'></i> Networking</span>
-                        </div>
-                    </header>
-
-                    <div class="article-body">
-                        <h2><i class="bi bi-broadcast"></i> Transmission Media What is?</h2>
-                        <p>Transmission Media হলো একটি Physical বা Wireless Communication Channel
-                            যা একটি Computer Network-এর এক Device থেকে অন্য Device-এ Data Signal বহন করতে ব্যবহৃত
-                            হয়। এটি Informationের Flowের মূল Path Creation করে এবং Network করা Device-গুলোর মধ্যে সংযোগ নিশ্চিত
-                            করে।</p>
-
-                        <div class="content-box">
-                            <p><strong>Transmission Media Selectionের Fieldে কিছু গুরুত্বপূর্ণ বিষয় বিবেচনা করা
-                                    হয়:</strong></p>
-                            <ul>
-                                <li><strong>Distance (Distance):</strong> কতটুকু দূর পর্যন্ত Data পাঠাতে হবে।</li>
-                                <li><strong>Bandwidth:</strong> Data স্থানান্তরের Speed।</li>
-                                <li><strong>Interference:</strong> Noise বা Signal-এ বাধার সম্ভাবনা।
-                                </li>
-                                <li><strong>Cost এবং Installation:</strong> Budget এবং Cable স্থাপনের Complexity।</li>
-                            </ul>
-                        </div>
-
-                        <hr>
-
-                        <h2><i class="bi bi-diagram-2"></i> Transmission Media-র শ্রেণবিভাগ</h2>
-                        <p>Data বা Signal প্রবাহের Path-এর ওপর ভিত্তি করে Transmission Media-কে প্রধানত দুই ভাগে ভাগ করা
-                            যায়:</p>
-
-                        <svg class="topology-diagram" viewBox="0 0 500 200">
-                            <!-- Root -->
-                            <rect x="175" y="20" width="150" height="40" rx="5" fill="rgba(33, 150, 243, 0.2)"
-                                stroke="#2196f3" />
-                            <text x="250" y="45" class="diagram-label" font-weight="bold">Transmission Media</text>
-
-                            <!-- Links -->
-                            <line x1="250" y1="60" x2="125" y2="100" stroke="#2196f3" stroke-width="2" />
-                            <line x1="250" y1="60" x2="375" y2="100" stroke="#2196f3" stroke-width="2" />
-
-                            <!-- Guided -->
-                            <rect x="50" y="100" width="150" height="40" rx="5" fill="rgba(33, 150, 243, 0.1)"
-                                stroke="#2196f3" />
-                            <text x="125" y="125" class="diagram-label">Guided</text>
-                            <text x="125" y="160" class="diagram-label" font-size="10"
-                                fill="#aaa">(wired/bounded)</text>
-
-                            <!-- Unguided -->
-                            <rect x="300" y="100" width="150" height="40" rx="5" fill="rgba(255, 51, 102, 0.1)"
-                                stroke="#ff3366" />
-                            <text x="375" y="125" class="diagram-label">Unguided</text>
-                            <text x="375" y="160" class="diagram-label" font-size="10"
-                                fill="#aaa">(wireless/unbounded)</text>
-                        </svg>
-
-                        <div class="content-box">
-                            <h3>1. Guided Media</h3>
-                            <p>Guided Media বা Wired Transmission Media-য় Data একটি Physical Path-এর (যেমন
-                                Cable) মাধ্যMay প্রবাহিত হয়। এখানে Signal একটি নির্দিষ্ট সীমানার মধ্যে আবদ্ধ থাকে এবং
-                                Device-এর মধ্যে সরাসরি সংযোগ নিশ্চিত করে।</p>
-                            <ul>
-                                <li><strong>Physical Cable:</strong> Data পাঠাতে Physical Cable ব্যবহার করা হয়।
-                                </li>
-                                <li><strong>High Speed:</strong> Wireless Media-র তুলনায় সাধারণত High High Speed
-                                    সম্পন্ন।</li>
-                                <li><strong>Security:</strong> Physical সংযোগ থাকায় এটি High Secure।</li>
-                                <li><strong>প্রধান Classification:</strong> Twisted Pair Cable, Coaxial Cable এবং
-                                    Fiber Optic Cable।</li>
-                            </ul>
-                        </div>
-
-                        <h3>(ক) Twisted Pair Cable</h3>
-                        <p>এটি সবচেয়ে সাধারণ Cable যেখানে দুটি insulated copper তার একে অপরের সাথে পেঁচিয়ে থাকে। এই
-                            পেঁচানো বা twisting Electromagnetic Interference (EMI) এবং Noise কমাতে সাহায্য করে।</p>
-
-                        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                            <div class="content-box" style="flex: 1; min-width: 250px;">
-                                <p><strong>UTP (Unshielded Twisted Pair):</strong> এটি সস্তা এবং সাধারণ LAN Network-এ
-                                    ব্যবহৃত হয়। তবে এতে Noise-এর সম্ভাবনা High থাকে।</p>
-                            </div>
-                            <div class="content-box" style="flex: 1; min-width: 250px;">
-                                <p><strong>STP (Shielded Twisted Pair):</strong> এতে একটি অতিরিক্ত metallic shielding
-                                    থাকে
-                                    যা Noise এবং interference থেকে signal-কে রক্ষা করে।</p>
-                            </div>
-                        </div>
-
-                        <h3>(খ) Coaxial Cable</h3>
-                        <p>Coaxial Cable-এ একটি central copper conductor থাকে যা noise থেকে সুরক্ষার জন্য Multiple
-                            insulation স্তর এবং shielding দ্বারা পরিবেষ্টিত থাকে। এটি সাধারণত Cable Television (CATV)
-                            এবং
-                            Broadband Network-এ ব্যবহৃত হয়।</p>
-
-                        <svg class="topology-diagram" viewBox="0 0 500 200">
-                            <!-- Coaxial layers -->
-                            <circle cx="250" cy="100" r="10" fill="#cd7f32" /> <!-- Core -->
-                            <circle cx="250" cy="100" r="25" fill="none" stroke="#fff" stroke-width="30"
-                                opacity="0.1" /> <!-- Dielectric -->
-                            <circle cx="250" cy="100" r="45" fill="none" stroke="#2196f3" stroke-width="10"
-                                stroke-dasharray="2,2" /> <!-- Shield -->
-                            <circle cx="250" cy="100" r="60" fill="none" stroke="#333" stroke-width="20" />
-                            <!-- Jacket -->
-
-                            <!-- Labels with lines -->
-                            <line x1="250" y1="100" x2="350" y2="40" stroke="#aaa" />
-                            <text x="360" y="45" class="diagram-label" text-anchor="start">Copper Core</text>
-
-                            <line x1="250" y1="125" x2="350" y2="100" stroke="#aaa" />
-                            <text x="360" y="105" class="diagram-label" text-anchor="start">Dielectric
-                                Insulator</text>
-
-                            <line x1="250" y1="145" x2="350" y2="160" stroke="#aaa" />
-                            <text x="360" y="165" class="diagram-label" text-anchor="start">Metallic Shield</text>
-                        </svg>
-
-                        <h3>(গ) Optical Fiber Cable</h3>
-                        <p>Optical Fiber Cable Data পাঠানোর জন্য electrical signal-এর পরিবর্তে আলোক সংকেত (Light
-                            Signals) ব্যবহার করে। এটি Glass বা প্লাস্টিকের সূক্ষ্ম Fiberর মাধ্যMay Task করে এবং 'Total
-                            Internal Reflection' Policy অনুসরণ করে।</p>
-
-                        <div class="content-box">
-                            <ul>
-                                <li><strong>Speed:</strong> অত্যন্ত Fast Speedর Data Transmission (Gigabit বা ততোধিক)।
-                                </li>
-                                <li><strong>Distance:</strong> Signal loss খুব কম হওয়ায় দীর্ঘ Distanceে Data পাঠানো যায়।
-                                </li>
-                                <li><strong>Interference:</strong> Electromagnetic Interference (EMI) থেকে মুক্ত।
-                                </li>
-                                <li><strong>Security:</strong> Cable থেকে Data চুরি করা প্রায় অসম্ভব।</li>
-                            </ul>
-                        </div>
-
-                        <svg class="topology-diagram" viewBox="0 0 500 150">
-                            <!-- Fiber Core -->
-                            <path d="M 50,75 L 450,75" class="fiber-cladding" />
-                            <path d="M 50,75 L 450,75" class="fiber-core" />
-
-                            <!-- Light ray reflection -->
-                            <path d="M 50,75 L 100,55 L 200,95 L 300,55 L 400,95 L 450,75" class="light-ray">
-                                <animate attributeName="stroke-dasharray" from="0,500" to="500,0" dur="2s"
-                                    repeatCount="indefinite" />
-                            </path>
-
-                            <text x="250" y="130" class="diagram-label">Total Internal Reflection (TIR)</text>
-                        </svg>
-
-                        <hr>
-
-                        <div class="content-box">
-                            <h3>2. Unguided Media</h3>
-                            <p>Unguided Media বা Wireless Media-য় Data Transportের জন্য কোনো Physical
-                                Cable ব্যবহার করা হয় না। Signal বাতাস বা শূন্যস্থানের মাধ্যMay Electromagnetic
-                                Wave হিসেবে প্রবাহিত হয়।</p>
-                            <ul>
-                                <li><strong>Medium:</strong> বাতাস বা মহাশূন্য।</li>
-                                <li><strong>Flexibility:</strong> Device Flowের সময়ও সংযোগ সচল থাকে।</li>
-                                <li><strong>ভৌগোলিক Scope:</strong> Remote স্থানেও যোগাযোগ করা সম্ভব যেখানে Cable নেওয়া
-                                    কঠিন।</li>
-                                <li><strong>প্রধান Classification:</strong> Radio wave, Microwave এবং Infrared।</li>
-                            </ul>
-                        </div>
-
-                        <h3>(ক) Radio Waves</h3>
-                        <p>Radio wave building বা অন্যান্য বাধা অতিক্রম করে সহজেই Flow করতে পারে। এটি Omnidirectional,
-                            অর্থাৎ signal সব Directionে ছাড়িয়ে পড়ে। AM/FM রেডিও, Television এবং মোবাইল
-                            যোগাযোগের Fieldে এটি ব্যাপক ব্যবহৃত হয়।</p>
-
-                        <h3>(খ) Microwaves</h3>
-                        <p>Microwave একমুখী (Unidirectional) বা Line-of-sight communication হিসেবে Task করে। এখানে Sender
-                            এবং Receiver antenna-র সরাসরি একে অপরের মুখোমুখি থাকা প্রয়োজন। এটি সাধারণত Satellite এবং
-                            লম্বা Distanceের টাওয়ার communication-এ ব্যবহৃত হয়।</p>
-
-                        <h3>(গ) Infrared</h3>
-                        <p>Infrared সাধারণত খুব ছোট Distanceের Wireless যোগাযোগের জন্য ব্যবহৃত হয়। এটি দেয়াল বা কোনো
-                            শক্ত বাধা ভেদ করতে পারে না, যা interference কমাতে সাহায্য করে। Example: TV-র Remote
-                            Control, Wireless Keyboard এবং Mouse।</p>
-
-                        <hr>
-
-                        <h2><i class="bi bi-exclamation-triangle"></i> Transmission Impairment</h2>
-                        <p>Data বা signal যখন একটি Media-র মধ্য দিয়ে যায়, তখন তা বিকৃত বা Weak হয়ে পড়তে পারে।
-                            একেই Transmission Impairment বলা হয়। প্রধান Reasonগুলো নিচে Discussion করা হলো:</p>
-
-                        <div
-                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-                            <div class="content-box">
-                                <h3>1. অ্যাটেনুয়েশন (Attenuation)</h3>
-                                <p>Distance অতিক্রম করার সাথে সাথে Signal শক্তির যে ক্ষয় হয় তাকে অ্যাটেনুয়েশন বলে।
-                                    এর সমাধানে রিপিটার বা Amplifier ব্যবহার করা হয়।</p>
-                            </div>
-                            <div class="content-box">
-                                <h3>2. Distortion</h3>
-                                <p>যখন signal-এর Structure বা Shape পরিবর্তিত হয়ে যায়, তখন তাকে Distortion বলে। এটি সাধারণত
-                                    composite signal-এ ঘটে যেখানে বিভিন্ন frequency Separate Speedতে চলে।</p>
-                            </div>
-                            <div class="content-box">
-                                <h3>3. Noise</h3>
-                                <p>অযাচিত signal যা মূল signal-এর সাথে যুক্ত হয়ে Informationকে অস্পষ্ট বা নষ্ট করে দেয়।
-                                    Crosstalk বা thermal noise এর অন্যতম Example।</p>
-                            </div>
-                        </div>
-
-                        <hr>
-
-                        <h2><i class="bi bi-info-circle"></i> Summary</h2>
-                        <p>সঠিক Transmission মিডিয়া Selection করা একটি কার্যকরী Network Designের সবচেয়ে গুরুত্বপূর্ণ
-                            Step। যেখানে High Speed রক্ষা এবং Security জরুরি সেখানে Fiber Optic এবং যেখানে সহজলভ্যতা ও
-                            পোর্Tableিটি প্রয়োজন সেখানে আনGuideেড বা Wireless মিডিয়া সবচেয়ে সেরা সমাধান।</p>
-
-                    </div>
-                </article>
+            <div class="content-box">
+              <p><strong>Transmission Media Selection ের Field ে কিছু গুরুত্বপূর্ণ বিষয় বিবেচনা করা
+                  হয়:</strong></p>
+              <ul>
+                <li><strong>Distance (Distance):</strong> কতটুকু দূর পর্যন্ত Data পাঠাতে হবে।</li>
+                <li><strong>Bandwidth:</strong> Data স্থানান্তরের Speed।</li>
+                <li><strong>Interference:</strong> Noise বা Signal-এ বাধার সম্ভাবনা।
+                </li>
+                <li><strong>Cost এবং Installation:</strong> Budget এবং Cable স্থাপনের Complexity।</li>
+              </ul>
             </div>
-        </main>
 
-        <footer class="glass-footer">
-            <div class="container">
-                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+            <hr>
+
+            <h2><i class="bi bi-diagram-2"></i> Transmission Media-র শ্রেণবিভাগ</h2>
+            <p>Data বা Signal প্রবাহের Path-এর ওপর ভিত্তি করে Transmission Media-কে প্রধানত দুই ভাগে ভাগ করা
+              যায়:</p>
+
+            <svg class="topology-diagram" viewBox="0 0 500 200">
+              <!-- Root -->
+              <rect x="175" y="20" width="150" height="40" rx="5" fill="rgba(33, 150, 243, 0.2)"
+                stroke="#2196f3" />
+              <text x="250" y="45" class="diagram-label" font-weight="bold">Transmission Media</text>
+
+              <!-- Links -->
+              <line x1="250" y1="60" x2="125" y2="100" stroke="#2196f3" stroke-width="2" />
+              <line x1="250" y1="60" x2="375" y2="100" stroke="#2196f3" stroke-width="2" />
+
+              <!-- Guided -->
+              <rect x="50" y="100" width="150" height="40" rx="5" fill="rgba(33, 150, 243, 0.1)"
+                stroke="#2196f3" />
+              <text x="125" y="125" class="diagram-label">Guided</text>
+              <text x="125" y="160" class="diagram-label" font-size="10"
+                fill="#aaa">(wired/bounded)</text>
+
+              <!-- Unguided -->
+              <rect x="300" y="100" width="150" height="40" rx="5" fill="rgba(255, 51, 102, 0.1)"
+                stroke="#ff3366" />
+              <text x="375" y="125" class="diagram-label">Unguided</text>
+              <text x="375" y="160" class="diagram-label" font-size="10"
+                fill="#aaa">(wireless/unbounded)</text>
+            </svg>
+
+            <div class="content-box">
+              <h3>1. Guided Media</h3>
+              <p>Guided Media বা Wired Transmission Media-য় Data একটি Physical Path-এর (যেমন
+                Cable) মাধ্য মেপ্রবাহিত হয়। এখানে Signal একটি নির্দিষ্ট সীমানার মধ্যে আবদ্ধ থাকে এবং
+                Device-এর মধ্যে সরাসরি সংযোগ নিশ্চিত করে।</p>
+              <ul>
+                <li><strong>Physical Cable:</strong> Data পাঠাতে Physical Cable ব্যবহার করা হয়।
+                </li>
+                <li><strong>High Speed:</strong> Wireless Media-র তুলনায় সাধারণত High High Speed
+                  সম্পন্ন।</li>
+                <li><strong>Security:</strong> Physical সংযোগ থাকায় এটি High Secure।</li>
+                <li><strong>প্রধান Classification:</strong> Twisted Pair Cable, Coaxial Cable এবং
+                  Fiber Optic Cable।</li>
+              </ul>
             </div>
-        </footer>
-    </div>
-    <script type="module" src="../js/main.js"></script>
-    <script type="module" src="../js/network-background.js"></script>
+
+            <h3>(ক) Twisted Pair Cable</h3>
+            <p>এটি সবচেয়ে সাধারণ Cable যেখানে দুটি insulated copper তার একে অপরের সাথে পেঁচিয়ে থাকে। এই
+              পেঁচানো বা twisting Electromagnetic Interference (EMI) এবং Noise কমাতে সাহায্য করে।</p>
+
+            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+              <div class="content-box" style="flex: 1; min-width: 250px;">
+                <p><strong>UTP (Unshielded Twisted Pair):</strong> এটি সস্তা এবং সাধারণ LAN Network-এ
+                  ব্যবহৃত হয়। তবে এতে Noise-এর সম্ভাবনা High থাকে।</p>
+              </div>
+              <div class="content-box" style="flex: 1; min-width: 250px;">
+                <p><strong>STP (Shielded Twisted Pair):</strong> এতে একটি অতিরিক্ত metallic shielding
+                  থাকে
+                  যা Noise এবং interference থেকে signal-কে রক্ষা করে।</p>
+              </div>
+            </div>
+
+            <h3>(খ) Coaxial Cable</h3>
+            <p>Coaxial Cable-এ একটি central copper conductor থাকে যা noise থেকে সুরক্ষার জন্য Multiple
+              insulation স্তর এবং shielding দ্বারা পরিবেষ্টিত থাকে। এটি সাধারণত Cable Television (CATV)
+              এবং
+              Broadband Network-এ ব্যবহৃত হয়।</p>
+
+            <svg class="topology-diagram" viewBox="0 0 500 200">
+              <!-- Coaxial layers -->
+              <circle cx="250" cy="100" r="10" fill="#cd7f32" /> <!-- Core -->
+              <circle cx="250" cy="100" r="25" fill="none" stroke="#fff" stroke-width="30"
+                opacity="0.1" /> <!-- Dielectric -->
+              <circle cx="250" cy="100" r="45" fill="none" stroke="#2196f3" stroke-width="10"
+                stroke-dasharray="2,2" /> <!-- Shield -->
+              <circle cx="250" cy="100" r="60" fill="none" stroke="#333" stroke-width="20" />
+              <!-- Jacket -->
+
+              <!-- Labels with lines -->
+              <line x1="250" y1="100" x2="350" y2="40" stroke="#aaa" />
+              <text x="360" y="45" class="diagram-label" text-anchor="start">Copper Core</text>
+
+              <line x1="250" y1="125" x2="350" y2="100" stroke="#aaa" />
+              <text x="360" y="105" class="diagram-label" text-anchor="start">Dielectric
+                Insulator</text>
+
+              <line x1="250" y1="145" x2="350" y2="160" stroke="#aaa" />
+              <text x="360" y="165" class="diagram-label" text-anchor="start">Metallic Shield</text>
+            </svg>
+
+            <h3>(গ) Optical Fiber Cable</h3>
+            <p>Optical Fiber Cable Data পাঠানোর জন্য electrical signal-এর পরিবর্তে আলোক সংকেত (Light
+              Signals) ব্যবহার করে। এটি Glass বা প্লাস্টিকের সূক্ষ্ম Fiber র মাধ্যমে Task করে এবং 'Total
+              Internal Reflection' Policy অনুসরণ করে।</p>
+
+            <div class="content-box">
+              <ul>
+                <li><strong>Speed:</strong> অত্যন্ত Fast Speed র Data Transmission (Gigabit বা ততোধিক)।
+                </li>
+                <li><strong>Distance:</strong> Signal loss খুব কম হওয়ায় দীর্ঘ Distance ে Data পাঠানো যায়।
+                </li>
+                <li><strong>Interference:</strong> Electromagnetic Interference (EMI) থেকে মুক্ত।
+                </li>
+                <li><strong>Security:</strong> Cable থেকে Data চুরি করা প্রায় অসম্ভব।</li>
+              </ul>
+            </div>
+
+            <svg class="topology-diagram" viewBox="0 0 500 150">
+              <!-- Fiber Core -->
+              <path d="M 50,75 L 450,75" class="fiber-cladding" />
+              <path d="M 50,75 L 450,75" class="fiber-core" />
+
+              <!-- Light ray reflection -->
+              <path d="M 50,75 L 100,55 L 200,95 L 300,55 L 400,95 L 450,75" class="light-ray">
+                <animate attributeName="stroke-dasharray" from="0,500" to="500,0" dur="2s"
+                  repeatCount="indefinite" />
+              </path>
+
+              <text x="250" y="130" class="diagram-label">Total Internal Reflection (TIR)</text>
+            </svg>
+
+            <hr>
+
+            <div class="content-box">
+              <h3>2. Unguided Media</h3>
+              <p>Unguided Media বা Wireless Media-য় Data Transport ের জন্য কোনো Physical
+                Cable ব্যবহার করা হয় না। Signal বাতাস বা শূন্যস্থানের মাধ্যমে Electromagnetic
+                Wave হিসেবে প্রবাহিত হয়।</p>
+              <ul>
+                <li><strong>Medium:</strong> বাতাস বা মহাশূন্য।</li>
+                <li><strong>Flexibility:</strong> Device Flow ের সময়ও সংযোগ সচল থাকে।</li>
+                <li><strong>ভৌগোলিক Scope:</strong> Remote স্থানেও যোগাযোগ করা সম্ভব যেখানে Cable নেওয়া
+                  কঠিন।</li>
+                <li><strong>প্রধান Classification:</strong> Radio wave, Microwave এবং Infrared।</li>
+              </ul>
+            </div>
+
+            <h3>(ক) Radio Waves</h3>
+            <p>Radio wave building বা অন্যান্য বাধা অতিক্রম করে সহজেই Flow করতে পারে। এটি Omnidirectional,
+              অর্থাৎ signal সব Direction ে ছাড়িয়ে পড়ে। AM/FM রেডিও, Television এবং মোবাইল
+              যোগাযোগের Field ে এটি ব্যাপক ব্যবহৃত হয়।</p>
+
+            <h3>(খ) Microwaves</h3>
+            <p>Microwave একমুখী (Unidirectional) বা Line-of-sight communication হিসেবে Task করে। এখানে Sender
+              এবং Receiver antenna-র সরাসরি একে অপরের মুখোমুখি থাকা প্রয়োজন। এটি সাধারণত Satellite এবং
+              লম্বা Distance ের টাওয়ার communication-এ ব্যবহৃত হয়।</p>
+
+            <h3>(গ) Infrared</h3>
+            <p>Infrared সাধারণত খুব ছোট Distance ের Wireless যোগাযোগের জন্য ব্যবহৃত হয়। এটি দেয়াল বা কোনো
+              শক্ত বাধা ভেদ করতে পারে না, যা interference কমাতে সাহায্য করে। Example: TV-র Remote
+              Control, Wireless Keyboard এবং Mouse।</p>
+
+            <hr>
+
+            <h2><i class="bi bi-exclamation-triangle"></i> Transmission Impairment</h2>
+            <p>Data বা signal যখন একটি Media-র মধ্য দিয়ে যায়, তখন তা বিকৃত বা Weak হয়ে পড়তে পারে।
+              একেই Transmission Impairment বলা হয়। প্রধান Reason গুলো নিচে Discussion করা হলো:</p>
+
+            <div
+              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+              <div class="content-box">
+                <h3>1. অ্যাটেনুয়েশন (Attenuation)</h3>
+                <p>Distance অতিক্রম করার সাথে সাথে Signal শক্তির যে ক্ষয় হয় তাকে অ্যাটেনুয়েশন বলে।
+                  এর সমাধানে রিপিটার বা Amplifier ব্যবহার করা হয়।</p>
+              </div>
+              <div class="content-box">
+                <h3>2. Distortion</h3>
+                <p>যখন signal-এর Structure বা Shape পরিবর্তিত হয়ে যায়, তখন তাকে Distortion বলে। এটি সাধারণত
+                  composite signal-এ ঘটে যেখানে বিভিন্ন frequency Separate Speed তে চলে।</p>
+              </div>
+              <div class="content-box">
+                <h3>3. Noise</h3>
+                <p>অযাচিত signal যা মূল signal-এর সাথে যুক্ত হয়ে Information কে অস্পষ্ট বা নষ্ট করে দেয়।
+                  Crosstalk বা thermal noise এর অন্যতম Example।</p>
+              </div>
+            </div>
+
+            <hr>
+
+            <h2><i class="bi bi-info-circle"></i> Summary</h2>
+            <p>সঠিক Transmission মিডিয়া Selection করা একটি কার্যকরী Network Design ের সবচেয়ে গুরুত্বপূর্ণ
+              Step। যেখানে High Speed রক্ষা এবং Security জরুরি সেখানে Fiber Optic এবং যেখানে সহজলভ্যতা ও
+              পোর্ Table িটি প্রয়োজন সেখানে আন Guide েড বা Wireless মিডিয়া সবচেয়ে সেরা সমাধান।</p>
+
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="glass-footer">
+      <div class="container container-blog">
+        <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </div>
+  <script type="module" src="../js/main.js"></script>
+  <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>
+
+
+
+

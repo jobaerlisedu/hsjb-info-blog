@@ -1,307 +1,311 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="bn">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Network Layer in OSI Model | enablement.info</title>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <script
-        type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
-    <style>
-        .blog-content-wrapper {
-            padding-top: 20px;
-            padding-bottom: 60px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network Layer in OSI Model | enablement.info</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <script
+    type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+  <style>
+    .blog-content-wrapper {
+      padding-top: 20px;
+      padding-bottom: 60px;
+    }
 
-        .article-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    .article-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
 
-        .article-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
+    .article-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
 
-        .article-meta {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
+    .article-meta {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
 
-        .article-body {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #d0d0e0;
-        }
+    .article-body {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #d0d0e0;
+    }
 
-        .article-body h2,
-        .article-body h3 {
-            font-family: 'Times New Roman', serif;
-            color: var(--primary-color);
-            margin-top: 35px;
-            margin-bottom: 15px;
-            font-weight: 800;
-        }
+    .article-body h2,
+    .article-body h3 {
+      font-family: 'Times New Roman', serif;
+      color: var(--primary-color);
+      margin-top: 35px;
+      margin-bottom: 15px;
+      font-weight: 800;
+    }
 
-        .article-body h2 {
-            font-size: 1.8rem;
-        }
+    .article-body h2 {
+      font-size: 1.8rem;
+    }
 
-        .article-body h3 {
-            font-size: 1.4rem;
-            color: #fff;
-        }
+    .article-body h3 {
+      font-size: 1.4rem;
+      color: #fff;
+    }
 
-        .article-body ul,
-        .article-body ol {
-            margin-bottom: 20px;
-            padding-left: 20px;
-        }
+    .article-body ul,
+    .article-body ol {
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
 
-        .article-body li {
-            margin-bottom: 10px;
-        }
+    .article-body li {
+      margin-bottom: 10px;
+    }
 
-        .note-box {
-            background: rgba(33, 150, 243, 0.07);
-            border-left: 4px solid var(--primary-color);
-            padding: 14px 18px;
-            margin: 18px 0;
-            border-radius: 0 8px 8px 0;
-            color: #b0c4de;
-        }
+    .note-box {
+      background: rgba(33, 150, 243, 0.07);
+      border-left: 4px solid var(--primary-color);
+      padding: 14px 18px;
+      margin: 18px 0;
+      border-radius: 0 8px 8px 0;
+      color: #b0c4de;
+    }
 
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            overflow: hidden;
-        }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      overflow: hidden;
+    }
 
-        .comparison-table th,
-        .comparison-table td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
+    .comparison-table th,
+    .comparison-table td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-        .comparison-table th {
-            background: rgba(33, 150, 243, 0.2);
-            color: var(--primary-color);
-            font-weight: bold;
-        }
+    .comparison-table th {
+      background: rgba(33, 150, 243, 0.2);
+      color: var(--primary-color);
+      font-weight: bold;
+    }
 
-        .comparison-table tr:last-child td {
-            border-bottom: none;
-        }
-    </style>
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+  </style>
 </head>
 
 <body>
-    <canvas id="network-canvas"></canvas>
-    <div class="overlay">
-        <header class="glass-header">
-            <div class="container">
-                <nav class="main-nav">
-                    <ul>
-                        <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span
-                                    class="nav-text">Home</span></a></li>
-                        <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
-                                    class="nav-text">Blog</span></a></li>
-                    </ul>
-                </nav>
+  <canvas id="network-canvas"></canvas>
+  <div class="overlay">
+    <header class="glass-header">
+      <div class="container container-blog">
+        <nav class="main-nav">
+          <ul>
+            <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span
+                  class="nav-text">Home</span></a></li>
+            <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
+                  class="nav-text">Blog</span></a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="blog-content-wrapper">
+      <div class="container container-blog">
+        <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>আগের Page-এ ফিরে
+            যান</span></a>
+
+        <article class="glass-panel">
+          <header class="article-header">
+            <h1>Network Layer in OSI Model</h1>
+            <div class="article-meta">
+              <span><i class='bx bx-calendar'></i> February 27, 2026</span>
+              <span style="margin:0 10px;">|</span>
+              <span><i class='bx bx-category'></i> Networking</span>
             </div>
-        </header>
+          </header>
 
-        <main class="blog-content-wrapper">
-            <div class="container">
-                <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>আগের Page-এ ফিরে
-                        যান</span></a>
+          <div class="article-body">
+            <p><strong>Network Layer</strong> হলো ওএসআই (OSI) Model তৃতীয় Layer যা
+              Logical Addressing, Routing এবং Interconnected Network-গুলোর মাধ্যমে End-to-End
+              Packet Delivery-র জন্য দায়ী।</p>
 
-                <article class="glass-panel">
-                    <header class="article-header">
-                        <h1>Network Layer in OSI Model</h1>
-                        <div class="article-meta">
-                            <span><i class='bx bx-calendar'></i> February ২৭, 2026</span>
-                            <span style="margin:0 10px;">|</span>
-                            <span><i class='bx bx-category'></i> Networking</span>
-                        </div>
-                    </header>
-
-                    <div class="article-body">
-                        <p><strong>Network Layer</strong> হলো ওএসআই (OSI) Model তৃতীয় Layer যা
-                            Logical Addressing, Routing এবং Interconnected Network-গুলোর মাধ্যMay End-to-End
-                            Packet Delivery-র জন্য দায়ী।</p>
-
-                        <div class="content-box">
-                            <ul>
-                                <li>Device-এর Logical (IP) Addressing Operation করে।</li>
-                                <li>Network-গুলোর মধ্যে সর্বোত্তম Routing Path Determination করে।</li>
-                                <li>Multiple Network জুড়ে Host-to-Host যোগাযোগ সক্ষম করে।</li>
-                            </ul>
-                        </div>
-
-                        <p>যেকোনো Data Link Layer-এর বিপরীতে, যা শুধুমাত্র একটি Single Network Segment-এর মধ্যে
-                            Node-to-Node Delivery-তে Focus করে, Network Layer নিশ্চিত করে যে Data Source Host থেকে
-                            Destination Host-এ পৌঁছাবে, এমনকি তারা ভিন্ন ভিন্ন Network-এ থাকলেও।</p>
-
-                        <hr>
-
-                        <h2><i class="bi bi-list-check"></i> Network Layer-এর প্রধান Responsibilityসমূহ</h2>
-                        <div class="content-box">
-                            <ul>
-                                <li><strong>Logical Addressing:</strong> প্রতিটি Device-এ একটি
-                                    Unique IP Address প্রদান করে, যা সঠিক যোগাযোগ নিশ্চিত করে।</li>
-                                <li><strong>Packetization:</strong> Transport Layer থেকে আসা
-                                    Segment-গুলোকে Packet-এ রূপান্তর করে।</li>
-                                <li><strong>Host-to-Host Delivery:</strong> বিভিন্ন
-                                    Network-এর মাধ্যMay Sender থেকে Receiver কাছে Packet-এর Reliable Delivery
-                                    নিশ্চিত করে।</li>
-                                <li><strong>Forwarding:</strong> Destination IP-এর ভিত্তিতে Router-এর
-                                    Input Interface থেকে Output Interface-এ Packet পাঠায়।</li>
-                                <li><strong>Routing:</strong> Routing Algorithm ব্যবহার করে Packet-এর জন্য
-                                    সবচেয়ে ভালো Path Determination করে।</li>
-                                <li><strong>Fragmentation and Reassembly:</strong>
-                                    বড় Packet-গুলোকে ছোট ছোট Chunk করে এবং Destinationে আবার Pair লাগায়।</li>
-                                <li><strong>Subnetting:</strong> বড় Network-কে ছোট ছোট অংশে ভাগ করে
-                                    Traffic Management সহজ করে।</li>
-                                <li><strong>NAT (Network Address Translation):</strong> Private IP-কে Public
-                                    IP-তে রূপান্তর করে Address Space সাশ্রয় করে।</li>
-                            </ul>
-                        </div>
-
-                        <hr>
-
-                        <h2><i class="bi bi-gear-wide-connected"></i> Network Layer কীভাবে Task করে?</h2>
-                        <div class="content-box">
-                            <ol>
-                                <li>প্রতিটি Device-কে একটি Unique Logical Address (IP Address) দেওয়া হয়।</li>
-                                <li>Transport Layer-এর Data-কে Packet-এ রূপান্তর করা হয়, যেখানে Source এবং Destination
-                                    IP যুক্ত থাকে।</li>
-                                <li>Router Destination Address বিশ্লেষণ করে এবং সেরা Path Determination করে।</li>
-                                <li>Packet-গুলো এক Router থেকে অন্য Router-এ (hop-by-hop) Destinationে পৌঁছানো পর্যন্ত চলতে
-                                    থাকে।</li>
-                                <li>Destinationে Packet-গুলো পুনরায় Pair লাগানো হয় এবং উপরের Layer-এ পাঠানো হয়।</li>
-                            </ol>
-                        </div>
-
-                        <hr>
-
-                        <h2><i class="bi bi-diagram-3"></i> Network Layer-এর Protocol</h2>
-                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
-                            <div class="content-box">
-                                <h3><i class="bi bi-shield-lock"></i> প্রধান Protocol</h3>
-                                <ul>
-                                    <li><strong>IP (v4/v6):</strong> Logical Addressing এবং Packet Delivery নিশ্চিত
-                                        করে।</li>
-                                    <li><strong>ICMP:</strong> Error Report এবং Diagnostic Message পাঠায় (যেমন: Ping)।
-                                    </li>
-                                    <li><strong>ARP:</strong> IP Address-কে MAC Address-এ রূপান্তর করে।</li>
-                                    <li><strong>RARP:</strong> MAC Address ব্যবহার করে Device-এর IP Address খুঁজে
-                                        বের করে।</li>
-                                    <li><strong>IPSec:</strong> Encryption-এর মাধ্যMay IP যোগাযোগ সুরক্ষিত করে।</li>
-                                    <li><strong>MPLS:</strong> Label ব্যবহারের মাধ্যMay Packet Forwarding সহজ ও Traffic
-                                        Management Advanced করে।</li>
-                                </ul>
-                            </div>
-                            <div class="content-box">
-                                <h3><i class="bi bi-signpost-split"></i> Routing Protocol</h3>
-                                <ul>
-                                    <li><strong>RIP:</strong> Distance বা Hop Count-এর ওপর ভিত্তি করে Path Selection করে।
-                                    </li>
-                                    <li><strong>OSPF:</strong> Network Topology ব্যবহার করে সংক্ষিপ্ততম Path খুঁজে বের
-                                        করে।</li>
-                                    <li><strong>BGP:</strong> Internet-এ বিভিন্ন Autonomous System-এর মধ্যে Data Route
-                                        করে।
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <hr>
-
-                        <h2><i class="bi bi-plus-circle"></i> Network Layer-এর Advantage</h2>
-                        <div class="content-box">
-                            <ul>
-                                <li>ভিন্ন ভিন্ন Network-এর মধ্যে End-to-End যোগাযোগ সম্ভব করে।</li>
-                                <li>Subnetting এবং Hierarchical Addressing-এর মাধ্যMay Scalability Support করে।</li>
-                                <li>Dynamic Routing Algorithm ব্যবহার করে কার্যকরভাবে Packet পাঠায়।</li>
-                            </ul>
-                        </div>
-
-                        <h2><i class="bi bi-dash-circle"></i> Network Layer-এর সীমাবদ্ধতা</h2>
-                        <div class="content-box">
-                            <ul>
-                                <li>সরাসরি কোনো Flow Control Mayকানিজম নেই।</li>
-                                <li>Reliableতার জন্য মূলত উপরের Layer-গুলোর (যেমন TCP) ওপর নির্ভর করে।</li>
-                                <li>অতিরিক্ত Load-এর সময় Router Packet Drop করতে পারে, যা Data Loss ঘটাতে পারে।</li>
-                            </ul>
-                        </div>
-
-                        <hr>
-
-                        <h2><i class="bi bi-arrow-down-up"></i> Routing vs Flooding</h2>
-                        <table class="comparison-table">
-                            <thead>
-                                <tr>
-                                    <th>Feature</th>
-                                    <th>রাউটিং (Routing)</th>
-                                    <th>ফ্লাডিং (Flooding)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Routing Table</td>
-                                    <td>Table প্রয়োজন হয়।</td>
-                                    <td>Table প্রয়োজন হয় না।</td>
-                                </tr>
-                                <tr>
-                                    <td>সংক্ষিপ্ত Path</td>
-                                    <td>সবসময় হতে পারে না।</td>
-                                    <td>সবসময় সংক্ষিপ্ত Path নিশ্চিত করে।</td>
-                                </tr>
-                                <tr>
-                                    <td>Reliableতা</td>
-                                    <td>Relatively low।</td>
-                                    <td>অত্যন্ত Reliable।</td>
-                                </tr>
-                                <tr>
-                                    <td>Traffic</td>
-                                    <td>Traffic কম থাকে।</td>
-                                    <td>অত্যধিক Traffic সৃষ্টি হয়।</td>
-                                </tr>
-                                <tr>
-                                    <td>Duplicate Packet</td>
-                                    <td>থাকে না।</td>
-                                    <td>অনেক Duplicate Packet থাকে।</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <hr>
-
-                        <h2><i class="bi bi-check2-circle"></i> Summary</h2>
-                        <p>Network Layer হলো Modern Internet-এর Mayরুদণ্ড। এটি ছাড়া বিভিন্ন Network-এর মধ্যে
-                            যোগাযোগ অসম্ভব হতো। এটি Data Packet-গুলোকে সঠিক Destinationে পৌঁছানোর জন্য Logical Address এবং
-                            কার্যকরি Routing Path নিশ্চিত করে।</p>
-                    </div>
-                </article>
+            <div class="content-box">
+              <ul>
+                <li>Device-এর Logical (IP) Addressing Operation করে।</li>
+                <li>Network-গুলোর মধ্যে সর্বোত্তম Routing Path Determination করে।</li>
+                <li>Multiple Network জুড়ে Host-to-Host যোগাযোগ সক্ষম করে।</li>
+              </ul>
             </div>
-        </main>
 
-        <footer class="glass-footer">
-            <div class="container">
-                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+            <p>যেকোনো Data Link Layer-এর বিপরীতে, যা শুধুমাত্র একটি Single Network Segment-এর মধ্যে
+              Node-to-Node Delivery-তে Focus করে, Network Layer নিশ্চিত করে যে Data Source Host থেকে
+              Destination Host-এ পৌঁছাবে, এমনকি তারা ভিন্ন ভিন্ন Network-এ থাকলেও।</p>
+
+            <hr>
+
+            <h2><i class="bi bi-list-check"></i> Network Layer-এর প্রধান Responsibility সমূহ</h2>
+            <div class="content-box">
+              <ul>
+                <li><strong>Logical Addressing:</strong> প্রতিটি Device-এ একটি
+                  Unique IP Address প্রদান করে, যা সঠিক যোগাযোগ নিশ্চিত করে।</li>
+                <li><strong>Packetization:</strong> Transport Layer থেকে আসা
+                  Segment-গুলোকে Packet-এ রূপান্তর করে।</li>
+                <li><strong>Host-to-Host Delivery:</strong> বিভিন্ন
+                  Network-এর মাধ্যমে Sender থেকে Receiver কাছে Packet-এর Reliable Delivery
+                  নিশ্চিত করে।</li>
+                <li><strong>Forwarding:</strong> Destination IP-এর ভিত্তিতে Router-এর
+                  Input Interface থেকে Output Interface-এ Packet পাঠায়।</li>
+                <li><strong>Routing:</strong> Routing Algorithm ব্যবহার করে Packet-এর জন্য
+                  সবচেয়ে ভালো Path Determination করে।</li>
+                <li><strong>Fragmentation and Reassembly:</strong>
+                  বড় Packet-গুলোকে ছোট ছোট Chunk করে এবং Destination এ আবার Pair লাগায়।</li>
+                <li><strong>Subnetting:</strong> বড় Network-কে ছোট ছোট অংশে ভাগ করে
+                  Traffic Management সহজ করে।</li>
+                <li><strong>NAT (Network Address Translation):</strong> Private IP-কে Public
+                  IP-তে রূপান্তর করে Address Space সাশ্রয় করে।</li>
+              </ul>
             </div>
-        </footer>
-    </div>
-    <script type="module" src="../js/main.js"></script>
-    <script type="module" src="../js/network-background.js"></script>
+
+            <hr>
+
+            <h2><i class="bi bi-gear-wide-connected"></i> Network Layer কীভাবে Task করে?</h2>
+            <div class="content-box">
+              <ol>
+                <li>প্রতিটি Device-কে একটি Unique Logical Address (IP Address) দেওয়া হয়।</li>
+                <li>Transport Layer-এর Data-কে Packet-এ রূপান্তর করা হয়, যেখানে Source এবং Destination
+                  IP যুক্ত থাকে।</li>
+                <li>Router Destination Address বিশ্লেষণ করে এবং সেরা Path Determination করে।</li>
+                <li>Packet-গুলো এক Router থেকে অন্য Router-এ (hop-by-hop) Destination এ পৌঁছানো পর্যন্ত চলতে
+                  থাকে।</li>
+                <li>Destination এ Packet-গুলো পুনরায় Pair লাগানো হয় এবং উপরের Layer-এ পাঠানো হয়।</li>
+              </ol>
+            </div>
+
+            <hr>
+
+            <h2><i class="bi bi-diagram-3"></i> Network Layer-এর Protocol</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
+              <div class="content-box">
+                <h3><i class="bi bi-shield-lock"></i> প্রধান Protocol</h3>
+                <ul>
+                  <li><strong>IP (v4/v6):</strong> Logical Addressing এবং Packet Delivery নিশ্চিত
+                    করে।</li>
+                  <li><strong>ICMP:</strong> Error Report এবং Diagnostic Message পাঠায় (যেমন: Ping)।
+                  </li>
+                  <li><strong>ARP:</strong> IP Address-কে MAC Address-এ রূপান্তর করে।</li>
+                  <li><strong>RARP:</strong> MAC Address ব্যবহার করে Device-এর IP Address খুঁজে
+                    বের করে।</li>
+                  <li><strong>IPSec:</strong> Encryption-এর মাধ্যমে IP যোগাযোগ সুরক্ষিত করে।</li>
+                  <li><strong>MPLS:</strong> Label ব্যবহারের মাধ্যমে Packet Forwarding সহজ ও Traffic
+                    Management Advanced করে।</li>
+                </ul>
+              </div>
+              <div class="content-box">
+                <h3><i class="bi bi-signpost-split"></i> Routing Protocol</h3>
+                <ul>
+                  <li><strong>RIP:</strong> Distance বা Hop Count-এর ওপর ভিত্তি করে Path Selection করে।
+                  </li>
+                  <li><strong>OSPF:</strong> Network Topology ব্যবহার করে সংক্ষিপ্ততম Path খুঁজে বের
+                    করে।</li>
+                  <li><strong>BGP:</strong> Internet-এ বিভিন্ন Autonomous System-এর মধ্যে Data Route
+                    করে।
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <hr>
+
+            <h2><i class="bi bi-plus-circle"></i> Network Layer-এর Advantage</h2>
+            <div class="content-box">
+              <ul>
+                <li>ভিন্ন ভিন্ন Network-এর মধ্যে End-to-End যোগাযোগ সম্ভব করে।</li>
+                <li>Subnetting এবং Hierarchical Addressing-এর মাধ্যমে Scalability Support করে।</li>
+                <li>Dynamic Routing Algorithm ব্যবহার করে কার্যকরভাবে Packet পাঠায়।</li>
+              </ul>
+            </div>
+
+            <h2><i class="bi bi-dash-circle"></i> Network Layer-এর সীমাবদ্ধতা</h2>
+            <div class="content-box">
+              <ul>
+                <li>সরাসরি কোনো Flow Control মেকানিজম নেই।</li>
+                <li>Reliable তার জন্য মূলত উপরের Layer-গুলোর (যেমন TCP) ওপর নির্ভর করে।</li>
+                <li>অতিরিক্ত Load-এর সময় Router Packet Drop করতে পারে, যা Data Loss ঘটাতে পারে।</li>
+              </ul>
+            </div>
+
+            <hr>
+
+            <h2><i class="bi bi-arrow-down-up"></i> Routing vs Flooding</h2>
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th>রাউটিং (Routing)</th>
+                  <th>ফ্লাডিং (Flooding)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Routing Table</td>
+                  <td>Table প্রয়োজন হয়।</td>
+                  <td>Table প্রয়োজন হয় না।</td>
+                </tr>
+                <tr>
+                  <td>সংক্ষিপ্ত Path</td>
+                  <td>সবসময় হতে পারে না।</td>
+                  <td>সবসময় সংক্ষিপ্ত Path নিশ্চিত করে।</td>
+                </tr>
+                <tr>
+                  <td>Reliable তা</td>
+                  <td>Relatively low।</td>
+                  <td>অত্যন্ত Reliable।</td>
+                </tr>
+                <tr>
+                  <td>Traffic</td>
+                  <td>Traffic কম থাকে।</td>
+                  <td>অত্যধিক Traffic সৃষ্টি হয়।</td>
+                </tr>
+                <tr>
+                  <td>Duplicate Packet</td>
+                  <td>থাকে না।</td>
+                  <td>অনেক Duplicate Packet থাকে।</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <hr>
+
+            <h2><i class="bi bi-check2-circle"></i> Summary</h2>
+            <p>Network Layer হলো Modern Internet-এর মেরুদণ্ড। এটি ছাড়া বিভিন্ন Network-এর মধ্যে
+              যোগাযোগ অসম্ভব হতো। এটি Data Packet-গুলোকে সঠিক Destination এ পৌঁছানোর জন্য Logical Address এবং
+              কার্যকরি Routing Path নিশ্চিত করে।</p>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="glass-footer">
+      <div class="container container-blog">
+        <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </div>
+  <script type="module" src="../js/main.js"></script>
+  <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>
+
+
+
+

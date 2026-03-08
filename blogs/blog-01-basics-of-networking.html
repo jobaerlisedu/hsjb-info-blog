@@ -1,275 +1,279 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basics of Computer Networking | enablement.info</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basics of Computer Networking | enablement.info</title>
 
 
 
-    <!-- Icons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- Bootstrap Icons (Keep legacy support if needed, but prefer boxicons) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Icons -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <!-- Bootstrap Icons (Keep legacy support if needed, but prefer boxicons) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css">
 
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-            }
-        }
-    </script>
-    <style>
-        .blog-content-wrapper {
-            padding-top: 20px;
-            padding-bottom: 60px;
-        }
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+  <style>
+    .blog-content-wrapper {
+      padding-top: 20px;
+      padding-bottom: 60px;
+    }
 
-        .article-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    .article-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
 
-        .article-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
+    .article-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
 
-        .article-meta {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
+    .article-meta {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
 
-        .article-body {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #d0d0e0;
-        }
+    .article-body {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #d0d0e0;
+    }
 
-        .article-body h2,
-        .article-body h3 {
-            font-family: 'Times New Roman', 'Nikosh', serif;
-            color: var(--primary-color);
-            margin-top: 40px;
-            margin-bottom: 20px;
-            font-weight: 800;
-        }
+    .article-body h2,
+    .article-body h3 {
+      font-family: 'Times New Roman', 'Nikosh', serif;
+      color: var(--primary-color);
+      margin-top: 40px;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
 
-        .article-body ul {
-            margin-bottom: 20px;
-            padding-left: 20px;
-        }
+    .article-body ul {
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
 
-        .article-body li {
-            margin-bottom: 10px;
-        }
+    .article-body li {
+      margin-bottom: 10px;
+    }
 
-        .article-body img {
-            max-width: 100%;
-            border-radius: 12px;
-            margin: 20px 0;
-            border: 1px solid var(--glass-border);
-        }
+    .article-body img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin: 20px 0;
+      border: 1px solid var(--glass-border);
+    }
 
-        .article-body figcaption {
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-top: -10px;
-            margin-bottom: 30px;
-            font-style: italic;
-        }
-    </style>
+    .article-body figcaption {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: -10px;
+      margin-bottom: 30px;
+      font-style: italic;
+    }
+  </style>
 </head>
 
 <body>
 
-    <canvas id="network-canvas"></canvas>
+  <canvas id="network-canvas"></canvas>
 
-    <div class="overlay">
-        <header class="glass-header">
-            <div class="container">
-                <nav class="main-nav">
-                    <ul>
-                        <li>
-                            <a href="../index.html">
-                                <i class='bx bx-home-alt-2'></i>
-                                <span class="nav-text">Home</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../blogs.html" class="active">
-                                <i class='bx bx-book-content'></i>
-                                <span class="nav-text">Blog</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+  <div class="overlay">
+    <header class="glass-header">
+      <div class="container container-blog">
+        <nav class="main-nav">
+          <ul>
+            <li>
+              <a href="../index.html">
+                <i class='bx bx-home-alt-2'></i>
+                <span class="nav-text">Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="../blogs.html" class="active">
+                <i class='bx bx-book-content'></i>
+                <span class="nav-text">Blog</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="blog-content-wrapper">
+      <div class="container container-blog">
+        <a href="../blogs.html" class="back-btn">
+          <i class='bx bx-arrow-back'></i>
+          <span>Return to Previous Page</span>
+        </a>
+
+        <article class="glass-panel">
+          <header class="article-header">
+            <h1>Basics of Computer Networking</h1>
+            <div class="article-meta">
+              <span><i class='bx bx-calendar'></i> 31 December, 2025</span>
+              <span style="margin: 0 10px;">|</span>
+              <span><i class='bx bx-category'></i> Networking</span>
             </div>
-        </header>
+          </header>
 
-        <main class="blog-content-wrapper">
-            <div class="container">
-                <a href="../blogs.html" class="back-btn">
-                    <i class='bx bx-arrow-back'></i>
-                    <span>Return to Previous Page</span>
-                </a>
+          <div class="article-body">
+            <h2><i class="bi bi-lightbulb"></i> Introduction: What is a Computer Network?</h2>
+            <p>Computer Network হলো একে অপরের সাথে যুক্ত একদল Device-এর সমষ্টি, যা Communication এবং
+              Resource
+              Share করার জন্য Task করে। এটি Data আদান-প্রদান এবং Modern Technology-র মেরুদণ্ড হিসেবে Task
+              করে।</p>
+            <ul>
+              <li><strong>Connectivity:</strong> Computer, Smartphone এবং Server-এর মধ্যে সংযোগ স্থাপন।
+              </li>
+              <li><strong>Resource Sharing:</strong> Hardware (Printer, Scanner) এবং
+                Software/File Sharing।</li>
+              <li><strong>Communication:</strong> Email, Instant Messaging এবং Video Call-এর Advantage।</li>
+            </ul>
 
-                <article class="glass-panel">
-                    <header class="article-header">
-                        <h1>Basics of Computer Networking</h1>
-                        <div class="article-meta">
-                            <span><i class='bx bx-calendar'></i> 31 December, 2025</span>
-                            <span style="margin: 0 10px;">|</span>
-                            <span><i class='bx bx-category'></i> Networking</span>
-                        </div>
-                    </header>
+            <h2><i class="bi bi-lightbulb"></i> Basic Terminology</h2>
+            <ul>
+              <li><strong>Network:</strong> একদল যুক্ত Computer এবং Device যা একে অপরের সাথে Communication
+                ও
+                Data Share করতে পারে।</li>
+              <li><strong>Node:</strong> Network-এর এমন যেকোনো Device যা Data পাঠাতে, গ্রহণ করতে বা
+                Forward করতে পারে। এর মধ্যে Laptop, Mobile, Printer, Earbud, Server ইত্যাদি
+                রয়েছে।</li>
+              <li><strong>Networking Device:</strong> যেসব Device Network Operation ও সমর্থন করে।
+                যেমন- Router, Switch, Hub এবং Access Point।</li>
+              <li><strong>Transmission Media:</strong> যে Physical বা Wireless মাধ্য মের ভেতর দিয়ে এক
+                Device
+                থেকে অন্য Device-এ Data Flow করে।
+                <ul>
+                  <li>Wired Media: Ethernet Cable, Optical Fiber</li>
+                  <li>Wireless Media: Wi-Fi, Bluetooth, Infrared</li>
+                </ul>
+              </li>
+              <li><strong>Service Provider Network:</strong> বাইরের যেসব প্রতিষ্ঠান বা Provider
+                (যেমন- ISP বা Internet Service Provider, Mobile Operator) User-দের Network
+                ব্যবহারের স Capacity ইজারা বা Lease দেয়।</li>
+            </ul>
 
-                    <div class="article-body">
-                        <h2><i class="bi bi-lightbulb"></i> Introduction: What is a Computer Network?</h2>
-                        <p>Computer Network হলো একে অপরের সাথে যুক্ত একদল Device-এর সমষ্টি, যা Communication এবং
-                            Resource
-                            Share করার জন্য Task করে। এটি Data আদান-প্রদান এবং Modern Technology-র Mayরুদণ্ড হিসেবে Task
-                            করে।</p>
-                        <ul>
-                            <li><strong>Connectivity:</strong> Computer, Smartphone এবং Server-এর মধ্যে সংযোগ স্থাপন।
-                            </li>
-                            <li><strong>Resource Sharing:</strong> Hardware (Printer, Scanner) এবং
-                                Software/File Sharing।</li>
-                            <li><strong>Communication:</strong> Email, Instant Messaging এবং Video Call-এর Advantage।</li>
-                        </ul>
+            <h2>1. How does a Computer Network work?</h2>
+            <p>একটি Network-এর প্রধান ভিত্তি হলো <strong>Node (Nodes)</strong> এবং <strong>Link
+                (Links)</strong>।</p>
+            <ul>
+              <li><strong>Node:</strong> Network-এর যেকোনো Device যা Data পাঠায় বা গ্রহণ করে
+                (যেমন: Laptop, Router, Smartphone)।</li>
+              <li><strong>Link:</strong> সেই মাধ্যম যা Node-গুলোকে যুক্ত করে (যেমন: Ethernet Cable বা
+                Wi-Fi Signal)।</li>
+              <li><strong>Protocols:</strong> Network-এর Device-গুলো কিছু নির্দিষ্ট Rule মেনে
+                চলে যাতে তারা একে অপরের Language বুঝতে পারে।</li>
+              <li><strong>Firewall:</strong> একটি Security Tool যা Network-এর Traffic
+                Monitor করে এবং Unauthorized Access ঠেকায়।</li>
+            </ul>
 
-                        <h2><i class="bi bi-lightbulb"></i> Basic Terminology</h2>
-                        <ul>
-                            <li><strong>Network:</strong> একদল যুক্ত Computer এবং Device যা একে অপরের সাথে Communication
-                                ও
-                                Data Share করতে পারে।</li>
-                            <li><strong>Node:</strong> Network-এর এমন যেকোনো Device যা Data পাঠাতে, গ্রহণ করতে বা
-                                Forward করতে পারে। এর মধ্যে Laptop, Mobile, Printer, Earbud, Server ইত্যাদি
-                                রয়েছে।</li>
-                            <li><strong>Networking Device:</strong> যেসব Device Network Operation ও সমর্থন করে।
-                                যেমন- Router, Switch, Hub এবং Access Point।</li>
-                            <li><strong>Transmission Media:</strong> যে Physical বা Wireless মাধ্যMayর ভেতর দিয়ে এক
-                                Device
-                                থেকে অন্য Device-এ Data Flow করে।
-                                <ul>
-                                    <li>Wired Media: Ethernet Cable, Optical Fiber</li>
-                                    <li>Wireless Media: Wi-Fi, Bluetooth, Infrared</li>
-                                </ul>
-                            </li>
-                            <li><strong>Service Provider Network:</strong> বাইরের যেসব প্রতিষ্ঠান বা Provider
-                                (যেমন- ISP বা Internet Service Provider, Mobile Operator) User-দের Network
-                                ব্যবহারের সCapacity ইজারা বা Lease দেয়।</li>
-                        </ul>
-
-                        <h2>1. How does a Computer Network work?</h2>
-                        <p>একটি Network-এর প্রধান ভিত্তি হলো <strong>Node (Nodes)</strong> এবং <strong>Link
-                                (Links)</strong>।</p>
-                        <ul>
-                            <li><strong>Node:</strong> Network-এর যেকোনো Device যা Data পাঠায় বা গ্রহণ করে
-                                (যেমন: Laptop, Router, Smartphone)।</li>
-                            <li><strong>Link:</strong> সেই মাধ্যম যা Node-গুলোকে যুক্ত করে (যেমন: Ethernet Cable বা
-                                Wi-Fi Signal)।</li>
-                            <li><strong>Protocols:</strong> Network-এর Device-গুলো কিছু নির্দিষ্ট Rule Mayনে
-                                চলে যাতে তারা একে অপরের Language বুঝতে পারে।</li>
-                            <li><strong>Firewall:</strong> একটি Security Tool যা Network-এর Traffic
-                                Monitor করে এবং Unauthorized Access ঠেকায়।</li>
-                        </ul>
-
-                        <h2>2. Types of Network Architecture</h2>
-                        <p>প্রতিটি Network কীভাবে বিন্যস্ত হবে তার ওপর ভিত্তি করে একে দুই ভাগে ভাগ করা যায়:</p>
-                        <ul>
-                            <li><strong>Client-Server Architecture:</strong> এখানে একটি শক্তিশালী Central 'Server'
-                                থাকে যা অন্য সব 'Client' Device-এর অনুরোধ পূরণ করে।</li>
-                            <li><strong>Peer-to-Peer (P2P) Architecture:</strong> এখানে কোনো Central Server থাকে না;
-                                প্রতিটি Device সমান Capacityর অধিকারী এবং একে অপরের সাথে সরাসরি Data Share করতে পারে।
-                            </li>
-                        </ul>
+            <h2>2. Types of Network Architecture</h2>
+            <p>প্রতিটি Network কীভাবে বিন্যস্ত হবে তার ওপর ভিত্তি করে একে দুই ভাগে ভাগ করা যায়:</p>
+            <ul>
+              <li><strong>Client-Server Architecture:</strong> এখানে একটি শক্তিশালী Central 'Server'
+                থাকে যা অন্য সব 'Client' Device-এর অনুরোধ পূরণ করে।</li>
+              <li><strong>Peer-to-Peer (P2P) Architecture:</strong> এখানে কোনো Central Server থাকে না;
+                প্রতিটি Device সমান Capacity র অধিকারী এবং একে অপরের সাথে সরাসরি Data Share করতে পারে।
+              </li>
+            </ul>
 
 
 
-                        <h2>3. Essential Network Devices</h2>
-                        <div class="table-wrapper">
-                            <table class="table" style="font-size: 1rem;">
-                                <thead>
-                                    <tr>
-                                        <th>Device Name</th>
-                                        <th>Role</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>Router</strong></td>
-                                        <td>Connects multiple networks and sends data in the correct path.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Switch</strong></td>
-                                        <td>Connects devices within a network perfectly.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Gateway</strong></td>
-                                        <td>Acts as a translator between two completely different types of networks.
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Modem</strong></td>
-                                        <td>Converts digital data to analog signal for internet connection.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Access Point</strong></td>
-                                        <td>Converts wired network to Wi-Fi or wireless connections.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <h2>4. Main Goals and Uses of Computer Network</h2>
-                        <p>Networking শুধু Device সংযোগ নয়, এটি Taskের দক্ষতা এবং সুযোগ বহুগুণ বাড়িয়ে দেয়:</p>
-                        <ul>
-                            <li><strong>Resource Sharing:</strong> এক বা Multiple Printer, Scanner এবং File-এর
-                                মাধ্যMay Cost কমানো।</li>
-                            <li><strong>Remote Access:</strong> আপনি পৃথিবীর যেকোনো প্রান্তে বসে আপনার Office-র বা বাসার
-                                Computer-এর File-গুলো ব্যবহার করতে পারেন।</li>
-                            <li><strong>E-commerce & Payments:</strong> Secure Online Shopping এবং কয়েক ক্লিকেই Money
-                                লেনদেনের
-                                সCapacity।</li>
-                            <li><strong>Education & Research:</strong> অনলাইনে Class করা, নতুন নতুন Research Paper পড়া
-                                এবং
-                                পৃথিবীর সেরা সব Mentor-দের সাথে সরাসরি Communication করা।</li>
-                            <li><strong>Real-time Collaboration:</strong> Multiple মানুষ একসাথে একটি ফাইলে Task করা এবং
-                                Taskের
-                                Update সাথে সাথে একে অপরকে জানানো।</li>
-                        </ul>
-
-                        <h2><i class="bi bi-lightbulb"></i> Characteristics of a Computer Network</h2>
-                        <ul>
-                            <li><strong>Security:</strong> Firewall এবং Encryption-র মাধ্যMay সুরক্ষা নিশ্চিত করা।
-                            </li>
-                            <li><strong>Reliability:</strong> Backup এবং Redundancy-র মাধ্যMay সবসময় Network সচল
-                                রাখা।</li>
-                            <li><strong>Scalability:</strong> Performance না কমিয়ে Network বড় করার Capacity।</li>
-                            <li><strong>High Performance:</strong> Fast Data Transfer এবং কম Latency।</li>
-                            <li><strong>Quality of Service (QoS):</strong> গুরুত্বপূর্ণ Data-কে অগ্রাধিকার দেওয়া।</li>
-                        </ul>
-                    </div>
-                </article>
+            <h2>3. Essential Network Devices</h2>
+            <div class="table-wrapper">
+              <table class="table" style="font-size: 1rem;">
+                <thead>
+                  <tr>
+                    <th>Device Name</th>
+                    <th>Role</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Router</strong></td>
+                    <td>Connects multiple networks and sends data in the correct path.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Switch</strong></td>
+                    <td>Connects devices within a network perfectly.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Gateway</strong></td>
+                    <td>Acts as a translator between two completely different types of networks.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Modem</strong></td>
+                    <td>Converts digital data to analog signal for internet connection.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Access Point</strong></td>
+                    <td>Converts wired network to Wi-Fi or wireless connections.</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-        </main>
 
-        <footer class="glass-footer">
-            <div class="container">
-                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
-            </div>
-        </footer>
-    </div>
+            <h2>4. Main Goals and Uses of Computer Network</h2>
+            <p>Networking শুধু Device সংযোগ নয়, এটি Task ের দক্ষতা এবং সুযোগ বহুগুণ বাড়িয়ে দেয়:</p>
+            <ul>
+              <li><strong>Resource Sharing:</strong> এক বা Multiple Printer, Scanner এবং File-এর
+                মাধ্যমে Cost কমানো।</li>
+              <li><strong>Remote Access:</strong> আপনি পৃথিবীর যেকোনো প্রান্তে বসে আপনার Office-র বা বাসার
+                Computer-এর File-গুলো ব্যবহার করতে পারেন।</li>
+              <li><strong>E-commerce & Payments:</strong> Secure Online Shopping এবং কয়েক ক্লিকেই Money
+                লেনদেনের
+                স Capacity।</li>
+              <li><strong>Education & Research:</strong> অনলাইনে Class করা, নতুন নতুন Research Paper পড়া
+                এবং
+                পৃথিবীর সেরা সব Mentor-দের সাথে সরাসরি Communication করা।</li>
+              <li><strong>Real-time Collaboration:</strong> Multiple মানুষ একসাথে একটি ফাইলে Task করা এবং
+                Task ের
+                Update সাথে সাথে একে অপরকে জানানো।</li>
+            </ul>
 
-    <script type="module" src="../js/main.js"></script>
-    <script type="module" src="../js/network-background.js"></script>
+            <h2><i class="bi bi-lightbulb"></i> Characteristics of a Computer Network</h2>
+            <ul>
+              <li><strong>Security:</strong> Firewall এবং Encryption-র মাধ্য মেসুরক্ষা নিশ্চিত করা।
+              </li>
+              <li><strong>Reliability:</strong> Backup এবং Redundancy-র মাধ্য মেসবসময় Network সচল
+                রাখা।</li>
+              <li><strong>Scalability:</strong> Performance না কমিয়ে Network বড় করার Capacity।</li>
+              <li><strong>High Performance:</strong> Fast Data Transfer এবং কম Latency।</li>
+              <li><strong>Quality of Service (QoS):</strong> গুরুত্বপূর্ণ Data-কে অগ্রাধিকার দেওয়া।</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="glass-footer">
+      <div class="container container-blog">
+        <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script type="module" src="../js/main.js"></script>
+  <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>
+
+
+
+

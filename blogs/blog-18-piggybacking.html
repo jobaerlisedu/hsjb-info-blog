@@ -1,257 +1,261 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="bn">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piggybacking: Computer Network | enablement.info</title>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <script
-        type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
-    <style>
-        .blog-content-wrapper {
-            padding-top: 20px;
-            padding-bottom: 60px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piggybacking: Computer Network | enablement.info</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <script
+    type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+  <style>
+    .blog-content-wrapper {
+      padding-top: 20px;
+      padding-bottom: 60px;
+    }
 
-        .article-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    .article-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
 
-        .article-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
+    .article-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
 
-        .article-meta {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
+    .article-meta {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
 
-        .article-body {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #d0d0e0;
-        }
+    .article-body {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #d0d0e0;
+    }
 
-        .article-body h2,
-        .article-body h3 {
-            font-family: 'Times New Roman', serif;
-            color: var(--primary-color);
-            margin-top: 35px;
-            margin-bottom: 15px;
-            font-weight: 800;
-        }
+    .article-body h2,
+    .article-body h3 {
+      font-family: 'Times New Roman', serif;
+      color: var(--primary-color);
+      margin-top: 35px;
+      margin-bottom: 15px;
+      font-weight: 800;
+    }
 
-        .article-body h2 {
-            font-size: 1.8rem;
-        }
+    .article-body h2 {
+      font-size: 1.8rem;
+    }
 
-        .article-body h3 {
-            font-size: 1.4rem;
-            color: #fff;
-        }
+    .article-body h3 {
+      font-size: 1.4rem;
+      color: #fff;
+    }
 
-        .article-body ul,
-        .article-body ol {
-            margin-bottom: 20px;
-            padding-left: 20px;
-        }
+    .article-body ul,
+    .article-body ol {
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
 
-        .article-body li {
-            margin-bottom: 10px;
-        }
+    .article-body li {
+      margin-bottom: 10px;
+    }
 
-        .note-box {
-            background: rgba(33, 150, 243, 0.07);
-            border-left: 4px solid var(--primary-color);
-            padding: 14px 18px;
-            margin: 18px 0;
-            border-radius: 0 8px 8px 0;
-            color: #b0c4de;
-        }
+    .note-box {
+      background: rgba(33, 150, 243, 0.07);
+      border-left: 4px solid var(--primary-color);
+      padding: 14px 18px;
+      margin: 18px 0;
+      border-radius: 0 8px 8px 0;
+      color: #b0c4de;
+    }
 
-        .warning-box {
-            background: rgba(255, 160, 0, 0.07);
-            border-left: 4px solid #ffa000;
-            padding: 14px 18px;
-            margin: 18px 0;
-            border-radius: 0 8px 8px 0;
-            color: #ffd54f;
-        }
+    .warning-box {
+      background: rgba(255, 160, 0, 0.07);
+      border-left: 4px solid #ffa000;
+      padding: 14px 18px;
+      margin: 18px 0;
+      border-radius: 0 8px 8px 0;
+      color: #ffd54f;
+    }
 
-        .piggyback-diagram {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            align-items: center;
-            gap: 10px;
-            margin: 25px 0;
-        }
+    .piggyback-diagram {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 10px;
+      margin: 25px 0;
+    }
 
-        .piggyback-box {
-            background: rgba(33, 150, 243, 0.1);
-            border: 1px solid var(--primary-color);
-            border-radius: 10px;
-            padding: 16px;
-            text-align: center;
-        }
+    .piggyback-box {
+      background: rgba(33, 150, 243, 0.1);
+      border: 1px solid var(--primary-color);
+      border-radius: 10px;
+      padding: 16px;
+      text-align: center;
+    }
 
-        .piggyback-arrow {
-            text-align: center;
-        }
-    </style>
+    .piggyback-arrow {
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
-    <canvas id="network-canvas"></canvas>
-    <div class="overlay">
-        <header class="glass-header">
-            <div class="container">
-                <nav class="main-nav">
-                    <ul>
-                        <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span
-                                    class="nav-text">Home</span></a></li>
-                        <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
-                                    class="nav-text">Blog</span></a></li>
-                    </ul>
-                </nav>
+  <canvas id="network-canvas"></canvas>
+  <div class="overlay">
+    <header class="glass-header">
+      <div class="container container-blog">
+        <nav class="main-nav">
+          <ul>
+            <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span
+                  class="nav-text">Home</span></a></li>
+            <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
+                  class="nav-text">Blog</span></a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="blog-content-wrapper">
+      <div class="container container-blog">
+        <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>আগের Page-এ ফিরে
+            যান</span></a>
+
+        <article class="glass-panel">
+          <header class="article-header">
+            <h1>Piggybacking: Computer Network</h1>
+            <div class="article-meta">
+              <span><i class='bx bx-calendar'></i> February 10, 2026</span>
+              <span style="margin:0 10px;">|</span>
+              <span><i class='bx bx-category'></i> Networking</span>
             </div>
-        </header>
+          </header>
 
-        <main class="blog-content-wrapper">
-            <div class="container">
-                <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>আগের Page-এ ফিরে
-                        যান</span></a>
+          <div class="article-body">
 
-                <article class="glass-panel">
-                    <header class="article-header">
-                        <h1>Piggybacking: Computer Network</h1>
-                        <div class="article-meta">
-                            <span><i class='bx bx-calendar'></i> February ১০, 2026</span>
-                            <span style="margin:0 10px;">|</span>
-                            <span><i class='bx bx-category'></i> Networking</span>
-                        </div>
-                    </header>
+            <h2><i class="bi bi-backpack"></i> Piggybacking What is?</h2>
+            <p><strong>Piggybacking</strong> হলো একটি Technique যেখানে Receiver তার ACK (Acknowledgment) পাঠানো
+              বিলম্বিত করে এবং Next বাইরে যাওয়া Data Packet ের সাথে একত্রে সংযুক্ত করে পাঠায়। এর ফলে
+              Separate Control ফ্রে মের সংখ্যা কমে এবং Network দক্ষতা বাড়ে।</p>
 
-                    <div class="article-body">
-
-                        <h2><i class="bi bi-backpack"></i> Piggybacking What is?</h2>
-                        <p><strong>Piggybacking</strong> হলো একটি Technique যেখানে Receiver তার ACK (Acknowledgment) পাঠানো
-                            বিলম্বিত করে এবং Next বাইরে যাওয়া Data Packetের সাথে একত্রে সংযুক্ত করে পাঠায়। এর ফলে
-                            Separate Control ফ্রেMayর সংখ্যা কMay এবং Network দক্ষতা বাড়ে।</p>
-
-                        <div class="content-box">
-                            <ul>
-                                <li>Sliding Window Protocol Sender ACK পাওয়ার আগেই Multiple Packet পাঠাতে দেয়, যা
-                                    Throughput বাড়ায়।</li>
-                                <li>Sender ও Receiver উভয়ই আগত ও বাহির হওয়া Packet ধরে রাখতে সীমিত Buffer রাখে।</li>
-                                <li>নির্দিষ্ট সময়ের মধ্যে ACK না পেলে অস্বীকৃত Packet-গুলো পুনরায় পাঠানো হয়।</li>
-                            </ul>
-                        </div>
-
-                        <hr>
-
-                        <h2><i class="bi bi-wifi"></i> Network Efficiency কীভাবে বাড়াবেন?</h2>
-                        <p>Network Efficiency <strong>Full-Duplex Transmission</strong>-এর মাধ্যMay বাড়ানো যায়, যা একই
-                            সময়ে দুই Directionে যোগাযোগ সম্ভব করে। এটি Simplex বা Half-Duplex-এর মতো নয়, এখানে উভয় প্রান্ত
-                            একই সময়ে Data পাঠাতে ও গ্রহণ করতে পারে।</p>
-
-                        <p>Full-Duplex Transmission দুটি উপায়ে অর্জন করা সম্ভব:</p>
-
-                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;">
-                            <div class="content-box">
-                                <h3><i class="bi bi-arrow-left-right"></i> দুটি Separate Channel</h3>
-                                <p>একটি Channel Data পাঠানোর জন্য এবং অপরটি গ্রহণের জন্য ব্যবহৃত হয়। তবে যখন একDirectionের
-                                    Traffic কম থাকে, তখন Bandwidth অপচয় হয়।</p>
-                            </div>
-                            <div class="content-box">
-                                <h3><i class="bi bi-backpack2"></i> Piggybacking</h3>
-                                <p>একটি আরও দক্ষ Method যেখানে Data ও ACK একই Channel Share করে। Receiver ACK বিলম্বিত
-                                    করে Next Data Frame-এ সংযুক্ত করে পাঠায়।</p>
-                            </div>
-                        </div>
-
-                        <hr>
-
-                        <h2><i class="bi bi-gear-wide-connected"></i> Piggybacking কীভাবে Task করে?</h2>
-                        <p>Piggybacking-এ Separate দুটি Message (DATA + ACK) না পাঠিয়ে একটি মাত্র Combined Message পাঠানো
-                            হয়:
-                        </p>
-
-                        <!-- Diagram -->
-                        <div class="piggyback-diagram">
-                            <div class="piggyback-box">
-                                <i class="bi bi-pc-display" style="font-size:2rem;color:var(--primary-color);"></i>
-                                <p><strong>Host A</strong><br>Data আছে + ACK আছে</p>
-                            </div>
-                            <div class="piggyback-arrow">
-                                <div style="text-align:center;margin-bottom:8px;">
-                                    <span
-                                        style="background:rgba(33,150,243,0.2);border:1px solid var(--primary-color);border-radius:6px;padding:4px 12px;font-size:0.8rem;color:#cce;">DATA
-                                        + ACK ➜</span>
-                                </div>
-                                <div style="text-align:center;">
-                                    <span
-                                        style="background:rgba(76,175,80,0.1);border:1px solid #4caf50;border-radius:6px;padding:4px 12px;font-size:0.8rem;color:#a5d6a7;">◀
-                                        DATA + ACK</span>
-                                </div>
-                            </div>
-                            <div class="piggyback-box">
-                                <i class="bi bi-pc-display-horizontal" style="font-size:2rem;color:#4caf50;"></i>
-                                <p><strong>Host B</strong><br>Data আছে + ACK আছে</p>
-                            </div>
-                        </div>
-
-                        <div class="content-box">
-                            <ul>
-                                <li><strong>যদি Host-এর কাছে Data ও ACK উভয়ই থাকে:</strong> একটি Frame-এ উভয়ই পাঠায়।
-                                </li>
-                                <li><strong>যদি শুধু ACK থাকে:</strong> Host কিছুক্ষণ অপেক্ষা করে Data প্রস্তুত কিনা
-                                    দেখে, না হলে ACK Separateভাবে পাঠায়।</li>
-                                <li><strong>যদি শুধু Data থাকে:</strong> সর্বশেষ ACKটি Data Frame-এ অন্তর্ভুক্ত করে
-                                    পাঠায়।</li>
-                            </ul>
-                        </div>
-
-                        <p>Piggybacking উপলব্ধ Channel Bandwidth-এর আরও ভালো ব্যবহার নিশ্চিত করে Data ও ACK একটি মাত্র
-                            Frame-এ মিলিয়ে দেওয়ার মাধ্যMay — Separate ACK Frame পাঠানোর প্রয়োজনীয়তা দূর করে। এটি Control
-                            Overhead কমায়, Transmission Cost হ্রাস করে এবং বিশেষত দ্বিমুখী যোগাযোগে Data Transfer-এর
-                            Latency Advanced করে।</p>
-
-                        <hr>
-
-                        <h2><i class="bi bi-exclamation-triangle"></i> Piggybacking-এর সীমাবদ্ধতা</h2>
-
-                        <div class="warning-box">
-                            <strong><i class="bi bi-exclamation-triangle"></i> সতর্কতা:</strong> Piggybacking Protocol-এ
-                            অতিরিক্ত Complexity আনে। Sender-কে সিদ্ধান্ত নিতে হয় ACK পাঠানোর আগে কতক্ষণ অপেক্ষা করবে। যদি
-                            Data Link Layer ACK High সময় ধরে অপেক্ষা করে, তাহলে Sender Frame-টি হারিয়ে গেছে মনে করে
-                            পুনরায় পাঠাতে পারে — যা দক্ষতা কমিয়ে দেয়।
-                        </div>
-
-                        <hr>
-
-                        <h2><i class="bi bi-check2-circle"></i> Summary</h2>
-                        <p>Piggybacking হলো একটি চতুর Technique যা Network-এ Separate ACK Frame-এর সংখ্যা কমিয়ে দক্ষতা Advanced
-                            করে। বিশেষত Full-Duplex যোগাযোগে এটি Channel Bandwidth-এর সর্বোত্তম ব্যবহার নিশ্চিত করে। তবে
-                            ACK বিলম্বের সঠিক সামঞ্জস্য না হলে অপ্রয়োজনীয় পুনরায় পাঠানো হতে পারে।</p>
-
-                    </div>
-                </article>
+            <div class="content-box">
+              <ul>
+                <li>Sliding Window Protocol Sender ACK পাওয়ার আগেই Multiple Packet পাঠাতে দেয়, যা
+                  Throughput বাড়ায়।</li>
+                <li>Sender ও Receiver উভয়ই আগত ও বাহির হওয়া Packet ধরে রাখতে সীমিত Buffer রাখে।</li>
+                <li>নির্দিষ্ট সময়ের মধ্যে ACK না পেলে অস্বীকৃত Packet-গুলো পুনরায় পাঠানো হয়।</li>
+              </ul>
             </div>
-        </main>
 
-        <footer class="glass-footer">
-            <div class="container">
-                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+            <hr>
+
+            <h2><i class="bi bi-wifi"></i> Network Efficiency কীভাবে বাড়াবেন?</h2>
+            <p>Network Efficiency <strong>Full-Duplex Transmission</strong>-এর মাধ্যমে বাড়ানো যায়, যা একই
+              সময়ে দুই Direction ে যোগাযোগ সম্ভব করে। এটি Simplex বা Half-Duplex-এর মতো নয়, এখানে উভয় প্রান্ত
+              একই সময়ে Data পাঠাতে ও গ্রহণ করতে পারে।</p>
+
+            <p>Full-Duplex Transmission দুটি উপায়ে অর্জন করা সম্ভব:</p>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;">
+              <div class="content-box">
+                <h3><i class="bi bi-arrow-left-right"></i> দুটি Separate Channel</h3>
+                <p>একটি Channel Data পাঠানোর জন্য এবং অপরটি গ্রহণের জন্য ব্যবহৃত হয়। তবে যখন এক Direction ের
+                  Traffic কম থাকে, তখন Bandwidth অপচয় হয়।</p>
+              </div>
+              <div class="content-box">
+                <h3><i class="bi bi-backpack2"></i> Piggybacking</h3>
+                <p>একটি আরও দক্ষ Method যেখানে Data ও ACK একই Channel Share করে। Receiver ACK বিলম্বিত
+                  করে Next Data Frame-এ সংযুক্ত করে পাঠায়।</p>
+              </div>
             </div>
-        </footer>
-    </div>
-    <script type="module" src="../js/main.js"></script>
-    <script type="module" src="../js/network-background.js"></script>
+
+            <hr>
+
+            <h2><i class="bi bi-gear-wide-connected"></i> Piggybacking কীভাবে Task করে?</h2>
+            <p>Piggybacking-এ Separate দুটি Message (DATA + ACK) না পাঠিয়ে একটি মাত্র Combined Message পাঠানো
+              হয়:
+            </p>
+
+            <!-- Diagram -->
+            <div class="piggyback-diagram">
+              <div class="piggyback-box">
+                <i class="bi bi-pc-display" style="font-size:2rem;color:var(--primary-color);"></i>
+                <p><strong>Host A</strong><br>Data আছে + ACK আছে</p>
+              </div>
+              <div class="piggyback-arrow">
+                <div style="text-align:center;margin-bottom:8px;">
+                  <span
+                    style="background:rgba(33,150,243,0.2);border:1px solid var(--primary-color);border-radius:6px;padding:4px 12px;font-size:0.8rem;color:#cce;">DATA
+                    + ACK ➜</span>
+                </div>
+                <div style="text-align:center;">
+                  <span
+                    style="background:rgba(76,175,80,0.1);border:1px solid #4caf50;border-radius:6px;padding:4px 12px;font-size:0.8rem;color:#a5d6a7;">◀
+                    DATA + ACK</span>
+                </div>
+              </div>
+              <div class="piggyback-box">
+                <i class="bi bi-pc-display-horizontal" style="font-size:2rem;color:#4caf50;"></i>
+                <p><strong>Host B</strong><br>Data আছে + ACK আছে</p>
+              </div>
+            </div>
+
+            <div class="content-box">
+              <ul>
+                <li><strong>যদি Host-এর কাছে Data ও ACK উভয়ই থাকে:</strong> একটি Frame-এ উভয়ই পাঠায়।
+                </li>
+                <li><strong>যদি শুধু ACK থাকে:</strong> Host কিছুক্ষণ অপেক্ষা করে Data প্রস্তুত কিনা
+                  দেখে, না হলে ACK Separate ভাবে পাঠায়।</li>
+                <li><strong>যদি শুধু Data থাকে:</strong> সর্বশেষ ACK টি Data Frame-এ অন্তর্ভুক্ত করে
+                  পাঠায়।</li>
+              </ul>
+            </div>
+
+            <p>Piggybacking উপলব্ধ Channel Bandwidth-এর আরও ভালো ব্যবহার নিশ্চিত করে Data ও ACK একটি মাত্র
+              Frame-এ মিলিয়ে দেওয়ার মাধ্যমে — Separate ACK Frame পাঠানোর প্রয়োজনীয়তা দূর করে। এটি Control
+              Overhead কমায়, Transmission Cost হ্রাস করে এবং বিশেষত দ্বিমুখী যোগাযোগে Data Transfer-এর
+              Latency Advanced করে।</p>
+
+            <hr>
+
+            <h2><i class="bi bi-exclamation-triangle"></i> Piggybacking-এর সীমাবদ্ধতা</h2>
+
+            <div class="warning-box">
+              <strong><i class="bi bi-exclamation-triangle"></i> সতর্কতা:</strong> Piggybacking Protocol-এ
+              অতিরিক্ত Complexity আনে। Sender-কে সিদ্ধান্ত নিতে হয় ACK পাঠানোর আগে কতক্ষণ অপেক্ষা করবে। যদি
+              Data Link Layer ACK High সময় ধরে অপেক্ষা করে, তাহলে Sender Frame-টি হারিয়ে গেছে মনে করে
+              পুনরায় পাঠাতে পারে — যা দক্ষতা কমিয়ে দেয়।
+            </div>
+
+            <hr>
+
+            <h2><i class="bi bi-check2-circle"></i> Summary</h2>
+            <p>Piggybacking হলো একটি চতুর Technique যা Network-এ Separate ACK Frame-এর সংখ্যা কমিয়ে দক্ষতা Advanced
+              করে। বিশেষত Full-Duplex যোগাযোগে এটি Channel Bandwidth-এর সর্বোত্তম ব্যবহার নিশ্চিত করে। তবে
+              ACK বিলম্বের সঠিক সামঞ্জস্য না হলে অপ্রয়োজনীয় পুনরায় পাঠানো হতে পারে।</p>
+
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="glass-footer">
+      <div class="container container-blog">
+        <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </div>
+  <script type="module" src="../js/main.js"></script>
+  <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>
+
+
+
+

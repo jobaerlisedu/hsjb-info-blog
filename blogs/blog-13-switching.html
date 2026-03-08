@@ -1,322 +1,326 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="bn">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Switching: Circuit, Message and Packet Switching | enablement.info</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Switching: Circuit, Message and Packet Switching | enablement.info</title>
 
-    <!-- Icons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Icons -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css">
 
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-            }
-        }
-    </script>
-    <style>
-        .blog-content-wrapper {
-            padding-top: 20px;
-            padding-bottom: 60px;
-        }
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+  <style>
+    .blog-content-wrapper {
+      padding-top: 20px;
+      padding-bottom: 60px;
+    }
 
-        .article-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    .article-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
 
-        .article-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
+    .article-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
 
-        .article-meta {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
+    .article-meta {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
 
-        .article-body {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #d0d0e0;
-        }
+    .article-body {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #d0d0e0;
+    }
 
-        .article-body h2,
-        .article-body h3 {
-            font-family: 'Times New Roman', 'Nikosh', serif;
-            color: var(--primary-color);
-            margin-top: 40px;
-            margin-bottom: 20px;
-            font-weight: 800;
-        }
+    .article-body h2,
+    .article-body h3 {
+      font-family: 'Times New Roman', 'Nikosh', serif;
+      color: var(--primary-color);
+      margin-top: 40px;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
 
-        .article-body h2 {
-            font-size: 1.8rem;
-        }
+    .article-body h2 {
+      font-size: 1.8rem;
+    }
 
-        .article-body h3 {
-            font-size: 1.4rem;
-            color: #fff;
-        }
+    .article-body h3 {
+      font-size: 1.4rem;
+      color: #fff;
+    }
 
-        .article-body ul,
-        .article-body ol {
-            margin-bottom: 20px;
-            padding-left: 20px;
-        }
+    .article-body ul,
+    .article-body ol {
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
 
-        .article-body li {
-            margin-bottom: 10px;
-        }
+    .article-body li {
+      margin-bottom: 10px;
+    }
 
-        .diagram-container {
-            display: block;
-            margin: 30px auto;
-            max-width: 600px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 12px;
-            padding: 20px;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            text-align: center;
-        }
+    .diagram-container {
+      display: block;
+      margin: 30px auto;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
 
-        .diagram-label {
-            fill: #fff;
-            font-size: 12px;
-            text-anchor: middle;
-            font-family: 'Nikosh', sans-serif;
-        }
+    .diagram-label {
+      fill: #fff;
+      font-size: 12px;
+      text-anchor: middle;
+      font-family: 'Nikosh', sans-serif;
+    }
 
-        .process-step {
-            fill: rgba(33, 150, 243, 0.1);
-            stroke: var(--primary-color);
-            stroke-width: 1.5;
-        }
+    .process-step {
+      fill: rgba(33, 150, 243, 0.1);
+      stroke: var(--primary-color);
+      stroke-width: 1.5;
+    }
 
-        .analogy-box {
-            background: rgba(255, 255, 255, 0.05);
-            border-left: 4px solid var(--primary-color);
-            padding: 15px;
-            margin: 15px 0;
-            font-style: italic;
-            color: #b0b0cf;
-        }
-    </style>
+    .analogy-box {
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 4px solid var(--primary-color);
+      padding: 15px;
+      margin: 15px 0;
+      font-style: italic;
+      color: #b0b0cf;
+    }
+  </style>
 </head>
 
 <body>
-    <canvas id="network-canvas"></canvas>
-    <div class="overlay">
-        <header class="glass-header">
-            <div class="container">
-                <nav class="main-nav">
-                    <ul>
-                        <li>
-                            <a href="../index.html">
-                                <i class='bx bx-home-alt-2'></i>
-                                <span class="nav-text">Home</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../blogs.html" class="active">
-                                <i class='bx bx-book-content'></i>
-                                <span class="nav-text">Blog</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+  <canvas id="network-canvas"></canvas>
+  <div class="overlay">
+    <header class="glass-header">
+      <div class="container container-blog">
+        <nav class="main-nav">
+          <ul>
+            <li>
+              <a href="../index.html">
+                <i class='bx bx-home-alt-2'></i>
+                <span class="nav-text">Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="../blogs.html" class="active">
+                <i class='bx bx-book-content'></i>
+                <span class="nav-text">Blog</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="blog-content-wrapper">
+      <div class="container container-blog">
+        <a href="../blogs.html" class="back-btn">
+          <i class='bx bx-arrow-back'></i>
+          <span>Return to Previous Page</span>
+        </a>
+
+        <article class="glass-panel">
+          <header class="article-header">
+            <h1>Switching: Detailed Guide</h1>
+            <div class="article-meta">
+              <span><i class='bx bx-calendar'></i> January 20, 2026</span>
+              <span style="margin: 0 10px;">|</span>
+              <span><i class='bx bx-category'></i> Networking</span>
             </div>
-        </header>
+          </header>
 
-        <main class="blog-content-wrapper">
-            <div class="container">
-                <a href="../blogs.html" class="back-btn">
-                    <i class='bx bx-arrow-back'></i>
-                    <span>Return to Previous Page</span>
-                </a>
+          <div class="article-body">
+            <h2><i class="bi bi-arrow-left-right"></i> Switching What is?</h2>
+            <p>Switching হলো একটি Network-এর মধ্যে বা বিভিন্ন Network-এর মধ্যে Switch-এর মাধ্যমে Data
+              আদান-প্রদান করার প্রক্রিয়া। এটি প্রধানত OSI Model-এর Data Link Layer (Layer 2)-এ ঘটে,
+              যেখানে MAC Address-এর ওপর ভিত্তি করে Data Frame-গুলো সঠিক Destination এ পাঠানো
+              হয়।</p>
 
-                <article class="glass-panel">
-                    <header class="article-header">
-                        <h1>Switching: Detailed Guide</h1>
-                        <div class="article-meta">
-                            <span><i class='bx bx-calendar'></i> January ২০, 2026</span>
-                            <span style="margin: 0 10px;">|</span>
-                            <span><i class='bx bx-category'></i> Networking</span>
-                        </div>
-                    </header>
-
-                    <div class="article-body">
-                        <h2><i class="bi bi-arrow-left-right"></i> Switching What is?</h2>
-                        <p>Switching হলো একটি Network-এর মধ্যে বা বিভিন্ন Network-এর মধ্যে Switch-এর মাধ্যMay Data
-                            আদান-প্রদান করার প্রক্রিয়া। এটি প্রধানত OSI Model-এর Data Link Layer (Layer 2)-এ ঘটে,
-                            যেখানে MAC Address-এর ওপর ভিত্তি করে Data Frame-গুলো সঠিক Destinationে পাঠানো
-                            হয়।</p>
-
-                        <div class="content-box">
-                            <ul>
-                                <li>Switch একটি Network-এর Multiple Device-কে সংযুক্ত করে।</li>
-                                <li>এটি শুধুমাত্র নির্দিষ্ট Receiver কাছে Data পাঠিয়ে Interference
-                                    কমায়।</li>
-                                <li>MAC Address Table ব্যবহার করে সঠিক Port-এ Data Forward করে।</li>
-                                <li>স্থানীয় Network-এর বাইরের যোগাযোগের জন্য Data Router-এ পাঠায়।</li>
-                            </ul>
-                        </div>
-
-                        <hr>
-
-                        <h2><i class="bi bi-diagram-2"></i> Network Switching-এর Mechanismসমূহ</h2>
-                        <p>Switching প্রক্রিয়ায় বেশ কিছু Sequential Step অনুসরণ করা হয়:</p>
-
-                        <div class="diagram-container" style="max-width:100%;">
-                            <div
-                                style="display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:8px; padding:10px 0;">
-                                <!-- Step 1 -->
-                                <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-                                    <div
-                                        style="width:70px;height:70px;border-radius:50%;border:2px solid var(--primary-color);background:rgba(33,150,243,0.1);display:flex;align-items:center;justify-content:center;">
-                                        <i class="bi bi-arrow-down-circle"
-                                            style="font-size:1.8rem;color:var(--primary-color);"></i>
-                                    </div>
-                                    <span style="font-size:0.8rem;color:#ccc;text-align:center;">1. Frame গ্রহণ</span>
-                                </div>
-                                <i class="bi bi-arrow-right"
-                                    style="color:rgba(255,255,255,0.3);font-size:1.2rem;margin-bottom:20px;"></i>
-                                <!-- Step 2 -->
-                                <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-                                    <div
-                                        style="width:70px;height:70px;border-radius:50%;border:2px solid var(--primary-color);background:rgba(33,150,243,0.1);display:flex;align-items:center;justify-content:center;">
-                                        <i class="bi bi-upc-scan"
-                                            style="font-size:1.8rem;color:var(--primary-color);"></i>
-                                    </div>
-                                    <span style="font-size:0.8rem;color:#ccc;text-align:center;">2. MAC সংগ্রহ</span>
-                                </div>
-                                <i class="bi bi-arrow-right"
-                                    style="color:rgba(255,255,255,0.3);font-size:1.2rem;margin-bottom:20px;"></i>
-                                <!-- Step 3 -->
-                                <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-                                    <div
-                                        style="width:70px;height:70px;border-radius:50%;border:2px solid var(--primary-color);background:rgba(33,150,243,0.1);display:flex;align-items:center;justify-content:center;">
-                                        <i class="bi bi-table" style="font-size:1.8rem;color:var(--primary-color);"></i>
-                                    </div>
-                                    <span style="font-size:0.8rem;color:#ccc;text-align:center;">3. Table Check</span>
-                                </div>
-                                <i class="bi bi-arrow-right"
-                                    style="color:rgba(255,255,255,0.3);font-size:1.2rem;margin-bottom:20px;"></i>
-                                <!-- Step 4 -->
-                                <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-                                    <div
-                                        style="width:70px;height:70px;border-radius:50%;border:2px solid var(--primary-color);background:rgba(33,150,243,0.1);display:flex;align-items:center;justify-content:center;">
-                                        <i class="bi bi-send" style="font-size:1.8rem;color:var(--primary-color);"></i>
-                                    </div>
-                                    <span style="font-size:0.8rem;color:#ccc;text-align:center;">4. Forwarding</span>
-                                </div>
-                                <i class="bi bi-arrow-right"
-                                    style="color:rgba(255,255,255,0.3);font-size:1.2rem;margin-bottom:20px;"></i>
-                                <!-- Step 5 -->
-                                <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-                                    <div
-                                        style="width:70px;height:70px;border-radius:50%;border:2px solid var(--primary-color);background:rgba(33,150,243,0.1);display:flex;align-items:center;justify-content:center;">
-                                        <i class="bi bi-arrow-repeat"
-                                            style="font-size:1.8rem;color:var(--primary-color);"></i>
-                                    </div>
-                                    <span style="font-size:0.8rem;color:#ccc;text-align:center;">5. Table Update</span>
-                                </div>
-                                <i class="bi bi-arrow-right"
-                                    style="color:rgba(255,255,255,0.3);font-size:1.2rem;margin-bottom:20px;"></i>
-                                <!-- Step 6 -->
-                                <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-                                    <div
-                                        style="width:70px;height:70px;border-radius:50%;border:2px solid #4caf50;background:rgba(76,175,80,0.1);display:flex;align-items:center;justify-content:center;">
-                                        <i class="bi bi-check-circle" style="font-size:1.8rem;color:#4caf50;"></i>
-                                    </div>
-                                    <span style="font-size:0.8rem;color:#ccc;text-align:center;">6. Transmission</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="content-box">
-                            <ol>
-                                <li><strong>Frame Reception:</strong> Switch সংযুক্ত Device থেকে Data Frame গ্রহণ করে।
-                                </li>
-                                <li><strong>MAC Extraction:</strong> Frame Header থেকে Destination MAC Address-টি পড়ে
-                                    নেয়।</li>
-                                <li><strong>Lookup:</strong> Switch-এর Own MAC Table-এ Destination Address-টি খোঁজে।</li>
-                                <li><strong>Forwarding & Flooding:</strong> Address খুঁজে পেলে সেই Port-এ পাঠায়, না
-                                    পেলে 'Flooding' প্রক্রিয়ার মাধ্যMay সব Port-এ পাঠায়।</li>
-                                <li><strong>Table Update:</strong> Sender Device-এর MAC Address দিয়ে Table Update
-                                    করে।</li>
-                                <li><strong>Transmission:</strong> Frame-টি Final Destinationে পৌঁছায়।</li>
-                            </ol>
-                        </div>
-
-                        <hr>
-
-                        <h2><i class="bi bi-grid-3x3-gap"></i> Switching-এর Classification (Types of Switching)</h2>
-                        <p>Data আদান-প্রদানের Methodর ওপর ভিত্তি করে Switchিংকে তিন ভাগে ভাগ করা যায়:</p>
-
-                        <h3>1. সার্কিট Switchিং (Circuit Switching)</h3>
-                        <p>এটি একটি Connection-oriented Method যা সাধারণত Telephone Network-এ ব্যবহৃত হয়। এখানে Data
-                            পাঠানোর আগে Sender ও Receiver মধ্যে একটি সুনির্দিষ্ট Path Creation করা হয়।</p>
-                        <ul>
-                            <li>পুরো Session চলাকালীন Path-টি সংরক্ষিত থাকে।</li>
-                            <li>নির্দিষ্ট Bandwidth এবং কম Latency নিশ্চিত করে।</li>
-                        </ul>
-                        <div class="analogy-box">
-                            <p><strong>কল্পনা করুন:</strong> একটি ব্যক্তিগত রাস্তা যা আপনার পুরো যাত্রার জন্য সংরক্ষিত,
-                                এমনকি যদি রাস্তায় কোনো Car নাও থাকে তবুও অন্য কেউ তা ব্যবহার করতে পারবে না।</p>
-                        </div>
-
-                        <h3>2. Mayসেজ Switchিং (Message Switching)</h3>
-                        <p>এটি একটি প্রাচীন Method যেখানে পুরো Message-টি একটি Intermediate Node-এ পাঠানো হয়।</p>
-                        <ul>
-                            <li>Message-টি Next Node-এ পাঠানোর আগে অস্থায়ীভাবে Store করা হয় (Store and Forward)।</li>
-                            <li>Sender ও Receiver মধ্যে কোনো Dedicated Path-এর প্রয়োজন হয় না।</li>
-                        </ul>
-                        <div class="analogy-box">
-                            <p><strong>কল্পনা করুন:</strong> পোস্ট Officeে Mail পাঠানোর মতো; Mailটি প্রথMay একটি শাখায় জমা
-                                হয় এবং সেখান থেকে Next Destinationে যায়।</p>
-                        </div>
-
-                        <h3>3. Packet Switchিং (Packet Switching)</h3>
-                        <p>এটি Modern Internet-এর মূল ভিত্তি। এখানে Data-কে ছোট ছোট Packet-এ ভাগ করা হয়।</p>
-                        <ul>
-                            <li>প্রতিটি Packet-এ Destination Address থাকে এবং সেগুলো ভিন্ন ভিন্ন Pathে চলতে পারে।</li>
-                            <li>Destinationে পৌঁছানোর পর Packet-গুলো আবার Serial অনুযায়ী সাজানো হয়।</li>
-                        </ul>
-                        <div class="analogy-box">
-                            <p><strong>কল্পনা করুন:</strong> একটি আস্ত বইকে Separate Separate অধ্যায়ে ভাগ করে ভিন্ন ভিন্ন
-                                কুরিয়ার সার্ভিসের মাধ্যMay পাঠানো এবং সবার শেষে Destinationে পৌঁছে আবার বই Sizeে সাজানো।</p>
-                        </div>
-
-                        <hr>
-
-                        <h2><i class="bi bi-info-circle"></i> Summary</h2>
-                        <p>Switching Networking-এর অত্যন্ত গুরুত্বপূর্ণ একটি অংশ। Telephone বা Live যোগাযোগের জন্য
-                            Circuit
-                            Switching কার্যকর হলেও, Internet-এর বিশাল Data প্রবাহকে দক্ষতার সাথে Operation করার জন্য
-                            Packet
-                            Switching হলো বর্তমান বিশ্বের সবচেয়ে শক্তিশালী এবং Reliable প্রযুক্তি।</p>
-                    </div>
-                </article>
+            <div class="content-box">
+              <ul>
+                <li>Switch একটি Network-এর Multiple Device-কে সংযুক্ত করে।</li>
+                <li>এটি শুধুমাত্র নির্দিষ্ট Receiver কাছে Data পাঠিয়ে Interference
+                  কমায়।</li>
+                <li>MAC Address Table ব্যবহার করে সঠিক Port-এ Data Forward করে।</li>
+                <li>স্থানীয় Network-এর বাইরের যোগাযোগের জন্য Data Router-এ পাঠায়।</li>
+              </ul>
             </div>
-        </main>
 
-        <footer class="glass-footer">
-            <div class="container">
-                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+            <hr>
+
+            <h2><i class="bi bi-diagram-2"></i> Network Switching-এর Mechanism সমূহ</h2>
+            <p>Switching প্রক্রিয়ায় বেশ কিছু Sequential Step অনুসরণ করা হয়:</p>
+
+            <div class="diagram-container" style="max-width:100%;">
+              <div
+                style="display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:8px; padding:10px 0;">
+                <!-- Step 1 -->
+                <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+                  <div
+                    style="width:70px;height:70px;border-radius:50%;border:2px solid var(--primary-color);background:rgba(33,150,243,0.1);display:flex;align-items:center;justify-content:center;">
+                    <i class="bi bi-arrow-down-circle"
+                      style="font-size:1.8rem;color:var(--primary-color);"></i>
+                  </div>
+                  <span style="font-size:0.8rem;color:#ccc;text-align:center;">1. Frame গ্রহণ</span>
+                </div>
+                <i class="bi bi-arrow-right"
+                  style="color:rgba(255,255,255,0.3);font-size:1.2rem;margin-bottom:20px;"></i>
+                <!-- Step 2 -->
+                <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+                  <div
+                    style="width:70px;height:70px;border-radius:50%;border:2px solid var(--primary-color);background:rgba(33,150,243,0.1);display:flex;align-items:center;justify-content:center;">
+                    <i class="bi bi-upc-scan"
+                      style="font-size:1.8rem;color:var(--primary-color);"></i>
+                  </div>
+                  <span style="font-size:0.8rem;color:#ccc;text-align:center;">2. MAC সংগ্রহ</span>
+                </div>
+                <i class="bi bi-arrow-right"
+                  style="color:rgba(255,255,255,0.3);font-size:1.2rem;margin-bottom:20px;"></i>
+                <!-- Step 3 -->
+                <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+                  <div
+                    style="width:70px;height:70px;border-radius:50%;border:2px solid var(--primary-color);background:rgba(33,150,243,0.1);display:flex;align-items:center;justify-content:center;">
+                    <i class="bi bi-table" style="font-size:1.8rem;color:var(--primary-color);"></i>
+                  </div>
+                  <span style="font-size:0.8rem;color:#ccc;text-align:center;">3. Table Check</span>
+                </div>
+                <i class="bi bi-arrow-right"
+                  style="color:rgba(255,255,255,0.3);font-size:1.2rem;margin-bottom:20px;"></i>
+                <!-- Step 4 -->
+                <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+                  <div
+                    style="width:70px;height:70px;border-radius:50%;border:2px solid var(--primary-color);background:rgba(33,150,243,0.1);display:flex;align-items:center;justify-content:center;">
+                    <i class="bi bi-send" style="font-size:1.8rem;color:var(--primary-color);"></i>
+                  </div>
+                  <span style="font-size:0.8rem;color:#ccc;text-align:center;">4. Forwarding</span>
+                </div>
+                <i class="bi bi-arrow-right"
+                  style="color:rgba(255,255,255,0.3);font-size:1.2rem;margin-bottom:20px;"></i>
+                <!-- Step 5 -->
+                <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+                  <div
+                    style="width:70px;height:70px;border-radius:50%;border:2px solid var(--primary-color);background:rgba(33,150,243,0.1);display:flex;align-items:center;justify-content:center;">
+                    <i class="bi bi-arrow-repeat"
+                      style="font-size:1.8rem;color:var(--primary-color);"></i>
+                  </div>
+                  <span style="font-size:0.8rem;color:#ccc;text-align:center;">5. Table Update</span>
+                </div>
+                <i class="bi bi-arrow-right"
+                  style="color:rgba(255,255,255,0.3);font-size:1.2rem;margin-bottom:20px;"></i>
+                <!-- Step 6 -->
+                <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+                  <div
+                    style="width:70px;height:70px;border-radius:50%;border:2px solid #4caf50;background:rgba(76,175,80,0.1);display:flex;align-items:center;justify-content:center;">
+                    <i class="bi bi-check-circle" style="font-size:1.8rem;color:#4caf50;"></i>
+                  </div>
+                  <span style="font-size:0.8rem;color:#ccc;text-align:center;">6. Transmission</span>
+                </div>
+              </div>
             </div>
-        </footer>
-    </div>
-    <script type="module" src="../js/main.js"></script>
-    <script type="module" src="../js/network-background.js"></script>
+
+            <div class="content-box">
+              <ol>
+                <li><strong>Frame Reception:</strong> Switch সংযুক্ত Device থেকে Data Frame গ্রহণ করে।
+                </li>
+                <li><strong>MAC Extraction:</strong> Frame Header থেকে Destination MAC Address-টি পড়ে
+                  নেয়।</li>
+                <li><strong>Lookup:</strong> Switch-এর Own MAC Table-এ Destination Address-টি খোঁজে।</li>
+                <li><strong>Forwarding & Flooding:</strong> Address খুঁজে পেলে সেই Port-এ পাঠায়, না
+                  পেলে 'Flooding' প্রক্রিয়ার মাধ্য মেসব Port-এ পাঠায়।</li>
+                <li><strong>Table Update:</strong> Sender Device-এর MAC Address দিয়ে Table Update
+                  করে।</li>
+                <li><strong>Transmission:</strong> Frame-টি Final Destination এ পৌঁছায়।</li>
+              </ol>
+            </div>
+
+            <hr>
+
+            <h2><i class="bi bi-grid-3x3-gap"></i> Switching-এর Classification (Types of Switching)</h2>
+            <p>Data আদান-প্রদানের Method র ওপর ভিত্তি করে Switch িংকে তিন ভাগে ভাগ করা যায়:</p>
+
+            <h3>1. সার্কিট Switch িং (Circuit Switching)</h3>
+            <p>এটি একটি Connection-oriented Method যা সাধারণত Telephone Network-এ ব্যবহৃত হয়। এখানে Data
+              পাঠানোর আগে Sender ও Receiver মধ্যে একটি সুনির্দিষ্ট Path Creation করা হয়।</p>
+            <ul>
+              <li>পুরো Session চলাকালীন Path-টি সংরক্ষিত থাকে।</li>
+              <li>নির্দিষ্ট Bandwidth এবং কম Latency নিশ্চিত করে।</li>
+            </ul>
+            <div class="analogy-box">
+              <p><strong>কল্পনা করুন:</strong> একটি ব্যক্তিগত রাস্তা যা আপনার পুরো যাত্রার জন্য সংরক্ষিত,
+                এমনকি যদি রাস্তায় কোনো Car নাও থাকে তবুও অন্য কেউ তা ব্যবহার করতে পারবে না।</p>
+            </div>
+
+            <h3>2. মেসেজ Switch িং (Message Switching)</h3>
+            <p>এটি একটি প্রাচীন Method যেখানে পুরো Message-টি একটি Intermediate Node-এ পাঠানো হয়।</p>
+            <ul>
+              <li>Message-টি Next Node-এ পাঠানোর আগে অস্থায়ীভাবে Store করা হয় (Store and Forward)।</li>
+              <li>Sender ও Receiver মধ্যে কোনো Dedicated Path-এর প্রয়োজন হয় না।</li>
+            </ul>
+            <div class="analogy-box">
+              <p><strong>কল্পনা করুন:</strong> পোস্ট Office এ Mail পাঠানোর মতো; Mail টি প্রথ মেএকটি শাখায় জমা
+                হয় এবং সেখান থেকে Next Destination এ যায়।</p>
+            </div>
+
+            <h3>3. Packet Switch িং (Packet Switching)</h3>
+            <p>এটি Modern Internet-এর মূল ভিত্তি। এখানে Data-কে ছোট ছোট Packet-এ ভাগ করা হয়।</p>
+            <ul>
+              <li>প্রতিটি Packet-এ Destination Address থাকে এবং সেগুলো ভিন্ন ভিন্ন Path ে চলতে পারে।</li>
+              <li>Destination এ পৌঁছানোর পর Packet-গুলো আবার Serial অনুযায়ী সাজানো হয়।</li>
+            </ul>
+            <div class="analogy-box">
+              <p><strong>কল্পনা করুন:</strong> একটি আস্ত বইকে Separate Separate অধ্যায়ে ভাগ করে ভিন্ন ভিন্ন
+                কুরিয়ার সার্ভিসের মাধ্য মেপাঠানো এবং সবার শেষে Destination এ পৌঁছে আবার বই Size ে সাজানো।</p>
+            </div>
+
+            <hr>
+
+            <h2><i class="bi bi-info-circle"></i> Summary</h2>
+            <p>Switching Networking-এর অত্যন্ত গুরুত্বপূর্ণ একটি অংশ। Telephone বা Live যোগাযোগের জন্য
+              Circuit
+              Switching কার্যকর হলেও, Internet-এর বিশাল Data প্রবাহকে দক্ষতার সাথে Operation করার জন্য
+              Packet
+              Switching হলো বর্তমান বিশ্বের সবচেয়ে শক্তিশালী এবং Reliable প্রযুক্তি।</p>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="glass-footer">
+      <div class="container container-blog">
+        <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </div>
+  <script type="module" src="../js/main.js"></script>
+  <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>
+
+
+
+

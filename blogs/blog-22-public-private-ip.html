@@ -1,348 +1,352 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="bn">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Public vs Private IP Address | enablement.info</title>
-    <meta name="description"
-        content="Public এবং Private IP Address-এর মধ্যে পার্থক্য, তাদের ব্যবহারের Field এবং Security নিয়ে Detailed Discussion।">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <script
-        type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
-    <style>
-        .blog-content-wrapper {
-            padding-top: 20px;
-            padding-bottom: 60px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Public vs Private IP Address | enablement.info</title>
+  <meta name="description"
+    content="Public এবং Private IP Address-এর মধ্যে পার্থক্য, তাদের ব্যবহারের Field এবং Security নিয়ে Detailed Discussion।">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <script
+    type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+  <style>
+    .blog-content-wrapper {
+      padding-top: 20px;
+      padding-bottom: 60px;
+    }
 
-        .article-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    .article-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
 
-        .article-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
+    .article-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
 
-        .article-meta {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
+    .article-meta {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
 
-        .article-body {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #d0d0e0;
-        }
+    .article-body {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #d0d0e0;
+    }
 
-        .article-body h2,
-        .article-body h3 {
-            font-family: 'Times New Roman', serif;
-            color: var(--primary-color);
-            margin-top: 35px;
-            margin-bottom: 15px;
-            font-weight: 800;
-        }
+    .article-body h2,
+    .article-body h3 {
+      font-family: 'Times New Roman', serif;
+      color: var(--primary-color);
+      margin-top: 35px;
+      margin-bottom: 15px;
+      font-weight: 800;
+    }
 
-        .article-body h2 {
-            font-size: 1.8rem;
-        }
+    .article-body h2 {
+      font-size: 1.8rem;
+    }
 
-        .article-body h3 {
-            font-size: 1.4rem;
-            color: #fff;
-        }
+    .article-body h3 {
+      font-size: 1.4rem;
+      color: #fff;
+    }
 
-        .article-body ul,
-        .article-body ol {
-            margin-bottom: 20px;
-            padding-left: 20px;
-        }
+    .article-body ul,
+    .article-body ol {
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
 
-        .article-body li {
-            margin-bottom: 10px;
-        }
+    .article-body li {
+      margin-bottom: 10px;
+    }
 
-        .note-box {
-            background: rgba(33, 150, 243, 0.07);
-            border-left: 4px solid var(--primary-color);
-            padding: 14px 18px;
-            margin: 18px 0;
-            border-radius: 0 8px 8px 0;
-            color: #b0c4de;
-        }
+    .note-box {
+      background: rgba(33, 150, 243, 0.07);
+      border-left: 4px solid var(--primary-color);
+      padding: 14px 18px;
+      margin: 18px 0;
+      border-radius: 0 8px 8px 0;
+      color: #b0c4de;
+    }
 
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            overflow: hidden;
-        }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      overflow: hidden;
+    }
 
-        .comparison-table th,
-        .comparison-table td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
+    .comparison-table th,
+    .comparison-table td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-        .comparison-table th {
-            background: rgba(33, 150, 243, 0.2);
-            color: var(--primary-color);
-            font-weight: bold;
-        }
+    .comparison-table th {
+      background: rgba(33, 150, 243, 0.2);
+      color: var(--primary-color);
+      font-weight: bold;
+    }
 
-        .content-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
+    .content-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
 
-        .nat-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px dashed var(--primary-color);
-            padding: 40px;
-            border-radius: 24px;
-            text-align: center;
-        }
+    .nat-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px dashed var(--primary-color);
+      padding: 40px;
+      border-radius: 24px;
+      text-align: center;
+    }
 
-        .nat-box i {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            display: block;
-            color: var(--primary-color);
-        }
+    .nat-box i {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      display: block;
+      color: var(--primary-color);
+    }
 
-        .range-box {
-            background: rgba(255, 255, 255, 0.03);
-            border-left: 4px solid #2196f3;
-            padding: 20px;
-            border-radius: 4px 12px 12px 4px;
-            font-family: monospace;
-            font-size: 1.1em;
-        }
+    .range-box {
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 4px solid #2196f3;
+      padding: 20px;
+      border-radius: 4px 12px 12px 4px;
+      font-family: monospace;
+      font-size: 1.1em;
+    }
 
-        .range-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding-bottom: 8px;
-        }
+    .range-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 8px;
+    }
 
-        .range-item:last-child {
-            border: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-    </style>
+    .range-item:last-child {
+      border: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  </style>
 </head>
 
 <body>
-    <canvas id="network-canvas"></canvas>
-    <div class="overlay">
-        <header class="glass-header">
-            <div class="container">
-                <nav class="main-nav">
-                    <ul>
-                        <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span
-                                    class="nav-text">Home</span></a></li>
-                        <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
-                                    class="nav-text">Blog</span></a></li>
-                    </ul>
-                </nav>
+  <canvas id="network-canvas"></canvas>
+  <div class="overlay">
+    <header class="glass-header">
+      <div class="container container-blog">
+        <nav class="main-nav">
+          <ul>
+            <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span
+                  class="nav-text">Home</span></a></li>
+            <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
+                  class="nav-text">Blog</span></a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="blog-content-wrapper">
+      <div class="container container-blog">
+        <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>আগের Page-এ ফিরে
+            যান</span></a>
+
+        <article class="glass-panel">
+          <header class="article-header">
+            <h1>Public vs Private IP Address</h1>
+            <div class="article-meta">
+              <span><i class='bx bx-calendar'></i> February 27, 2026</span>
+              <span style="margin:0 10px;">|</span>
+              <span><i class='bx bx-category'></i> Networking</span>
             </div>
-        </header>
+          </header>
 
-        <main class="blog-content-wrapper">
-            <div class="container">
-                <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>আগের Page-এ ফিরে
-                        যান</span></a>
+          <div class="article-body">
+            <p><strong>Public vs Private IP Address</strong> — Internet এবং Local Network-এর
+              Internal রহস্য উন্মোচন। এই Blog-এ আমরা জানব কেন এই দুই Type ের IP Address প্রয়োজন এবং
+              তারা কীভাবে একসাথে Task করে।</p>
 
-                <article class="glass-panel">
-                    <header class="article-header">
-                        <h1>Public vs Private IP Address</h1>
-                        <div class="article-meta">
-                            <span><i class='bx bx-calendar'></i> February ২৭, 2026</span>
-                            <span style="margin:0 10px;">|</span>
-                            <span><i class='bx bx-category'></i> Networking</span>
-                        </div>
-                    </header>
+            <hr>
 
-                    <div class="article-body">
-                        <p><strong>Public vs Private IP Address</strong> — Internet এবং Local Network-এর
-                            Internal রহস্য উন্মোচন। এই Blog-এ আমরা জানব কেন এই দুই Typeের IP Address প্রয়োজন এবং
-                            তারা কীভাবে একসাথে Task করে।</p>
+            <h2><i class="bi bi-shield-check"></i> 1. Private IP Address (Private IP)</h2>
+            <p>একটি <strong>Private IP Address</strong> হলো আপনার Local Network-এর ভেতরের Device-এর
+              Identity পত্র।
+              একটি বাড়ির ভেতরে Room-গুলোর যেমন Separate নাম থাকে, তেমনি Local Network-এ Device-গুলোর Separate
+              Symbol থাকে
+              এই IP-র মাধ্যমে।</p>
 
-                        <hr>
-
-                        <h2><i class="bi bi-shield-check"></i> 1. Private IP Address (Private IP)</h2>
-                        <p>একটি <strong>Private IP Address</strong> হলো আপনার Local Network-এর ভেতরের Device-এর
-                            Identityপত্র।
-                            একটি বাড়ির ভেতরে Room-গুলোর যেমন Separate নাম থাকে, তেমনি Local Network-এ Device-গুলোর Separate
-                            Symbol থাকে
-                            এই IP-র মাধ্যMay।</p>
-
-                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">
-                            <div class="content-box">
-                                <h3><i class="bi bi-cpu"></i> Internal ব্যবহার</h3>
-                                <p>এটি শুধুমাত্র Local LAN (LAN) এ Task করে। Internet-এর সাথে এর সরাসরি কোনো যোগসূত্র
-                                    নেই।</p>
-                            </div>
-                            <div class="content-box">
-                                <h3><i class="bi bi-lock"></i> অদৃশ্য সুরক্ষা</h3>
-                                <p>আপনার Private IP Internet-এর বাইরের কেউ সরাসরি দেখতে পায় না, যা Network-এর
-                                    প্রাথমিক
-                                    Security নিশ্চিত করে।</p>
-                            </div>
-                        </div>
-
-                        <h3><i class="bi bi-search"></i> Private IP কি Track করা সম্ভব? (Can We Trace a Private
-                            IP?)</h3>
-                        <p>একটি Private IP Address শুধুমাত্র যে Local Network-এ এটি Assign করা হয়েছে, তার ভেতরে
-                            Track করা সম্ভব। একই Local LAN (LAN)-এর অন্তর্ভুক্ত Device-গুলো এই Private IP দিয়ে
-                            যোগাযোগ করতে পারে। তবে, Internet থেকে কোনো Private IP Track বা Access করা সম্ভব নয়।
-                            বাইরের Network শুধু Router-এর Public IP-টিই দেখতে পায় <strong>NAT (Network Address
-                                Translation)</strong>-এর Reasonে।</p>
-
-                        <h3><i class="bi bi-star"></i> Private IP-র মূল Featureসমূহ (Key Features)</h3>
-                        <ul style="margin-bottom: 25px;">
-                            <li>Private IP-গুলো Public Internet থেকে সরাসরি Reach করা যায় না, যা বাইরের Attack থেকে
-                                রক্ষা করে।</li>
-                            <li>এটি একটি বিশাল Internal Address Space প্রদান করে, যা অনেক Device যুক্ত করার সুযোগ
-                                দেয়।</li>
-                            <li>প্রতিষ্ঠানগুলো কোনো অতিরিক্ত Public IP না কিনেই তাদের Network-এ বিনামূল্যে Private
-                                IP ব্যবহার করতে পারে।</li>
-                            <li>বহিরাগত Network-এ যোগাযোগের জন্য NAT বা Proxy Server-এর প্রয়োজন হয়।</li>
-                        </ul>
-
-                        <h3><i class="bi bi-link-45deg"></i> সংরক্ষিত Private IP Range-সমূহ</h3>
-                        <div class="range-box">
-                            <div class="range-item"><span>Class A</span> <span>10.0.0.0 — 10.255.255.255</span></div>
-                            <div class="range-item"><span>Class B</span> <span>172.16.0.0 — 172.31.255.255</span></div>
-                            <div class="range-item"><span>Class C</span> <span>192.168.0.0 — 192.168.255.255</span>
-                            </div>
-                        </div>
-
-                        <hr>
-
-                        <h2><i class="bi bi-broadcast"></i> 2. Public IP Address (Public IP)</h2>
-                        <p><strong>Public IP Address</strong> হলো সারা পৃথিবীর মানুষের সাথে যোগাযোগের মূল Address।
-                            আপনার
-                            বাসার একটি রাস্তার Holding Number যেমন Unique থাকে, Internet-এ আপনার Identityও তেমনি এই Public
-                            IP
-                            দ্বারা Fixed হয়।</p>
-
-                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">
-                            <div class="content-box">
-                                <h3><i class="bi bi-arrow-repeat"></i> Dynamic IP</h3>
-                                <p>Dynamic Public IP সাধারণত আপনার Internet Service Provider (ISP) প্রদান করে এবং
-                                    এটি নির্দিষ্ট সময় পর বা Router Restart করলে পরিবর্তিত হতে পারে। Highরভাগ বাসাবাড়ি
-                                    এবং মোবাইলের Network-এ এটি ব্যবহৃত হয়।</p>
-                            </div>
-                            <div class="content-box">
-                                <h3><i class="bi bi-pin-angle"></i> Static IP</h3>
-                                <p>Static IP Fixed থাকে এবং কখনোই Change হয় না। এটি সাধারণত Server, Web
-                                    Hosting এবং Email বা DNS Server-এর জন্য ব্যবহৃত হয়।</p>
-                            </div>
-                        </div>
-
-                        <h3><i class="bi bi-search"></i> Public IP কি Track করা সম্ভব? (Can We Trace a Public IP?)
-                        </h3>
-                        <p>হ্যাঁ, একটি Public IP Address-কে Track করে Internet-এ সেই Provider বা ISP-কে
-                            খুঁজে পাওয়া সম্ভব, এমনকি আনুমানিক ভৌগোলিক অবস্থান (যেমন- শহর বা অঞ্চল) বের করা যায়। তবে এটি
-                            দিয়ে কোনো সুনির্দিষ্ট বাড়ির Address বের করা যায় না। Privacy-র Reasonে অনেকেই VPN বা Proxy
-                            ব্যবহার করে নিজেদের আসল Public IP আড়াল করে রাখেন।</p>
-
-                        <h3><i class="bi bi-star"></i> Public IP-র মূল Featureসমূহ (Key Features)</h3>
-                        <ul style="margin-bottom: 25px;">
-                            <li>Public IP Address কোনো Device বা Service-কে সরাসরি Internet থেকে Reachable করে তোলে।
-                            </li>
-                            <li>Website, Application Server, Game Server এবং Cloud Host করার জন্য এটি ব্যবহার করা
-                                হয়।</li>
-                            <li>NAT বা কোনো Intermediate Routing ছাড়াই Internet-এ সরাসরি যোগাযোগ সম্ভব।</li>
-                            <li>Public IP Service Provider-দের কাছ থেকে কিনতে হয়, যা অতিরিক্ত Costের বিষয়।</li>
-                            <li>এটি Internet-এ Visible, যার ফলে Privacy নিয়ে সচেতন থাকা জরুরি।</li>
-                        </ul>
-
-                        <hr>
-
-                        <h2><i class="bi bi-layers"></i> 3. মূল পার্থক্যসমূহ (Comparison)</h2>
-                        <div class="table-responsive">
-                            <table class="comparison-table">
-                                <thead>
-                                    <tr>
-                                        <th>Feature</th>
-                                        <th>Private IP</th>
-                                        <th>Public IP</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>যোগাযোগ</strong></td>
-                                        <td>Local LAN</td>
-                                        <td>Global Internet</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>রাউটেবল</strong></td>
-                                        <td>না (Non-routable)</td>
-                                        <td>হ্যাঁ (Routable)</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>অনন্যতা</strong></td>
-                                        <td>Local Area স্বতন্ত্র</td>
-                                        <td>বিশ্বব্যাপী স্বতন্ত্র</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>বরাদ্দানকারী</strong></td>
-                                        <td>Local Router</td>
-                                        <td>Internet Provider (ISP)</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>ব্যয়</strong></td>
-                                        <td>Free / বিনামূল্যে</td>
-                                        <td>Paid / মাসিক Fee</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <hr>
-
-                        <h2><i class="bi bi-shuffle"></i> 4. NAT এর জাদু (How They Work Together)</h2>
-                        <div class="nat-box">
-                            <i class="bi bi-router"></i>
-                            <p style="font-size: 1.15rem; line-height: 1.8; color: #d0d0e0; margin: 0;">
-                                আপনার Router একটি <strong>Bridge (সেতু)</strong> হিসেবে Task করে। <br>
-                                সে আপনার Device-এর <strong>Private IP</strong>-কে Internet-এর সামনে Global
-                                <strong>Public
-                                    IP</strong>-তে রূপান্তর করে। <br>
-                                এই প্রক্রিয়াকেই বলা হয় <strong style="color:var(--primary-color);">Network Address
-                                    Translation (NAT)</strong>।
-                            </p>
-                        </div>
-
-                    </div>
-                </article>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">
+              <div class="content-box">
+                <h3><i class="bi bi-cpu"></i> Internal ব্যবহার</h3>
+                <p>এটি শুধুমাত্র Local LAN (LAN) এ Task করে। Internet-এর সাথে এর সরাসরি কোনো যোগসূত্র
+                  নেই।</p>
+              </div>
+              <div class="content-box">
+                <h3><i class="bi bi-lock"></i> অদৃশ্য সুরক্ষা</h3>
+                <p>আপনার Private IP Internet-এর বাইরের কেউ সরাসরি দেখতে পায় না, যা Network-এর
+                  প্রাথমিক
+                  Security নিশ্চিত করে।</p>
+              </div>
             </div>
-        </main>
 
-        <footer class="glass-footer">
-            <div class="container">
-                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+            <h3><i class="bi bi-search"></i> Private IP কি Track করা সম্ভব? (Can We Trace a Private
+              IP?)</h3>
+            <p>একটি Private IP Address শুধুমাত্র যে Local Network-এ এটি Assign করা হয়েছে, তার ভেতরে
+              Track করা সম্ভব। একই Local LAN (LAN)-এর অন্তর্ভুক্ত Device-গুলো এই Private IP দিয়ে
+              যোগাযোগ করতে পারে। তবে, Internet থেকে কোনো Private IP Track বা Access করা সম্ভব নয়।
+              বাইরের Network শুধু Router-এর Public IP-টিই দেখতে পায় <strong>NAT (Network Address
+                Translation)</strong>-এর Reason ে।</p>
+
+            <h3><i class="bi bi-star"></i> Private IP-র মূল Feature সমূহ (Key Features)</h3>
+            <ul style="margin-bottom: 25px;">
+              <li>Private IP-গুলো Public Internet থেকে সরাসরি Reach করা যায় না, যা বাইরের Attack থেকে
+                রক্ষা করে।</li>
+              <li>এটি একটি বিশাল Internal Address Space প্রদান করে, যা অনেক Device যুক্ত করার সুযোগ
+                দেয়।</li>
+              <li>প্রতিষ্ঠানগুলো কোনো অতিরিক্ত Public IP না কিনেই তাদের Network-এ বিনামূল্যে Private
+                IP ব্যবহার করতে পারে।</li>
+              <li>বহিরাগত Network-এ যোগাযোগের জন্য NAT বা Proxy Server-এর প্রয়োজন হয়।</li>
+            </ul>
+
+            <h3><i class="bi bi-link-45deg"></i> সংরক্ষিত Private IP Range-সমূহ</h3>
+            <div class="range-box">
+              <div class="range-item"><span>Class A</span> <span>10.0.0.0 — 10.255.255.255</span></div>
+              <div class="range-item"><span>Class B</span> <span>172.16.0.0 — 172.31.255.255</span></div>
+              <div class="range-item"><span>Class C</span> <span>192.168.0.0 — 192.168.255.255</span>
+              </div>
             </div>
-        </footer>
-    </div>
-    <script type="module" src="../js/main.js"></script>
-    <script type="module" src="../js/network-background.js"></script>
+
+            <hr>
+
+            <h2><i class="bi bi-broadcast"></i> 2. Public IP Address (Public IP)</h2>
+            <p><strong>Public IP Address</strong> হলো সারা পৃথিবীর মানুষের সাথে যোগাযোগের মূল Address।
+              আপনার
+              বাসার একটি রাস্তার Holding Number যেমন Unique থাকে, Internet-এ আপনার Identity ও তেমনি এই Public
+              IP
+              দ্বারা Fixed হয়।</p>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">
+              <div class="content-box">
+                <h3><i class="bi bi-arrow-repeat"></i> Dynamic IP</h3>
+                <p>Dynamic Public IP সাধারণত আপনার Internet Service Provider (ISP) প্রদান করে এবং
+                  এটি নির্দিষ্ট সময় পর বা Router Restart করলে পরিবর্তিত হতে পারে। High রভাগ বাসাবাড়ি
+                  এবং মোবাইলের Network-এ এটি ব্যবহৃত হয়।</p>
+              </div>
+              <div class="content-box">
+                <h3><i class="bi bi-pin-angle"></i> Static IP</h3>
+                <p>Static IP Fixed থাকে এবং কখনোই Change হয় না। এটি সাধারণত Server, Web
+                  Hosting এবং Email বা DNS Server-এর জন্য ব্যবহৃত হয়।</p>
+              </div>
+            </div>
+
+            <h3><i class="bi bi-search"></i> Public IP কি Track করা সম্ভব? (Can We Trace a Public IP?)
+            </h3>
+            <p>হ্যাঁ, একটি Public IP Address-কে Track করে Internet-এ সেই Provider বা ISP-কে
+              খুঁজে পাওয়া সম্ভব, এমনকি আনুমানিক ভৌগোলিক অবস্থান (যেমন- শহর বা অঞ্চল) বের করা যায়। তবে এটি
+              দিয়ে কোনো সুনির্দিষ্ট বাড়ির Address বের করা যায় না। Privacy-র Reason ে অনেকেই VPN বা Proxy
+              ব্যবহার করে নিজেদের আসল Public IP আড়াল করে রাখেন।</p>
+
+            <h3><i class="bi bi-star"></i> Public IP-র মূল Feature সমূহ (Key Features)</h3>
+            <ul style="margin-bottom: 25px;">
+              <li>Public IP Address কোনো Device বা Service-কে সরাসরি Internet থেকে Reachable করে তোলে।
+              </li>
+              <li>Website, Application Server, Game Server এবং Cloud Host করার জন্য এটি ব্যবহার করা
+                হয়।</li>
+              <li>NAT বা কোনো Intermediate Routing ছাড়াই Internet-এ সরাসরি যোগাযোগ সম্ভব।</li>
+              <li>Public IP Service Provider-দের কাছ থেকে কিনতে হয়, যা অতিরিক্ত Cost ের বিষয়।</li>
+              <li>এটি Internet-এ Visible, যার ফলে Privacy নিয়ে সচেতন থাকা জরুরি।</li>
+            </ul>
+
+            <hr>
+
+            <h2><i class="bi bi-layers"></i> 3. মূল পার্থক্যসমূহ (Comparison)</h2>
+            <div class="table-responsive">
+              <table class="comparison-table">
+                <thead>
+                  <tr>
+                    <th>Feature</th>
+                    <th>Private IP</th>
+                    <th>Public IP</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>যোগাযোগ</strong></td>
+                    <td>Local LAN</td>
+                    <td>Global Internet</td>
+                  </tr>
+                  <tr>
+                    <td><strong>রাউটেবল</strong></td>
+                    <td>না (Non-routable)</td>
+                    <td>হ্যাঁ (Routable)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>অনন্যতা</strong></td>
+                    <td>Local Area স্বতন্ত্র</td>
+                    <td>বিশ্বব্যাপী স্বতন্ত্র</td>
+                  </tr>
+                  <tr>
+                    <td><strong>বরাদ্দানকারী</strong></td>
+                    <td>Local Router</td>
+                    <td>Internet Provider (ISP)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>ব্যয়</strong></td>
+                    <td>Free / বিনামূল্যে</td>
+                    <td>Paid / মাসিক Fee</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <hr>
+
+            <h2><i class="bi bi-shuffle"></i> 4. NAT এর জাদু (How They Work Together)</h2>
+            <div class="nat-box">
+              <i class="bi bi-router"></i>
+              <p style="font-size: 1.15rem; line-height: 1.8; color: #d0d0e0; margin: 0;">
+                আপনার Router একটি <strong>Bridge (সেতু)</strong> হিসেবে Task করে। <br>
+                সে আপনার Device-এর <strong>Private IP</strong>-কে Internet-এর সামনে Global
+                <strong>Public
+                  IP</strong>-তে রূপান্তর করে। <br>
+                এই প্রক্রিয়াকেই বলা হয় <strong style="color:var(--primary-color);">Network Address
+                  Translation (NAT)</strong>।
+              </p>
+            </div>
+
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="glass-footer">
+      <div class="container container-blog">
+        <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </div>
+  <script type="module" src="../js/main.js"></script>
+  <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>
+
+
+
+

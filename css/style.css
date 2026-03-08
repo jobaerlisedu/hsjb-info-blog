@@ -1,4 +1,4 @@
-@import url("https://db.onlinewebfonts.com/c/aec382221b330b8581963c1bcc7c61d9?family=Nikosh");
+﻿@import url("https://db.onlinewebfonts.com/c/aec382221b330b8581963c1bcc7c61d9?family=Nikosh");
 
 :root {
     --primary-color: #2196f3;
@@ -60,6 +60,10 @@ body {
 }
 
 .container-wide {
+    max-width: 1600px;
+}
+
+.container-blog {
     max-width: 1600px;
 }
 
@@ -905,5 +909,5 @@ code {
 
 /* Blog Readability Improvement */
 .blog-content-wrapper .container {
-    max-width: 1000px;
+    max-width: 1600px;
 }

@@ -1,349 +1,353 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TCP/IP Model: The Foundation of Internet | enablement.info</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TCP/IP Model: The Foundation of Internet | enablement.info</title>
 
 
 
-    <!-- Icons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Icons -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css">
 
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-            }
-        }
-    </script>
-    <style>
-        .blog-content-wrapper {
-            padding-top: 20px;
-            padding-bottom: 60px;
-        }
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+  <style>
+    .blog-content-wrapper {
+      padding-top: 20px;
+      padding-bottom: 60px;
+    }
 
-        .article-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    .article-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
 
-        .article-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
+    .article-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
 
-        .article-meta {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
+    .article-meta {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
 
-        .article-body {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #d0d0e0;
-        }
+    .article-body {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #d0d0e0;
+    }
 
-        .article-body h2,
-        .article-body h3 {
-            font-family: 'Times New Roman', 'Nikosh', serif;
-            color: var(--primary-color);
-            margin-top: 40px;
-            margin-bottom: 20px;
-            font-weight: 800;
-        }
+    .article-body h2,
+    .article-body h3 {
+      font-family: 'Times New Roman', 'Nikosh', serif;
+      color: var(--primary-color);
+      margin-top: 40px;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
 
-        .article-body h2 {
-            font-size: 1.8rem;
-        }
+    .article-body h2 {
+      font-size: 1.8rem;
+    }
 
-        .article-body h3 {
-            font-size: 1.4rem;
-            color: #fff;
-        }
+    .article-body h3 {
+      font-size: 1.4rem;
+      color: #fff;
+    }
 
-        .article-body ul,
-        .article-body ol {
-            margin-bottom: 20px;
-            padding-left: 20px;
-        }
+    .article-body ul,
+    .article-body ol {
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
 
-        .article-body li {
-            margin-bottom: 10px;
-        }
+    .article-body li {
+      margin-bottom: 10px;
+    }
 
-        .article-body img {
-            max-width: 100%;
-            border-radius: 12px;
-            margin: 20px 0;
-            border: 1px solid var(--glass-border);
-        }
+    .article-body img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin: 20px 0;
+      border: 1px solid var(--glass-border);
+    }
 
-        .article-body figcaption {
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-top: -10px;
-            margin-bottom: 30px;
-            font-style: italic;
-        }
-    </style>
+    .article-body figcaption {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: -10px;
+      margin-bottom: 30px;
+      font-style: italic;
+    }
+  </style>
 </head>
 
 <body>
-    <canvas id="network-canvas"></canvas>
-    <div class="overlay">
-        <header class="glass-header">
-            <div class="container">
-                <nav class="main-nav">
-                    <ul>
-                        <li>
-                            <a href="../index.html">
-                                <i class='bx bx-home-alt-2'></i>
-                                <span class="nav-text">Home</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../blogs.html" class="active">
-                                <i class='bx bx-book-content'></i>
-                                <span class="nav-text">Blog</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+  <canvas id="network-canvas"></canvas>
+  <div class="overlay">
+    <header class="glass-header">
+      <div class="container container-blog">
+        <nav class="main-nav">
+          <ul>
+            <li>
+              <a href="../index.html">
+                <i class='bx bx-home-alt-2'></i>
+                <span class="nav-text">Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="../blogs.html" class="active">
+                <i class='bx bx-book-content'></i>
+                <span class="nav-text">Blog</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="blog-content-wrapper">
+      <div class="container container-blog">
+        <a href="../blogs.html" class="back-btn">
+          <i class='bx bx-arrow-back'></i>
+          <span>Return to Previous Page</span>
+        </a>
+
+        <article class="glass-panel">
+          <header class="article-header">
+            <h1>TCP/IP Model and its Layers</h1>
+            <div class="article-meta">
+              <span><i class='bx bx-calendar'></i> 2 January, 2026</span>
+              <span style="margin: 0 10px;">|</span>
+              <span><i class='bx bx-category'></i> Protocol</span>
             </div>
-        </header>
+          </header>
 
-        <main class="blog-content-wrapper">
-            <div class="container">
-                <a href="../blogs.html" class="back-btn">
-                    <i class='bx bx-arrow-back'></i>
-                    <span>Return to Previous Page</span>
-                </a>
+          <div class="article-body">
+            <h2><i class="bi bi-lightbulb"></i> TCP/IP Model What is? (What is TCP/IP Model?)</h2>
+            <p>TCP/IP (Transmission Control Protocol/Internet Protocol) Model হলো একটি Layered Networking
+              Framework যা বর্ণনা করে কীভাবে Network-এর মাধ্যমে Device-গুলোর মধ্যে Data আদান-প্রদান
+              করা হয়। এটি Standard Protocol ব্যবহার করে Reliable এবং দক্ষ Data Transmission
+              নিশ্চিত করে।</p>
+            <ul>
+              <li>এটি একটি Four-layer Architecture যা Application, Transport, Internet এবং
+                Network Access Layer নিয়ে গঠিত।</li>
+              <li>এটি RFC 1122 দ্বারা Standardized করা হয়েছে।</li>
+              <li>এটি সাত-Layer OSI Model-এর তুলনায় সহজ এবং High ব্যবহারিক।</li>
+              <li>এটি Modern Internet এবং Networking System-এর মূল Structure হিসেবে Task করে।</li>
+            </ul>
 
-                <article class="glass-panel">
-                    <header class="article-header">
-                        <h1>TCP/IP Model and its Layers</h1>
-                        <div class="article-meta">
-                            <span><i class='bx bx-calendar'></i> 2 January, 2026</span>
-                            <span style="margin: 0 10px;">|</span>
-                            <span><i class='bx bx-category'></i> Protocol</span>
-                        </div>
-                    </header>
+            <h2><i class="bi bi-layers"></i> TCP/IP Model-এর Layers (Layers of TCP/IP Model)</h2>
 
-                    <div class="article-body">
-                        <h2><i class="bi bi-lightbulb"></i> TCP/IP Model What is? (What is TCP/IP Model?)</h2>
-                        <p>TCP/IP (Transmission Control Protocol/Internet Protocol) Model হলো একটি Layered Networking
-                            Framework যা বর্ণনা করে কীভাবে Network-এর মাধ্যMay Device-গুলোর মধ্যে Data আদান-প্রদান
-                            করা হয়। এটি Standard Protocol ব্যবহার করে Reliable এবং দক্ষ Data Transmission
-                            নিশ্চিত করে।</p>
-                        <ul>
-                            <li>এটি একটি Four-layer Architecture যা Application, Transport, Internet এবং
-                                Network Access Layer নিয়ে গঠিত।</li>
-                            <li>এটি RFC 1122 দ্বারা Standardized করা হয়েছে।</li>
-                            <li>এটি সাত-Layer OSI Model-এর তুলনায় সহজ এবং High ব্যবহারিক।</li>
-                            <li>এটি Modern Internet এবং Networking System-এর মূল Structure হিসেবে Task করে।</li>
-                        </ul>
+            <h3>1. Application Layer</h3>
+            <p>এটি TCP/IP Model-এর সবচেয়ে উপরের Layer, যা User-এর সবচেয়ে কাছাকাছি থাকে। এখানে Web Browser,
+              Email Client এবং File-sharing Tool-গুলো Network-এর সাথে interact করে। এটি User Software এবং
+              নিচের Layer-গুলোর মধ্যে Interface হিসেবে Task করে, যা নিরবচ্ছিন্ন যোগাযোগ নিশ্চিত করে।</p>
+            <ul>
+              <li><strong>User Application ও নিচের Layer-এর মধ্যে Bridge:</strong> এটি User Application
+                এবং নিচের Network Layer-এর মধ্যে একটি Bridge হিসেবে Task করে।</li>
+              <li><strong>Protocol Support:</strong> এটি HTTP, FTP, SMTP, এবং DNS-এর মতো Protocol support
+                করে।</li>
+              <li><strong>Data Formatting:</strong> Information যাতে Sender এবং Receiver উভয় পক্ষই সঠিকভাবে বুঝতে
+                পারে সেভাবে Data Formatting Handle করে।</li>
+              <li><strong>Encryption:</strong> Secure যোগাযোগের জন্য Encryption প্রদান করে।</li>
+              <li><strong>Session Management:</strong> Running Connection-গুলো Track করতে Session Operation
+                করে।
+              </li>
+            </ul>
 
-                        <h2><i class="bi bi-layers"></i> TCP/IP Model-এর Layers (Layers of TCP/IP Model)</h2>
+            <h3>2. Transport Layer</h3>
+            <p>এটি Device-গুলোর মধ্যে Data-র Reliable এবং দক্ষ Delivery নিশ্চিত করে। এটি Segmentation,
+              Ordering এবং প্রয়োজন অনুযায়ী Retransmission Manage করে।</p>
+            <ul>
+              <li><strong>Segmentation এবং Reassembly:</strong> বড় Message-কে Packet-এ ভাগ করে এবং
+                Destination এ সেগুলো আবার Pair লাগায়।</li>
+              <li><strong>Reliable Delivery ও Error Handling:</strong> TCP Error Test করে, হারানো
+                Data পুনরায় পাঠায় এবং সঠিক ক্রম নিশ্চিত করে।</li>
+              <li><strong>Fast যোগাযোগ:</strong> UDP কম-Latency এবং Connectionless Delivery প্রদান করে
+                (Error Test ছাড়াই)।</li>
+              <li><strong>Flow Control:</strong> Data প্রবাহ Control করে Receiver অতিরিক্ত Data-র চাপ
+                থেকে রক্ষা করে।</li>
+              <li><strong>Multiplexing:</strong> Port number ব্যবহার করে Multiple Application-কে একসাথে
+                Network Share করার সুযোগ দেয়।</li>
+            </ul>
 
-                        <h3>1. Application Layer</h3>
-                        <p>এটি TCP/IP Model-এর সবচেয়ে উপরের Layer, যা User-এর সবচেয়ে কাছাকাছি থাকে। এখানে Web Browser,
-                            Email Client এবং File-sharing Tool-গুলো Network-এর সাথে interact করে। এটি User Software এবং
-                            নিচের Layer-গুলোর মধ্যে Interface হিসেবে Task করে, যা নিরবচ্ছিন্ন যোগাযোগ নিশ্চিত করে।</p>
-                        <ul>
-                            <li><strong>User Application ও নিচের Layer-এর মধ্যে Bridge:</strong> এটি User Application
-                                এবং নিচের Network Layer-এর মধ্যে একটি Bridge হিসেবে Task করে।</li>
-                            <li><strong>Protocol Support:</strong> এটি HTTP, FTP, SMTP, এবং DNS-এর মতো Protocol support
-                                করে।</li>
-                            <li><strong>Data Formatting:</strong> Information যাতে Sender এবং Receiver উভয় পক্ষই সঠিকভাবে বুঝতে
-                                পারে সেভাবে Data Formatting Handle করে।</li>
-                            <li><strong>Encryption:</strong> Secure যোগাযোগের জন্য Encryption প্রদান করে।</li>
-                            <li><strong>Session Management:</strong> Running Connection-গুলো Track করতে Session Operation
-                                করে।
-                            </li>
-                        </ul>
+            <div class="content-box">
+              <h4>TCP (Transmission Control Protocol)</h4>
+              <p>যখন Reliable তা এবং Accurate তা সবচেয়ে High গুরুত্বপূর্ণ তখন TCP ব্যবহৃত হয়। এটি
+                নিশ্চিত করে যে Data ঠিক যেভাবে পাঠানো হয়েছে সেভাবেই পৌঁছাবে।</p>
+              <ul>
+                <li><strong>Error Checking:</strong> Checksum ব্যবহার করে Data-র Error শনাক্ত করে
+                  অখণ্ডতা
+                  নিশ্চিত করে।</li>
+                <li><strong>Retransmission:</strong> Transmission-এর সময় কোনো Data হারিয়ে গেলে বা নষ্ট
+                  হলে TCP স্বয়ংক্রিয়ভাবে তা পুনরায় পাঠায়।</li>
+                <li><strong>Ordered Delivery:</strong> Data Packet-এ বিভক্ত হয় এবং TCP নিশ্চিত করে যে
+                  এই Packet-গুলো সঠিক ক্র মেপৌঁছাবে।</li>
+                <li><strong>Connection-oriented:</strong> Data পাঠানোর আগে Sender ও Receiver মধ্যে
+                  Connection Creation করে Session বজায় রাখে।</li>
+                <li><strong>ব্যবহার:</strong> Web page Load করা, ফাইল Download, Email পাঠানো বা যেখানে
+                  Data-র Accurate তা প্রয়োজন।</li>
+              </ul>
 
-                        <h3>2. Transport Layer</h3>
-                        <p>এটি Device-গুলোর মধ্যে Data-র Reliable এবং দক্ষ Delivery নিশ্চিত করে। এটি Segmentation,
-                            Ordering এবং প্রয়োজন অনুযায়ী Retransmission Manage করে।</p>
-                        <ul>
-                            <li><strong>Segmentation এবং Reassembly:</strong> বড় Message-কে Packet-এ ভাগ করে এবং
-                                Destinationে সেগুলো আবার Pair লাগায়।</li>
-                            <li><strong>Reliable Delivery ও Error Handling:</strong> TCP Error Test করে, হারানো
-                                Data পুনরায় পাঠায় এবং সঠিক ক্রম নিশ্চিত করে।</li>
-                            <li><strong>Fast যোগাযোগ:</strong> UDP কম-Latency এবং Connectionless Delivery প্রদান করে
-                                (Error Test ছাড়াই)।</li>
-                            <li><strong>Flow Control:</strong> Data প্রবাহ Control করে Receiver অতিরিক্ত Data-র চাপ
-                                থেকে রক্ষা করে।</li>
-                            <li><strong>Multiplexing:</strong> Port number ব্যবহার করে Multiple Application-কে একসাথে
-                                Network Share করার সুযোগ দেয়।</li>
-                        </ul>
-
-                        <div class="content-box">
-                            <h4>TCP (Transmission Control Protocol)</h4>
-                            <p>যখন Reliableতা এবং Accurateতা সবচেয়ে High গুরুত্বপূর্ণ তখন TCP ব্যবহৃত হয়। এটি
-                                নিশ্চিত করে যে Data ঠিক যেভাবে পাঠানো হয়েছে সেভাবেই পৌঁছাবে।</p>
-                            <ul>
-                                <li><strong>Error Checking:</strong> Checksum ব্যবহার করে Data-র Error শনাক্ত করে
-                                    অখণ্ডতা
-                                    নিশ্চিত করে।</li>
-                                <li><strong>Retransmission:</strong> Transmission-এর সময় কোনো Data হারিয়ে গেলে বা নষ্ট
-                                    হলে TCP স্বয়ংক্রিয়ভাবে তা পুনরায় পাঠায়।</li>
-                                <li><strong>Ordered Delivery:</strong> Data Packet-এ বিভক্ত হয় এবং TCP নিশ্চিত করে যে
-                                    এই Packet-গুলো সঠিক ক্রMay পৌঁছাবে।</li>
-                                <li><strong>Connection-oriented:</strong> Data পাঠানোর আগে Sender ও Receiver মধ্যে
-                                    Connection Creation করে Session বজায় রাখে।</li>
-                                <li><strong>ব্যবহার:</strong> Web page Load করা, ফাইল Download, Email পাঠানো বা যেখানে
-                                    Data-র Accurateতা প্রয়োজন।</li>
-                            </ul>
-
-                            <h4>UDP (User Datagram Protocol)</h4>
-                            <p>যখন Accurateতার চেয়ে Speed High গুরুত্বপূর্ণ তখন UDP ব্যবহৃত হয়। এটি Fast Task করে কিন্তু
-                                Reliable Delivery-র গ্যারান্টি দেয় না।</p>
-                            <ul>
-                                <li><strong>Error Checking নেই:</strong> Data-তে Error আছে কিনা তা যাচাই করে না।</li>
-                                <li><strong>Retransmission নেই:</strong> হারানো বা ক্ষতিগ্রস্ত Data পুনরায় পাঠায় না।
-                                </li>
-                                <li><strong>Ordered Delivery নেই:</strong> Packet-গুলো যেকোনো ক্রMay পৌঁছাতে পারে।</li>
-                                <li><strong>Lightweight:</strong> অতিরিক্ত Check না থাকায় এটি Fast এবং কম Resource
-                                    ব্যবহার
-                                    করে।</li>
-                                <li><strong>ব্যবহার:</strong> Live Video Streaming, অনলাইন গেমিং, VoIP কল।</li>
-                            </ul>
-                        </div>
-
-                        <h3>3. Internet Layer</h3>
-                        <p>এটি Data Packet-গুলোর Addressing, Packaging এবং Routing করার জন্য দায়ী যাতে সেগুলো
-                            Network-এর মাধ্যMay সঠিক Destinationে পৌঁছাতে পারে।</p>
-                        <ul>
-                            <li><strong>লজিক্যাল Addressিং:</strong> সোর্স এবং Destination Device শনাক্ত করতে IP
-                                Address অ্যাসাইন করে।</li>
-                            <li><strong>Packet রাউটিং:</strong> Data ভ্রমণের জন্য সেরা Path Determination করে।</li>
-                            <li><strong>ফ্র্যাগMayন্টেশন এবং রিঅ্যাসেম্বলি:</strong> বড় Packetকে ছোট ছোট ভাগে ভাগ করে
-                                এবং Destinationে আবার জোড়া লাগায়।</li>
-                            <li><strong>Protocol সাপোর্ট:</strong> মূলত IP (Internet Protocol) ব্যবহার করে, সাথে ICMP
-                                (এরর রিপোর্টিং) এবং ARP (Address রেজোলিউশন) ব্যবহার করে।</li>
-                        </ul>
-
-                        <h3>4. Network Access Layer (Link Layer)</h3>
-                        <p>এটি Network Hardware-এর (Cabling, Switch, Wireless) মাধ্যMay Data Physically Transmit
-                            করার জন্য দায়ী।</p>
-                        <ul>
-                            <li><strong>Physical Transmission:</strong> Ethernet Cable, Fiber Optics বা Wi-Fi-এর
-                                মাধ্যMay Raw Bits পাঠায় ও গ্রহণ করে।</li>
-                            <li><strong>Framing:</strong> Data-কে Frames-এ সাজায় যাতে Device-গুলো তা
-                                চিনতে পারে।</li>
-                            <li><strong>Error Detection:</strong> Checksum বা CRC ব্যবহার করে Transmission Error শনাক্ত
-                                করে।
-                            </li>
-                            <li><strong>MAC Addressing:</strong> একই Network segment-এর মধ্যে Device শনাক্ত করতে
-                                Hardware Address ব্যবহার করে।</li>
-                            <li><strong>Access Control:</strong> Multiple Device কীভাবে Physical Medium Share করবে
-                                তা Determination করে (Collision এড়ানো)।</li>
-                        </ul>
-
-                        <h2><i class="bi bi-arrow-down-up"></i> TCP/IP Model-এর Mechanism (Working of TCP/IP Model)
-                        </h2>
-
-                        <div class="content-box">
-                            <p><strong>1. Data পাঠানোর সময় (From Sender to Receiver):</strong></p>
-                            <ul>
-                                <li><strong>Application Layer:</strong> User-এর Software Data Creation করে নিচের Layer-এ
-                                    পাঠায়।</li>
-                                <li><strong>Transport Layer:</strong> Data-কে ছোট ছোট ভাগে (Segments) ভাগ করে এবং
-                                    Control information (TCP/UDP) যোগ করে।</li>
-                                <li><strong>Internet Layer:</strong> প্রতিটি Segment-এর সাথে IP Address যোগ করে
-                                    Packet-এ রূপান্তর করা হয় যাতে Network-এর মাধ্যMay Route করা যায়।</li>
-                                <li><strong>Network Access Layer:</strong> Packet-গুলোকে Frame-এ রূপান্তর করে
-                                    Physical Medium-এর (Ethernet, Wi-Fi) মাধ্যMay পাঠানো হয়।</li>
-                            </ul>
-                        </div>
-
-                        <div class="content-box">
-                            <p><strong>2. Data গ্রহণের সময় (At the Destination):</strong></p>
-                            <ul>
-                                <li><strong>Network Access Layer:</strong> Physical Medium থেকে Frame-গুলো গ্রহণ করে
-                                    এবং Error Check করে।</li>
-                                <li><strong>Internet Layer:</strong> Frame থেকে Packet বের করে এবং IP Address Check করে
-                                    সঠিক Device-এ পৌঁছানো নিশ্চিত করে।</li>
-                                <li><strong>Transport Layer:</strong> Segment-গুলোকে আবার Pair লাগিয়ে মূল Message Creation
-                                    করে (যদি TCP ব্যবহার হয় তবে Error সংশোধন করে)।</li>
-                                <li><strong>Application Layer:</strong> সম্পূর্ণ Data User Application-এ (যেমন Browser
-                                    বা Email Client) পৌঁছে দেয়।</li>
-                            </ul>
-                        </div>
-
-                        <h2><i class="bi bi-check-circle"></i> Advantage ও সীমাবদ্ধতা</h2>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h3>Advantage (Advantages)</h3>
-                                <ul>
-                                    <li><strong>ব্যাপক ব্যবহার:</strong> এটি Internet এবং অধিকাংশ Modern Network-এর
-                                        ভিত্তি।</li>
-                                    <li><strong>Platform Independent:</strong> বিভিন্ন Hardware এবং Operating System-এ
-                                        Task করে।</li>
-                                    <li><strong>Reliable যোগাযোগ:</strong> TCP Error checking এবং Delivery
-                                        Confirmation
-                                        নিশ্চিত করে।</li>
-                                    <li><strong>Scalable:</strong> ছোট Network থেকে Global Internet scale পর্যন্ত
-                                        Support করে।</li>
-                                    <li><strong>Open Standard:</strong> এটি বিনামূল্যে ব্যবহারযোগ্য এবং কোনো Single
-                                        প্রতিষ্ঠানের দ্বারা নিয়ন্ত্রিত নয়।</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <h3>সীমাবদ্ধতা (Limitations)</h3>
-                                <ul>
-                                    <li><strong>নতুনদের জন্য জটিল:</strong> সব Protocol পুরোপুরি বোঝা কঠিন হতে পারে।
-                                    </li>
-                                    <li><strong>Layer-এর কঠোর Rule নেই:</strong> OSI-এর মতো Layer-এর সীমানা কঠোর নয়,
-                                        যা implementation-এ ভিন্নতা আনতে পারে।</li>
-                                    <li><strong>Overhead:</strong> TCP-এর Error checking ফিচারের Reasonে অতিরিক্ত Data
-                                        Overhead
-                                        হতে পারে।</li>
-                                    <li><strong>Securityর সীমাবদ্ধতা:</strong> এটি প্রাথমিকভাবে built-in security
-                                        দিয়ে Design করা হয়নি (TLS/SSL প্রয়োজন)।</li>
-                                    <li><strong>Multimedia support কম:</strong> Real-time audio/video-র জন্য এটি
-                                        optimized নয় (অতিরিক্ত Protocol লাগে)।</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <h2><i class="bi bi-question-circle"></i> কেন OSI Model-এর চেয়ে TCP/IP High ব্যবহৃত হয়?</h2>
-                        <p>TCP/IP Internet-এ High Popular Reason এটি সহজ, ব্যবহারিক এবং বাস্তবসম্মত। এর প্রধান Reasonগুলো
-                            হলো:</p>
-                        <ul>
-                            <li><strong>সহজ Structure:</strong> OSI-এর ৭টি Layer-এর তুলনায় TCP/IP-এর মাত্র ৪টি Layer, যা
-                                implement করা সহজ।</li>
-                            <li><strong>Protocol-চালিত Design:</strong> TCP/IP Creation হয়েছে বাস্তব Protocol-এর ওপর ভিত্তি
-                                করে, যেখানে OSI একটি Theoretical Model।</li>
-                            <li><strong>Flexibleতা ও দৃঢ়তা:</strong> এটি বিভিন্ন Hardware-এর সাথে খাপ খায় এবং এর
-                                শক্তিশালী Error handling ও Routing Capacity রয়েছে।</li>
-                            <li><strong>Open Standard:</strong> এটি Open এবং Free হওয়ার Reasonে সর্বজনীন
-                                গ্রহণযোগ্যতা পেয়েছে।</li>
-                            <li><strong>বাস্তব ব্যবহার:</strong> OSI শেখার জন্য ভালো হলেও, বাস্তব বিশ্বে Internet-এর
-                                জন্য TCP/IP-ই ব্যবহৃত হয়।</li>
-                        </ul>
-                    </div>
-                </article>
+              <h4>UDP (User Datagram Protocol)</h4>
+              <p>যখন Accurate তার চেয়ে Speed High গুরুত্বপূর্ণ তখন UDP ব্যবহৃত হয়। এটি Fast Task করে কিন্তু
+                Reliable Delivery-র গ্যারান্টি দেয় না।</p>
+              <ul>
+                <li><strong>Error Checking নেই:</strong> Data-তে Error আছে কিনা তা যাচাই করে না।</li>
+                <li><strong>Retransmission নেই:</strong> হারানো বা ক্ষতিগ্রস্ত Data পুনরায় পাঠায় না।
+                </li>
+                <li><strong>Ordered Delivery নেই:</strong> Packet-গুলো যেকোনো ক্র মেপৌঁছাতে পারে।</li>
+                <li><strong>Lightweight:</strong> অতিরিক্ত Check না থাকায় এটি Fast এবং কম Resource
+                  ব্যবহার
+                  করে।</li>
+                <li><strong>ব্যবহার:</strong> Live Video Streaming, অনলাইন গেমিং, VoIP কল।</li>
+              </ul>
             </div>
-        </main>
 
-        <footer class="glass-footer">
-            <div class="container">
-                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+            <h3>3. Internet Layer</h3>
+            <p>এটি Data Packet-গুলোর Addressing, Packaging এবং Routing করার জন্য দায়ী যাতে সেগুলো
+              Network-এর মাধ্যমে সঠিক Destination এ পৌঁছাতে পারে।</p>
+            <ul>
+              <li><strong>লজিক্যাল Address িং:</strong> সোর্স এবং Destination Device শনাক্ত করতে IP
+                Address অ্যাসাইন করে।</li>
+              <li><strong>Packet রাউটিং:</strong> Data ভ্রমণের জন্য সেরা Path Determination করে।</li>
+              <li><strong>ফ্র্যাগ মেন্টেশন এবং রিঅ্যাসেম্বলি:</strong> বড় Packet কে ছোট ছোট ভাগে ভাগ করে
+                এবং Destination এ আবার জোড়া লাগায়।</li>
+              <li><strong>Protocol সাপোর্ট:</strong> মূলত IP (Internet Protocol) ব্যবহার করে, সাথে ICMP
+                (এরর রিপোর্টিং) এবং ARP (Address রেজোলিউশন) ব্যবহার করে।</li>
+            </ul>
+
+            <h3>4. Network Access Layer (Link Layer)</h3>
+            <p>এটি Network Hardware-এর (Cabling, Switch, Wireless) মাধ্যমে Data Physically Transmit
+              করার জন্য দায়ী।</p>
+            <ul>
+              <li><strong>Physical Transmission:</strong> Ethernet Cable, Fiber Optics বা Wi-Fi-এর
+                মাধ্যমে Raw Bits পাঠায় ও গ্রহণ করে।</li>
+              <li><strong>Framing:</strong> Data-কে Frames-এ সাজায় যাতে Device-গুলো তা
+                চিনতে পারে।</li>
+              <li><strong>Error Detection:</strong> Checksum বা CRC ব্যবহার করে Transmission Error শনাক্ত
+                করে।
+              </li>
+              <li><strong>MAC Addressing:</strong> একই Network segment-এর মধ্যে Device শনাক্ত করতে
+                Hardware Address ব্যবহার করে।</li>
+              <li><strong>Access Control:</strong> Multiple Device কীভাবে Physical Medium Share করবে
+                তা Determination করে (Collision এড়ানো)।</li>
+            </ul>
+
+            <h2><i class="bi bi-arrow-down-up"></i> TCP/IP Model-এর Mechanism (Working of TCP/IP Model)
+            </h2>
+
+            <div class="content-box">
+              <p><strong>1. Data পাঠানোর সময় (From Sender to Receiver):</strong></p>
+              <ul>
+                <li><strong>Application Layer:</strong> User-এর Software Data Creation করে নিচের Layer-এ
+                  পাঠায়।</li>
+                <li><strong>Transport Layer:</strong> Data-কে ছোট ছোট ভাগে (Segments) ভাগ করে এবং
+                  Control information (TCP/UDP) যোগ করে।</li>
+                <li><strong>Internet Layer:</strong> প্রতিটি Segment-এর সাথে IP Address যোগ করে
+                  Packet-এ রূপান্তর করা হয় যাতে Network-এর মাধ্যমে Route করা যায়।</li>
+                <li><strong>Network Access Layer:</strong> Packet-গুলোকে Frame-এ রূপান্তর করে
+                  Physical Medium-এর (Ethernet, Wi-Fi) মাধ্য মেপাঠানো হয়।</li>
+              </ul>
             </div>
-        </footer>
-    </div>
-    <script type="module" src="../js/main.js"></script>
-    <script type="module" src="../js/network-background.js"></script>
+
+            <div class="content-box">
+              <p><strong>2. Data গ্রহণের সময় (At the Destination):</strong></p>
+              <ul>
+                <li><strong>Network Access Layer:</strong> Physical Medium থেকে Frame-গুলো গ্রহণ করে
+                  এবং Error Check করে।</li>
+                <li><strong>Internet Layer:</strong> Frame থেকে Packet বের করে এবং IP Address Check করে
+                  সঠিক Device-এ পৌঁছানো নিশ্চিত করে।</li>
+                <li><strong>Transport Layer:</strong> Segment-গুলোকে আবার Pair লাগিয়ে মূল Message Creation
+                  করে (যদি TCP ব্যবহার হয় তবে Error সংশোধন করে)।</li>
+                <li><strong>Application Layer:</strong> সম্পূর্ণ Data User Application-এ (যেমন Browser
+                  বা Email Client) পৌঁছে দেয়।</li>
+              </ul>
+            </div>
+
+            <h2><i class="bi bi-check-circle"></i> Advantage ও সীমাবদ্ধতা</h2>
+            <div class="row">
+              <div class="col-md-6">
+                <h3>Advantage (Advantages)</h3>
+                <ul>
+                  <li><strong>ব্যাপক ব্যবহার:</strong> এটি Internet এবং অধিকাংশ Modern Network-এর
+                    ভিত্তি।</li>
+                  <li><strong>Platform Independent:</strong> বিভিন্ন Hardware এবং Operating System-এ
+                    Task করে।</li>
+                  <li><strong>Reliable যোগাযোগ:</strong> TCP Error checking এবং Delivery
+                    Confirmation
+                    নিশ্চিত করে।</li>
+                  <li><strong>Scalable:</strong> ছোট Network থেকে Global Internet scale পর্যন্ত
+                    Support করে।</li>
+                  <li><strong>Open Standard:</strong> এটি বিনামূল্যে ব্যবহারযোগ্য এবং কোনো Single
+                    প্রতিষ্ঠানের দ্বারা নিয়ন্ত্রিত নয়।</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <h3>সীমাবদ্ধতা (Limitations)</h3>
+                <ul>
+                  <li><strong>নতুনদের জন্য জটিল:</strong> সব Protocol পুরোপুরি বোঝা কঠিন হতে পারে।
+                  </li>
+                  <li><strong>Layer-এর কঠোর Rule নেই:</strong> OSI-এর মতো Layer-এর সীমানা কঠোর নয়,
+                    যা implementation-এ ভিন্নতা আনতে পারে।</li>
+                  <li><strong>Overhead:</strong> TCP-এর Error checking ফিচারের Reason ে অতিরিক্ত Data
+                    Overhead
+                    হতে পারে।</li>
+                  <li><strong>Security র সীমাবদ্ধতা:</strong> এটি প্রাথমিকভাবে built-in security
+                    দিয়ে Design করা হয়নি (TLS/SSL প্রয়োজন)।</li>
+                  <li><strong>Multimedia support কম:</strong> Real-time audio/video-র জন্য এটি
+                    optimized নয় (অতিরিক্ত Protocol লাগে)।</li>
+                </ul>
+              </div>
+            </div>
+
+            <h2><i class="bi bi-question-circle"></i> কেন OSI Model-এর চেয়ে TCP/IP High ব্যবহৃত হয়?</h2>
+            <p>TCP/IP Internet-এ High Popular Reason এটি সহজ, ব্যবহারিক এবং বাস্তবসম্মত। এর প্রধান Reason গুলো
+              হলো:</p>
+            <ul>
+              <li><strong>সহজ Structure:</strong> OSI-এর 7টি Layer-এর তুলনায় TCP/IP-এর মাত্র 4টি Layer, যা
+                implement করা সহজ।</li>
+              <li><strong>Protocol-চালিত Design:</strong> TCP/IP Creation হয়েছে বাস্তব Protocol-এর ওপর ভিত্তি
+                করে, যেখানে OSI একটি Theoretical Model।</li>
+              <li><strong>Flexible তা ও দৃঢ়তা:</strong> এটি বিভিন্ন Hardware-এর সাথে খাপ খায় এবং এর
+                শক্তিশালী Error handling ও Routing Capacity রয়েছে।</li>
+              <li><strong>Open Standard:</strong> এটি Open এবং Free হওয়ার Reason ে সর্বজনীন
+                গ্রহণযোগ্যতা পেয়েছে।</li>
+              <li><strong>বাস্তব ব্যবহার:</strong> OSI শেখার জন্য ভালো হলেও, বাস্তব বিশ্বে Internet-এর
+                জন্য TCP/IP-ই ব্যবহৃত হয়।</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="glass-footer">
+      <div class="container container-blog">
+        <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </div>
+  <script type="module" src="../js/main.js"></script>
+  <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>
+
+
+
+

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Layer Protocols | enablement.info</title>
+    <meta name="description"
+        content="Network Layer Protocols কী, IP, ARP, RARP, ICMP এবং IGMP প্রোটোকলের বিস্তারিত ব্যাখ্যা এবং এগুলো কীভাবে কাজ করে তা নিয়ে বিস্তারিত গাইড।">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script
+        type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+    <style>
+        .blog-content-wrapper {
+            padding-top: 20px;
+            padding-bottom: 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d0d0e0;
+        }
+
+        .article-body h2,
+        .article-body h3 {
+            font-family: 'Times New Roman', serif;
+            color: var(--primary-color);
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .article-body h2 {
+            font-size: 1.8rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .article-body li {
+            margin-bottom: 10px;
+        }
+
+        .content-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .protocol-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .protocol-card h2 {
+            margin-top: 0 !important;
+        }
+
+        .protocol-badge {
+            display: inline-block;
+            background: rgba(33, 150, 243, 0.2);
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            font-weight: bold;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .how-it-works {
+            background: rgba(33, 150, 243, 0.06);
+            border-left: 3px solid var(--primary-color);
+            padding: 15px 20px;
+            border-radius: 4px 10px 10px 4px;
+            margin-top: 15px;
+        }
+
+        .how-it-works h3 {
+            margin-top: 0 !important;
+            font-size: 1.2rem !important;
+            color: var(--primary-color) !important;
+        }
+
+        .function-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .function-table th,
+        .function-table td {
+            padding: 13px 16px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .function-table th {
+            background: rgba(33, 150, 243, 0.2);
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .function-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .protocols-summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .protocols-summary-table th,
+        .protocols-summary-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .protocols-summary-table th {
+            background: rgba(33, 150, 243, 0.2);
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .protocols-summary-table tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="network-canvas"></canvas>
+    <div class="overlay">
+        <header class="glass-header">
+            <div class="container container-blog">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span
+                                    class="nav-text">Home</span></a></li>
+                        <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
+                                    class="nav-text">Blog</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="blog-content-wrapper">
+            <div class="container container-blog">
+                <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>আগের Page-এ ফিরে
+                        যান</span></a>
+
+                <article class="glass-panel">
+                    <header class="article-header">
+                        <h1>Network Layer Protocols</h1>
+                        <div class="article-meta">
+                            <span><i class='bx bx-calendar'></i> March 8, 2026</span>
+                            <span style="margin:0 10px;">|</span>
+                            <span><i class='bx bx-category'></i> Networking</span>
+                        </div>
+                    </header>
+
+                    <div class="article-body">
+
+                        <p><strong>Network Layer</strong> একটি নেটওয়ার্কে সংযুক্ত এক Host থেকে অন্য Host-এ Data বা
+                            যোগাযোগ প্রেরণের জন্য দায়ী। Data কীভাবে Transfer হয় তা বর্ণনা করার পরিবর্তে, এটি দক্ষ
+                            Transmission-এর কৌশল বাস্তবায়ন করে। দক্ষ যোগাযোগ নিশ্চিত করতে Network Layer-এ বিভিন্ন
+                            Protocol ব্যবহার করা হয়। Data-কে প্যাকেটে বা অত্যন্ত বড় Data-এর ক্ষেত্রে ছোট Sub-packet-এ
+                            ভাগ করা হয়। প্রতিটি Protocol-এর নিজস্ব বৈশিষ্ট্য ও সুবিধা রয়েছে।</p>
+
+                        <hr>
+
+                        <h2><i class="bi bi-list-task"></i> Network Layer-এর কাজ (Functions)</h2>
+                        <div class="table-responsive">
+                            <table class="function-table">
+                                <thead>
+                                    <tr>
+                                        <th>কাজ</th>
+                                        <th>বিবরণ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Logical Addressing</strong></td>
+                                        <td>নেটওয়ার্কের প্রতিটি ডিভাইসকে অনন্যভাবে সনাক্ত করার জন্য IP অ্যাড্রেসিং
+                                            স্কিম প্রদান করে। প্রতিটি Header-এ Sender ও Receiver-এর IP অ্যাড্রেস এবং
+                                            Network ID ও Host ID থাকে।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Host-to-host Delivery</strong></td>
+                                        <td>প্যাকেটটি Sender থেকে সঠিক Receiver-এ সফলভাবে পৌঁছানো নিশ্চিত করে।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Fragmentation</strong></td>
+                                        <td>বড় Data-কে ছোট প্যাকেটে ভাগ করে (কারণ প্রতিটি Node-এর Data গ্রহণের
+                                            নির্দিষ্ট ক্ষমতা আছে)।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Congestion Control</strong></td>
+                                        <td>নেটওয়ার্কে প্যাকেটের সংখ্যা বেশি হয়ে গেলে Router প্যাকেট রুট করতে পারে না।
+                                            Network Layer এই Congestion নিয়ন্ত্রণ করে।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Routing & Forwarding</strong></td>
+                                        <td>Sender থেকে Receiver-এ প্যাকেট পাঠানোর পথ নির্ধারণ করে। সাধারণত সবচেয়ে ছোট
+                                            পথ বেছে নেওয়া হয় (Path Vector, Distance Vector, Link State Routing
+                                            ইত্যাদি)।</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr>
+
+                        <h2><i class="bi bi-layers"></i> Network Layer Protocols — সারসংক্ষেপ</h2>
+                        <div class="table-responsive">
+                            <table class="protocols-summary-table">
+                                <thead>
+                                    <tr>
+                                        <th>Protocol</th>
+                                        <th>পূর্ণ নাম</th>
+                                        <th>কাজ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>IP</strong></td>
+                                        <td>Internet Protocol</td>
+                                        <td>নেটওয়ার্কে প্রতিটি ডিভাইসকে সনাক্ত করে এবং Data প্যাকেট Transfer করে।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>ARP</strong></td>
+                                        <td>Address Resolution Protocol</td>
+                                        <td>IP Address (Logical) → MAC Address (Physical)-এ রূপান্তর করে।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>RARP</strong></td>
+                                        <td>Reverse Address Resolution Protocol</td>
+                                        <td>MAC Address (Physical) → IP Address (Logical)-এ রূপান্তর করে।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>ICMP</strong></td>
+                                        <td>Internet Control Message Protocol</td>
+                                        <td>Error রিপোর্টিং এবং নেটওয়ার্ক Diagnostic Protocol।</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>IGMP</strong></td>
+                                        <td>Internet Group Message Protocol</td>
+                                        <td>Multicast যোগাযোগের জন্য ব্যবহৃত Protocol।</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr>
+
+                        <!-- Protocol 1: IP -->
+                        <div class="protocol-card">
+                            <span class="protocol-badge">Protocol 1</span>
+                            <h2><i class="bi bi-globe"></i> IP (Internet Protocol)</h2>
+                            <p><strong>Internet Protocol (IP)</strong> নেটওয়ার্কের প্রতিটি ডিভাইসকে অনন্যভাবে সনাক্ত
+                                করতে এবং এক Node থেকে অন্য Node-এ Data Transfer করতে সাহায্য করে। IP একটি
+                                <strong>Connectionless Protocol</strong>, তাই এটি Data Delivery-এর গ্যারান্টি দেয় না।
+                                সফল Delivery নিশ্চিত করতে উচ্চতর Protocol যেমন <strong>TCP</strong> ব্যবহার করা হয়।
+                            </p>
+
+                            <p>Internet Protocol দুটি ধরনের:</p>
+                            <div class="content-box">
+                                <ul>
+                                    <li>
+                                        <strong>IPv4:</strong>
+                                        <ul>
+                                            <li>৩২-বিটের অ্যাড্রেস স্কিম প্রদান করে।</li>
+                                            <li>চারটি সংখ্যার Field যা Dot দ্বারা বিভক্ত (যেমন: 192.168.1.1)।</li>
+                                            <li>DHCP বা ম্যানুয়ালি কনফিগার করা যায়।</li>
+                                            <li>Authentication বা Encryption সমর্থন করে না, তাই নিরাপত্তা কম।</li>
+                                            <li>পাঁচটি ক্লাসে বিভক্ত: Class A, B, C, D এবং E।</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <strong>IPv6:</strong>
+                                        <ul>
+                                            <li>১২৮-বিটের অ্যাড্রেস স্কিম প্রদান করে।</li>
+                                            <li>আটটি Alphanumeric Field যা Colon দ্বারা বিভক্ত। Hexadecimal-এ প্রকাশ করা
+                                                হয়।</li>
+                                            <li>Authentication ও Encryption সমর্থন করে, তাই নিরাপত্তা বেশি।</li>
+                                            <li>End-to-end Connection Integrity সমর্থন করে।</li>
+                                            <li>IPv4-এর তুলনায় অনেক বেশি IP Address প্রদান করে।</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Protocol 2: ARP -->
+                        <div class="protocol-card">
+                            <span class="protocol-badge">Protocol 2</span>
+                            <h2><i class="bi bi-arrow-left-right"></i> ARP (Address Resolution Protocol)</h2>
+                            <p><strong>ARP</strong> Logical Address (IP Address) থেকে Physical Address (MAC Address)-এ
+                                রূপান্তর করতে ব্যবহৃত হয়। অন্য Node-এর সাথে যোগাযোগ করতে গন্তব্য Node-এর MAC Address
+                                জানা প্রয়োজন।</p>
+                            <p>কোনো নেটওয়ার্কের Node যদি অন্য Node-এর Physical Address জানতে চায়, তখন একটি <strong>ARP
+                                    Query Packet</strong> পাঠানো হয়। এই প্যাকেটে Source Host-এর IP ও MAC Address এবং
+                                Destination Host-এর শুধু IP Address থাকে। নেটওয়ার্কের প্রতিটি Node এই প্যাকেট পায়; যার
+                                IP মিলে যায় সে তার MAC Address পাঠিয়ে দেয়।</p>
+                            <p>এই প্যাকেট আদান-প্রদান Traffic বাড়ায়, তাই সিস্টেমগুলো <strong>ARP Cache</strong> বজায়
+                                রাখে যেখানে সম্প্রতি প্রাপ্ত IP-to-MAC বাইন্ডিং সংরক্ষিত থাকে।</p>
+
+                            <div class="how-it-works">
+                                <h3><i class="bi bi-question-circle"></i> ARP কীভাবে কাজ করে?</h3>
+                                <ol>
+                                    <li>Host নেটওয়ার্কে একটি ARP Inquiry Packet Broadcast করে, যাতে গন্তব্যের IP
+                                        Address থাকে।</li>
+                                    <li>নেটওয়ার্কের সকল Host এই ARP Packet গ্রহণ ও প্রক্রিয়া করে; কিন্তু শুধুমাত্র যার
+                                        IP মিলে যায় সে তার Physical Address দিয়ে Reply করে।</li>
+                                    <li>প্রাপক Host Physical Address Datagram Header ও Cache Memory-তে যুক্ত করে এবং
+                                        Sender-কে ফেরত পাঠায়।</li>
+                                </ol>
+                            </div>
+
+                            <h3>ARP Entry-র ধরন (Types of ARP Entries)</h3>
+                            <div class="content-box">
+                                <ul>
+                                    <li><strong>Static Entry:</strong> এই ধরনের Entry তখন তৈরি হয় যখন একজন User ARP
+                                        Command Utility ব্যবহার করে ম্যানুয়ালি IP-to-MAC Address Association যুক্ত
+                                        করেন।</li>
+                                    <li><strong>Dynamic Entry:</strong> Dynamic Entry স্বয়ংক্রিয়ভাবে তৈরি হয় যখন
+                                        Sender পুরো নেটওয়ার্কে তার Message Broadcast করে। Dynamic Entry অস্থায়ী এবং
+                                        নিয়মিত মুছে ফেলা হয়।</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Protocol 3: RARP -->
+                        <div class="protocol-card">
+                            <span class="protocol-badge">Protocol 3</span>
+                            <h2><i class="bi bi-arrow-right-left"></i> RARP (Reverse Address Resolution Protocol)</h2>
+                            <p><strong>RARP</strong> ARP-এর বিপরীতভাবে কাজ করে। এটি Physical Address (MAC Address) থেকে
+                                Logical Address (IP Address)-এ রূপান্তর করতে ব্যবহৃত হয়। RARP সিস্টেম ও
+                                অ্যাপ্লিকেশনগুলোকে DNS বা Router থেকে তাদের নিজস্ব IP Address পাওয়ার সুবিধা দেয়। এই
+                                ধরনের Resolution বিভিন্ন কাজে প্রয়োজন, যেমন Reverse DNS Lookup সম্পাদন করা।</p>
+                            <p>RARP নিম্ন স্তরে (Low Level) কাজ করে এবং সরাসরি নেটওয়ার্ক অ্যাড্রেস প্রয়োজন। Server-এর
+                                Reply সাধারণত অল্প তথ্য বহন করে এবং ৩২-বিট Internet Address ব্যবহার করে; এটি Ethernet-এর
+                                মতো নেটওয়ার্কের পূর্ণ সম্ভাবনা কাজে লাগায় না।</p>
+
+                            <div class="how-it-works">
+                                <h3><i class="bi bi-question-circle"></i> RARP কীভাবে কাজ করে?</h3>
+                                <ol>
+                                    <li>RARP, Network Access Layer-এ থেকে নেটওয়ার্কের দুটি স্থানের মধ্যে Data পাঠায়।
+                                    </li>
+                                    <li>নেটওয়ার্কের প্রতিটি User-এর দুটি বিভিন্ন Address থাকে: MAC (Physical) Address
+                                        এবং IP (Logical) Address। Software IP Address নির্ধারণ করে এবং Hardware MAC
+                                        Address ডিভাইসে তৈরি করে।</li>
+                                    <li>নেটওয়ার্কে সংযুক্ত যেকোনো সাধারণ Computer RARP Server হিসেবে কাজ করতে পারে। তবে
+                                        এতে সকল MAC Address-এর সাথে সংশ্লিষ্ট IP Address সংরক্ষিত থাকতে হবে।</li>
+                                    <li>Client তার Physical Address ও Ethernet Broadcast Address ব্যবহার করে একটি RARP
+                                        Request পাঠায়। Server এর জবাবে Client-কে তার IP Address প্রদান করে।</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <!-- Protocol 4: ICMP -->
+                        <div class="protocol-card">
+                            <span class="protocol-badge">Protocol 4</span>
+                            <h2><i class="bi bi-exclamation-triangle"></i> ICMP (Internet Control Message Protocol)</h2>
+                            <p><strong>ICMP</strong> IP Protocol Suite-এর একটি অংশ। এটি একটি Error Reporting এবং Network
+                                Diagnostic Protocol। নেটওয়ার্কে যেকোনো Error হলে তা ICMP-এর মাধ্যমে নির্দিষ্ট Host-এ
+                                জানানো হয়। ICMP Protocol বিভিন্ন Error Reporting ও Diagnostic Message ধারণ করে।</p>
+
+                            <h3>ICMP Message-এর ধরন:</h3>
+                            <div class="content-box">
+                                <ul>
+                                    <li><strong>Error Message:</strong> IP প্যাকেট প্রক্রিয়াকরণের সময় Host বা Router
+                                        যে সমস্যার সম্মুখীন হয় সে সম্পর্কে Error Message জানায়।</li>
+                                    <li><strong>Query Message:</strong> Host একটি Router বা অন্য Host থেকে তথ্য পেতে
+                                        Query Message ব্যবহার করে।</li>
+                                </ul>
+                            </div>
+
+                            <h3>ICMP-এর প্রধান Error ধরনসমূহ:</h3>
+                            <div class="content-box">
+                                <ul>
+                                    <li><strong>Time Exceeded:</strong> যখন একটি প্যাকেটের TTL (Time To Live) শেষ হয়ে
+                                        যায় এবং গন্তব্যে পৌঁছানোর আগেই Drop হয়, তখন এই Error পাঠানো হয়।</li>
+                                    <li><strong>Redirection:</strong> যখন একটি Router নির্ধারণ করে যে আরও ভালো রুট আছে
+                                        এবং Sender-কে সেই পথে পাঠাতে বলে।</li>
+                                    <li><strong>Source Quench:</strong> যখন Router বা Host অতিরিক্ত প্যাকেট পাওয়ার
+                                        কারণে Sender-কে প্যাকেট পাঠানোর গতি কমাতে বলে।</li>
+                                    <li><strong>Destination Unreachable:</strong> যখন গন্তব্য Host বা Network পৌঁছানো
+                                        সম্ভব হয় না, তখন এই Error পাঠানো হয়।</li>
+                                    <li><strong>Parameter Problems:</strong> IP প্যাকেটের Header-এ কোনো সমস্যা থাকলে এই
+                                        Error তৈরি হয়।</li>
+                                </ul>
+                            </div>
+
+                            <div class="how-it-works">
+                                <h3><i class="bi bi-question-circle"></i> ICMP কীভাবে কাজ করে?</h3>
+                                <ol>
+                                    <li>ICMP, IP Suite-এর সবচেয়ে গুরুত্বপূর্ণ Protocol গুলোর একটি। TCP ও UDP-এর
+                                        বিপরীতে, ICMP একটি <strong>Connectionless Protocol</strong>, অর্থাৎ Message
+                                        পাঠাতে গন্তব্য ডিভাইসের সাথে আগে থেকে সংযোগ স্থাপন করতে হয় না।</li>
+                                    <li>ICMP ও TCP-এর কাজ করার পদ্ধতি ভিন্ন। TCP একটি Connection-oriented Protocol;
+                                        Message পাঠানোর আগে TCP Handshake প্রয়োজন। কিন্তু ICMP Connection ছাড়াই কাজ
+                                        করে।</li>
+                                    <li>ICMP প্যাকেট একটি IP Header সহ Datagram আকারে পাঠানো হয়, যাতে ICMP Data থাকে।
+                                        একটি ICMP Datagram একটি স্বাধীন Data আইটেম বা প্যাকেটের মতো।</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <!-- Protocol 5: IGMP -->
+                        <div class="protocol-card">
+                            <span class="protocol-badge">Protocol 5</span>
+                            <h2><i class="bi bi-broadcast"></i> IGMP (Internet Group Message Protocol)</h2>
+                            <p><strong>IGMP</strong> একটি Multicasting যোগাযোগ Protocol। এটি Message ও Data প্যাকেট
+                                Broadcast করার সময় Resources দক্ষতার সাথে ব্যবহার করে। IGMP, TCP/IP-এ ব্যবহৃত একটি
+                                Protocol। IP নেটওয়ার্কযুক্ত নেটওয়ার্কের অন্য Host ও Router-গুলো Multicast যোগাযোগের
+                                জন্য IGMP ব্যবহার করে।</p>
+                            <p>অনেক নেটওয়ার্কে সমস্ত Node-এ Message পাঠাতে <strong>Multicast Router</strong> ব্যবহার
+                                করা হয়। কিন্তু সবকটিকে Broadcast করা Network Load বাড়ায়। IGMP, Multicast Router-কে
+                                Broadcast চলাকালীন Address করে এই সমস্যার সমাধান করে। যেহেতু Multicast যোগাযোগে একাধিক
+                                Sender ও Receiver থাকে, তাই IGMP Streaming Media, Web Conference, Games ইত্যাদি
+                                অ্যাপ্লিকেশনে ব্যাপকভাবে ব্যবহৃত হয়।</p>
+
+                            <div class="how-it-works">
+                                <h3><i class="bi bi-question-circle"></i> IGMP কীভাবে কাজ করে?</h3>
+                                <ol>
+                                    <li>Dynamic Multicasting ও Multicast Group সমর্থনকারী ডিভাইসগুলো IGMP ব্যবহার করতে
+                                        পারে।</li>
+                                    <li>এই ডিভাইসগুলো ব্যবহার করে Host Multicast Group-এ যোগ দিতে বা ছাড়তে পারে।
+                                        গ্রাহকদের Group-এ যোগ করা বা সরানোও সম্ভব।</li>
+                                    <li>Host ও স্থানীয় Multicast Router এই যোগাযোগ Protocol ব্যবহার করে। একটি Multicast
+                                        Group তৈরি হলে, প্যাকেটের গন্তব্য IP Address পরিবর্তন করে Multicast Group
+                                        Address দেওয়া হয়, যা Class D IP Address Range-এর মধ্যে পড়ে।</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer class="glass-footer">
+            <div class="container container-blog">
+                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/network-background.js"></script>
+</body>
+
+</html>
