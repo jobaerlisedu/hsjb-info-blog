@@ -54,9 +54,13 @@ body {
 }
 
 .container {
-    max-width: 1600px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+.container-wide {
+    max-width: 1600px;
 }
 
 /* Glassmorphism Utilities */
@@ -575,24 +579,46 @@ h1 {
 
 .posts-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
 
+.posts-grid-wide {
+    grid-template-columns: repeat(4, 1fr);
+}
+
 @media (max-width: 1500px) {
-    .posts-grid {
+    .posts-grid-wide {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
     .posts-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .posts-grid-wide {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .posts-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .posts-grid-wide {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 600px) {
     .posts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .posts-grid-wide {
         grid-template-columns: 1fr;
     }
 }
