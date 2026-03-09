@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="সহজে শিখুন Network Engineering. Error Control in Data Link Layer নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
   <title>Error Control in Data Link Layer | enablement.info</title>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -108,8 +109,7 @@
       <div class="container container-blog">
         <nav class="main-nav">
           <ul>
-            <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span
-                  class="nav-text">Home</span></a></li>
+            <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span class="nav-text">Home</span></a></li>
             <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
                   class="nav-text">Blog</span></a></li>
           </ul>
@@ -119,8 +119,7 @@
 
     <main class="blog-content-wrapper">
       <div class="container container-blog">
-        <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>আগের Page-এ ফিরে
-            যান</span></a>
+        <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>Back to Articles</span></a>
 
         <article class="glass-panel">
           <header class="article-header">
@@ -134,7 +133,7 @@
 
           <div class="article-body">
 
-            <h2><i class="bi bi-shield-exclamation"></i> Error Control What is?</h2>
+            <h2><i class="bi bi-shield-exclamation"></i> Error Control কী?</h2>
             <p>Data Link Layer-এ <strong>Error Control</strong> নিশ্চিত করে যে Sender কর্তৃক পাঠানো
               Frame-গুলো Receiver-এর কাছে সঠিকভাবে ও Reliable ভাবে পৌঁছায়। এটি মূলত তিনটি Task করে:</p>
             <div class="content-box">
@@ -155,17 +154,111 @@
               <div class="content-box">
                 <h3><i class="bi bi-search"></i> Error Detection</h3>
                 <p>Transmitted Data-য় Error শনাক্ত করার প্রক্রিয়া। যোগাযোগ ব্যবস্থায় Transmitter
-                  থেকে Receiver-এ Data পাঠানোর সময় Noise বা অন্যান্য সমস্যার Reason ে Error হতে পারে।
+                  থেকে Receiver-এ Data পাঠানোর সময় Noise বা অন্যান্য সমস্যার কারণ ে Error হতে পারে।
                   এটি
                   নষ্ট, বিকৃত বা অস্পষ্ট Data আরও Process করার আগে Symbol িত করার Technique ব্যবহার করে।</p>
               </div>
               <div class="content-box">
                 <h3><i class="bi bi-wrench-adjustable"></i> Error Correction</h3>
-                <p>শনাক্ত হওয়া Error সংশোধন করে মূল ত্রু Team ুক্ত Data পুনরুদ্ধার করার প্রক্রিয়া। এটি
+                <p>শনাক্ত হওয়া Error সংশোধন করে মূল ত্রুটিমুক্ত Data পুনরুদ্ধার করার প্রক্রিয়া। এটি
                   অতিরিক্ত Information ব্যবহার করে বা পুনরায় Transmission-এর মাধ্যমে সঠিক Data পুনর্ Structure করে।
                   তবে Error Correction Technique সাধারণত জটিল, ব্যয়বহুল ও Resource-intensive হওয়ায় এটি বেছে
                   বেছে
                   ব্যবহার করা হয়।</p>
+              </div>
+            </div>
+
+            <!-- Custom CSS Diagram: Parity Check -->
+            <div
+              style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 12px; margin: 25px 0; border: 1px solid rgba(255,152,0,0.3); overflow-x: auto;">
+              <h4 style="margin-top: 0; color: #ffb74d; margin-bottom: 20px; font-size: 1.1rem; text-align: center;">
+                Error Detection: Even Parity Check</h4>
+
+              <div
+                style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; min-width: 500px; max-width: 700px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 1.2rem; text-align: center;">
+
+                <div
+                  style="display: flex; justify-content: space-between; width: 100%; align-items: center; padding: 0 20px;">
+
+                  <!-- Original Data -->
+                  <div style="display: flex; flex-direction: column; align-items: center;">
+                    <span style="font-size: 0.8rem; color: #bbb; margin-bottom: 5px;">Original Data (7-bit)</span>
+                    <div style="display: flex; gap: 5px;">
+                      <div
+                        style="width: 30px; height: 35px; background: rgba(33,150,243,0.3); border: 1px solid #2196f3; color: #bbdefb; display: flex; align-items: center; justify-content: center; border-radius: 4px;">
+                        1</div>
+                      <div
+                        style="width: 30px; height: 35px; background: rgba(33,150,243,0.3); border: 1px solid #2196f3; color: #bbdefb; display: flex; align-items: center; justify-content: center; border-radius: 4px;">
+                        0</div>
+                      <div
+                        style="width: 30px; height: 35px; background: rgba(33,150,243,0.3); border: 1px solid #2196f3; color: #bbdefb; display: flex; align-items: center; justify-content: center; border-radius: 4px;">
+                        1</div>
+                      <div
+                        style="width: 30px; height: 35px; background: rgba(33,150,243,0.3); border: 1px solid #2196f3; color: #bbdefb; display: flex; align-items: center; justify-content: center; border-radius: 4px;">
+                        1</div>
+                      <div
+                        style="width: 30px; height: 35px; background: rgba(33,150,243,0.3); border: 1px solid #2196f3; color: #bbdefb; display: flex; align-items: center; justify-content: center; border-radius: 4px;">
+                        0</div>
+                      <div
+                        style="width: 30px; height: 35px; background: rgba(33,150,243,0.3); border: 1px solid #2196f3; color: #bbdefb; display: flex; align-items: center; justify-content: center; border-radius: 4px;">
+                        0</div>
+                      <div
+                        style="width: 30px; height: 35px; background: rgba(33,150,243,0.3); border: 1px solid #2196f3; color: #bbdefb; display: flex; align-items: center; justify-content: center; border-radius: 4px;">
+                        0</div>
+                    </div>
+                    <span style="font-size: 0.75rem; color: #888; margin-top: 5px;">Count of 1s: 3 (Odd)</span>
+                  </div>
+
+                  <div style="color: #4CAF50; font-size: 1.5rem;">+</div>
+
+                  <!-- Parity Bit -->
+                  <div style="display: flex; flex-direction: column; align-items: center;">
+                    <span style="font-size: 0.8rem; color: #ff9800; margin-bottom: 5px;">Parity Bit</span>
+                    <div
+                      style="width: 40px; height: 35px; background: rgba(255,152,0,0.3); border: 2px dashed #ff9800; color: #ffe0b2; display: flex; align-items: center; justify-content: center; border-radius: 4px; box-shadow: 0 0 10px rgba(255,152,0,0.5);">
+                      1</div>
+                    <span style="font-size: 0.75rem; color: #ffb74d; margin-top: 5px;">Makes total 1s Even</span>
+                  </div>
+
+                </div>
+
+                <div style="color: #4CAF50; font-size: 1.5rem;">&#10143;</div>
+
+                <!-- Sent Frame -->
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                  <span style="font-size: 0.8rem; color: #bbb; margin-bottom: 5px;">Transmitted Frame (8-bit)</span>
+                  <div
+                    style="display: flex; gap: 5px; padding: 5px; background: rgba(255,255,255,0.05); border-radius: 8px;">
+                    <div
+                      style="width: 30px; height: 35px; background: rgba(33,150,243,0.3); border: 1px solid #2196f3; color: #bbdefb; display: flex; align-items: center; justify-content: center; border-radius: 4px;">
+                      1</div>
+                    <div
+                      style="width: 30px; height: 35px; background: rgba(33,150,243,0.3); border: 1px solid #2196f3; color: #bbdefb; display: flex; align-items: center; justify-content: center; border-radius: 4px;">
+                      0</div>
+                    <div
+                      style="width: 30px; height: 35px; background: rgba(33,150,243,0.3); border: 1px solid #2196f3; color: #bbdefb; display: flex; align-items: center; justify-content: center; border-radius: 4px;">
+                      1</div>
+                    <div
+                      style="width: 30px; height: 35px; background: rgba(33,150,243,0.3); border: 1px solid #2196f3; color: #bbdefb; display: flex; align-items: center; justify-content: center; border-radius: 4px;">
+                      1</div>
+                    <div
+                      style="width: 30px; height: 35px; background: rgba(33,150,243,0.3); border: 1px solid #2196f3; color: #bbdefb; display: flex; align-items: center; justify-content: center; border-radius: 4px;">
+                      0</div>
+                    <div
+                      style="width: 30px; height: 35px; background: rgba(33,150,243,0.3); border: 1px solid #2196f3; color: #bbdefb; display: flex; align-items: center; justify-content: center; border-radius: 4px;">
+                      0</div>
+                    <div
+                      style="width: 30px; height: 35px; background: rgba(33,150,243,0.3); border: 1px solid #2196f3; color: #bbdefb; display: flex; align-items: center; justify-content: center; border-radius: 4px;">
+                      0</div>
+                    <!-- The added parity -->
+                    <div
+                      style="width: 35px; height: 35px; background: rgba(255,152,0,0.3); border: 2px dashed #ff9800; color: #ffe0b2; display: flex; align-items: center; justify-content: center; border-radius: 4px; margin-left: 5px;">
+                      1</div>
+                  </div>
+                  <span style="font-size: 0.75rem; color: #a5d6a7; margin-top: 5px;">Receiver validates that count of 1s
+                    is Even (4 total)</span>
+                </div>
+
               </div>
             </div>
 
@@ -199,7 +292,7 @@
             <p>এটি Continuous Data Transmission-এর জন্য ব্যবহৃত হয়। Sender প্রতিটি Frame-এর ACK-এর জন্য
               অপেক্ষা না করেই Multiple Frame পাঠাতে পারে, যা Channel ব্যবহারের দক্ষতা বাড়ায়।</p>
 
-            <p>Sliding Window ARQ প্রধানত দুই Type ের:</p>
+            <p>Sliding Window ARQ প্রধানত দুই Type-এর:</p>
 
             <div
               style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px;margin-bottom:20px;">
@@ -239,6 +332,85 @@
 
             <hr>
 
+            <!-- Custom CSS Diagram: Checksum Calculation -->
+            <div
+              style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 12px; margin: 25px 0; border: 1px solid rgba(13,202,240,0.3); overflow-x: auto;">
+              <h4 style="margin-top: 0; color: #0dcaf0; margin-bottom: 20px; font-size: 1.1rem; text-align: center;">
+                Checksum Calculation Concept</h4>
+
+              <div
+                style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; min-width: 500px; max-width: 700px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 1rem; text-align: center;">
+
+                <div style="display: flex; gap: 20px; align-items: center;">
+                  <div
+                    style="background: rgba(33,150,243,0.1); border: 2px solid #2196f3; padding: 10px; border-radius: 6px; width: 120px; color: #bbdefb;">
+                    Unit 1<br>(10101)</div>
+                  <div style="font-size: 1.5rem; color: #fff;">+</div>
+                  <div
+                    style="background: rgba(33,150,243,0.1); border: 2px solid #2196f3; padding: 10px; border-radius: 6px; width: 120px; color: #bbdefb;">
+                    Unit 2<br>(01100)</div>
+                  <div style="font-size: 1.5rem; color: #fff;">+</div>
+                  <div
+                    style="background: rgba(33,150,243,0.1); border: 2px solid #2196f3; padding: 10px; border-radius: 6px; width: 120px; color: #bbdefb;">
+                    Unit N...</div>
+                </div>
+
+                <div style="color: #4CAF50; font-size: 1.5rem; line-height: 0;">&#10143;</div>
+
+                <div
+                  style="background: rgba(255,193,7,0.1); border: 1px dashed #ffc107; padding: 10px; border-radius: 6px; width: 250px; color: #ffecb3;">
+                  Binary Sum of all Units</div>
+
+                <div style="color: #f44336; font-size: 1.5rem; line-height: 0;">&#10143;</div>
+
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <div
+                    style="background: rgba(244,67,54,0.2); border: 2px solid #f44336; padding: 15px; border-radius: 8px; color: #ffcdd2;">
+                    1's Complement</div>
+                  <div
+                    style="background: rgba(76,175,80,0.3); border: 2px solid #4CAF50; padding: 15px; border-radius: 8px; color: #c8e6c9;">
+                    Final Checksum</div>
+                </div>
+
+                <p style="font-size: 0.8rem; color: #888; margin-top: 10px; font-weight: normal;">Receiver adds this
+                  Checksum to the data; result must be all 1's for success.</p>
+
+              </div>
+            </div>
+
+            <hr>
+
+            <!-- Custom CSS Diagram: CRC (Cyclic Redundancy Check) -->
+            <div
+              style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 12px; margin: 25px 0; border: 1px solid rgba(156,39,176,0.3); overflow-x: auto;">
+              <h4 style="margin-top: 0; color: #ce93d8; margin-bottom: 20px; font-size: 1.1rem; text-align: center;">
+                CRC: Polynomial Division Flow</h4>
+
+              <div
+                style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; min-width: 500px; max-width: 700px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 1rem; text-align: center;">
+
+                <div
+                  style="display: flex; align-items: center; border: 2px solid rgba(255,255,255,0.2); padding: 15px; border-radius: 10px; background: rgba(255,255,255,0.02);">
+                  <div style="padding-right: 15px; border-right: 2px solid #f44336; color: #ffcdd2;">Divisor<br><span
+                      style="font-size: 0.8rem;">(Generator)</span></div>
+                  <div style="padding-left: 15px; color: #bbdefb; letter-spacing: 5px;">10110010<span
+                      style="color: #fff; opacity: 0.3;">000</span><br><span
+                      style="font-size: 0.8rem; letter-spacing: 1px;">Dividend (Data + 0s)</span></div>
+                </div>
+
+                <div style="color: #ff9800; font-size: 1.2rem; transform: rotate(90deg);">Binary XOR Division</div>
+
+                <div
+                  style="display: flex; align-items: center; justify-content: center; width: 150px; height: 50px; background: rgba(156,39,176,0.2); border: 2px dashed #9c27b0; border-radius: 50%; color: #e1bee7;">
+                  Remainder<br>(CRC Bit)</div>
+
+                <p style="font-size: 0.8rem; color: #888; font-weight: normal;">The CRC is appended to the message. High
+                  accuracy for burst errors.</p>
+              </div>
+            </div>
+
+            <hr>
+
             <h2><i class="bi bi-check2-circle"></i> Summary</h2>
             <p>Error Control Data Link Layer-এর একটি অপরিহার্য কার্যকারিতা। Stop-and-Wait ARQ সহজ কিন্তু
               Slow, আর Sliding Window ARQ (Go-Back-N ও Selective Repeat) High দক্ষ ও Modern Network-এ
@@ -255,12 +427,8 @@
       </div>
     </footer>
   </div>
-  <script type="module" src="../js/main.js"></script>
+  
   <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>
-
-
-
-

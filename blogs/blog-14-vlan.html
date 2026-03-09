@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="সহজে শিখুন Network Engineering. Virtual LAN (VLAN): Detailed Guide নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
   <title>Virtual LAN (VLAN): Detailed Guide | enablement.info</title>
 
   <!-- Icons -->
@@ -155,7 +156,7 @@
       <div class="container container-blog">
         <a href="../blogs.html" class="back-btn">
           <i class='bx bx-arrow-back'></i>
-          <span>Return to Previous Page</span>
+          <span>Back to Articles</span>
         </a>
 
         <article class="glass-panel">
@@ -171,12 +172,13 @@
           <div class="article-body">
 
             <!-- 1. ভূমিকা -->
-            <h2><i class="bi bi-diagram-3"></i> Virtual LAN (VLAN) What is?</h2>
+            <h2><i class="bi bi-diagram-3"></i> Virtual LAN (VLAN) কী?</h2>
             <p>Virtual Local Area Network বা VLAN হলো একটি Layer 2 (Data Link Layer) Network-এর Logical
               বিভাজন, যা Device-গুলোকে তাদের Physical অবস্থান নির্বিশেষে Separate Separate Logical Network-এ
               Group করে। সাধারণ LAN-এর মতো Physical Topology-র ওপর নির্ভর না করে, VLAN Switch-এ
               <strong>IEEE
-                802.1Q Frame Tagging</strong>-এর মাধ্যমে Task করে।</p>
+                802.1Q Frame Tagging</strong>-এর মাধ্যমে Task করে।
+            </p>
             <p>একটি Physical Switch Network-কে Multiple Logical Broadcast Domain-এ বিভক্ত করে VLAN
               অপ্রয়োজনীয় Broadcast Traffic কমায়, Security বাড়ায় এবং Network Performance ও
               ব্যবস্থাপনার মান Advanced করে।</p>
@@ -194,12 +196,12 @@
             <div class="note-box">
               <strong><i class="bi bi-info-circle"></i> উল্লেখ্য:</strong> VLAN ছাড়া একটি সাধারণ LAN-এ
               Switch-এর সাথে সংযুক্ত সকল Device একটি মাত্র Broadcast Domain-এ থাকে। ফলে Broadcast Frame সব
-              Port-এ ছড়িয়ে পড়ে, যা অপ্রয়োজনীয় Network Overhead এবং Security র Risk Creation করে।
+              Port-এ ছড়িয়ে পড়ে, যা অপ্রয়োজনীয় Network Overhead এবং Security-র Risk তৈরি করে।
             </div>
 
             <hr>
 
-            <!-- 2. VLAN ID রেঞ্জ -->
+            <!-- 2. VLAN ID-রেঞ্জ -->
             <h2><i class="bi bi-list-ol"></i> VLAN ID Range (Cisco Standard)</h2>
             <p>Cisco-এর Standard অনুযায়ী VLAN ID-গুলোকে নিচের ভাগে ভাগ করা হয়:</p>
 
@@ -251,9 +253,9 @@
 
             <!-- 3. কনফিগারেশন Example -->
             <h2><i class="bi bi-terminal"></i> VLAN Configuration Example</h2>
-            <p>নিচে Cisco Switch-এ VLAN Creation এবং Port-এ Assign করার একটি বাস্তব Example দেওয়া হলো:</p>
+            <p>নিচে Cisco Switch-এ VLAN তৈরি এবং Port-এ Assign করার একটি বাস্তব Example দেওয়া হলো:</p>
 
-            <p><strong>Step 1: VLAN Creation করুন</strong></p>
+            <p><strong>Step 1: VLAN তৈরি করুন</strong></p>
             <div class="code-block">Switch(config)# vlan 2<br>
               Switch(config-vlan)# name Accounts<br>
               Switch(config)# vlan 3<br>
@@ -279,8 +281,7 @@
 
             <!-- 4. VLAN Link Type -->
             <h2><i class="bi bi-link-45deg"></i> VLAN Link Type-সমূহ</h2>
-            <div
-              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px;">
               <div class="content-box">
                 <h3><i class="bi bi-pc-display"></i> Access Link</h3>
                 <p>VLAN সম্পর্কে অজ্ঞ End-device (যেমন PC) থেকে VLAN-aware Switch-এ সংযোগ। Frame-গুলো
@@ -320,8 +321,7 @@
 
             <!-- 6. রিয়েল-Time প্রয়োগ -->
             <h2><i class="bi bi-broadcast"></i> VLAN-এর বাস্তব প্রয়োগসমূহ</h2>
-            <div
-              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px;">
               <div class="content-box">
                 <strong><i class="bi bi-telephone"></i> VoIP:</strong>
                 <p>Dedicated Voice VLAN Quality of Service (QoS) নিশ্চিত করে Voice Traffic-কে
@@ -381,7 +381,7 @@
                   <li><strong>VLAN ID সীমাবদ্ধতা:</strong> Standard VLAN ID সীমিত, যা অনেক বড়
                     Network-এ সমস্যা হতে পারে।</li>
                   <li><strong>Security Risk:</strong> ভুল Configuration VLAN Hopping Attack-এর সুযোগ
-                    Creation করতে পারে।</li>
+                    তৈরি করতে পারে।</li>
                   <li><strong>Interoperability সমস্যা:</strong> Non-standard বা পুরনো Device-এর সাথে
                     সামঞ্জস্য সমস্যা দেখা দিতে পারে।</li>
                   <li><strong>Troubleshooting কঠিন:</strong> বিচ্ছিন্ন Traffic প্রবাহ Error নির্ণয়কে
@@ -395,8 +395,8 @@
             <!-- 8. Summary -->
             <h2><i class="bi bi-check2-circle"></i> Summary</h2>
             <p>VLAN Modern Network Design-এর একটি অপরিহার্য Component। এটি একটি Physical Infrastructure Multiple
-              Logical Network Creation র Advantage দেয়, Security বাড়ায় এবং Performance Advanced করে।
-              সঠিকভাবে Configure করা হলে VLAN যেকোনো Size ের Network-এর দক্ষতা ও Security নিশ্চিত করতে
+              Logical Network তৈরি র Advantage দেয়, Security বাড়ায় এবং Performance Advanced করে।
+              সঠিকভাবে Configure করা হলে VLAN যেকোনো আকারের Network-এর দক্ষতা ও Security নিশ্চিত করতে
               সক্ষম।</p>
 
           </div>
@@ -410,12 +410,8 @@
       </div>
     </footer>
   </div>
-  <script type="module" src="../js/main.js"></script>
+  
   <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>
-
-
-
-

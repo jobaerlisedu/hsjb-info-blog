@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="bn">
 
 <head>
@@ -185,8 +185,8 @@
 
         <main class="blog-content-wrapper">
             <div class="container container-blog">
-                <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>আগের Page-এ ফিরে
-                        যান</span></a>
+                <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>Back to
+                        Articles</span></a>
 
                 <article class="glass-panel">
                     <header class="article-header">
@@ -279,7 +279,7 @@
                                     <tr>
                                         <td><strong>ICMP</strong></td>
                                         <td>Internet Control Message Protocol</td>
-                                        <td>Error রিপোর্টিং এবং নেটওয়ার্ক Diagnostic Protocol।</td>
+                                        <td>Error-রিপোর্টিং এবং নেটওয়ার্ক Diagnostic Protocol।</td>
                                     </tr>
                                     <tr>
                                         <td><strong>IGMP</strong></td>
@@ -354,6 +354,61 @@
                                     <li>প্রাপক Host Physical Address Datagram Header ও Cache Memory-তে যুক্ত করে এবং
                                         Sender-কে ফেরত পাঠায়।</li>
                                 </ol>
+
+                                <!-- Custom CSS Diagram: ARP Flow -->
+                                <div
+                                    style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 12px; margin: 25px 0; border: 1px solid rgba(255,87,34,0.3); overflow-x: auto;">
+                                    <h4
+                                        style="margin-top: 0; color: #ff8a65; margin-bottom: 25px; font-size: 1.1rem; text-align: center;">
+                                        ARP (Address Resolution Protocol) Flow</h4>
+
+                                    <!-- Step 1: Broadcast Query -->
+                                    <div
+                                        style="display: flex; align-items: center; justify-content: center; gap: 15px; min-width: 600px; max-width: 800px; margin: 0 auto 20px auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 0.95rem; text-align: center;">
+                                        <div
+                                            style="background: rgba(33,150,243,0.2); border: 2px solid #2196f3; padding: 15px; color: #bbdefb; border-radius: 8px; flex: 1;">
+                                            Source Computer<br><span
+                                                style="font-size: 0.8rem; font-weight: normal;">(Knows IP:
+                                                192.168.1.10)</span><br><span
+                                                style="font-size: 0.8rem; font-weight: normal;">(Needs MAC of
+                                                .10)</span>
+                                        </div>
+                                        <div style="flex: 1; position: relative;">
+                                            <div style="color: #ff9800; font-size: 2rem;">&#10236;</div>
+                                            <span
+                                                style="font-size: 0.8rem; color: #ffccbc; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 100%;">ARP
+                                                Query (Broadcast)</span>
+                                        </div>
+                                        <div
+                                            style="background: rgba(255,152,0,0.2); border: 2px dashed #ff9800; padding: 15px; color: #ffe0b2; border-radius: 8px; flex: 1;">
+                                            Entire Network<br><span style="font-size: 0.8rem; font-weight: normal;">(Who
+                                                has 192.168.1.10?)</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Step 2: Unicast Reply -->
+                                    <div
+                                        style="display: flex; align-items: center; justify-content: center; gap: 15px; min-width: 600px; max-width: 800px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 0.95rem; text-align: center;">
+                                        <div
+                                            style="background: rgba(33,150,243,0.2); border: 2px solid #2196f3; padding: 15px; color: #bbdefb; border-radius: 8px; flex: 1;">
+                                            Source Computer<br><span
+                                                style="font-size: 0.8rem; font-weight: normal; color: #a5d6a7;">Saves
+                                                MAC in Cache</span>
+                                        </div>
+                                        <div style="flex: 1; position: relative;">
+                                            <div style="color: #4CAF50; font-size: 2rem;">&#10235;</div>
+                                            <span
+                                                style="font-size: 0.8rem; color: #c8e6c9; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 100%;">ARP
+                                                Reply (Unicast)</span>
+                                        </div>
+                                        <div
+                                            style="background: rgba(76,175,80,0.2); border: 2px solid #4CAF50; padding: 15px; color: #c8e6c9; border-radius: 8px; flex: 1;">
+                                            Target Computer (1.10)<br><span
+                                                style="font-size: 0.8rem; font-weight: normal;">"I am 1.10. My MAC is
+                                                00:0A..."</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <h3>ARP Entry-র ধরন (Types of ARP Entries)</h3>
@@ -429,12 +484,67 @@
                                     <li><strong>Parameter Problems:</strong> IP প্যাকেটের Header-এ কোনো সমস্যা থাকলে এই
                                         Error তৈরি হয়।</li>
                                 </ul>
+
+                                <!-- Custom CSS Diagram: ICMP Error Flow -->
+                                <div
+                                    style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 12px; margin: 25px 0; border: 1px solid rgba(244,67,54,0.3); overflow-x: auto;">
+                                    <h4
+                                        style="margin-top: 0; color: #ef5350; margin-bottom: 25px; font-size: 1.1rem; text-align: center;">
+                                        ICMP Error Reporting Flow</h4>
+
+                                    <div
+                                        style="display: flex; align-items: center; justify-content: center; gap: 15px; min-width: 600px; max-width: 800px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 0.95rem; text-align: center;">
+
+                                        <!-- Source -->
+                                        <div
+                                            style="background: rgba(33,150,243,0.2); border: 2px solid #2196f3; padding: 15px; color: #bbdefb; border-radius: 8px; flex: 1;">
+                                            Original Sender<br><span
+                                                style="font-size: 0.8rem; font-weight: normal;">(Sends IP Packet)</span>
+                                        </div>
+
+                                        <!-- Flow forward and error back -->
+                                        <div
+                                            style="flex: 1.5; position: relative; height: 60px; display: flex; flex-direction: column; justify-content: center;">
+                                            <div
+                                                style="position: absolute; top: 0; left: 0; width: 100%; display: flex; align-items: center;">
+                                                <div style="height: 2px; background: #2196f3; flex: 1;"></div>
+                                                <div style="color: #2196f3; line-height: 0;">&#10148;</div>
+                                                <span
+                                                    style="position: absolute; top: -20px; left: 50%; transform: translateX(-50%); font-size: 0.8rem; color: #bbdefb; white-space: nowrap;">IP
+                                                    Packet</span>
+                                            </div>
+
+                                            <div
+                                                style="position: absolute; bottom: 0; left: 0; width: 100%; display: flex; align-items: center; flex-direction: row-reverse;">
+                                                <div
+                                                    style="height: 2px; background: #f44336; flex: 1; border-top: 2px dashed #f44336; background: transparent;">
+                                                </div>
+                                                <div style="color: #f44336; line-height: 0; transform: scaleX(-1);">
+                                                    &#10148;</div>
+                                                <span
+                                                    style="position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); font-size: 0.8rem; color: #ffcdd2; white-space: nowrap;">ICMP
+                                                    Error Msg</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Router/Destination Error Point -->
+                                        <div
+                                            style="background: rgba(244,67,54,0.1); border: 2px dashed #f44336; padding: 15px; color: #ffcdd2; border-radius: 8px; flex: 1; position: relative;">
+                                            <div
+                                                style="position: absolute; top: -12px; right: -12px; background: #f44336; color: white; border-radius: 50%; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                                                !</div>
+                                            Router / Dest<br><span
+                                                style="font-size: 0.8rem; font-weight: normal;">(Drop: TTL Expired,
+                                                Unreachable, etc.)</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="how-it-works">
                                 <h3><i class="bi bi-question-circle"></i> ICMP কীভাবে কাজ করে?</h3>
                                 <ol>
-                                    <li>ICMP, IP Suite-এর সবচেয়ে গুরুত্বপূর্ণ Protocol গুলোর একটি। TCP ও UDP-এর
+                                    <li>ICMP, IP Suite-এর সবচেয়ে গুরুত্বপূর্ণ Protocol-গুলোর একটি। TCP ও UDP-এর
                                         বিপরীতে, ICMP একটি <strong>Connectionless Protocol</strong>, অর্থাৎ Message
                                         পাঠাতে গন্তব্য ডিভাইসের সাথে আগে থেকে সংযোগ স্থাপন করতে হয় না।</li>
                                     <li>ICMP ও TCP-এর কাজ করার পদ্ধতি ভিন্ন। TCP একটি Connection-oriented Protocol;
@@ -485,7 +595,7 @@
             </div>
         </footer>
     </div>
-    <script type="module" src="../js/main.js"></script>
+    
     <script type="module" src="../js/network-background.js"></script>
 </body>
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="bn">
 
 <head>
@@ -134,8 +134,8 @@
 
         <main class="blog-content-wrapper">
             <div class="container container-blog">
-                <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>আগের Page-এ ফিরে
-                        যান</span></a>
+                <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>Back to
+                        Articles</span></a>
 
                 <article class="glass-panel">
                     <header class="article-header">
@@ -179,6 +179,31 @@
                             <h3>১. IP Address Structure</h3>
                             <p>একটি IPv4 অ্যাড্রেস ৩২-বিট এবং এটি ডট দিয়ে Separate করা চারটি অংশে বিভক্ত থাকে। এর
                                 প্রতিটি অংশকে বলা হয় Octet।</p>
+
+                            <!-- Custom CSS Diagram for IP Address Splitting -->
+                            <div
+                                style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 12px; margin: 25px 0; border: 1px solid rgba(255,255,255,0.1); overflow-x: auto;">
+                                <h4
+                                    style="margin-top: 0; color: #4CAF50; margin-bottom: 20px; font-size: 1.2rem; text-align: center;">
+                                    IP Address (32 bits / 4 Octets)</h4>
+                                <div
+                                    style="display: flex; gap: 5px; min-width: 500px; max-width: 700px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 1.1rem; text-align: center;">
+                                    <div
+                                        style="background: rgba(33,150,243,0.2); border: 2px solid #2196f3; padding: 20px; flex: 2; color: #bbdefb; border-radius: 8px 0 0 8px;">
+                                        Network ID<br><span style="font-size: 0.9rem; font-weight: normal;">(Identifies
+                                            the specific network)</span>
+                                    </div>
+                                    <div
+                                        style="background: rgba(255,152,0,0.2); border: 2px solid #ff9800; padding: 20px; flex: 1; color: #ffe0b2; border-radius: 0 8px 8px 0;">
+                                        Host ID<br><span style="font-size: 0.9rem; font-weight: normal;">(Identifies the
+                                            specific device)</span>
+                                    </div>
+                                </div>
+                                <div style="text-align: center; margin-top: 15px; color: #b0c4de; font-size: 0.95rem;">
+                                    Example: <strong style="color: #2196f3;">192.168.1.</strong><strong
+                                        style="color: #ff9800;">10</strong> (Class C)
+                                </div>
+                            </div>
                             <ul>
                                 <li><strong>Network Portion:</strong> নেটওয়ার্ক আইডি আইডেন্টিফাই করে।</li>
                                 <li><strong>Host Portion:</strong> ঐ নেটওয়ার্কের নির্দিষ্ট ডিভাইসকে আইডেন্টিফাই করে।
@@ -330,7 +355,7 @@
             </div>
         </footer>
     </div>
-    <script type="module" src="../js/main.js"></script>
+    
     <script type="module" src="../js/network-background.js"></script>
 </body>
 

@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="সহজে শিখুন Network Engineering. Data Link Layer: Second Layer of OSI Model নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
   <title>Data Link Layer: Second Layer of OSI Model | enablement.info</title>
 
   <!-- Icons -->
@@ -145,7 +146,7 @@
       <div class="container container-blog">
         <a href="../blogs.html" class="back-btn">
           <i class='bx bx-arrow-back'></i>
-          <span>Return to Previous Page</span>
+          <span>Back to Articles</span>
         </a>
 
         <article class="glass-panel">
@@ -159,17 +160,17 @@
           </header>
 
           <div class="article-body">
-            <h2><i class="bi bi-layers"></i> Data Link Layer What is?</h2>
+            <h2><i class="bi bi-layers"></i> Data Link Layer কী?</h2>
             <p>Data Link Layer হলো OSI Model-এর নিচ থেকে দ্বিতীয় স্তর। এটি মূলত একই স্থানীয়
               Network-এর মধ্যে এক Node থেকে অন্য Node-এ Data পৌঁছানোর Responsibility পালন করে। একে OSI
-              Model-এর সবচেয়ে জটিল Layer বলা হয় Reason এটি Next উপরের Layer-গুলো থেকে Hardware-এর
-              Complexity গুলো আড়াল করে রাখে।</p>
+              Model-এর সবচেয়ে জটিল Layer বলা হয় কারণ এটি Next উপরের Layer-গুলো থেকে Hardware-এর
+              Complexity-গুলো আড়াল করে রাখে।</p>
 
             <div class="content-box">
               <ul>
                 <li><strong>Node-to-Node Delivery:</strong> একই local network-এর মধ্যে data স্থানান্তর
                   নিশ্চিত করে।</li>
-                <li><strong>Reliable Transmission:</strong> Information ের Accurate তা এবং Error হীন আদান-প্রদান
+                <li><strong>Reliable Transmission:</strong> Information-এর Accurate তা এবং Error হীন আদান-প্রদান
                   নিশ্চিত করা এর মূল Task।</li>
                 <li><strong>Encoding & Decoding:</strong> আগত ও বহির্গত data-কে সাজানো এবং সংকেতে
                   রূপান্তর
@@ -201,26 +202,58 @@
 
             <h3>1. Logical Link Control (LLC)</h3>
             <p>LLC Sub-layer-টি Network Layer এবং MAC Sub-layer-এর মধ্যে সেতুবন্ধন হিসেবে Task করে। এর
-              Task গুলো হলো:</p>
+              Task-গুলো হলো:</p>
             <ul>
               <li>Application-গুলোর মধ্যে data-র প্রবাহ (Flow) এবং Multiplexing Operation করা।</li>
               <li>Error Message প্রদান এবং প্রাপ্তি স্বীকার (Acknowledgment) নিশ্চিত করা।</li>
             </ul>
 
-            <h3>2. Media Access Control (MAC)</h3>
-            <p>MAC Sub-layer-টি সরাসরি physical media-র সাথে যোগাযোগ রক্ষা করে। এর Task গুলো হলো:</p>
             <ul>
-              <li>Device-এর Physical বা MAC Address ব্যবহার করে Frame Creation করা।</li>
+              <li>Device-এর Physical বা MAC Address ব্যবহার করে Frame তৈরি করা।</li>
               <li>Network Layer থেকে পাওয়া Packet-গুলোকে 'Frame'-এ বিভক্ত করে bit by bit physical
                 Layer-এ পাঠানো।</li>
               <li>Physical Media Access নিয়ন্ত্রণ করা।</li>
             </ul>
 
+            <!-- Custom CSS Diagram: MAC Address Structure -->
+            <div
+              style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 12px; margin: 30px 0; border: 1px solid rgba(255,152,0,0.3); overflow-x: auto;">
+              <h4 style="margin-top: 0; color: #ffb74d; margin-bottom: 25px; font-size: 1.1rem; text-align: center;">
+                Physical Address (MAC) Structure - 48 bits</h4>
+
+              <div
+                style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; min-width: 500px; max-width: 700px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 1.1rem; text-align: center;">
+
+                <!-- The Address -->
+                <div style="font-size: 1.8rem; letter-spacing: 5px; margin-bottom: 10px;">
+                  <span style="color: #ff9800;">00:60:2F</span>:<span style="color: #2196f3;">4A:07:BC</span>
+                </div>
+
+                <!-- The Blocks -->
+                <div style="display: flex; width: 100%; height: 50px;">
+                  <div
+                    style="background: rgba(255,152,0,0.2); border: 2px solid #ff9800; color: #ffe0b2; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 8px 0 0 8px;">
+                    OUI (24 bits)<br><span style="font-size: 0.75rem; font-weight: normal; color: #ffb74d;">(Vendor
+                      Code)</span>
+                  </div>
+                  <div
+                    style="background: rgba(33,150,243,0.2); border: 2px solid #2196f3; border-left: none; color: #bbdefb; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 0 8px 8px 0;">
+                    NIC Specific (24 bits)<br><span
+                      style="font-size: 0.75rem; font-weight: normal; color: #90caf9;">(Unique Serial)</span>
+                  </div>
+                </div>
+
+                <div style="font-size: 0.85rem; color: #888; margin-top: 5px;">Total 6 Bytes (expressed in Hexadecimal)
+                </div>
+
+              </div>
+            </div>
+
             <hr>
 
             <h2><i class="bi bi-gear"></i> Data Link Layer-এর প্রধান Task সমূহ (Functions)</h2>
             <div class="content-box">
-              <p>Data Link Layer-এর প্রধান Task গুলো নিচে Detailed Discussion করা হলো:</p>
+              <p>Data Link Layer-এর প্রধান Task-গুলো নিচে Detailed Discussion করা হলো:</p>
               <ul>
                 <li><strong>Framing:</strong> Packet-গুলোকে Frame-এ সাজানো যাতে Receiver Frame-এর
                   শুরু এবং শেষ বুঝতে পারে।</li>
@@ -241,15 +274,15 @@
             <h2><i class="bi bi-shield-check"></i> Data Link Layer-এর Protocol-সমূহ</h2>
             <p>এই Layer-এ নিরবিচ্ছিন্ন যোগাযোগের জন্য বিভিন্ন protocol ব্যবহৃত হয়:</p>
             <ul>
-              <li><strong>SDLC (Synchronous Data Link Control):</strong> IBM দ্বারা Creation প্রাচীন
+              <li><strong>SDLC (Synchronous Data Link Control):</strong> IBM দ্বারা তৈরি প্রাচীন
                 Protocol।</li>
               <li><strong>HDLC (High-Level Data Link Control):</strong> এটি bit-oriented protocol যা
                 data transmission-এ ব্যবহৃত হয়।</li>
               <li><strong>SLIP (Serial Line Interface Protocol):</strong> Serial port এবং Modem
                 connection-এর জন্য ব্যবহৃত হয়।</li>
-              <li><strong>PPP (Point-to-Point Protocol):</strong> সরাসরি দুটি Computer ের মধ্যে IP
+              <li><strong>PPP (Point-to-Point Protocol):</strong> সরাসরি দুটি Computer-এর মধ্যে IP
                 Traffic transmit করতে ব্যবহৃত হয়।</li>
-              <li><strong>LAP (Link Access Procedure):</strong> X.25 Frame Structure ের protocol।</li>
+              <li><strong>LAP (Link Access Procedure):</strong> X.25 Frame Structure-এর protocol।</li>
               <li><strong>LCP & NCP:</strong> Link Control এবং Network Control protocol যা PPP-এর
                 সাথে Task করে।</li>
             </ul>
@@ -257,21 +290,20 @@
             <hr>
 
             <h2><i class="bi bi-cpu"></i> Data Link Layer-এ ব্যবহৃত Device-সমূহ</h2>
-            <p>এই Layout-এ Information ের সঠিক আদান-প্রদান নিশ্চিত করতে বেশ কিছু Hardware Device Task করে:</p>
-            <div
-              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+            <p>এই Layout-এ Information-এর সঠিক আদান-প্রদান নিশ্চিত করতে বেশ কিছু Hardware Device Task করে:</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
               <div class="content-box">
                 <h3>1. Switch</h3>
                 <p>MAC Address Table ব্যবহার করে Frame-গুলোকে সঠিক Device-এ forward করে।</p>
               </div>
               <div class="content-box">
                 <h3>2. Bridge</h3>
-                <p>দুটি LAN-কে সংযুক্ত করে একটি network segment Creation করে এবং traffic কমায়।
+                <p>দুটি LAN-কে সংযুক্ত করে একটি network segment তৈরি করে এবং traffic কমায়।
                 </p>
               </div>
               <div class="content-box">
                 <h3>3. NIC (Network Interface Card)</h3>
-                <p>Computer ের physical যোগাযোগ unit যা MAC address ব্যবহার করে frame পাঠায় ও
+                <p>Computer-এর physical যোগাযোগ unit যা MAC address ব্যবহার করে frame পাঠায় ও
                   গ্রহণ করে।</p>
               </div>
               <div class="content-box">
@@ -284,7 +316,7 @@
             <div class="warning-box">
               <p><strong><i class="bi bi-shield-slash"></i> Security Risk:</strong> Data Link Layer
                 অনেক সময় <strong>MAC Spoofing</strong> বা <strong>ARP Poisoning</strong>-এর মতো Cyber
-                Attack ের শিকার হতে পারে। এই Attack গুলো সম্পর্কে জ্ঞান থাকা network সুরক্ষার জন্য
+                Attack-এর শিকার হতে পারে। এই Attack-গুলো সম্পর্কে জ্ঞান থাকা network সুরক্ষার জন্য
                 অপরিহার্য।</p>
             </div>
 
@@ -305,7 +337,7 @@
                 <ul>
                   <li>Ethernet এবং LAN Operation।</li>
                   <li>Wi-Fi (IEEE 802.11) communication।</li>
-                  <li>Point-to-point protocol-এর মাধ্য মেসরাসরি সংযোগ।</li>
+                  <li>Point-to-point protocol-এর মাধ্যমে সরাসরি সংযোগ।</li>
                   <li>Switching operation Operation।</li>
                 </ul>
               </div>
@@ -316,7 +348,7 @@
             <h2><i class="bi bi-check2-circle"></i> Summary</h2>
             <p>Data Link Layer Networking-এর অত্যন্ত গুরুত্বপূর্ণ একটি স্তর যা bit-গুলোকে frame-এ
               রূপান্তর করে data-র Reliable তা নিশ্চিত করে। এর flow control, error handling এবং
-              addressing ব্যবস্থা ছাড়া Internet-এর মতো বিশাল network-এ Information ের আদান-প্রদান করা অসম্ভব
+              addressing ব্যবস্থা ছাড়া Internet-এর মতো বিশাল network-এ Information-এর আদান-প্রদান করা অসম্ভব
               ছিল।</p>
           </div>
         </article>
@@ -329,12 +361,8 @@
       </div>
     </footer>
   </div>
-  <script type="module" src="../js/main.js"></script>
+  
   <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>
-
-
-
-

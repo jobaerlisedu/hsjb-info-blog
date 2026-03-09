@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="সহজে শিখুন Network Engineering. Difference Between OSI and TCP/IP Models নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
   <title>Difference Between OSI and TCP/IP Models | enablement.info</title>
 
 
@@ -124,7 +125,7 @@
       <div class="container container-blog">
         <a href="../blogs.html" class="back-btn">
           <i class='bx bx-arrow-back'></i>
-          <span>Return to Previous Page</span>
+          <span>Back to Articles</span>
         </a>
 
         <article class="glass-panel">
@@ -141,16 +142,16 @@
             <h2><i class="bi bi-lightbulb"></i> ভূমিকা</h2>
             <p>Computer Networking জগতে <strong>OSI (Open Systems Interconnection)</strong> এবং
               <strong>TCP/IP (Transmission Control Protocol / Internet Protocol)</strong>— এই দুটি Model-ই
-              Information আদান-প্রদানের মূল ভিত্তি। যদিও এরা Separate Purpose ে Creation হয়েছে, তবে এদের প্রধান Task হলো
-              একটি Network-এর মাধ্য মেদুটি Device-এর মধ্যে Data কীভাবে প্রবাহিত হবে তা সংজ্ঞায়িত করা।
-              OSI একটি Theoretical Reference Model হিসেবে Task করে, অন্য Direction ে TCP/IP হলো Modern Internet-এর
+              Information আদান-প্রদানের মূল ভিত্তি। যদিও এরা Separate Purpose ে তৈরি হয়েছে, তবে এদের প্রধান Task হলো
+              একটি Network-এর মাধ্যমে দুটি Device-এর মধ্যে Data কীভাবে প্রবাহিত হবে তা সংজ্ঞায়িত করা।
+              OSI একটি Theoretical Reference Model হিসেবে Task করে, অন্য দিক ে TCP/IP হলো Modern Internet-এর
               বাস্তবসম্মত ভিত্তি।
             </p>
 
             <hr>
 
             <h2><i class="bi bi-layers"></i> OSI Model (7টি Layer)</h2>
-            <p>OSI Model-টি 1970-এর দশকের শেষ Direction ে <strong>ISO</strong> দ্বারা Creation একটি Theoretical
+            <p>OSI Model-টি 1970-এর দশকের শেষ দিক ে <strong>ISO</strong> দ্বারা তৈরি একটি Theoretical
               Framework। এতে মোট 7টি Layer থাকে:</p>
 
             <div class="content-box mb-4">
@@ -173,7 +174,7 @@
               <h3 class="h5 text-white">3. Network Layer</h3>
               <ul>
                 <li>Packet-এর Logical Addressing এবং IP Routing Handle করে।</li>
-                <li>IP Address ব্যবহার করে Destination এ পৌঁছানোর সেরা Path Determination করে।</li>
+                <li>IP Address ব্যবহার করে Destination এ পৌঁছানোর সেরা Path নির্ধারণ করে।</li>
                 <li>Packet Forwarding এবং Routing Table Manage করে।</li>
                 <li>Router এই Layer-এ Task করে।</li>
               </ul>
@@ -189,7 +190,7 @@
 
               <h3 class="h5 text-white">5. Session Layer</h3>
               <ul>
-                <li>Device-এর মধ্যে Session Creation, Operation এবং সমাপ্ত করে।</li>
+                <li>Device-এর মধ্যে Session তৈরি, Operation এবং সমাপ্ত করে।</li>
                 <li>এটি Dialogue Control (Half-duplex / Full-duplex) করে।</li>
                 <li>Session Checkpoint এবং Authentication বজায় রাখে।</li>
                 <li>RPC এবং NetBIOS-এর মতো Protocol এখানে Task করে।</li>
@@ -200,7 +201,7 @@
                 <li>Data Translation, Encryption এবং Formatting Handle করে।</li>
                 <li>Data Format Convert (Encoding/Decoding) করে যাতে Application Layer তা বুঝতে পারে।
                 </li>
-                <li>Security র জন্য Encryption/Decryption (SSL/TLS) প্রয়োগ করে।</li>
+                <li>Security-র জন্য Encryption/Decryption (SSL/TLS) প্রয়োগ করে।</li>
                 <li>দক্ষ Transmission-এর জন্য Data Compression করে।</li>
               </ul>
 
@@ -213,7 +214,7 @@
             </div>
 
             <h2><i class="bi bi-cpu"></i> TCP/IP Model (5টি Layer)</h2>
-            <p>TCP/IP Model-টি Internet-এর জন্য Creation একটি Practical Framework। এটি বর্তমানে বিশ্বজুড়ে
+            <p>TCP/IP Model-টি Internet-এর জন্য তৈরি একটি Practical Framework। এটি বর্তমানে বিশ্বজুড়ে
               ব্যব্যহৃত হয় এবং এতে নিচের 5টি Layer-এর Detailed Task রয়েছে:</p>
 
             <div class="content-box mb-4">
@@ -237,7 +238,7 @@
               <ul>
                 <li>Logical Addressing এবং Packet Routing Handle করে।</li>
                 <li>IP Addressing (IPv4/IPv6) ব্যবহার করে।</li>
-                <li>Destination এ পৌঁছানোর জন্য সেরা Path Determination করে।</li>
+                <li>Destination এ পৌঁছানোর জন্য সেরা Path নির্ধারণ করে।</li>
                 <li>Packet Routing এবং Fragmentation সম্পন্ন করে।</li>
                 <li>প্রধান Protocol: IP, ICMP, ARP, RARP।</li>
               </ul>
@@ -255,11 +256,76 @@
                 <li>End-user Application-কে সরাসরি Network Service প্রদান করে।</li>
                 <li>HTTP, FTP, SMTP, DNS, DHCP এবং SNMP Protocol সমর্থন করে।</li>
                 <li>Data Formatting এবং Communication Service প্রদানের জন্য দায়ী।</li>
-                <li>এটি OSI Model-এর Session, Presentation এবং Application Layer-এর Task গুলো একসাথে
+                <li>এটি OSI Model-এর Session, Presentation এবং Application Layer-এর Task-গুলো একসাথে
                   সম্পন্ন
                   করে।</li>
               </ul>
             </div>
+
+            <h2><i class="bi bi-diagram-3"></i> OSI vs TCP/IP Layer Mapping</h2>
+            <div
+              style="background: rgba(0,0,0,0.3); padding: 30px; border-radius: 16px; margin: 35px 0; border: 1px solid rgba(33,150,243,0.3); overflow-x: auto;">
+              <div
+                style="display: flex; gap: 40px; justify-content: center; min-width: 500px; max-width: 800px; margin: 0 auto; font-family: 'Times New Roman', sans-serif;">
+
+                <!-- OSI Layers -->
+                <div style="flex: 1; display: flex; flex-direction: column; gap: 5px;">
+                  <h4 style="text-align: center; color: #fff; margin-bottom: 15px; font-size: 1rem;">OSI Model</h4>
+                  <div
+                    style="background: #2196f3; padding: 10px; border-radius: 6px; font-size: 0.85rem; text-align: center; color: #fff;">
+                    Application</div>
+                  <div
+                    style="background: #2196f3; padding: 10px; border-radius: 6px; font-size: 0.85rem; text-align: center; color: #fff;">
+                    Presentation</div>
+                  <div
+                    style="background: #2196f3; padding: 10px; border-radius: 6px; font-size: 0.85rem; text-align: center; color: #fff;">
+                    Session</div>
+                  <div
+                    style="background: #4caf50; padding: 10px; border-radius: 6px; font-size: 0.85rem; text-align: center; color: #fff;">
+                    Transport</div>
+                  <div
+                    style="background: #ff9800; padding: 10px; border-radius: 6px; font-size: 0.85rem; text-align: center; color: #fff;">
+                    Network</div>
+                  <div
+                    style="background: #f44336; padding: 10px; border-radius: 6px; font-size: 0.85rem; text-align: center; color: #fff;">
+                    Data Link</div>
+                  <div
+                    style="background: #f44336; padding: 10px; border-radius: 6px; font-size: 0.85rem; text-align: center; color: #fff;">
+                    Physical</div>
+                </div>
+
+                <!-- Connectors -->
+                <div
+                  style="display: flex; flex-direction: column; justify-content: space-around; padding: 40px 0 10px 0; color: #666;">
+                  <div style="height: 100px; border-right: 2px dashed #666; width: 0; margin-left: 50%;"></div>
+                  <div style="height: 35px; border-bottom: 2px solid #666; width: 30px;"></div>
+                  <div style="height: 35px; border-bottom: 2px solid #666; width: 30px;"></div>
+                  <div style="height: 70px; border-right: 2px dashed #666; width: 0; margin-left: 50%;"></div>
+                </div>
+
+                <!-- TCP/IP Layers -->
+                <div style="flex: 1; display: flex; flex-direction: column; gap: 5px;">
+                  <h4 style="text-align: center; color: #fff; margin-bottom: 15px; font-size: 1rem;">TCP/IP Model</h4>
+                  <div
+                    style="background: #2196f3; height: 120px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; text-align: center; color: #fff; box-shadow: inset 0 0 20px rgba(0,0,0,0.3);">
+                    Application</div>
+                  <div
+                    style="background: #4caf50; padding: 10px; border-radius: 6px; font-size: 0.85rem; text-align: center; color: #fff;">
+                    Transport</div>
+                  <div
+                    style="background: #ff9800; padding: 10px; border-radius: 6px; font-size: 0.85rem; text-align: center; color: #fff;">
+                    Internet (Network)</div>
+                  <div
+                    style="background: #f44336; height: 85px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; text-align: center; color: #fff; box-shadow: inset 0 0 20px rgba(0,0,0,0.3);">
+                    Network Access</div>
+                </div>
+
+              </div>
+              <p style="text-align: center; color: #888; font-size: 0.8rem; margin-top: 20px; font-style: italic;">Note:
+                The Application layer in TCP/IP combines OSI's Application, Presentation, and Session layers.</p>
+            </div>
+
+            <hr>
 
             <h2><i class="bi bi-arrow-left-right"></i> OSI এবং TCP/IP Model-এর মধ্যে Detailed পার্থক্য</h2>
             <div class="table-wrapper">
@@ -288,9 +354,9 @@
                     <td>এটি একটি Practical Implementation Model।</td>
                   </tr>
                   <tr>
-                    <td><strong>Creation ও বিকাশ</strong></td>
-                    <td>ISO দ্বারা Internet-এর ব্যাপক প্রসারের আগে Creation।</td>
-                    <td>DoD (Department of Defense) দ্বারা Internet-এর জন্য Creation।</td>
+                    <td><strong>তৈরি ও বিকাশ</strong></td>
+                    <td>ISO দ্বারা Internet-এর ব্যাপক প্রসারের আগে তৈরি।</td>
+                    <td>DoD (Department of Defense) দ্বারা Internet-এর জন্য তৈরি।</td>
                   </tr>
                   <tr>
                     <td><strong>নির্ভরশীলতা</strong></td>
@@ -299,13 +365,13 @@
                   </tr>
                   <tr>
                     <td><strong>Protocol</strong></td>
-                    <td>কোনো নির্দিষ্ট Protocol Determination করে না, শুধু Function বর্ণনা করে।</td>
+                    <td>কোনো নির্দিষ্ট Protocol নির্ধারণ করে না, শুধু Function বর্ণনা করে।</td>
                     <td>নির্দিষ্ট Protocol (TCP, IP, UDP, HTTP) সংজ্ঞায়িত করে।</td>
                   </tr>
                   <tr>
-                    <td><strong>Creation র ক্রম</strong></td>
-                    <td>আগে Model Creation করা হয়েছে, পরে Protocol।</td>
-                    <td>আগে Protocol Creation করা হয়েছে, পরে Model।</td>
+                    <td><strong>তৈরি র ক্রম</strong></td>
+                    <td>আগে Model তৈরি করা হয়েছে, পরে Protocol।</td>
+                    <td>আগে Protocol তৈরি করা হয়েছে, পরে Model।</td>
                   </tr>
                   <tr>
                     <td><strong>ব্যবহার</strong></td>
@@ -317,8 +383,9 @@
             </div>
 
             <h2><i class="bi bi-info-circle"></i> Summary</h2>
-            <p>सहज কথায়, OSI Model আমাদের শেখায় কীভাবে Protocol Task করা উচিত, অন্য Direction ে TCP/IP Model
-              Internet ের বাস্তব যোগাযোগ ব্যবস্থা নিশ্চিত করে। কোনো Network Engineer যদি সিস্টে মেকোনো সমস্যা খুঁজে বের করতে চান (Troubleshooting), তবে তিনি সাধারণত OSI Model Layer কেই
+            <p>सहज কথায়, OSI Model আমাদের শেখায় কীভাবে Protocol Task করা উচিত, অন্য দিক ে TCP/IP Model
+              Internet-এর বাস্তব যোগাযোগ ব্যবস্থা নিশ্চিত করে। কোনো Network Engineer যদি সিস্টে মেকোনো সমস্যা খুঁজে বের
+              করতে চান (Troubleshooting), তবে তিনি সাধারণত OSI Model Layer-কেই
               রেফারেন্স হিসেবে ব্যবহার করেন।</p>
           </div>
         </article>
@@ -331,12 +398,8 @@
       </div>
     </footer>
   </div>
-  <script type="module" src="../js/main.js"></script>
+  
   <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>
-
-
-
-

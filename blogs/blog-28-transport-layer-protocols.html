@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="সহজে শিখুন Network Engineering. Transport Layer Protocols নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
+    <title>Transport Layer Protocols | enablement.info</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <style>
+        .blog-content-wrapper {
+            padding-top: 20px;
+            padding-bottom: 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .article-body {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-main);
+        }
+
+        .article-body h2 {
+            font-size: 1.9rem;
+            color: var(--primary-color);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 10px;
+        }
+
+        .article-body h3 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .content-box {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid var(--primary-color);
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .protocol-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .protocol-card {
+            background: rgba(33, 150, 243, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .protocol-card:hover {
+            transform: translateY(-8px);
+            background: rgba(33, 150, 243, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        .protocol-card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .highlight-text {
+            color: #fff;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="network-canvas"></canvas>
+
+    <div class="overlay">
+        <header class="glass-header">
+            <div class="container container-blog">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span
+                                    class="nav-text">Home</span></a></li>
+                        <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
+                                    class="nav-text">Blog</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="blog-content-wrapper">
+            <div class="container container-blog">
+                <a href="../blogs.html" class="back-btn">
+                    <i class='bx bx-arrow-back'></i>
+                    <span>Back to Articles</span>
+                </a>
+
+                <article class="glass-panel">
+                    <header class="article-header">
+                        <h1>Transport Layer Protocols (প্রোটোকলসমূহ)</h1>
+                        <div class="article-meta">
+                            <span><i class='bx bx-calendar'></i> March 09, 2026</span>
+                            <span><i class='bx bx-category'></i> Networking</span>
+                        </div>
+                    </header>
+
+                    <div class="article-body">
+                        <p>ট্রান্সপোর্ট লেয়ার হলো নেটওয়ার্কিংয়ের এমন একটি স্তর যেখানে ডেটা আদান-প্রদানকে
+                            নিয়মতান্ত্রিক এবং নির্ভরযোগ্য করার জন্য বিভিন্ন প্রোটোকল ব্যবহার করা হয়। এটি মূলত আইপি
+                            (IP) লেয়ারের উপরে কাজ করে এবং সঠিক অ্যাপ্লিকেশনে ডেটা পৌঁছে দেয়।</p>
+
+                        <h2><i class="bi bi-list-check"></i> ট্রান্সপোর্ট লেয়ার প্রোটোকলের প্রধান কাজ</h2>
+                        <div class="content-box">
+                            <ul>
+                                <li><span class="highlight-text">Process-to-Process Delivery:</span> এটি নিশ্চিত করে যে
+                                    ডেটা সঠিক সেন্ডার এবং রিসিভার প্রসেসের মধ্যে আদান-প্রদান হচ্ছে।</li>
+                                <li><span class="highlight-text">Multiplexing:</span> ১০-বিটের পোর্ট নম্বর ব্যবহার করে
+                                    এটি একই নেটওয়ার্কে একাধিক অ্যাপ্লিকেশন চালানোর সুবিধা দেয়।</li>
+                                <li><span class="highlight-text">Congestion Control:</span> নেটওয়ার্কে অতিরিক্ত ডেটার
+                                    জ্যাম তৈরি হওয়া প্রতিরোধ করে।</li>
+                                <li><span class="highlight-text">Error Control:</span> ডেটা ট্রান্সফার চলাকালীন কোনো ভুল
+                                    বা এরর শনাক্ত এবং সংশোধন করে।</li>
+                            </ul>
+                        </div>
+
+                        <h2><i class="bi bi-stack"></i> প্রধান ট্রান্সপোর্ট লেয়ার প্রোটোকলসমূহ</h2>
+                        <p>ট্রান্সপোর্ট লেয়ারে তিনটি প্রধান প্রোটোকল সবচেয়ে গুরুত্বপূর্ণ ভূমিকা পালন করে:</p>
+
+                        <div class="protocol-grid">
+                            <div class="protocol-card">
+                                <h3><i class="bi bi-shield-lock-fill"></i> 1. UDP (User Datagram Protocol)</h3>
+                                <p>ইউডিপি (UDP) হলো একটি কানেকশনলেস প্রোটোকল। এর প্রধান বৈশিষ্ট্য হলো এটি অত্যন্ত
+                                    <strong>দ্রুত</strong> কিন্তু <strong>অনির্ভরযোগ্য</strong>। যেখানে অল্প ডেটা
+                                    হারিয়ে গেলেও সমস্যা নেই কিন্তু গতির প্রয়োজন বেশি (যেমন - ভিডিও কলিং, গেমিং),
+                                    সেখানে এটি ব্যবহৃত হয়।
+                                </p>
+                            </div>
+
+                            <div class="protocol-card">
+                                <h3><i class="bi bi-check-circle-fill"></i> 2. TCP (Transmission Control Protocol)</h3>
+                                <p>টিসিপি (TCP) হলো একটি কানেকশন-ওরিয়েন্টেড এবং অত্যন্ত <strong>নির্ভরযোগ্য</strong>
+                                    প্রোটোকল। ডেটা পাঠানোর আগে এটি একটি ভার্চুয়াল কানেকশন তৈরি করে এবং প্রতিটি ডেটা
+                                    প্যাকেট সঠিকভাবে পৌঁছেছে কি না তা নিশ্চিত করে।</p>
+                            </div>
+
+                            <div class="protocol-card">
+                                <h3><i class="bi bi-plus-circle-fill"></i> 3. SCTP (Stream Control Transmission
+                                    Protocol)</h3>
+                                <p>এসিটিপি (SCTP) হলো একটি নির্ভরযোগ্য ও ফুল-ডুপ্লেক্স প্রোটোকল যা টিসিপি এবং ইউডিপি
+                                    উভয়ের কিছু সেরা বৈশিষ্ট্যকে একত্রিত করে তৈরি করা হয়েছে। এটি নির্ভরযোগ্য ডেটা
+                                    ট্রান্সফারের পাশাপাশি গতিরও ভালো ভারসাম্য রক্ষা করে।</p>
+                            </div>
+                        </div>
+
+                        <h2><i class="bi bi-info-circle"></i> সারকথা (Summary)</h2>
+                        <p>কোন প্রোটোকলটি ব্যবহার করা হবে তা মূলত নির্ভর করে নির্দিষ্ট অ্যাপ্লিকেশনের চাহিদার ওপর। যদি
+                            নিখুঁত ডেটা পৌঁছানোর ওপর গুরুত্ব বেশি থাকে তবে TCP ব্যবহার করা হয়, আর যদি গতির ওপর বেশি জোর
+                            দেওয়া হয় তবে UDP ব্যবহার করা হয়।</p>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer class="glass-footer">
+            <div class="container container-blog">
+                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    
+    <script type="module" src="../js/network-background.js"></script>
+</body>
+
+</html>

@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="সহজে শিখুন Network Engineering. Piggybacking: Computer Network নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
   <title>Piggybacking: Computer Network | enablement.info</title>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -123,8 +124,7 @@
 
     <main class="blog-content-wrapper">
       <div class="container container-blog">
-        <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>আগের Page-এ ফিরে
-            যান</span></a>
+        <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>Back to Articles</span></a>
 
         <article class="glass-panel">
           <header class="article-header">
@@ -138,16 +138,16 @@
 
           <div class="article-body">
 
-            <h2><i class="bi bi-backpack"></i> Piggybacking What is?</h2>
+            <h2><i class="bi bi-backpack"></i> Piggybacking কী?</h2>
             <p><strong>Piggybacking</strong> হলো একটি Technique যেখানে Receiver তার ACK (Acknowledgment) পাঠানো
-              বিলম্বিত করে এবং Next বাইরে যাওয়া Data Packet ের সাথে একত্রে সংযুক্ত করে পাঠায়। এর ফলে
+              বিলম্বিত করে এবং Next বাইরে যাওয়া Data Packet-এর সাথে একত্রে সংযুক্ত করে পাঠায়। এর ফলে
               Separate Control ফ্রে মের সংখ্যা কমে এবং Network দক্ষতা বাড়ে।</p>
 
             <div class="content-box">
               <ul>
                 <li>Sliding Window Protocol Sender ACK পাওয়ার আগেই Multiple Packet পাঠাতে দেয়, যা
                   Throughput বাড়ায়।</li>
-                <li>Sender ও Receiver উভয়ই আগত ও বাহির হওয়া Packet ধরে রাখতে সীমিত Buffer রাখে।</li>
+                <li>Sender ও Receiver উভয়ই আগত ও বাহির হওয়া Packet ধরে রাখতে সীমিত Buffer-রাখে।</li>
                 <li>নির্দিষ্ট সময়ের মধ্যে ACK না পেলে অস্বীকৃত Packet-গুলো পুনরায় পাঠানো হয়।</li>
               </ul>
             </div>
@@ -156,7 +156,7 @@
 
             <h2><i class="bi bi-wifi"></i> Network Efficiency কীভাবে বাড়াবেন?</h2>
             <p>Network Efficiency <strong>Full-Duplex Transmission</strong>-এর মাধ্যমে বাড়ানো যায়, যা একই
-              সময়ে দুই Direction ে যোগাযোগ সম্ভব করে। এটি Simplex বা Half-Duplex-এর মতো নয়, এখানে উভয় প্রান্ত
+              সময়ে দুই দিক ে যোগাযোগ সম্ভব করে। এটি Simplex বা Half-Duplex-এর মতো নয়, এখানে উভয় প্রান্ত
               একই সময়ে Data পাঠাতে ও গ্রহণ করতে পারে।</p>
 
             <p>Full-Duplex Transmission দুটি উপায়ে অর্জন করা সম্ভব:</p>
@@ -164,7 +164,7 @@
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;">
               <div class="content-box">
                 <h3><i class="bi bi-arrow-left-right"></i> দুটি Separate Channel</h3>
-                <p>একটি Channel Data পাঠানোর জন্য এবং অপরটি গ্রহণের জন্য ব্যবহৃত হয়। তবে যখন এক Direction ের
+                <p>একটি Channel Data পাঠানোর জন্য এবং অপরটি গ্রহণের জন্য ব্যবহৃত হয়। তবে যখন এক দিকের
                   Traffic কম থাকে, তখন Bandwidth অপচয় হয়।</p>
               </div>
               <div class="content-box">
@@ -176,7 +176,7 @@
 
             <hr>
 
-            <h2><i class="bi bi-gear-wide-connected"></i> Piggybacking কীভাবে Task করে?</h2>
+            <h2><i class="bi bi-gear-wide-connected"></i> Piggybacking কীভাবে কাজ করে?</h2>
             <p>Piggybacking-এ Separate দুটি Message (DATA + ACK) না পাঠিয়ে একটি মাত্র Combined Message পাঠানো
               হয়:
             </p>
@@ -250,11 +250,14 @@
       </div>
     </footer>
   </div>
-  <script type="module" src="../js/main.js"></script>
+  
   <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>
+
+
+
 
 
 

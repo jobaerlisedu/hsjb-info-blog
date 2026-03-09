@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="সহজে শিখুন Network Engineering. Switching: Circuit, Message and Packet Switching নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
   <title>Switching: Circuit, Message and Packet Switching | enablement.info</title>
 
   <!-- Icons -->
@@ -140,7 +141,7 @@
       <div class="container container-blog">
         <a href="../blogs.html" class="back-btn">
           <i class='bx bx-arrow-back'></i>
-          <span>Return to Previous Page</span>
+          <span>Back to Articles</span>
         </a>
 
         <article class="glass-panel">
@@ -154,7 +155,7 @@
           </header>
 
           <div class="article-body">
-            <h2><i class="bi bi-arrow-left-right"></i> Switching What is?</h2>
+            <h2><i class="bi bi-arrow-left-right"></i> Switching কী?</h2>
             <p>Switching হলো একটি Network-এর মধ্যে বা বিভিন্ন Network-এর মধ্যে Switch-এর মাধ্যমে Data
               আদান-প্রদান করার প্রক্রিয়া। এটি প্রধানত OSI Model-এর Data Link Layer (Layer 2)-এ ঘটে,
               যেখানে MAC Address-এর ওপর ভিত্তি করে Data Frame-গুলো সঠিক Destination এ পাঠানো
@@ -182,8 +183,7 @@
                 <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
                   <div
                     style="width:70px;height:70px;border-radius:50%;border:2px solid var(--primary-color);background:rgba(33,150,243,0.1);display:flex;align-items:center;justify-content:center;">
-                    <i class="bi bi-arrow-down-circle"
-                      style="font-size:1.8rem;color:var(--primary-color);"></i>
+                    <i class="bi bi-arrow-down-circle" style="font-size:1.8rem;color:var(--primary-color);"></i>
                   </div>
                   <span style="font-size:0.8rem;color:#ccc;text-align:center;">1. Frame গ্রহণ</span>
                 </div>
@@ -193,8 +193,7 @@
                 <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
                   <div
                     style="width:70px;height:70px;border-radius:50%;border:2px solid var(--primary-color);background:rgba(33,150,243,0.1);display:flex;align-items:center;justify-content:center;">
-                    <i class="bi bi-upc-scan"
-                      style="font-size:1.8rem;color:var(--primary-color);"></i>
+                    <i class="bi bi-upc-scan" style="font-size:1.8rem;color:var(--primary-color);"></i>
                   </div>
                   <span style="font-size:0.8rem;color:#ccc;text-align:center;">2. MAC সংগ্রহ</span>
                 </div>
@@ -224,8 +223,7 @@
                 <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
                   <div
                     style="width:70px;height:70px;border-radius:50%;border:2px solid var(--primary-color);background:rgba(33,150,243,0.1);display:flex;align-items:center;justify-content:center;">
-                    <i class="bi bi-arrow-repeat"
-                      style="font-size:1.8rem;color:var(--primary-color);"></i>
+                    <i class="bi bi-arrow-repeat" style="font-size:1.8rem;color:var(--primary-color);"></i>
                   </div>
                   <span style="font-size:0.8rem;color:#ccc;text-align:center;">5. Table Update</span>
                 </div>
@@ -250,7 +248,7 @@
                   নেয়।</li>
                 <li><strong>Lookup:</strong> Switch-এর Own MAC Table-এ Destination Address-টি খোঁজে।</li>
                 <li><strong>Forwarding & Flooding:</strong> Address খুঁজে পেলে সেই Port-এ পাঠায়, না
-                  পেলে 'Flooding' প্রক্রিয়ার মাধ্য মেসব Port-এ পাঠায়।</li>
+                  পেলে 'Flooding' প্রক্রিয়ার মাধ্যমে সব Port-এ পাঠায়।</li>
                 <li><strong>Table Update:</strong> Sender Device-এর MAC Address দিয়ে Table Update
                   করে।</li>
                 <li><strong>Transmission:</strong> Frame-টি Final Destination এ পৌঁছায়।</li>
@@ -260,11 +258,11 @@
             <hr>
 
             <h2><i class="bi bi-grid-3x3-gap"></i> Switching-এর Classification (Types of Switching)</h2>
-            <p>Data আদান-প্রদানের Method র ওপর ভিত্তি করে Switch িংকে তিন ভাগে ভাগ করা যায়:</p>
+            <p>Data আদান-প্রদানের Method-র ওপর ভিত্তি করে Switch িংকে তিন ভাগে ভাগ করা যায়:</p>
 
             <h3>1. সার্কিট Switch িং (Circuit Switching)</h3>
             <p>এটি একটি Connection-oriented Method যা সাধারণত Telephone Network-এ ব্যবহৃত হয়। এখানে Data
-              পাঠানোর আগে Sender ও Receiver মধ্যে একটি সুনির্দিষ্ট Path Creation করা হয়।</p>
+              পাঠানোর আগে Sender ও Receiver মধ্যে একটি সুনির্দিষ্ট Path তৈরি করা হয়।</p>
             <ul>
               <li>পুরো Session চলাকালীন Path-টি সংরক্ষিত থাকে।</li>
               <li>নির্দিষ্ট Bandwidth এবং কম Latency নিশ্চিত করে।</li>
@@ -293,7 +291,82 @@
             </ul>
             <div class="analogy-box">
               <p><strong>কল্পনা করুন:</strong> একটি আস্ত বইকে Separate Separate অধ্যায়ে ভাগ করে ভিন্ন ভিন্ন
-                কুরিয়ার সার্ভিসের মাধ্য মেপাঠানো এবং সবার শেষে Destination এ পৌঁছে আবার বই Size ে সাজানো।</p>
+                কুরিয়ার সার্ভিসের মাধ্যমে পাঠানো এবং সবার শেষে Destination এ পৌঁছে আবার বই Size ে সাজানো।</p>
+            </div>
+
+            <hr>
+
+            <!-- Custom CSS Diagram: Circuit vs Packet Switching -->
+            <div
+              style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 12px; margin: 30px 0; border: 1px solid rgba(76,175,80,0.3); overflow-x: auto;">
+              <h4 style="margin-top: 0; color: #81c784; margin-bottom: 25px; font-size: 1.1rem; text-align: center;">
+                Circuit vs Packet Switching (Visual)</h4>
+
+              <div
+                style="display: flex; gap: 30px; justify-content: center; min-width: 600px; max-width: 800px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 0.9rem; text-align: center;">
+
+                <!-- Circuit Switching -->
+                <div
+                  style="flex: 1; background: rgba(33,150,243,0.05); border: 1px solid rgba(33,150,243,0.2); padding: 15px; border-radius: 10px;">
+                  <h5 style="color: #2196f3; margin-top: 0;">Circuit Switching</h5>
+                  <div style="height: 100px; position: relative; margin: 15px 0;">
+                    <!-- Dedicated Path -->
+                    <div
+                      style="position: absolute; top: 50%; left: 0; right: 0; height: 4px; background: #2196f3; box-shadow: 0 0 10px #2196f3;">
+                    </div>
+                    <div
+                      style="position: absolute; top: 35%; left: 0; width: 30px; height: 30px; background: #2196f3; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                      A</div>
+                    <div
+                      style="position: absolute; top: 35%; right: 0; width: 30px; height: 30px; background: #2196f3; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                      B</div>
+                    <span
+                      style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); font-size: 0.75rem; color: #90caf9;">Dedicated
+                      Link</span>
+                  </div>
+                  <p style="font-size: 0.8rem; font-weight: normal; color: #bbb;">Used in Voice calls. High reliability.
+                  </p>
+                </div>
+
+                <!-- Packet Switching -->
+                <div
+                  style="flex: 1; background: rgba(156,39,176,0.05); border: 1px solid rgba(156,39,176,0.2); padding: 15px; border-radius: 10px;">
+                  <h5 style="color: #9c27b0; margin-top: 0;">Packet Switching</h5>
+                  <div style="height: 100px; position: relative; margin: 15px 0;">
+                    <!-- Dynamic Paths -->
+                    <div
+                      style="position: absolute; top: 20%; left: 30px; right: 30px; height: 2px; border-top: 2px dashed #9c27b0; opacity: 0.5;">
+                    </div>
+                    <div
+                      style="position: absolute; top: 80%; left: 30px; right: 30px; height: 2px; border-top: 2px dashed #9c27b0; opacity: 0.5;">
+                    </div>
+
+                    <!-- Packets -->
+                    <div
+                      style="position: absolute; top: 10%; left: 40%; width: 20px; height: 15px; background: #9c27b0; border-radius: 3px; font-size: 0.6rem; color: white; display: flex; align-items: center; justify-content: center;">
+                      P1</div>
+                    <div
+                      style="position: absolute; top: 70%; left: 60%; width: 20px; height: 15px; background: #9c27b0; border-radius: 3px; font-size: 0.6rem; color: white; display: flex; align-items: center; justify-content: center;">
+                      P2</div>
+                    <div
+                      style="position: absolute; top: 40%; left: 20%; width: 20px; height: 15px; background: #9c27b0; border-radius: 3px; font-size: 0.6rem; color: white; display: flex; align-items: center; justify-content: center;">
+                      P3</div>
+
+                    <div
+                      style="position: absolute; top: 35%; left: 0; width: 30px; height: 30px; background: #9c27b0; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                      A</div>
+                    <div
+                      style="position: absolute; top: 35%; right: 0; width: 30px; height: 30px; background: #9c27b0; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                      B</div>
+                    <span
+                      style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); font-size: 0.75rem; color: #ce93d8;">Distributed
+                      Paths</span>
+                  </div>
+                  <p style="font-size: 0.8rem; font-weight: normal; color: #bbb;">Used in the Internet. High efficiency.
+                  </p>
+                </div>
+
+              </div>
             </div>
 
             <hr>
@@ -315,12 +388,8 @@
       </div>
     </footer>
   </div>
-  <script type="module" src="../js/main.js"></script>
+  
   <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>
-
-
-
-

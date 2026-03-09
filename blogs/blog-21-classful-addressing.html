@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="সহজে শিখুন Network Engineering. Classful IP Addressing নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
   <title>Classful IP Addressing | enablement.info</title>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -154,8 +155,7 @@
       <div class="container container-blog">
         <nav class="main-nav">
           <ul>
-            <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span
-                  class="nav-text">Home</span></a></li>
+            <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span class="nav-text">Home</span></a></li>
             <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
                   class="nav-text">Blog</span></a></li>
           </ul>
@@ -165,8 +165,7 @@
 
     <main class="blog-content-wrapper">
       <div class="container container-blog">
-        <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>আগের Page-এ ফিরে
-            যান</span></a>
+        <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>Back to Articles</span></a>
 
         <article class="glass-panel">
           <header class="article-header">
@@ -182,7 +181,7 @@
             <p><strong>Classful IP Addressing</strong> ছিল IP Address
               Assign করার একটি প্রাথমিক Method (1981-1993), যেখানে IPv4 Address Space-কে পাঁচটি
               নির্দিষ্ট Class-এ বিভক্ত করা হতো। প্রতিটি IP Address-এর অগ্রণী Bit-গুলোর ওপর ভিত্তি করে তার
-              Class Fixed হতো, যা Network এবং Host অংশের বিভাজন Determination করত।</p>
+              Class Fixed হতো, যা Network এবং Host অংশের বিভাজন নির্ধারণ করত।</p>
 
             <div class="note-box">
               <i class="bi bi-info-circle"></i> বর্তমানে Class ফুল Address িংয়ের পরিবর্তে <strong>CIDR
@@ -198,7 +197,7 @@
                 <p>এটি মানুষের জন্য পাঠযোগ্য Format, যেখানে 32-Bit Binary Address-কে চারটি 8-Bit
                   Segment-এ (Octet) ভাগ করে ডট দিয়ে লেখা হয়।</p>
                 <ul>
-                  <li>প্রতিটি সেগ মেন্ট 0 থেকে 255 পর্যন্ত হয়।</li>
+                  <li>প্রতিটি সেগমেন্ট 0 থেকে 255 পর্যন্ত হয়।</li>
                   <li>Example: 192.168.1.1</li>
                 </ul>
               </div>
@@ -221,7 +220,7 @@
                 <li><strong>সহজ বরাদ্দ:</strong> নির্দিষ্ট Class-এর মাধ্যমে IP বরাদ্দ করা সহজ ছিল।</li>
                 <li><strong>Fast Routing:</strong> Router-গুলো প্রথম Bit দেখেই Class এবং Network ID
                   বুঝতে পারত।</li>
-                <li><strong>Scalability:</strong> বড় এবং ছোট উভয় Type ের Network-এর জন্য Separate Class
+                <li><strong>Scalability:</strong> বড় এবং ছোট উভয় Type-এর Network-এর জন্য Separate Class
                   (A, B, C) ছিল।</li>
                 <li><strong>Standardization:</strong> সমস্ত Device-এর মধ্যে সামঞ্জস্য নিশ্চিত করত।
                 </li>
@@ -240,7 +239,63 @@
             <hr>
 
             <h2><i class="bi bi-table"></i> Classful Addressing-এর Structure (Structure)</h2>
-            <p>নিচের Table ে প্রতিটি Class ের Bit বিভাজন এবং Address রেঞ্জ দেখানো হলো:</p>
+            <p>নিচের Table ে প্রতিটি Class-এর Bit বিভাজন এবং Address-রেঞ্জ দেখানো হলো:</p>
+
+            <!-- Custom CSS Diagram for IP Classes -->
+            <div
+              style="background: rgba(0,0,0,0.3); padding: 30px; border-radius: 12px; margin: 30px 0; border: 1px solid rgba(255,255,255,0.1); overflow-x: auto;">
+              <h4 style="margin-top: 0; color: #e0e0e0; margin-bottom: 25px; font-size: 1.2rem; text-align: center;">Bit
+                Allocation per IP Class (32 Bits Total)</h4>
+              <div
+                style="display: flex; flex-direction: column; gap: 15px; min-width: 600px; max-width: 800px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 0.95rem; text-align: center;">
+                <!-- Class A -->
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="width: 70px; color: #2196f3; font-size: 1.1rem;">Class A</span>
+                  <div style="display: flex; gap: 3px; flex: 1;">
+                    <div
+                      style="background: rgba(255,87,34,0.2); border: 2px solid #ff5722; padding: 10px; color: #ffccbc; flex: 0.1;">
+                      0</div>
+                    <div
+                      style="background: rgba(33,150,243,0.2); border: 2px solid #2196f3; padding: 10px; color: #bbdefb; flex: 0.9;">
+                      Network (7 bits)</div>
+                    <div
+                      style="background: rgba(255,152,0,0.2); border: 2px solid #ff9800; padding: 10px; color: #ffe0b2; flex: 3;">
+                      Host (24 bits)</div>
+                  </div>
+                </div>
+                <!-- Class B -->
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="width: 70px; color: #4caf50; font-size: 1.1rem;">Class B</span>
+                  <div style="display: flex; gap: 3px; flex: 1;">
+                    <div
+                      style="background: rgba(255,87,34,0.2); border: 2px solid #ff5722; padding: 10px; color: #ffccbc; flex: 0.2;">
+                      1 0</div>
+                    <div
+                      style="background: rgba(33,150,243,0.2); border: 2px solid #2196f3; padding: 10px; color: #bbdefb; flex: 1.8;">
+                      Network (14 bits)</div>
+                    <div
+                      style="background: rgba(255,152,0,0.2); border: 2px solid #ff9800; padding: 10px; color: #ffe0b2; flex: 2;">
+                      Host (16 bits)</div>
+                  </div>
+                </div>
+                <!-- Class C -->
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="width: 70px; color: #ffc107; font-size: 1.1rem;">Class C</span>
+                  <div style="display: flex; gap: 3px; flex: 1;">
+                    <div
+                      style="background: rgba(255,87,34,0.2); border: 2px solid #ff5722; padding: 10px; color: #ffccbc; flex: 0.3;">
+                      1 1 0</div>
+                    <div
+                      style="background: rgba(33,150,243,0.2); border: 2px solid #2196f3; padding: 10px; color: #bbdefb; flex: 2.7;">
+                      Network (21 bits)</div>
+                    <div
+                      style="background: rgba(255,152,0,0.2); border: 2px solid #ff9800; padding: 10px; color: #ffe0b2; flex: 1;">
+                      Host (8 bits)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="table-responsive">
               <table class="comparison-table">
                 <thead>
@@ -298,7 +353,7 @@
               </table>
             </div>
             <p class="article-meta"><strong>দ্রষ্টব্য:</strong> Class A-তে মূলত 127টি Network ধরা হয়
-              (0.0.0.0 এবং 127.0.0.0 বিশেষ Reason ে বাদ দেওয়া হয়)।</p>
+              (0.0.0.0 এবং 127.0.0.0 বিশেষ কারণ ে বাদ দেওয়া হয়)।</p>
 
             <hr>
 
@@ -310,7 +365,7 @@
               <p>অনেক বিশাল সংখ্যক Host প্রয়োজন এমন Network-এর জন্য ব্যবহৃত হয়।</p>
               <ul>
                 <li><strong>প্রথম Bit:</strong> সব সময় '0' থাকে।</li>
-                <li><strong>Address রেঞ্জ:</strong> 0.0.0.0 থেকে 127.255.255.255</li>
+                <li><strong>Address-রেঞ্জ:</strong> 0.0.0.0 থেকে 127.255.255.255</li>
                 <li><strong>Network আইডি:</strong> 8 Bit | <strong>হোস্ট আইডি:</strong> 24 Bit</li>
                 <li><strong>ব্যবহারযোগ্য হোস্ট:</strong> 1,67,77,214 টি (প্রতি Network ে)।</li>
                 <li><strong>সাবনেট মাস্ক:</strong> 255.0.0.0</li>
@@ -319,10 +374,10 @@
 
             <div class="ip-class-card">
               <span class="class-badge class-b">Class B</span>
-              <p>Medium থেকে বড় Size ের Network-এর জন্য বরাদ্দ করা হয়।</p>
+              <p>Medium থেকে বড় আকারের Network-এর জন্য বরাদ্দ করা হয়।</p>
               <ul>
                 <li><strong>প্রথম দুই Bit:</strong> সব সময় '10' থাকে।</li>
-                <li><strong>Address রেঞ্জ:</strong> 128.0.0.0 থেকে 191.255.255.255</li>
+                <li><strong>Address-রেঞ্জ:</strong> 128.0.0.0 থেকে 191.255.255.255</li>
                 <li><strong>Network আইডি:</strong> 16 Bit | <strong>হোস্ট আইডি:</strong> 16 Bit</li>
                 <li><strong>ব্যবহারযোগ্য হোস্ট:</strong> 65,534 টি।</li>
                 <li><strong>সাবনেট মাস্ক:</strong> 255.255.0.0</li>
@@ -331,10 +386,10 @@
 
             <div class="ip-class-card">
               <span class="class-badge class-c">Class C</span>
-              <p>ছোট Size ের Network-এর জন্য ব্যবহৃত হয়।</p>
+              <p>ছোট আকারের Network-এর জন্য ব্যবহৃত হয়।</p>
               <ul>
                 <li><strong>প্রথম তিন Bit:</strong> সব সময় '110' থাকে।</li>
-                <li><strong>Address রেঞ্জ:</strong> 192.0.0.0 থেকে 223.255.255.255</li>
+                <li><strong>Address-রেঞ্জ:</strong> 192.0.0.0 থেকে 223.255.255.255</li>
                 <li><strong>Network আইডি:</strong> 24 Bit | <strong>হোস্ট আইডি:</strong> 8 Bit</li>
                 <li><strong>ব্যবহারযোগ্য হোস্ট:</strong> 254 টি।</li>
                 <li><strong>সাবনেট মাস্ক:</strong> 255.255.255.0</li>
@@ -346,17 +401,17 @@
               <p><strong>মাল্টিকাস্ট (Multicast)</strong> যোগাযোগের জন্য সংরক্ষিত।</p>
               <ul>
                 <li><strong>প্রথম চার Bit:</strong> সব সময় '1110' থাকে।</li>
-                <li><strong>Address রেঞ্জ:</strong> 224.0.0.0 থেকে 239.255.255.255</li>
+                <li><strong>Address-রেঞ্জ:</strong> 224.0.0.0 থেকে 239.255.255.255</li>
                 <li>কোনো Network বা হোস্ট আইডি বিভাজন নেই।</li>
               </ul>
             </div>
 
             <div class="ip-class-card">
               <span class="class-badge class-e">Class E</span>
-              <p><strong>Research এবং Test মূলক (Experimental)</strong> Task ের জন্য সংরক্ষিত।</p>
+              <p><strong>Research এবং Test মূলক (Experimental)</strong> Task-এর জন্য সংরক্ষিত।</p>
               <ul>
                 <li><strong>প্রথম চার Bit:</strong> সব সময় '1111' থাকে।</li>
-                <li><strong>Address রেঞ্জ:</strong> 240.0.0.0 থেকে 255.255.255.255</li>
+                <li><strong>Address-রেঞ্জ:</strong> 240.0.0.0 থেকে 255.255.255.255</li>
               </ul>
             </div>
 
@@ -406,7 +461,7 @@
                   Sufficient নয়।</li>
                 <li>Addressing-এ Flexible তা এবং Scalability-র অভাব ছিল।</li>
               </ul>
-              <p>এই সমস্যাগুলোর Reason েই 1993 সালে <strong>CIDR</strong> প্রবর্তন করা হয়।</p>
+              <p>এই সমস্যাগুলোর কারণেই 1993 সালে <strong>CIDR</strong> প্রবর্তন করা হয়।</p>
             </div>
 
             <hr>
@@ -439,8 +494,8 @@
                   </tr>
                   <tr>
                     <td><strong>Routing Table</strong></td>
-                    <td>বড় Routing Table Creation হয়।</td>
-                    <td>Route Aggregation-এর মাধ্যমে ছোট Table Creation হয়।</td>
+                    <td>বড় Routing Table তৈরি হয়।</td>
+                    <td>Route Aggregation-এর মাধ্যমে ছোট Table তৈরি হয়।</td>
                   </tr>
                   <tr>
                     <td><strong>Scalability</strong></td>
@@ -463,12 +518,8 @@
       </div>
     </footer>
   </div>
-  <script type="module" src="../js/main.js"></script>
+  
   <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>
-
-
-
-

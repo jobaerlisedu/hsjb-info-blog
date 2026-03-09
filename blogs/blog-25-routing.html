@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="bn">
 
 <head>
@@ -143,8 +143,8 @@
 
         <main class="blog-content-wrapper">
             <div class="container container-blog">
-                <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>আগের Page-এ ফিরে
-                        যান</span></a>
+                <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>Back to
+                        Articles</span></a>
 
                 <article class="glass-panel">
                     <header class="article-header">
@@ -213,6 +213,30 @@
                                 <li>প্যাকেট Routing-এ সম্পূর্ণ নিয়ন্ত্রণ থাকে।</li>
                                 <li>সহজ কিন্তু বড় নেটওয়ার্কে পরিচালনা করা কঠিন।</li>
                             </ul>
+
+                            <!-- Custom CSS Diagram: Static Routing -->
+                            <div
+                                style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 12px; margin: 20px 0; border: 1px solid rgba(255,152,0,0.3); overflow-x: auto;">
+                                <h4
+                                    style="margin-top: 0; color: #ffca28; margin-bottom: 20px; font-size: 1.1rem; text-align: center;">
+                                    Static Routing Process</h4>
+                                <div
+                                    style="display: flex; align-items: center; justify-content: center; gap: 15px; min-width: 500px; max-width: 700px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 0.95rem; text-align: center;">
+                                    <div
+                                        style="background: rgba(33,150,243,0.2); border: 2px solid #2196f3; padding: 15px; color: #bbdefb; border-radius: 5px;">
+                                        Admin (Manual Config)</div>
+                                    <div style="color: #ff9800; font-size: 1.5rem;">&#10142;</div>
+                                    <div
+                                        style="background: rgba(76,175,80,0.2); border: 2px solid #4caf50; padding: 15px; color: #c8e6c9; border-radius: 5px;">
+                                        Router Table<br><span
+                                            style="font-size: 0.8rem; font-weight: normal; color: #fff;">(Fixed /
+                                            Non-Adaptive)</span></div>
+                                    <div style="color: #ff9800; font-size: 1.5rem;">&#10142;</div>
+                                    <div
+                                        style="background: rgba(156,39,176,0.2); border: 2px dashed #9c27b0; padding: 15px; color: #e1bee7; border-radius: 5px;">
+                                        Destination</div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="concept-card">
@@ -225,18 +249,68 @@
                                 <li>নেটওয়ার্কের পরিবর্তনে নিজেকে মানিয়ে নেয়।</li>
                                 <li>বড় নেটওয়ার্কের জন্য উপযুক্ত।</li>
                             </ul>
+
+                            <!-- Custom CSS Diagram: Dynamic Routing -->
+                            <div
+                                style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 12px; margin: 20px 0; border: 1px solid rgba(33,150,243,0.3); overflow-x: auto;">
+                                <h4
+                                    style="margin-top: 0; color: #4fc3f7; margin-bottom: 20px; font-size: 1.1rem; text-align: center;">
+                                    Dynamic Routing Process</h4>
+                                <div
+                                    style="display: flex; align-items: center; justify-content: center; gap: 10px; min-width: 500px; max-width: 700px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 0.95rem; text-align: center;">
+                                    <div
+                                        style="background: rgba(255,87,34,0.2); border: 2px solid #ff5722; padding: 10px; color: #ffccbc; border-radius: 50%;">
+                                        Router A</div>
+                                    <div style="color: #4CAF50; font-size: 1.2rem;">&#8644; <span
+                                            style="font-size: 0.8rem; display: block; color: #bbb;">(OSPF/RIP)</span>
+                                    </div>
+                                    <div
+                                        style="background: rgba(255,87,34,0.2); border: 2px solid #ff5722; padding: 10px; color: #ffccbc; border-radius: 50%;">
+                                        Router B</div>
+                                    <div style="color: #4CAF50; font-size: 1.2rem;">&#10142; <span
+                                            style="font-size: 0.8rem; display: block; color: #bbb;">Updates</span></div>
+                                    <div
+                                        style="background: rgba(76,175,80,0.2); border: 2px solid #4caf50; padding: 15px; color: #c8e6c9; border-radius: 5px;">
+                                        Auto Updated Table</div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="concept-card">
                             <h3>৩. Default Routing</h3>
                             <p>Default Routing-এ যখন কোনো নির্দিষ্ট রুট পাওয়া যায় না, তখন প্যাকেটগুলো একটি
                                 পূর্বনির্ধারিত Gateway-তে পাঠানো হয়। এটি সাধারণত একটি মাত্র Exit Point আছে এমন
-                                নেটওয়ার্কে ব্যবহৃত হয়।</p>
+                                নেটওয়ার্কে ব্যবহৃত হয়。</p>
                             <ul>
                                 <li>কোনো রুট না পেলে ব্যবহার করা হয়।</li>
                                 <li>সহজ এবং দক্ষ সেটআপ।</li>
                                 <li>Default রুট: <strong>0.0.0.0/0</strong></li>
                             </ul>
+
+                            <!-- Custom CSS Diagram: Default Routing -->
+                            <div
+                                style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 12px; margin: 20px 0; border: 1px solid rgba(76,175,80,0.3); overflow-x: auto;">
+                                <h4
+                                    style="margin-top: 0; color: #81c784; margin-bottom: 20px; font-size: 1.1rem; text-align: center;">
+                                    Default Routing (Gateway of Last Resort)</h4>
+                                <div
+                                    style="display: flex; align-items: center; justify-content: center; gap: 15px; min-width: 500px; max-width: 700px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 0.95rem; text-align: center;">
+                                    <div
+                                        style="background: rgba(33,150,243,0.2); border: 2px solid #2196f3; padding: 15px; color: #bbdefb; border-radius: 5px;">
+                                        Unknown IP Packet<br><span style="font-size: 0.8rem; font-weight: normal;">(ex:
+                                            172.x.x.x)</span></div>
+                                    <div style="color: #ff9800; font-size: 1.5rem;">&#10142;</div>
+                                    <div
+                                        style="background: rgba(255,152,0,0.2); border: 2px solid #ff9800; padding: 15px; color: #ffe0b2; border-radius: 5px;">
+                                        Router Table<br><span
+                                            style="font-size: 0.8rem; font-weight: normal; color: #fff;">(Not
+                                            Found)</span></div>
+                                    <div style="color: #4CAF50; font-size: 1.5rem;">&#10142;</div>
+                                    <div
+                                        style="background: rgba(244,67,54,0.2); border: 2px solid #f44336; padding: 15px; color: #ffcdd2; border-radius: 5px;">
+                                        Default Gateway<br><code>0.0.0.0/0</code></div>
+                                </div>
+                            </div>
                         </div>
 
                         <hr>
@@ -419,7 +493,7 @@
             </div>
         </footer>
     </div>
-    <script type="module" src="../js/main.js"></script>
+    
     <script type="module" src="../js/network-background.js"></script>
 </body>
 

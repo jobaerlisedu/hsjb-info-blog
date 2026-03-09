@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="সহজে শিখুন Network Engineering. OSI Model: 7 Layers of Computer Network নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
   <title>OSI Model: 7 Layers of Computer Network | enablement.info</title>
 
 
@@ -124,7 +125,7 @@
       <div class="container container-blog">
         <a href="../blogs.html" class="back-btn">
           <i class='bx bx-arrow-back'></i>
-          <span>Return to Previous Page</span>
+          <span>Back to Articles</span>
         </a>
 
         <article class="glass-panel">
@@ -138,10 +139,10 @@
           </header>
 
           <div class="article-body">
-            <h2><i class="bi bi-lightbulb"></i> OSI Model What is? (What is OSI Model?)</h2>
+            <h2><i class="bi bi-lightbulb"></i> OSI Model কী? (What is OSI Model?)</h2>
             <p>OSI (Open Systems Interconnection) Model হলো একটি Theoretical Framework যা বর্ণনা করে কীভাবে
-              ভিন্ন ভিন্ন Computer System একটি Network-এর মাধ্য মেএকে অপরের সাথে যোগাযোগ করে। এটি
-              International Organization for Standardization (ISO) দ্বারা 1984 সালে Creation করা হয়েছে। এটি
+              ভিন্ন ভিন্ন Computer System একটি Network-এর মাধ্যমে একে অপরের সাথে যোগাযোগ করে। এটি
+              International Organization for Standardization (ISO) দ্বারা 1984 সালে তৈরি করা হয়েছে। এটি
               Modern Networking এবং Communication System-এর ভিত্তি হিসেবে Task করে এবং Troubleshooting
               ও Network Design-এ অত্যন্ত সহায়ক।</p>
 
@@ -149,48 +150,77 @@
             <p>OSI Model সাতটি পৃথক Layer ে বিভক্ত, যেখানে প্রতিটি Layer নির্দিষ্ট Task ও দায়িত্ব রয়েছে।
               এই Layer নিচে থেকে উপরে সাজানো থাকে:</p>
 
+            <!-- Custom CSS Diagram for OSI Layers -->
+            <div
+              style="background: rgba(0,0,0,0.3); padding: 30px; border-radius: 12px; margin: 30px 0; border: 1px solid rgba(255,255,255,0.1);">
+              <div
+                style="display: flex; flex-direction: column; gap: 8px; max-width: 500px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 1.15rem; text-align: center;">
+                <div
+                  style="background: rgba(156,39,176,0.2); border: 2px solid #9c27b0; padding: 15px; color: #e1bee7; border-radius: 8px;">
+                  7. Application Layer</div>
+                <div
+                  style="background: rgba(103,58,183,0.2); border: 2px solid #673ab7; padding: 15px; color: #d1c4e9; border-radius: 8px;">
+                  6. Presentation Layer</div>
+                <div
+                  style="background: rgba(63,81,181,0.2); border: 2px solid #3f51b5; padding: 15px; color: #c5cae9; border-radius: 8px;">
+                  5. Session Layer</div>
+                <div
+                  style="background: rgba(33,150,243,0.2); border: 2px solid #2196f3; padding: 15px; color: #bbdefb; border-radius: 8px;">
+                  4. Transport Layer</div>
+                <div
+                  style="background: rgba(0,188,212,0.2); border: 2px solid #00bcd4; padding: 15px; color: #b2ebf2; border-radius: 8px;">
+                  3. Network Layer</div>
+                <div
+                  style="background: rgba(76,175,80,0.2); border: 2px solid #4CAF50; padding: 15px; color: #c8e6c9; border-radius: 8px;">
+                  2. Data Link Layer</div>
+                <div
+                  style="background: rgba(255,152,0,0.2); border: 2px solid #ff9800; padding: 15px; color: #ffe0b2; border-radius: 8px;">
+                  1. Physical Layer</div>
+              </div>
+            </div>
+
             <h3>1. Physical Layer</h3>
-            <p>এটি OSI Model সর্বনিম্ন Layer। এর প্রধান Task হলো Device ের মধ্যে প্রকৃত ফিজিক্যাল Connection
-              Creation করা এবং Bit Size ে (0s and 1s) Data ট্রান্সমিট করা।</p>
+            <p>এটি OSI Model সর্বনিম্ন Layer। এর প্রধান Task হলো Device-এর মধ্যে প্রকৃত ফিজিক্যাল Connection
+              তৈরি করা এবং Bit Size ে (0s and 1s) Data ট্রান্সমিট করা।</p>
             <ul>
               <li><strong>Bit Synchronization:</strong> এটি Sender এবং Receiver মধ্যে Bit লেভেলে
                 Synchronization নিশ্চিত করে।</li>
-              <li><strong>Bit রেট Control:</strong> প্রতি সেকেন্ডে কতগুলো Bit পাঠানো হবে তা Determination করে
+              <li><strong>Bit-রেট Control:</strong> প্রতি সেকেন্ডে কতগুলো Bit পাঠানো হবে তা নির্ধারণ করে
                 (Transmission Rate)।</li>
-              <li><strong>ফিজিক্যাল Topology:</strong> Network ে Device গুলো কীভাবে যুক্ত থাকবে (Bus, Star,
+              <li><strong>ফিজিক্যাল Topology:</strong> Network ে Device-গুলো কীভাবে যুক্ত থাকবে (Bus, Star,
                 Mesh) তা ঠিক করে।</li>
-              <li><strong>Transmission মোড:</strong> Data প্রবাহের Type Determination করে (Simplex, Half-Duplex,
+              <li><strong>Transmission মোড:</strong> Data প্রবাহের Type নির্ধারণ করে (Simplex, Half-Duplex,
                 Full-Duplex)।</li>
               <li><strong>Device ও Interface:</strong> Hub (Hub), রিপিটার (Repeater), ডি-Connector এবং
-                Cable গুলো এই Layer ে Task করে।</li>
+                Cable-গুলো এই Layer ে Task করে।</li>
             </ul>
 
             <h3>2. Data Link Layer</h3>
-            <p>এই Layer টি Node-টু-Node মেসেজ Delivery র জন্য দায়ী। এটি ফিজিক্যাল Layer উপর ভিত্তি করে Task
-              করে এবং Data Transfer কে ত্রু Team ুক্ত করার চেষ্টা করে।</p>
+            <p>এই Layer টি Node-টু-Node মেসেজ Delivery-র জন্য দায়ী। এটি ফিজিক্যাল Layer উপর ভিত্তি করে Task
+              করে এবং Data Transfer কে ত্রুটিমুক্ত করার চেষ্টা করে।</p>
             <ul>
-              <li><strong>Frame িং (Framing):</strong> Network Layer থেকে আসা Packet গুলোকে ছোট ছোট
+              <li><strong>Frame িং (Framing):</strong> Network Layer থেকে আসা Packet-গুলোকে ছোট ছোট
                 'Frame'-এ রূপান্তর করে।</li>
-              <li><strong>ফিজিক্যাল Address িং (MAC Address):</strong> প্রতিটি Device ের হার্ডওয়্যারে
+              <li><strong>ফিজিক্যাল Address িং (MAC Address):</strong> প্রতিটি Device-এর হার্ডওয়্যারে
                 থাকা ইউনিক MAC Address ব্যবহার করে সঠিক Device ে Data পৌঁছানো নিশ্চিত করে।</li>
               <li><strong>এরর Control:</strong> Check সাম বা CRC ব্যবহার করে Data Transmission ে কোনো Error
                 হয়েছে কিনা তা শনাক্ত করে।</li>
               <li><strong>ফ্লো Control:</strong> Sender যদি খুব Fast Data পাঠায় এবং Receiver তা গ্রহণ
                 করতে না পারে, তবে এটি Data প্রবাহ Control করে।</li>
               <li><strong>অ্যাক্সেস Control:</strong> যখন Multiple Device একই Channel শেয়ার করে, তখন কে
-                আগে Data পাঠাবে তা Determination করে।</li>
+                আগে Data পাঠাবে তা নির্ধারণ করে।</li>
               <li><strong>Device:</strong> Switch (Switch) এবং Bridge (Bridge) এই Layer ে Task করে।</li>
             </ul>
 
             <h3>3. Network Layer</h3>
-            <p>বিভিন্ন Network ে থাকা হোস্টগুলোর মধ্যে Data Packet ের Reliable Transfer নিশ্চিত করে
+            <p>বিভিন্ন Network ে থাকা হোস্টগুলোর মধ্যে Data Packet-এর Reliable Transfer নিশ্চিত করে
               এই Layer। এটি সবচেয়ে উপযুক্ত Path (Routing) খুঁজে বের করার জন্য দায়ী।</p>
             <ul>
               <li><strong>রাউটিং (Routing):</strong> Network Layer Protocol সোর্স থেকে Destination এ
-                Data পৌঁছানোর সেরা Path Determination করে।</li>
+                Data পৌঁছানোর সেরা Path নির্ধারণ করে।</li>
               <li><strong>লজিক্যাল Address িং (IP Address):</strong> প্রতিটি Packet কে IP Address
-                মাধ্যমে Symbol িত করে যাতে সেগুলো Network ের যে কোনো প্রান্তে পৌঁছাতে পারে।</li>
-              <li><strong>ইন্টার Networking:</strong> ভিন্ন ভিন্ন Type ের Network ের মধ্যে সংযোগ স্থাপনে
+                মাধ্যমে Symbol িত করে যাতে সেগুলো Network-এর যে কোনো প্রান্তে পৌঁছাতে পারে।</li>
+              <li><strong>ইন্টার Networking:</strong> ভিন্ন ভিন্ন Type-এর Network-এর মধ্যে সংযোগ স্থাপনে
                 সহায়তা করে।</li>
               <li><strong>Device:</strong> Router (Router) এই Layer প্রধান Device।</li>
             </ul>
@@ -199,40 +229,40 @@
             <p>এটি এন্ড-টু-এন্ড (End-to-End) মেসেজ Delivery নিশ্চিত করে। এটি ওপরের Layer থেকে আসা Data কে
               ছোট অংশে ভাগ করে এবং নিচের Layer ে পাঠায়।</p>
             <ul>
-              <li><strong>সেগ মেন্টেশন এবং রি-অ্যাসেম্বলি:</strong> মেসেজকে ছোট 'সেগ মেন্ট'-এ ভাগ করে এবং
-                Receiver কাছে গেলে আবার সেগুলো যোগ করে মূল মেসেজ Creation করে।</li>
+              <li><strong>সেগমেন্টেশন এবং রি-অ্যাসেম্বলি:</strong> মেসেজকে ছোট 'সেগমেন্ট'-এ ভাগ করে এবং
+                Receiver কাছে গেলে আবার সেগুলো যোগ করে মূল মেসেজ তৈরি করে।</li>
               <li><strong>সার্ভিস Point Address িং (Port Number):</strong> Transport Layer ে পোর্ট
                 Number ব্যবহার করা হয় যাতে একটি Device ে Multiple Application চললে সঠিক Application ে Data
                 পৌঁছায়।</li>
               <li><strong>Connection Control:</strong> এটি Connection লেস (UDP) বা Connection-ওরিয়েন্টেড (TCP) হতে
                 পারে।</li>
-              <li><strong>Reliable Delivery:</strong> TCP Protocol ব্যবহার করে একনলেজ মেন্টের মাধ্যমে
-                Data র সঠিক প্রাপ্যতা নিশ্চিত করে।</li>
+              <li><strong>Reliable Delivery:</strong> TCP Protocol ব্যবহার করে একনলেজমেন্টের মাধ্যমে
+                Data-র সঠিক প্রাপ্যতা নিশ্চিত করে।</li>
             </ul>
 
             <h3>5. Session Layer</h3>
-            <p>এটি দুটি Device ের মধ্যে কমিউনিকেশন সেশন বা কথোপকথন শুরু করা, Operation করা এবং শেষ করার
+            <p>এটি দুটি Device-এর মধ্যে কমিউনিকেশন সেশন বা কথোপকথন শুরু করা, Operation করা এবং শেষ করার
               দায়িত্ব পালন করে।</p>
             <ul>
-              <li><strong>সেশন ম্যানেজ মেন্ট:</strong> Connection Creation, বজায় রাখা এবং প্রয়োজন শেষে বিচ্ছিন্ন
+              <li><strong>সেশন ম্যানেজমেন্ট:</strong> Connection তৈরি, বজায় রাখা এবং প্রয়োজন শেষে বিচ্ছিন্ন
                 করা।</li>
-              <li><strong>Synchronization ও CheckPoint:</strong> বড় ফাইল Transfer ের সময় মাঝে মাঝে
-                CheckPoint ব্যবহার করা হয়, যাতে কোনো Reason ে Network বিচ্ছিন্ন হলে সেখান থেকে আবার
+              <li><strong>Synchronization ও CheckPoint:</strong> বড় ফাইল Transfer-এর সময় মাঝে মাঝে
+                CheckPoint ব্যবহার করা হয়, যাতে কোনো কারণ ে Network বিচ্ছিন্ন হলে সেখান থেকে আবার
                 শুরু করা যায়।</li>
-              <li><strong>Dialogue Control ার:</strong> এটি দুই Device ের মধ্যে হাফ-Duplex বা
+              <li><strong>Dialogue Control ার:</strong> এটি দুই Device-এর মধ্যে হাফ-Duplex বা
                 ফুল-Duplex মোডে কথা বলা Control করে।</li>
             </ul>
 
             <h3>6. Presentation Layer</h3>
             <p>একে 'Switch বোর্ড' বা 'Translation Layer'ও বলা হয়। এটি Application Layer থেকে আসা Data কে
-              Network ের উপযোগী ফরম্যাটে রূপান্তর করে।</p>
+              Network-এর উপযোগী ফরম্যাটে রূপান্তর করে।</p>
             <ul>
-              <li><strong>Translation (Translation):</strong> ডিফারেন্ট Computer সিস্টেমে (যেমন ASCII বা
+              <li><strong>অনুবাদ (Translation):</strong> ডিফারেন্ট Computer সিস্টেমে (যেমন ASCII বা
                 EBCDIC) Data বোঝার উপযোগী করা।</li>
-              <li><strong>Encryption ও Decryption (Encryption/Decryption):</strong> Privacy রক্ষার জন্য
+              <li><strong>Encryption ও Decryption (Encryption/Decryption):</strong> গোপনীয়তা রক্ষার জন্য
                 Data কে কোড যুক্ত করা এবং পরে তা খোলা।</li>
-              <li><strong>কম্প্রেশন (Compression):</strong> Data র সাইজ ছোট করা যাতে Fast Network ের
-                মাধ্য মেপাঠানো যায়।</li>
+              <li><strong>কম্প্রেশন (Compression):</strong> Data-র সাইজ ছোট করা যাতে Fast Network-এর
+                মাধ্যমে পাঠানো যায়।</li>
             </ul>
 
             <h3>7. Application Layer</h3>
@@ -241,20 +271,20 @@
             <ul>
               <li><strong>Network ভার্চুয়াল Terminal:</strong> এটি রিমোট হোস্টের সাথে সংযোগ স্থাপন
                 করতে সাহায্য করে।</li>
-              <li><strong>ফাইল Transfer, এক্সেস ও ম্যানেজ মেন্ট (FTAM):</strong> ফাইল আদান-প্রদান ও
+              <li><strong>ফাইল Transfer, এক্সেস ও ম্যানেজমেন্ট (FTAM):</strong> ফাইল আদান-প্রদান ও
                 ম্যানেজ করা।</li>
               <li><strong>মেইল সার্ভিস:</strong> Email পাঠানো এবং ফরওয়ার্ড করা।</li>
-              <li><strong>Directory সার্ভিস:</strong> Global ইনফর মেশন ও বিভিন্ন রিসোর্সের Information প্রদান।
+              <li><strong>Directory সার্ভিস:</strong> Global ইনফরমেশন ও বিভিন্ন রিসোর্সের Information প্রদান।
               </li>
             </ul>
 
             <h2><i class="bi bi-arrow-down-up"></i> OSI Model-এ Data Flow (Data Flow in OSI Model)</h2>
             <div class="content-box">
-              <p>যখন একজন User Data পাঠায় তখন তা Application Layer থেকে শুরু হয়ে নিচের Direction ে প্রতিটি
+              <p>যখন একজন User Data পাঠায় তখন তা Application Layer থেকে শুরু হয়ে নিচের দিক ে প্রতিটি
                 Layer-এ কিছু অতিরিক্ত Information (Header/Trailer) যোগ করে Physical Layer পর্যন্ত যায়। একে
                 বলা হয় <strong>Encapsulation</strong>।</p>
-              <p>আবার যখন Receiver সেই Data গ্রহণ করে, তখন তা Physical Layer থেকে শুরু হয়ে ওপরের Direction ে
-                প্রতিটি Layer-এ সেই অতিরিক্ত Information গুলো বাদ দিয়ে Application Layer-এ পৌঁছায়। একে বলা
+              <p>আবার যখন Receiver সেই Data গ্রহণ করে, তখন তা Physical Layer থেকে শুরু হয়ে ওপরের দিক ে
+                প্রতিটি Layer-এ সেই অতিরিক্ত Information-গুলো বাদ দিয়ে Application Layer-এ পৌঁছায়। একে বলা
                 হয় <strong>Decapsulation</strong>।</p>
             </div>
 
@@ -275,7 +305,7 @@
               <li class="col-md-6 mb-3">
                 <div class="glass-panel p-3 h-100">
                   <strong>1. Standardization:</strong> এটি Networking Hardware ও Software
-                  Creation র জন্য একটি Universal Model।
+                  তৈরি র জন্য একটি Universal Model।
                 </div>
               </li>
               <li class="col-md-6 mb-3">
@@ -308,12 +338,8 @@
       </div>
     </footer>
   </div>
-  <script type="module" src="../js/main.js"></script>
+  
   <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>
-
-
-
-

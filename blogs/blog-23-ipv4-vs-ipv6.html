@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="bn">
 
 <head>
@@ -126,8 +126,8 @@
 
         <main class="blog-content-wrapper">
             <div class="container container-blog">
-                <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>আগের Page-এ ফিরে
-                        যান</span></a>
+                <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>Back to
+                        Articles</span></a>
 
                 <article class="glass-panel">
                     <header class="article-header">
@@ -171,6 +171,55 @@
                                 <li><strong>ব্রডকাস্ট ট্রাফিক ওভারহেড:</strong> ব্রডকাস্ট কমিউনিকেশন অপ্রয়োজনীয়
                                     নেটওয়ার্ক ট্রাফিক তৈরি করে এবং সিস্টেম পারফরম্যন্স কমিয়ে দেয়।</li>
                             </ul>
+                        </div>
+
+                        <!-- Custom CSS Diagram: IPv4 vs IPv6 Header Size -->
+                        <div
+                            style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 12px; margin: 30px 0; border: 1px solid rgba(33,150,243,0.3); overflow-x: auto;">
+                            <h4
+                                style="margin-top: 0; color: #64b5f6; margin-bottom: 25px; font-size: 1.1rem; text-align: center;">
+                                Header Size Comparison</h4>
+
+                            <div
+                                style="display: flex; flex-direction: column; gap: 20px; min-width: 500px; max-width: 700px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; text-align: center;">
+
+                                <!-- IPv4 Header -->
+                                <div
+                                    style="display: flex; align-items: stretch; justify-content: flex-start; height: 50px;">
+                                    <div
+                                        style="width: 100px; background: rgba(255,152,0,0.2); border: 2px solid #ff9800; color: #ffe0b2; display: flex; align-items: center; justify-content: center; border-radius: 5px 0 0 5px;">
+                                        IPv4
+                                    </div>
+                                    <div
+                                        style="width: 250px; background: rgba(33,150,243,0.2); border: 2px dashed #2196f3; color: #bbdefb; display: flex; align-items: center; justify-content: center; border-left: none;">
+                                        Base Header (20 Bytes)
+                                    </div>
+                                    <div
+                                        style="width: 150px; background: rgba(244,67,54,0.2); border: 2px dotted #f44336; color: #ffcdd2; display: flex; align-items: center; justify-content: center; border-radius: 0 5px 5px 0; border-left: none; position: relative;">
+                                        Options (0-40B)
+                                        <span
+                                            style="position: absolute; top: -20px; right: 0; font-size: 0.75rem; color: #888;">Variable
+                                            (20-60B total)</span>
+                                    </div>
+                                </div>
+
+                                <!-- IPv6 Header -->
+                                <div
+                                    style="display: flex; align-items: stretch; justify-content: flex-start; height: 50px;">
+                                    <div
+                                        style="width: 100px; background: rgba(76,175,80,0.2); border: 2px solid #4CAF50; color: #c8e6c9; display: flex; align-items: center; justify-content: center; border-radius: 5px 0 0 5px;">
+                                        IPv6
+                                    </div>
+                                    <div
+                                        style="width: 400px; background: rgba(33,150,243,0.3); border: 2px solid #2196f3; color: #bbdefb; display: flex; align-items: center; justify-content: center; border-radius: 0 5px 5px 0; border-left: none; position: relative;">
+                                        Fixed Base Header (40 Bytes)
+                                        <span
+                                            style="position: absolute; bottom: -22px; right: 0; font-size: 0.75rem; color: #4CAF50;">Extension
+                                            headers added separately if needed</span>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
 
                         <hr>
@@ -314,7 +363,7 @@
             </div>
         </footer>
     </div>
-    <script type="module" src="../js/main.js"></script>
+    
     <script type="module" src="../js/network-background.js"></script>
 </body>
 

@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="সহজে শিখুন Network Engineering. Flow Control: Data Link Layer নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
   <title>Flow Control: Data Link Layer | enablement.info</title>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -90,8 +91,7 @@
       <div class="container container-blog">
         <nav class="main-nav">
           <ul>
-            <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span
-                  class="nav-text">Home</span></a></li>
+            <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span class="nav-text">Home</span></a></li>
             <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
                   class="nav-text">Blog</span></a></li>
           </ul>
@@ -101,8 +101,7 @@
 
     <main class="blog-content-wrapper">
       <div class="container container-blog">
-        <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>আগের Page-এ ফিরে
-            যান</span></a>
+        <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>Back to Articles</span></a>
 
         <article class="glass-panel">
           <header class="article-header">
@@ -116,7 +115,7 @@
 
           <div class="article-body">
 
-            <h2><i class="bi bi-speedometer2"></i> Flow Control What is?</h2>
+            <h2><i class="bi bi-speedometer2"></i> Flow Control কী?</h2>
             <p><strong>Flow Control</strong> হলো OSI Model-এর Data Link Layer-এর একটি প্রক্রিয়া যা Sender ও
               Receiver মধ্যে Data Transmission-এর Speed নিয়ন্ত্রণ করে। এটি নিশ্চিত করে যে Sender এমন Speed তে
               Data পাঠায় যা Receiver সামলাতে পারে — Buffer Overflow এবং Data হারানো রোধ করে।</p>
@@ -124,7 +123,7 @@
             <div class="content-box">
               <ul>
                 <li>Sender ও Receiver-এর মধ্যে Data-র প্রবাহ নিয়ন্ত্রণ করে।</li>
-                <li>Transmission Speed ও Processing স Capacity র পার্থক্য সামলায়।</li>
+                <li>Transmission Speed ও Processing স Capacity-র পার্থক্য সামলায়।</li>
                 <li>Buffer Overflow ও Data হারানো রোধ করে।</li>
                 <li>Device-গুলির মধ্যে একটি Speed-matching mechanism হিসেবে Task করে।</li>
                 <li>ACK পাওয়ার আগে কতটি Frame পাঠাবে তা নিয়ন্ত্রণ করে।</li>
@@ -151,7 +150,7 @@
               style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;margin-bottom:20px;">
               <div class="content-box">
                 <strong>Ready-Signal Handshaking:</strong>
-                <p>ভিন্ন Speed র Component-এর মধ্যে ব্যবহৃত হয়। Receiver "ready" Signal পাঠালে তবেই Data
+                <p>ভিন্ন Speed-র Component-এর মধ্যে ব্যবহৃত হয়। Receiver "ready" Signal পাঠালে তবেই Data
                   Transfer শুরু হয়।</p>
               </div>
               <div class="content-box">
@@ -185,7 +184,7 @@
               </div>
               <div class="content-box">
                 <strong><i class="bi bi-coin"></i> Token Bucket Algorithm:</strong>
-                <p>নির্দিষ্ট হারে Token Creation হয়; Token থাকলেই Data পাঠানো যায়। বড় Bucket ছোট Burst
+                <p>নির্দিষ্ট হারে Token তৈরি হয়; Token থাকলেই Data পাঠানো যায়। বড় Bucket ছোট Burst
                   Support করে।</p>
               </div>
               <div class="content-box">
@@ -206,8 +205,86 @@
                 <li><strong>সহজ ও বাস্তবায়নযোগ্য।</strong></li>
                 <li>Reliable Data Transmission নিশ্চিত করে।</li>
                 <li><strong>অ Advantage:</strong> High-Latency বা High-Bandwidth Network-এ খারাপ Link
-                  ব্যবহার — অপেক্ষার Reason ে Line খালি পড়ে থাকে।</li>
+                  ব্যবহার — অপেক্ষার কারণ ে Line খালি পড়ে থাকে।</li>
               </ul>
+            </div>
+
+            <!-- Custom CSS Diagram: Stop and Wait -->
+            <div
+              style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 12px; margin: 25px 0; border: 1px solid rgba(33,150,243,0.3); overflow-x: auto;">
+              <h4 style="margin-top: 0; color: #64b5f6; margin-bottom: 20px; font-size: 1.1rem; text-align: center;">
+                Stop-and-Wait Flow Control</h4>
+
+              <div
+                style="display: flex; justify-content: center; gap: 40px; min-width: 500px; max-width: 600px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 0.9rem; text-align: center; position: relative;">
+
+                <!-- Vertical Timelines -->
+                <div
+                  style="position: absolute; left: 15%; top: 40px; bottom: 0; width: 2px; background: rgba(255,255,255,0.2);">
+                </div>
+                <div
+                  style="position: absolute; right: 15%; top: 40px; bottom: 0; width: 2px; background: rgba(255,255,255,0.2);">
+                </div>
+
+                <!-- Sender Column -->
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; z-index: 1;">
+                  <div
+                    style="background: #2196f3; color: white; padding: 10px 20px; border-radius: 5px; margin-bottom: 30px; width: 100px;">
+                    Sender</div>
+                  <div
+                    style="background: rgba(33,150,243,0.3); border: 1px solid #2196f3; padding: 5px 15px; border-radius: 5px; margin-bottom: 10px;">
+                    Frame 1</div>
+                  <div style="height: 40px;"> <!-- Wait time --> </div>
+                  <div
+                    style="background: rgba(33,150,243,0.3); border: 1px solid #2196f3; padding: 5px 15px; border-radius: 5px; margin-bottom: 5px; margin-top: 15px;">
+                    Frame 2</div>
+                </div>
+
+                <!-- Arrows Column -->
+                <div
+                  style="flex: 2; display: flex; flex-direction: column; justify-content: flex-start; position: relative; padding-top: 85px;">
+
+                  <!-- Arrow Right -->
+                  <div style="position: absolute; top: 80px; left: 0; right: 0; display: flex; align-items: center;">
+                    <div style="height: 2px; background: #4CAF50; flex: 1;"></div>
+                    <div style="color: #4CAF50; line-height: 0;">&#10148;</div>
+                  </div>
+
+                  <!-- Arrow Left -->
+                  <div
+                    style="position: absolute; top: 125px; left: 0; right: 0; display: flex; align-items: center; flex-direction: row-reverse;">
+                    <div
+                      style="height: 2px; background: #ff9800; flex: 1; border-top: 2px dashed #ff9800; background: transparent;">
+                    </div>
+                    <div style="color: #ff9800; line-height: 0; transform: scaleX(-1);">&#10148;</div>
+                    <span
+                      style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); color: #ffccbc; font-size: 0.75rem;">ACK
+                      2 (Wait)</span>
+                  </div>
+
+                  <!-- Arrow Right -->
+                  <div style="position: absolute; top: 170px; left: 0; right: 0; display: flex; align-items: center;">
+                    <div style="height: 2px; background: #4CAF50; flex: 1;"></div>
+                    <div style="color: #4CAF50; line-height: 0;">&#10148;</div>
+                  </div>
+
+                </div>
+
+                <!-- Receiver Column -->
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; z-index: 1;">
+                  <div
+                    style="background: #4CAF50; color: white; padding: 10px 20px; border-radius: 5px; margin-bottom: 45px; width: 100px;">
+                    Receiver</div>
+                  <div style="height: 20px;"></div>
+                  <div
+                    style="background: rgba(76,175,80,0.3); border: 1px solid #4CAF50; padding: 5px 15px; border-radius: 5px; margin-bottom: 25px;">
+                    Process</div>
+                  <div style="height: 25px;"></div>
+                  <div
+                    style="background: rgba(76,175,80,0.3); border: 1px solid #4CAF50; padding: 5px 15px; border-radius: 5px;">
+                    Process</div>
+                </div>
+              </div>
             </div>
 
             <h3>2. Sliding Window Flow Control</h3>
@@ -220,6 +297,66 @@
                 <li>একই সাথে Multiple Frame Transit-এ থাকতে পারে।</li>
                 <li>Window ও Buffer Management-এর জন্য অতিরিক্ত Memory ও Complexity প্রয়োজন।</li>
               </ul>
+            </div>
+
+            <!-- Custom CSS Diagram: Sliding Window -->
+            <div
+              style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 12px; margin: 25px 0; border: 1px solid rgba(156,39,176,0.3); overflow-x: auto;">
+              <h4 style="margin-top: 0; color: #ce93d8; margin-bottom: 20px; font-size: 1.1rem; text-align: center;">
+                Sliding Window Protocol (Window Size = 3)</h4>
+
+              <div
+                style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; min-width: 500px; max-width: 700px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 1rem; text-align: center;">
+
+                <!-- Frames Box -->
+                <div
+                  style="display: flex; gap: 5px; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 8px; position: relative;">
+                  <div
+                    style="width: 40px; height: 40px; background: rgba(76,175,80,0.3); border: 1px solid #4CAF50; display: flex; align-items: center; justify-content: center; border-radius: 4px; color: #c8e6c9;">
+                    0</div>
+                  <div
+                    style="width: 40px; height: 40px; background: rgba(76,175,80,0.3); border: 1px solid #4CAF50; display: flex; align-items: center; justify-content: center; border-radius: 4px; color: #c8e6c9;">
+                    1</div>
+
+                  <!-- The Window Constraint -->
+                  <div
+                    style="position: absolute; border: 3px solid #ff9800; border-radius: 6px; top: 5px; bottom: 5px; left: 95px; width: 135px; box-shadow: 0 0 10px rgba(255,152,0,0.5); z-index: 2;">
+                    <span
+                      style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 0.75rem; color: #ffccbc; white-space: nowrap;">Active
+                      Window</span>
+                  </div>
+
+                  <div
+                    style="width: 40px; height: 40px; background: rgba(33,150,243,0.3); border: 1px solid #2196f3; display: flex; align-items: center; justify-content: center; border-radius: 4px; color: #bbdefb; position: relative; z-index: 1;">
+                    2</div>
+                  <div
+                    style="width: 40px; height: 40px; background: rgba(33,150,243,0.3); border: 1px solid #2196f3; display: flex; align-items: center; justify-content: center; border-radius: 4px; color: #bbdefb; position: relative; z-index: 1;">
+                    3</div>
+                  <div
+                    style="width: 40px; height: 40px; background: rgba(33,150,243,0.3); border: 1px solid #2196f3; display: flex; align-items: center; justify-content: center; border-radius: 4px; color: #bbdefb; position: relative; z-index: 1;">
+                    4</div>
+
+                  <div
+                    style="width: 40px; height: 40px; border: 1px dashed rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; border-radius: 4px; color: #888;">
+                    5</div>
+                  <div
+                    style="width: 40px; height: 40px; border: 1px dashed rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; border-radius: 4px; color: #888;">
+                    6</div>
+                </div>
+
+                <div style="display: flex; gap: 20px; margin-top: 10px; font-size: 0.8rem; font-weight: normal;">
+                  <div style="display: flex; align-items: center; gap: 5px;">
+                    <div style="width: 12px; height: 12px; background: rgba(76,175,80,0.3); border: 1px solid #4CAF50;">
+                    </div> ACKed
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 5px;">
+                    <div
+                      style="width: 12px; height: 12px; background: rgba(33,150,243,0.3); border: 1px solid #2196f3;">
+                    </div> Sent but UnACKed
+                  </div>
+                </div>
+
+              </div>
             </div>
 
             <hr>
@@ -236,7 +373,7 @@
               </div>
               <div class="content-box">
                 <strong><i class="bi bi-activity"></i> System Stability:</strong>
-                <p>অতিরিক্ত Data Input-এর Reason ে Hardware ও Software স্তব্ধ হওয়া বা ব্যর্থ হওয়া
+                <p>অতিরিক্ত Data Input-এর কারণ ে Hardware ও Software স্তব্ধ হওয়া বা ব্যর্থ হওয়া
                   রোধ করে।</p>
               </div>
               <div class="content-box">
@@ -266,12 +403,8 @@
       </div>
     </footer>
   </div>
-  <script type="module" src="../js/main.js"></script>
+  
   <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>
-
-
-
-

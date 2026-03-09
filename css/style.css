@@ -911,3 +911,45 @@ code {
 .blog-content-wrapper .container {
     max-width: 1600px;
 }
+
+/* Comparison Table Specifics */
+.comparison-table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(15, 23, 42, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.comparison-table th {
+    background: rgba(33, 150, 243, 0.15);
+    color: var(--primary-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+.comparison-table tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.table-responsive {
+    overflow-x: auto;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}

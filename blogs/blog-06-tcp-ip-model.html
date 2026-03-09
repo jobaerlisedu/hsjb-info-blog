@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="সহজে শিখুন Network Engineering. TCP/IP Model: The Foundation of Internet নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
   <title>TCP/IP Model: The Foundation of Internet | enablement.info</title>
 
 
@@ -124,7 +125,7 @@
       <div class="container container-blog">
         <a href="../blogs.html" class="back-btn">
           <i class='bx bx-arrow-back'></i>
-          <span>Return to Previous Page</span>
+          <span>Back to Articles</span>
         </a>
 
         <article class="glass-panel">
@@ -138,7 +139,7 @@
           </header>
 
           <div class="article-body">
-            <h2><i class="bi bi-lightbulb"></i> TCP/IP Model What is? (What is TCP/IP Model?)</h2>
+            <h2><i class="bi bi-lightbulb"></i> TCP/IP Model কী? (What is TCP/IP Model?)</h2>
             <p>TCP/IP (Transmission Control Protocol/Internet Protocol) Model হলো একটি Layered Networking
               Framework যা বর্ণনা করে কীভাবে Network-এর মাধ্যমে Device-গুলোর মধ্যে Data আদান-প্রদান
               করা হয়। এটি Standard Protocol ব্যবহার করে Reliable এবং দক্ষ Data Transmission
@@ -152,6 +153,26 @@
             </ul>
 
             <h2><i class="bi bi-layers"></i> TCP/IP Model-এর Layers (Layers of TCP/IP Model)</h2>
+
+            <!-- Custom CSS Diagram for TCP/IP Layers -->
+            <div
+              style="background: rgba(0,0,0,0.3); padding: 30px; border-radius: 12px; margin: 30px 0; border: 1px solid rgba(255,255,255,0.1);">
+              <div
+                style="display: flex; flex-direction: column; gap: 10px; max-width: 500px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 1.2rem; text-align: center;">
+                <div
+                  style="background: rgba(156,39,176,0.2); border: 2px solid #9c27b0; padding: 20px; color: #e1bee7; border-radius: 8px;">
+                  4. Application Layer</div>
+                <div
+                  style="background: rgba(33,150,243,0.2); border: 2px solid #2196f3; padding: 20px; color: #bbdefb; border-radius: 8px;">
+                  3. Transport Layer</div>
+                <div
+                  style="background: rgba(0,188,212,0.2); border: 2px solid #00bcd4; padding: 20px; color: #b2ebf2; border-radius: 8px;">
+                  2. Internet Layer</div>
+                <div
+                  style="background: rgba(76,175,80,0.2); border: 2px solid #4CAF50; padding: 20px; color: #c8e6c9; border-radius: 8px;">
+                  1. Network Access Layer (Link)</div>
+              </div>
+            </div>
 
             <h3>1. Application Layer</h3>
             <p>এটি TCP/IP Model-এর সবচেয়ে উপরের Layer, যা User-এর সবচেয়ে কাছাকাছি থাকে। এখানে Web Browser,
@@ -199,7 +220,7 @@
                 <li><strong>Ordered Delivery:</strong> Data Packet-এ বিভক্ত হয় এবং TCP নিশ্চিত করে যে
                   এই Packet-গুলো সঠিক ক্র মেপৌঁছাবে।</li>
                 <li><strong>Connection-oriented:</strong> Data পাঠানোর আগে Sender ও Receiver মধ্যে
-                  Connection Creation করে Session বজায় রাখে।</li>
+                  Connection তৈরি করে Session বজায় রাখে।</li>
                 <li><strong>ব্যবহার:</strong> Web page Load করা, ফাইল Download, Email পাঠানো বা যেখানে
                   Data-র Accurate তা প্রয়োজন।</li>
               </ul>
@@ -225,11 +246,11 @@
             <ul>
               <li><strong>লজিক্যাল Address িং:</strong> সোর্স এবং Destination Device শনাক্ত করতে IP
                 Address অ্যাসাইন করে।</li>
-              <li><strong>Packet রাউটিং:</strong> Data ভ্রমণের জন্য সেরা Path Determination করে।</li>
+              <li><strong>Packet-রাউটিং:</strong> Data ভ্রমণের জন্য সেরা Path নির্ধারণ করে।</li>
               <li><strong>ফ্র্যাগ মেন্টেশন এবং রিঅ্যাসেম্বলি:</strong> বড় Packet কে ছোট ছোট ভাগে ভাগ করে
                 এবং Destination এ আবার জোড়া লাগায়।</li>
               <li><strong>Protocol সাপোর্ট:</strong> মূলত IP (Internet Protocol) ব্যবহার করে, সাথে ICMP
-                (এরর রিপোর্টিং) এবং ARP (Address রেজোলিউশন) ব্যবহার করে।</li>
+                (এরর রিপোর্টিং) এবং ARP (Address-রেজোলিউশন) ব্যবহার করে।</li>
             </ul>
 
             <h3>4. Network Access Layer (Link Layer)</h3>
@@ -246,7 +267,7 @@
               <li><strong>MAC Addressing:</strong> একই Network segment-এর মধ্যে Device শনাক্ত করতে
                 Hardware Address ব্যবহার করে।</li>
               <li><strong>Access Control:</strong> Multiple Device কীভাবে Physical Medium Share করবে
-                তা Determination করে (Collision এড়ানো)।</li>
+                তা নির্ধারণ করে (Collision এড়ানো)।</li>
             </ul>
 
             <h2><i class="bi bi-arrow-down-up"></i> TCP/IP Model-এর Mechanism (Working of TCP/IP Model)
@@ -255,14 +276,14 @@
             <div class="content-box">
               <p><strong>1. Data পাঠানোর সময় (From Sender to Receiver):</strong></p>
               <ul>
-                <li><strong>Application Layer:</strong> User-এর Software Data Creation করে নিচের Layer-এ
+                <li><strong>Application Layer:</strong> User-এর Software Data তৈরি করে নিচের Layer-এ
                   পাঠায়।</li>
                 <li><strong>Transport Layer:</strong> Data-কে ছোট ছোট ভাগে (Segments) ভাগ করে এবং
                   Control information (TCP/UDP) যোগ করে।</li>
                 <li><strong>Internet Layer:</strong> প্রতিটি Segment-এর সাথে IP Address যোগ করে
                   Packet-এ রূপান্তর করা হয় যাতে Network-এর মাধ্যমে Route করা যায়।</li>
                 <li><strong>Network Access Layer:</strong> Packet-গুলোকে Frame-এ রূপান্তর করে
-                  Physical Medium-এর (Ethernet, Wi-Fi) মাধ্য মেপাঠানো হয়।</li>
+                  Physical Medium-এর (Ethernet, Wi-Fi) মাধ্যমে পাঠানো হয়।</li>
               </ul>
             </div>
 
@@ -273,7 +294,7 @@
                   এবং Error Check করে।</li>
                 <li><strong>Internet Layer:</strong> Frame থেকে Packet বের করে এবং IP Address Check করে
                   সঠিক Device-এ পৌঁছানো নিশ্চিত করে।</li>
-                <li><strong>Transport Layer:</strong> Segment-গুলোকে আবার Pair লাগিয়ে মূল Message Creation
+                <li><strong>Transport Layer:</strong> Segment-গুলোকে আবার Pair লাগিয়ে মূল Message তৈরি
                   করে (যদি TCP ব্যবহার হয় তবে Error সংশোধন করে)।</li>
                 <li><strong>Application Layer:</strong> সম্পূর্ণ Data User Application-এ (যেমন Browser
                   বা Email Client) পৌঁছে দেয়।</li>
@@ -305,10 +326,10 @@
                   </li>
                   <li><strong>Layer-এর কঠোর Rule নেই:</strong> OSI-এর মতো Layer-এর সীমানা কঠোর নয়,
                     যা implementation-এ ভিন্নতা আনতে পারে।</li>
-                  <li><strong>Overhead:</strong> TCP-এর Error checking ফিচারের Reason ে অতিরিক্ত Data
+                  <li><strong>Overhead:</strong> TCP-এর Error checking ফিচারের কারণ ে অতিরিক্ত Data
                     Overhead
                     হতে পারে।</li>
-                  <li><strong>Security র সীমাবদ্ধতা:</strong> এটি প্রাথমিকভাবে built-in security
+                  <li><strong>Security-র সীমাবদ্ধতা:</strong> এটি প্রাথমিকভাবে built-in security
                     দিয়ে Design করা হয়নি (TLS/SSL প্রয়োজন)।</li>
                   <li><strong>Multimedia support কম:</strong> Real-time audio/video-র জন্য এটি
                     optimized নয় (অতিরিক্ত Protocol লাগে)।</li>
@@ -316,17 +337,17 @@
               </div>
             </div>
 
-            <h2><i class="bi bi-question-circle"></i> কেন OSI Model-এর চেয়ে TCP/IP High ব্যবহৃত হয়?</h2>
-            <p>TCP/IP Internet-এ High Popular Reason এটি সহজ, ব্যবহারিক এবং বাস্তবসম্মত। এর প্রধান Reason গুলো
+            <h2><i class="bi bi-question-circle"></i> কেন OSI Model-এর চেয়ে TCP/IP বেশি ব্যবহৃত হয়?</h2>
+            <p>TCP/IP Internet-এ High Popular কারণ এটি সহজ, ব্যবহারিক এবং বাস্তবসম্মত। এর প্রধান কারণ গুলো
               হলো:</p>
             <ul>
               <li><strong>সহজ Structure:</strong> OSI-এর 7টি Layer-এর তুলনায় TCP/IP-এর মাত্র 4টি Layer, যা
                 implement করা সহজ।</li>
-              <li><strong>Protocol-চালিত Design:</strong> TCP/IP Creation হয়েছে বাস্তব Protocol-এর ওপর ভিত্তি
+              <li><strong>Protocol-চালিত Design:</strong> TCP/IP তৈরি হয়েছে বাস্তব Protocol-এর ওপর ভিত্তি
                 করে, যেখানে OSI একটি Theoretical Model।</li>
               <li><strong>Flexible তা ও দৃঢ়তা:</strong> এটি বিভিন্ন Hardware-এর সাথে খাপ খায় এবং এর
                 শক্তিশালী Error handling ও Routing Capacity রয়েছে।</li>
-              <li><strong>Open Standard:</strong> এটি Open এবং Free হওয়ার Reason ে সর্বজনীন
+              <li><strong>Open Standard:</strong> এটি Open এবং Free হওয়ার কারণ ে সর্বজনীন
                 গ্রহণযোগ্যতা পেয়েছে।</li>
               <li><strong>বাস্তব ব্যবহার:</strong> OSI শেখার জন্য ভালো হলেও, বাস্তব বিশ্বে Internet-এর
                 জন্য TCP/IP-ই ব্যবহৃত হয়।</li>
@@ -342,12 +363,8 @@
       </div>
     </footer>
   </div>
-  <script type="module" src="../js/main.js"></script>
+  
   <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>
-
-
-
-

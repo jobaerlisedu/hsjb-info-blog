@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="সহজে শিখুন Network Engineering. Network Layer in OSI Model নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
   <title>Network Layer in OSI Model | enablement.info</title>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -109,8 +110,7 @@
       <div class="container container-blog">
         <nav class="main-nav">
           <ul>
-            <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span
-                  class="nav-text">Home</span></a></li>
+            <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span class="nav-text">Home</span></a></li>
             <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
                   class="nav-text">Blog</span></a></li>
           </ul>
@@ -120,8 +120,7 @@
 
     <main class="blog-content-wrapper">
       <div class="container container-blog">
-        <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>আগের Page-এ ফিরে
-            যান</span></a>
+        <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>Back to Articles</span></a>
 
         <article class="glass-panel">
           <header class="article-header">
@@ -141,7 +140,7 @@
             <div class="content-box">
               <ul>
                 <li>Device-এর Logical (IP) Addressing Operation করে।</li>
-                <li>Network-গুলোর মধ্যে সর্বোত্তম Routing Path Determination করে।</li>
+                <li>Network-গুলোর মধ্যে সর্বোত্তম Routing Path নির্ধারণ করে।</li>
                 <li>Multiple Network জুড়ে Host-to-Host যোগাযোগ সক্ষম করে।</li>
               </ul>
             </div>
@@ -165,7 +164,7 @@
                 <li><strong>Forwarding:</strong> Destination IP-এর ভিত্তিতে Router-এর
                   Input Interface থেকে Output Interface-এ Packet পাঠায়।</li>
                 <li><strong>Routing:</strong> Routing Algorithm ব্যবহার করে Packet-এর জন্য
-                  সবচেয়ে ভালো Path Determination করে।</li>
+                  সবচেয়ে ভালো Path নির্ধারণ করে।</li>
                 <li><strong>Fragmentation and Reassembly:</strong>
                   বড় Packet-গুলোকে ছোট ছোট Chunk করে এবং Destination এ আবার Pair লাগায়।</li>
                 <li><strong>Subnetting:</strong> বড় Network-কে ছোট ছোট অংশে ভাগ করে
@@ -177,17 +176,54 @@
 
             <hr>
 
-            <h2><i class="bi bi-gear-wide-connected"></i> Network Layer কীভাবে Task করে?</h2>
+            <h2><i class="bi bi-gear-wide-connected"></i> Network Layer কীভাবে কাজ করে?</h2>
             <div class="content-box">
               <ol>
                 <li>প্রতিটি Device-কে একটি Unique Logical Address (IP Address) দেওয়া হয়।</li>
                 <li>Transport Layer-এর Data-কে Packet-এ রূপান্তর করা হয়, যেখানে Source এবং Destination
                   IP যুক্ত থাকে।</li>
-                <li>Router Destination Address বিশ্লেষণ করে এবং সেরা Path Determination করে।</li>
+                <li>Router Destination Address বিশ্লেষণ করে এবং সেরা Path নির্ধারণ করে।</li>
                 <li>Packet-গুলো এক Router থেকে অন্য Router-এ (hop-by-hop) Destination এ পৌঁছানো পর্যন্ত চলতে
                   থাকে।</li>
                 <li>Destination এ Packet-গুলো পুনরায় Pair লাগানো হয় এবং উপরের Layer-এ পাঠানো হয়।</li>
               </ol>
+            </div>
+
+            <!-- Custom CSS Diagram: Network Layer Packet Building -->
+            <div
+              style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 12px; margin: 30px 0; border: 1px solid rgba(76,175,80,0.3); overflow-x: auto;">
+              <h4 style="margin-top: 0; color: #81c784; margin-bottom: 25px; font-size: 1.1rem; text-align: center;">
+                Packet Encapsulation Process</h4>
+
+              <div
+                style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; min-width: 500px; max-width: 700px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 0.95rem; text-align: center;">
+
+                <!-- Layer 4: Transport -->
+                <div
+                  style="width: 300px; background: rgba(33,150,243,0.2); border: 2px dashed #2196f3; padding: 15px; color: #bbdefb; border-radius: 8px;">
+                  Data Segment<br><span style="font-size: 0.8rem; font-weight: normal; color: #90caf9;">(From Transport
+                    Layer)</span>
+                </div>
+
+                <div style="color: #ff9800; font-size: 1.5rem; line-height: 0;">&#10143;</div>
+
+                <!-- Layer 3: Network (Packet Creation) -->
+                <div style="display: flex; width: 450px; height: 60px;">
+                  <div
+                    style="background: rgba(255,152,0,0.2); border: 2px solid #ff9800; color: #ffe0b2; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 8px 0 0 8px;">
+                    IP Header<br><span style="font-size: 0.75rem; font-weight: normal; color: #ffb74d;">(Src & Dest
+                      IP)</span>
+                  </div>
+                  <div
+                    style="background: rgba(33,150,243,0.3); border: 2px solid #2196f3; border-left: none; color: #bbdefb; flex: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 0 8px 8px 0;">
+                    Data Payload<br><span style="font-size: 0.75rem; font-weight: normal; color: #90caf9;">(The
+                      Encapsulated Segment)</span>
+                  </div>
+                </div>
+                <div style="font-size: 0.85rem; color: #4CAF50; margin-top: -10px;">= Network Layer Packet (Datagram)
+                </div>
+
+              </div>
             </div>
 
             <hr>
@@ -300,12 +336,8 @@
       </div>
     </footer>
   </div>
-  <script type="module" src="../js/main.js"></script>
+  
   <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>
-
-
-
-

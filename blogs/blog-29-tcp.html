@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="সহজে শিখুন Network Engineering. Transmission Control Protocol (TCP) নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
+    <title>Transmission Control Protocol (TCP) | enablement.info</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <style>
+        .blog-content-wrapper {
+            padding-top: 20px;
+            padding-bottom: 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.6rem;
+            margin-bottom: 15px;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .article-body {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-main);
+        }
+
+        .article-body h2 {
+            font-size: 1.9rem;
+            color: var(--primary-color);
+            margin-top: 45px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 10px;
+        }
+
+        .article-body h3 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .content-box {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid var(--primary-color);
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .how-it-works {
+            background: rgba(33, 150, 243, 0.06);
+            padding: 25px;
+            border-left: 5px solid var(--primary-color);
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .header-table td {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            text-align: center;
+        }
+
+        /* 3-Way Handshake Style */
+        .handshake-diagram {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="network-canvas"></canvas>
+
+    <div class="overlay">
+        <header class="glass-header">
+            <div class="container container-blog">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span
+                                    class="nav-text">Home</span></a></li>
+                        <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
+                                    class="nav-text">Blog</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="blog-content-wrapper">
+            <div class="container container-blog">
+                <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>Back to
+                        Articles</span></a>
+
+                <article class="glass-panel">
+                    <header class="article-header">
+                        <h1>What is Transmission Control Protocol (TCP)?</h1>
+                        <div class="article-meta">
+                            <span><i class='bx bx-calendar'></i> March 09, 2026</span>
+                            <span><i class='bx bx-category'></i> Networking</span>
+                        </div>
+                    </header>
+
+                    <div class="article-body">
+                        <p><strong>TCP (Transmission Control Protocol)</strong> হলো এমন একটি প্রোটোকল যা একটি
+                            নেটওয়ার্কের ওপর দিয়ে ডিভাইসগুলোকে নির্ভরযোগ্যভাবে (reliably) যোগাযোগ করতে সহায়তা করে।
+                            নেটওয়ার্ক ধীরগতির হলেও বা কোনো ত্রুটি থাকলেও, ডেটা যেন সঠিকভাবে এবং ক্রমানুসারে (right
+                            order) গন্তব্যে পৌঁছায় তা এটি নিশ্চিত করে।</p>
+
+                        <div class="content-box">
+                            <h3><i class="bi bi-star"></i> Features of TCP (TCP এর প্রধান বৈশিষ্ট্য):</h3>
+                            <ul>
+                                <li>এটি OSI মডেলের <strong>Transport Layer (Layer 4)</strong> এ কাজ করে।</li>
+                                <li>ডেটা ট্রান্সমিশন শুরু হওয়ার আগে সেন্ডার এবং রিসিভারের মধ্যে একটি <strong>লজিক্যাল
+                                        কানেকশন</strong> স্থাপন করে।</li>
+                                <li><strong>Reliability:</strong> প্রতিটি ডেটা প্যাকেট সফলভাবে পৌঁছানোর পর এটি রিসিভার
+                                    থেকে একনলেজমেন্ট (ACK) গ্রহণ করে।</li>
+                                <li><strong>Full-Duplex:</strong> এটি একই সঙ্গে ডেটা পাঠানো এবং গ্রহণ করার সুবিধা দেয়।
+                                </li>
+                            </ul>
+                        </div>
+
+                        <h2><i class="bi bi-layout-three-columns"></i> TCP Header Format (টিসিপি হেডার ফরম্যাট)</h2>
+                        <p>প্রতিটি TCP সেগমেন্টের শুরুতে একটি নির্দিষ্ট হেডার থাকে যার সাইজ সাধারণত ২০ বাইট থেকে ৬০ বাইট
+                            পর্যন্ত হতে পারে। নিচে এর গঠন দেখানো হলো:</p>
+
+                        <!-- Custom CSS Diagram for TCP Header -->
+                        <div
+                            style="background: rgba(0,0,0,0.3); padding: 30px; border-radius: 12px; margin: 30px 0; border: 1px solid rgba(255,255,255,0.1); overflow-x: auto;">
+                            <h4
+                                style="margin-top: 0; color: #ffca28; margin-bottom: 20px; font-size: 1.3rem; text-align: center;">
+                                TCP Header (20 Bytes minimum)</h4>
+                            <div
+                                style="display: flex; flex-direction: column; gap: 5px; min-width: 600px; max-width: 800px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 1rem; text-align: center;">
+                                <div style="display: flex; gap: 5px;">
+                                    <div
+                                        style="background: rgba(255,193,7,0.15); border: 2px solid #ffca28; padding: 15px; flex: 1; color: #ffecb3;">
+                                        Source Port (16 bits)</div>
+                                    <div
+                                        style="background: rgba(255,193,7,0.15); border: 2px solid #ffca28; padding: 15px; flex: 1; color: #ffecb3;">
+                                        Destination Port (16 bits)</div>
+                                </div>
+                                <div
+                                    style="background: rgba(255,152,0,0.2); border: 2px solid #ff9800; padding: 15px; color: #ffe0b2;">
+                                    Sequence Number (32 bits)</div>
+                                <div
+                                    style="background: rgba(255,152,0,0.2); border: 2px solid #ff9800; padding: 15px; color: #ffe0b2;">
+                                    Acknowledgment Number (32 bits)</div>
+                                <div style="display: flex; gap: 5px;">
+                                    <div
+                                        style="background: rgba(255,87,34,0.15); border: 2px solid #ff5722; padding: 15px; flex: 0.5; color: #ffccbc;">
+                                        HLEN (4b)</div>
+                                    <div
+                                        style="background: rgba(255,87,34,0.1); border: 2px solid rgba(255,87,34,0.5); padding: 15px; flex: 0.6; color: rgba(255,255,255,0.6);">
+                                        Rsvd (6b)</div>
+                                    <div
+                                        style="background: rgba(244,67,54,0.2); border: 2px solid #f44336; padding: 15px; flex: 0.9; color: #ffcdd2;">
+                                        Flags (6b)</div>
+                                    <div
+                                        style="background: rgba(255,87,34,0.15); border: 2px solid #ff5722; padding: 15px; flex: 1; color: #ffccbc;">
+                                        Window Size (16b)</div>
+                                </div>
+                                <div style="display: flex; gap: 5px;">
+                                    <div
+                                        style="background: rgba(121,85,72,0.2); border: 2px solid #795548; padding: 15px; flex: 1; color: #d7ccc8;">
+                                        Checksum (16 bits)</div>
+                                    <div
+                                        style="background: rgba(121,85,72,0.2); border: 2px solid #795548; padding: 15px; flex: 1; color: #d7ccc8;">
+                                        Urgent Pointer (16 bits)</div>
+                                </div>
+                                <div
+                                    style="background: rgba(158,158,158,0.1); border: 2px dashed #9e9e9e; padding: 15px; color: #f5f5f5;">
+                                    Options and Padding (0-40 Bytes)</div>
+                            </div>
+                        </div>
+
+                        <div style="overflow-x: auto;">
+                            <table class="header-table">
+                                <tr>
+                                    <td colspan="16" style="background: rgba(33, 150, 243, 0.1);"><strong>Source Port
+                                            (16 bits)</strong></td>
+                                    <td colspan="16" style="background: rgba(33, 150, 243, 0.15);"><strong>Destination
+                                            Port (16 bits)</strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="32" style="background: rgba(76, 175, 80, 0.1);"><strong>Sequence Number
+                                            (32 bits)</strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="32" style="background: rgba(255, 152, 0, 0.1);"><strong>Acknowledgment
+                                            Number (32 bits)</strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">Data Offset</td>
+                                    <td colspan="6">Reserved</td>
+                                    <td colspan="6" style="font-size: 0.75rem;">Flags (URG, ACK, PSH, RST, SYN, FIN)
+                                    </td>
+                                    <td colspan="16" style="background: rgba(156, 39, 176, 0.1);"><strong>Window Size
+                                            (16 bits)</strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="16" style="background: rgba(233, 30, 99, 0.1);"><strong>Checksum (16
+                                            bits)</strong></td>
+                                    <td colspan="16">Urgent Pointer (16 bits)</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="32">Options (0 to 40 bytes)</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <h2><i class="bi bi-diagram-2"></i> Connection Establishment (Three-Way Handshake)</h2>
+                        <p>TCP ডেটা পাঠানোর আগে একটি ৩-ধাপের হ্যান্ডশেক প্রক্রিয়া সম্পন্ন করে:</p>
+
+                        <div class="handshake-diagram" style="text-align: center; position: relative; height: 180px;">
+                            <div
+                                style="display: flex; justify-content: space-between; margin-bottom: 20px; font-weight: bold; color: var(--primary-color);">
+                                <span>CLIENT</span>
+                                <span>SERVER</span>
+                            </div>
+                            <!-- SYN -->
+                            <div style="position: absolute; top: 40px; left: 0; width: 100%;">
+                                <div
+                                    style="position: absolute; width: 100%; height: 2px; background: #2196F3; top: 50%; z-index: 1;">
+                                </div>
+                                <span
+                                    style="background: #2196F3; padding: 4px 12px; border-radius: 20px; position: relative; z-index: 2; font-size: 0.85rem;">1.
+                                    SYN (কানেকশন রিকোয়েস্ট)</span>
+                            </div>
+                            <!-- SYN-ACK -->
+                            <div style="position: absolute; top: 90px; left: 0; width: 100%;">
+                                <div
+                                    style="position: absolute; width: 100%; height: 2px; background: #4CAF50; top: 50%; z-index: 1;">
+                                </div>
+                                <span
+                                    style="background: #4CAF50; padding: 4px 12px; border-radius: 20px; position: relative; z-index: 2; font-size: 0.85rem;">2.
+                                    SYN-ACK (রিকোয়েস্ট গ্রহণ)</span>
+                            </div>
+                            <!-- ACK -->
+                            <div style="position: absolute; top: 140px; left: 0; width: 100%;">
+                                <div
+                                    style="position: absolute; width: 100%; height: 2px; background: #9C27B0; top: 50%; z-index: 1;">
+                                </div>
+                                <span
+                                    style="background: #9C27B0; padding: 4px 12px; border-radius: 20px; position: relative; z-index: 2; font-size: 0.85rem;">3.
+                                    ACK (চূড়ান্ত সম্মতি)</span>
+                            </div>
+                        </div>
+
+                        <h2><i class="bi bi-cpu"></i> Working of TCP (কিভাবে কাজ করে)</h2>
+                        <div class="how-it-works">
+                            <ol>
+                                <li><strong>Segmenting:</strong> বড় ডেটাকে ছোট ছোট সেগমেন্টে ভাগ করে।</li>
+                                <li><strong>Routing via IP:</strong> আইপি প্রোটোকলের মাধ্যমে সঠিক গন্তব্যে পাঠায়।</li>
+                                <li><strong>Reassembly:</strong> সিকোয়েন্স নম্বর অনুযায়ী রিসিভারের কাছে ডেটা পুনরায়
+                                    সাজায়।</li>
+                                <li><strong>Error Control:</strong> চেকসাম ব্যবহার করে কোনো ভুল ডেটা এলে তা সংশোধন করতে
+                                    বলে।</li>
+                            </ol>
+                        </div>
+
+                        <h2><i class="bi bi-shield-x"></i> Disadvantages of TCP (অসুবিধাগুলো)</h2>
+                        <ul>
+                            <li><strong>Slow Speed:</strong> প্রতিটি প্যাকেটের একনলেজমেন্টের জন্য অপেক্ষা করতে হয় বলে
+                                এটি UDP এর থেকে ধীরগতির।</li>
+                            <li><strong>High Overhead:</strong> ২০-৬০ বাইটের বড় হেডার এবং হ্যান্ডশেকিং প্রক্রিয়ার
+                                কারণে এতে রিসোর্স বেশি খরচ হয়।</li>
+                            <li><strong>No Multi-cast:</strong> এটি মূলত পয়েন্ট-টু-পয়েন্ট যোগাযোগ করে, তাই ব্রডকাস্টিং
+                                বা মাল্টিকাস্টিংয়ে এটি তেমন দক্ষ নয়।</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer class="glass-footer">
+            <div class="container container-blog">
+                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>
+    
+    <script type="module" src="../js/network-background.js"></script>
+</body>
+
+</html>

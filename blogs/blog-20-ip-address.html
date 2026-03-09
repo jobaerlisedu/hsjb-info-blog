@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="সহজে শিখুন Network Engineering. What is an IP Address? নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
   <title>What is an IP Address? | enablement.info</title>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -164,8 +165,7 @@
       <div class="container container-blog">
         <nav class="main-nav">
           <ul>
-            <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span
-                  class="nav-text">Home</span></a></li>
+            <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span class="nav-text">Home</span></a></li>
             <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
                   class="nav-text">Blog</span></a></li>
           </ul>
@@ -175,8 +175,7 @@
 
     <main class="blog-content-wrapper">
       <div class="container container-blog">
-        <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>আগের Page-এ ফিরে
-            যান</span></a>
+        <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>Back to Articles</span></a>
 
         <article class="glass-panel">
           <header class="article-header">
@@ -211,9 +210,52 @@
                 অন্তর্ভুক্ত তা শনাক্ত করে।</li>
               <li><span class="highlight-text">Host Portion:</span> এটি ওই Network-এর নির্দিষ্ট
                 Device-টিকে শনাক্ত করে।</li>
-              <li><span class="highlight-text">Subnet Mask:</span> এটি Determination করে IP Address-এর
+              <li><span class="highlight-text">Subnet Mask:</span> এটি নির্ধারণ করে IP Address-এর
                 কতটুকু অংশ Network-এর এবং কতটুকু Host-এর।</li>
             </ul>
+
+            <!-- Custom CSS Diagram: IP Address Structure -->
+            <div
+              style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 12px; margin: 25px 0; border: 1px solid rgba(255,255,255,0.1); overflow-x: auto;">
+              <h4 style="margin-top: 0; color: #fff; margin-bottom: 25px; font-size: 1.1rem; text-align: center;">IP
+                Address Structure (IPv4) - 32 bits</h4>
+
+              <div
+                style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; min-width: 500px; max-width: 700px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 1rem; text-align: center;">
+
+                <!-- The IP -->
+                <div style="font-size: 1.5rem; letter-spacing: 2px;">
+                  <span style="color: #64b5f6;">192.168.1</span><span style="color: #fff;">.</span><span
+                    style="color: #ffb74d;">10</span>
+                </div>
+
+                <!-- The Blocks -->
+                <div style="display: flex; width: 100%; height: 40px; margin-top: 5px;">
+                  <div
+                    style="background: rgba(33,150,243,0.3); border: 2px solid #2196f3; color: #bbdefb; flex: 3; display: flex; align-items: center; justify-content: center; border-radius: 5px 0 0 5px;">
+                    Network Portion
+                  </div>
+                  <div
+                    style="background: rgba(255,152,0,0.3); border: 2px solid #ff9800; color: #ffe0b2; flex: 1; display: flex; align-items: center; justify-content: center; border-radius: 0 5px 5px 0; border-left: none;">
+                    Host Portion
+                  </div>
+                </div>
+
+                <!-- Subnet Mask -->
+                <div style="display: flex; width: 100%; height: 30px; margin-top: 10px;">
+                  <div
+                    style="background: rgba(255,255,255,0.1); border: 1px dashed rgba(255,255,255,0.3); color: #ccc; flex: 3; display: flex; align-items: center; justify-content: center; border-radius: 5px 0 0 5px; font-size: 0.9rem;">
+                    255.255.255
+                  </div>
+                  <div
+                    style="background: rgba(255,255,255,0.05); border: 1px dashed rgba(255,255,255,0.2); color: #aaa; flex: 1; display: flex; align-items: center; justify-content: center; border-radius: 0 5px 5px 0; border-left: none; font-size: 0.9rem;">
+                    .0
+                  </div>
+                </div>
+                <div style="font-size: 0.8rem; color: #888; margin-top: -5px;">Subnet Mask determines the boundary</div>
+
+              </div>
+            </div>
 
             <hr>
 
@@ -244,7 +286,7 @@
               </div>
               <div class="info-card">
                 <h3>IPv6</h3>
-                <p>IP সংকটের Reason ে এটি Creation করা হয়েছে। এটি 128-Bit Addressing System এবং
+                <p>IP সংকটের কারণ ে এটি তৈরি করা হয়েছে। এটি 128-Bit Addressing System এবং
                   Hexadecimal সংখ্যায় প্রকাশ করা হয়।</p>
               </div>
             </div>
@@ -301,7 +343,7 @@
                   <tr>
                     <td>Class B</td>
                     <td>128.0.0.0 — 191.255.255.255</td>
-                    <td>Medium Size ের Network।</td>
+                    <td>Medium আকারের Network।</td>
                   </tr>
                   <tr>
                     <td>Class C</td>
@@ -339,7 +381,7 @@
 
             <hr>
 
-            <h2><i class="bi bi-hdd-network"></i> IP Address কীভাবে Task করে?</h2>
+            <h2><i class="bi bi-hdd-network"></i> IP Address কীভাবে কাজ করে?</h2>
             <div class="step-container">
               <div class="step-item">
                 <h3>Unique Identification</h3>
@@ -352,7 +394,7 @@
               </div>
               <div class="step-item">
                 <h3>Routing</h3>
-                <p>Router-গুলো IP Address দেখে Determination করে কোন Path ে Data পাঠালে Fast পৌঁছাবে।</p>
+                <p>Router-গুলো IP Address দেখে নির্ধারণ করে কোন Path ে Data পাঠালে Fast পৌঁছাবে।</p>
               </div>
               <div class="step-item">
                 <h3>NAT (Network Address Translation)</h3>
@@ -364,7 +406,7 @@
             <hr>
 
             <h2><i class="bi bi-envelope-at"></i> বাস্তব Example: Email পাঠানো</h2>
-            <p>নিউইয়র্ক থেকে টোকিওতে একজন বন্ধুকে Email পাঠানোর Step গুলো:</p>
+            <p>নিউইয়র্ক থেকে টোকিওতে একজন বন্ধুকে Email পাঠানোর Step-গুলো:</p>
             <ol>
               <li>আপনার Email Client Data-কে Packet-এ ভাগ করে এবং তাতে আপনার ও আপনার বন্ধুর Mail
                 Server-এর IP যুক্ত করে।</li>
@@ -413,12 +455,8 @@
       </div>
     </footer>
   </div>
-  <script type="module" src="../js/main.js"></script>
+  
   <script type="module" src="../js/network-background.js"></script>
 </body>
 
 </html>
-
-
-
-

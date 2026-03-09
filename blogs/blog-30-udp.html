@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="সহজে শিখুন Network Engineering. User Datagram Protocol (UDP) নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
+    <title>User Datagram Protocol (UDP) | enablement.info</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <style>
+        .blog-content-wrapper {
+            padding-top: 20px;
+            padding-bottom: 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.6rem;
+            margin-bottom: 15px;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .article-body {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-main);
+        }
+
+        .article-body h2 {
+            font-size: 1.9rem;
+            color: var(--primary-color);
+            margin-top: 45px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 10px;
+        }
+
+        .article-body h3 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .content-box {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid var(--primary-color);
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .how-it-works {
+            background: rgba(33, 150, 243, 0.06);
+            padding: 25px;
+            border-left: 5px solid var(--primary-color);
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .header-table td {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="network-canvas"></canvas>
+
+    <div class="overlay">
+        <header class="glass-header">
+            <div class="container container-blog">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span
+                                    class="nav-text">Home</span></a></li>
+                        <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
+                                    class="nav-text">Blog</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="blog-content-wrapper">
+            <div class="container container-blog">
+                <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>Back to
+                        Articles</span></a>
+
+                <article class="glass-panel">
+                    <header class="article-header">
+                        <h1>User Datagram Protocol (UDP)</h1>
+                        <div class="article-meta">
+                            <span><i class='bx bx-calendar'></i> March 09, 2026</span>
+                            <span><i class='bx bx-category'></i> Networking</span>
+                        </div>
+                    </header>
+
+                    <div class="article-body">
+                        <p><strong>User Datagram Protocol (UDP)</strong> হলো ইন্টারনেট প্রোটোকল (IP)-এর একটি Transport
+                            Layer প্রোটোকল যা প্রসেসগুলোর মধ্যে দ্রুত, কানেকশনলেস (connectionless) এবং লাইটওয়েট যোগাযোগ
+                            প্রদান করে। এটি ডেটা ডেলিভারি, অর্ডার বা এরর চেকিংয়ের কোনো গ্যারান্টি দেয় না, যার কারণে এটি
+                            রিয়েল-টাইম এবং সময়-সংবেদনশীল (time-sensitive) অ্যাপ্লিকেশন যেমন- ভিডিও স্ট্রিমিং, DNS এবং
+                            VoIP-এর জন্য অত্যন্ত উপযোগী।</p>
+
+                        <div class="content-box">
+                            <h3><i class="bi bi-card-heading"></i> UDP Header (ইউডিপি হেডার):</h3>
+                            <p>UDP হেডারটি মাত্র <strong>৮ বাইট (8 bytes)</strong> দীর্ঘ এবং এর ঠিক পরেই ডেটা পে-লোড
+                                (data payload) থাকে। এটি ট্রান্সমিশনের জন্য প্রয়োজনীয় সমস্ত মৌলিক তথ্য ধারণ করে।</p>
+                            <!-- Custom diagram for UDP Header -->
+                            <div
+                                style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 12px; margin: 25px 0; text-align: center; border: 1px solid rgba(255,255,255,0.1);">
+                                <h4 style="margin-top: 0; color: #90caf9; margin-bottom: 20px; font-size: 1.3rem;">8
+                                    Bytes</h4>
+                                <div
+                                    style="display: flex; gap: 5px; max-width: 600px; margin: 0 auto 20px auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 1.1rem;">
+                                    <div
+                                        style="background: rgba(144,202,249,0.2); border: 2px solid #90caf9; padding: 20px; flex: 1;">
+                                        UDP Header</div>
+                                    <div
+                                        style="background: rgba(144,202,249,0.2); border: 2px solid #90caf9; padding: 20px; flex: 1;">
+                                        UDP Data</div>
+                                </div>
+                                <div style="width: 2px; height: 30px; background: #90caf9; margin: 0 auto;"></div>
+                                <div
+                                    style="display: flex; flex-direction: column; gap: 5px; max-width: 600px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 1.1rem;">
+                                    <div style="display: flex; gap: 5px;">
+                                        <div
+                                            style="background: rgba(33,150,243,0.15); border: 2px solid #2196f3; padding: 20px; flex: 1; color: #90caf9;">
+                                            Source Port<br><span style="font-size: 0.9rem; font-weight: normal;">16
+                                                bits</span></div>
+                                        <div
+                                            style="background: rgba(33,150,243,0.15); border: 2px solid #2196f3; padding: 20px; flex: 1; color: #90caf9;">
+                                            Destination Port<br><span style="font-size: 0.9rem; font-weight: normal;">16
+                                                bits</span></div>
+                                    </div>
+                                    <div style="display: flex; gap: 5px;">
+                                        <div
+                                            style="background: rgba(33,150,243,0.05); border: 2px solid rgba(33,150,243,0.5); padding: 20px; flex: 1;">
+                                            Length<br><span style="font-size: 0.9rem; font-weight: normal;">16
+                                                bits</span></div>
+                                        <div
+                                            style="background: rgba(33,150,243,0.05); border: 2px solid rgba(33,150,243,0.5); padding: 20px; flex: 1;">
+                                            Checksum<br><span style="font-size: 0.9rem; font-weight: normal;">16
+                                                bits</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul>
+                                <li><strong>Port Numbers:</strong> প্রতিটি পোর্ট নম্বর ফিল্ড 16 বিটের, যা 0 থেকে 65535
+                                    পর্যন্ত রেঞ্জ প্রদান করে (যার মধ্যে পোর্ট 0 রিসার্ভ করা)। পোর্ট নম্বরগুলো বিভিন্ন
+                                    ইউজারের রিকোয়েস্ট বা প্রসেসকে আলাদা করতে ব্যবহৃত হয়।</li>
+                                <li><strong>Notes:</strong> TCP-এর মতো নয়, UDP-তে Checksum ঐচ্ছিক (optional)। এটি কোনো
+                                    এরর বা ফ্লো কন্ট্রোল প্রদান করে না বরং এরর রিপোর্টিংয়ের জন্য IP/ICMP-এর ওপর নির্ভর
+                                    করে।</li>
+                            </ul>
+                        </div>
+
+                        <h2><i class="bi bi-app-indicator"></i> Applications of UDP (UDP এর ব্যবহার)</h2>
+                        <p>যেখানে লো ল্যাটেন্সি (low latency) অত্যন্ত গুরুত্বপূর্ণ এবং মাঝে মাঝে প্যাকেট লস হওয়া
+                            গ্রহণযোগ্য, সেখানে UDP বেশি ব্যবহৃত হয়:</p>
+                        <ul>
+                            <li><strong>DNS (Domain Name System):</strong> ডোমেইন নেম কোয়েরি ছোট হওয়ায় এবং দ্রুত
+                                রিপ্লাইয়ের প্রয়োজন থাকায় DNS দ্রুত কোয়েরি/রেসপন্সের জন্য UDP ব্যবহার করে।</li>
+                            <li><strong>DHCP (Dynamic Host Configuration Protocol):</strong> ডিভাইসে ডাইনামিকভাবে আইপি
+                                অ্যাড্রেস অ্যাসাইন করার জন্য ছোট কন্ট্রোল মেসেজ আদান-প্রদান করতে DHCP, UDP ব্যবহার করে।
+                            </li>
+                            <li><strong>VoIP (Voice over IP):</strong> রিয়েল-টাইম ভয়েস কমিউনিকেশনে UDP ব্যবহৃত হয়,
+                                কারণ এটি কিছুটা প্যাকেট লস সহ্য করতে পারে কিন্তু কোনো লেটেন্সি বা ডিলে (delay) না।</li>
+                            <li><strong>RIP (Routing Information Protocol):</strong> রাউটারগুলোর মধ্যে রুট আপডেটগুলো
+                                দক্ষতার সাথে পাঠাতে RIP, UDP ব্যবহার করে।</li>
+                            <li><strong>NTP (Network Time Protocol):</strong> ন্যূনতম ওভারহেডের সাথে নেটওয়ার্কের
+                                সিস্টেম ক্লকগুলো সিঙ্ক্রোনাইজ করতে NTP, UDP ব্যবহার করে।</li>
+                        </ul>
+
+                        <div class="how-it-works">
+                            <h3><i class="bi bi-file-earmark-lock2"></i> UDP Pseudo Header (স্যুডো হেডার)</h3>
+                            <p>Checksum-এর নির্ভুলতা বাড়াতে UDP একটি স্যুডো হেডার (pseudo header) ব্যবহার করে যা
+                                Checksum ক্যালকুলেশনের সময় যুক্ত হয়, কিন্তু ট্রান্সমিট করা হয় না।</p>
+
+                            <!-- Custom diagram for UDP Pseudo Header -->
+                            <div
+                                style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 12px; margin: 25px 0; text-align: center; border: 1px solid rgba(255,255,255,0.1);">
+                                <div
+                                    style="display: flex; flex-direction: column; gap: 5px; max-width: 600px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 1.1rem;">
+                                    <div
+                                        style="background: rgba(76,175,80,0.2); border: 2px solid #4CAF50; padding: 20px; color: #81c784;">
+                                        Source Address<br><span style="font-size: 0.9rem; font-weight: normal;">(32
+                                            bits)</span></div>
+                                    <div
+                                        style="background: rgba(76,175,80,0.2); border: 2px solid #4CAF50; padding: 20px; color: #81c784;">
+                                        Destination Address<br><span style="font-size: 0.9rem; font-weight: normal;">(32
+                                            bits)</span></div>
+                                    <div style="display: flex; gap: 5px;">
+                                        <div
+                                            style="background: rgba(76,175,80,0.1); border: 2px solid rgba(76,175,80,0.5); padding: 20px; flex: 1;">
+                                            Zero<br><span style="font-size: 0.9rem; font-weight: normal;">(8
+                                                bits)</span></div>
+                                        <div
+                                            style="background: rgba(76,175,80,0.1); border: 2px solid rgba(76,175,80,0.5); padding: 20px; flex: 1;">
+                                            Protocol<br><span style="font-size: 0.9rem; font-weight: normal;">(8
+                                                bits)</span></div>
+                                        <div
+                                            style="background: rgba(76,175,80,0.1); border: 2px solid rgba(76,175,80,0.5); padding: 20px; flex: 1;">
+                                            UDP length<br><span style="font-size: 0.9rem; font-weight: normal;">(16
+                                                bits)</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <ul>
+                                <li>এতে IP হেডারের কিছু অংশ (Source ও Destination IP, Protocol Number এবং UDP Length)
+                                    অন্তর্ভুক্ত থাকে।</li>
+                                <li>এটি প্যাকেটটি সঠিক হোস্ট এবং প্রোটোকল পোর্টে ডেলিভার হওয়া নিশ্চিত করে।</li>
+                                <li>রিসিভার সাইডে UDP স্যুডো হেডার ব্যবহার করে Checksum ভেরিফাই করে এবং এটি ভ্যালিড হলেই
+                                    প্যাকেটটি গ্রহণ করা হয়।</li>
+                            </ul>
+                        </div>
+
+                        <h2><i class="bi bi-shield-x"></i> Use of UDP in DDoS Attacks</h2>
+                        <p><strong>UDP Flood Attack</strong> হলো এক ধরনের ডিস্ট্রিবিউটেড ডিনায়েল অফ সার্ভিস (DDoS)
+                            অ্যাটাক যেখানে অ্যাটাকার ইউডিপি-এর কানেকশনলেস প্রকৃতির সুযোগ নিয়ে টার্গেট পোর্টে বিপুল
+                            সংখ্যক UDP প্যাকেট পাঠায়।</p>
+                        <ul>
+                            <li><strong>Attack Process:</strong> অ্যাটাকার ফেক (spoofed) আইপি অ্যাড্রেস ব্যবহার করে
+                                টার্গেটের এলোমেলো পোর্টগুলোতে প্রচুর UDP প্যাকেট পাঠায়। টার্গেট সিস্টেম সেই পোর্টগুলোতে
+                                কোনো অ্যাক্টিভ অ্যাপ্লিকেশন আছে কিনা তা চেক করে এবং না পেলে ICMP "Destination
+                                Unreachable" মেসেজ দিয়ে রেসপন্স করে, যা তার নিজস্ব রিসোর্সকে ধীর বা ওভারলোড করে ফেলে।
+                            </li>
+                            <li><strong>Mitigation:</strong>
+                                <ul>
+                                    <li>অস্বাভাবিক UDP ট্রাফিক স্পাইকগুলো (spikes) মনিটর করা।</li>
+                                    <li>রেট লিমিটিং (rate limiting), ফায়ারওয়াল এবং ইন্ট্রুশন প্রিভেনশন সিস্টেম (IPS)
+                                        ব্যবহার করা।</li>
+                                    <li>বৃহৎ পরিসরের অ্যাটাকের জন্য ডেডিকেটেড DDoS প্রটেকশন সার্ভিস ডেপ্লয় করা।</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <h2><i class="bi bi-arrow-down-up"></i> How UDP Interacts with IP</h2>
+                        <p>অ্যাপ্লিকেশনগুলির মধ্যে যোগাযোগ স্থাপন করতে UDP, ইন্টারনেট প্রোটোকল (IP)-এর ওপরে কাজ করে। এটি
+                            কীভাবে ডেটা ট্রান্সমিশন করে তা নিচে ধাপে ধাপে দেওয়া হলো:</p>
+                        <ol>
+                            <li>অ্যাপ্লিকেশন ডেটার সাথে ডেস্টিনেশনের বিস্তারিত (details) UDP-কে প্রদান করে।</li>
+                            <li>UDP এর নিজস্ব হেডার যুক্ত করে, যার মধ্যে সোর্স পোর্ট, ডেস্টিনেশন পোর্ট, লেংথ এবং চেক্সাম
+                                থাকে।</li>
+                            <li>UDP ডেটাগ্রামটি অ্যাড্রেসিং এবং রাউটিংয়ের জন্য IP লেয়ারে পাঠানো হয়।</li>
+                            <li>IP তার নিজস্ব হেডার যুক্ত করে এবং প্যাকেটটি ডেস্টিনেশন হোস্টে ফরোয়ার্ড করে।</li>
+                            <li>রিসিভার বা প্রাপকের প্রান্তে, UDP তার হেডার সরিয়ে ডেটাগুলো টার্গেট অ্যাপ্লিকেশনে
+                                ডেলিভার করে।</li>
+                        </ol>
+
+                        <h2 id="tcp-vs-udp"><i class="bi bi-layout-split"></i> Differences between TCP and UDP (TCP এবং
+                            UDP এর পার্থক্য)</h2>
+                        <p>TCP (Transmission Control Protocol) এবং UDP (User Datagram Protocol) হলো Transport Layer-এর
+                            অন্যতম গুরুত্বপূর্ণ দুটি প্রোটোকল। উভয়ই এন্ড-টু-এন্ড যোগাযোগ প্রদান করে, তবে এদের কাজ করার
+                            ধরন সম্পূর্ণ আলাদা। নিচে এদের মূল পার্থক্যগুলো তুলে ধরা হলো:</p>
+
+                        <div style="overflow-x: auto; margin: 40px 0;">
+                            <table class="header-table"
+                                style="background: rgba(0,0,0,0.25); text-align: left; min-width: 600px; line-height: 1.6;">
+                                <thead>
+                                    <tr style="background: rgba(255,255,255,0.05);">
+                                        <th
+                                            style="padding: 20px; border: 1px solid rgba(255,255,255,0.1); width: 50%; color: #90caf9; font-size: 1.3rem;">
+                                            TCP (Transmission Control Protocol)</th>
+                                        <th
+                                            style="padding: 20px; border: 1px solid rgba(255,255,255,0.1); width: 50%; color: #81c784; font-size: 1.3rem;">
+                                            UDP (User Datagram Protocol)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="background: rgba(144,202,249,0.03);">
+                                        <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.1);">
+                                            Connection-oriented (কানেকশন ওরিয়েন্টেড); ডেটা পাঠানোর আগে ৩-ওয়ে
+                                            হ্যান্ডশেক ব্যবহার করে।</td>
+                                        <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.1);">
+                                            Connectionless (কানেকশনলেস); কোনো সিগন্যাল বা হ্যান্ডশেক ছাড়াই ডেটা পাঠানো
+                                            শুরু করে।</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.1);">ডেটা
+                                            ডেলিভারির Reliable গ্যারান্টি প্রদান করে।</td>
+                                        <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.1);">ডেটা
+                                            ডেলিভারির কোনো গ্যারান্টি নেই (প্যাকেট হারাতে পারে)।</td>
+                                    </tr>
+                                    <tr style="background: rgba(144,202,249,0.03);">
+                                        <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.1);">
+                                            Acknowledgment (ACK) ব্যবহার করে ডেটা প্রাপ্তির নিশ্চয়তা দেয়।</td>
+                                        <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.1);">কোনো
+                                            Acknowledgment ব্যবহার করে না।</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.1);">হারিয়ে
+                                            যাওয়া প্যাকেট (lost packets) পুনরায় পাঠায় (Retransmits)।</td>
+                                        <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.1);">প্যাকেট
+                                            হারিয়ে গেলে পুনরায় পাঠানোর (retransmission) সাপোর্ট নেই।</td>
+                                    </tr>
+                                    <tr style="background: rgba(144,202,249,0.03);">
+                                        <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.1);">প্যাকেটগুলোর
+                                            ক্রমানুসারে (In-order) পৌঁছানো নিশ্চিত করে।</td>
+                                        <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.1);">ডেটার কোনো
+                                            অর্ডার নিশ্চিত করে না; আউলো-ঝাউলো পৌঁছাতে পারে।</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.1);">ফ্লো
+                                            কন্ট্রোল এবং কনজেশন কন্ট্রোল (Flow/Congestion Control) প্রদান করে।</td>
+                                        <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.1);">কোনো ফ্লো বা
+                                            কনজেশন কন্ট্রোল নেই।</td>
+                                    </tr>
+                                    <tr style="background: rgba(144,202,249,0.03);">
+                                        <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.1);">অতিরিক্ত
+                                            ওভারহেডের কারণে গতি ধীর (Slower speed)।</td>
+                                        <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.1);">কম ওভারহেডের
+                                            কারণে অনেক বেশি দ্রুতগতি সম্পন্ন (Faster speed)।</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.1);">হেডারের সাইজ
+                                            পরিবর্তনশীল (Variable: 20-60 bytes)।</td>
+                                        <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.1);">হেডারের সাইজ
+                                            নির্দিষ্ট (Fixed size: 8 bytes)।</td>
+                                    </tr>
+                                    <tr style="background: rgba(144,202,249,0.03);">
+                                        <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.1);">ব্রডকাস্টিং
+                                            (Broadcasting) বা মাল্টিকাস্টিং সাপোর্ট করে না।</td>
+                                        <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.1);">ব্রডকাস্টিং
+                                            এবং মাল্টিকাস্টিং সাপোর্ট করে।</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.1);">
+                                            <strong>Application:</strong> HTTP, HTTPS, FTP, SMTP-তে ব্যবহৃত হয়।</td>
+                                        <td style="padding: 15px; border: 1px solid rgba(255,255,255,0.1);">
+                                            <strong>Application:</strong> DNS, DHCP, VoIP, ভিডিও স্ট্রিমিং (Video
+                                            Streaming)-এ ব্যবহৃত হয়।</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer class="glass-footer">
+            <div class="container container-blog">
+                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>
+    
+    <script type="module" src="../js/network-background.js"></script>
+</body>
+
+</html>
