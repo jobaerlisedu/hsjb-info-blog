@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="bn">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="সহজে শিখুন Network Engineering. Classful IP Addressing নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
+    <meta name="description" content="???? ????? Network Engineering. Classful IP Addressing ???? ???? ????????? ?????????? ?????">
   <title>Classful IP Addressing | enablement.info</title>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -178,51 +178,51 @@
           </header>
 
           <div class="article-body">
-            <p><strong>Classful IP Addressing</strong> ছিল IP Address
-              Assign করার একটি প্রাথমিক Method (1981-1993), যেখানে IPv4 Address Space-কে পাঁচটি
-              নির্দিষ্ট Class-এ বিভক্ত করা হতো। প্রতিটি IP Address-এর অগ্রণী Bit-গুলোর ওপর ভিত্তি করে তার
-              Class Fixed হতো, যা Network এবং Host অংশের বিভাজন নির্ধারণ করত।</p>
+            <p><strong>Classful IP Addressing</strong> ??? IP Address
+              Assign ???? ???? ???????? Method (1981-1993), ?????? IPv4 Address Space-?? ??????
+              ????????? Class-? ?????? ??? ???? ??????? IP Address-?? ?????? Bit-????? ??? ?????? ??? ???
+              Class Fixed ???, ?? Network ??? Host ????? ?????? ???????? ????</p>
 
             <div class="note-box">
-              <i class="bi bi-info-circle"></i> বর্তমানে Class ফুল Address িংয়ের পরিবর্তে <strong>CIDR
-                (Classless Inter-Domain Routing)</strong> ব্যবহৃত হয়, যা আরও Flexible এবং দক্ষ।
+              <i class="bi bi-info-circle"></i> ???????? Class ??? Address ?????? ???????? <strong>CIDR
+                (Classless Inter-Domain Routing)</strong> ??????? ???, ?? ??? Flexible ??? ?????
             </div>
 
             <hr>
 
-            <h2><i class="bi bi-display"></i> IP Address-এর Notations-সমূহ</h2>
+            <h2><i class="bi bi-display"></i> IP Address-?? Notations-????</h2>
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">
               <div class="content-box">
                 <h3><i class="bi bi-dot"></i> Dotted Decimal</h3>
-                <p>এটি মানুষের জন্য পাঠযোগ্য Format, যেখানে 32-Bit Binary Address-কে চারটি 8-Bit
-                  Segment-এ (Octet) ভাগ করে ডট দিয়ে লেখা হয়।</p>
+                <p>??? ??????? ???? ???????? Format, ?????? 32-Bit Binary Address-?? ????? 8-Bit
+                  Segment-? (Octet) ??? ??? ?? ???? ???? ???</p>
                 <ul>
-                  <li>প্রতিটি সেগমেন্ট 0 থেকে 255 পর্যন্ত হয়।</li>
+                  <li>??????? ???????? 0 ???? 255 ??????? ???</li>
                   <li>Example: 192.168.1.1</li>
                 </ul>
               </div>
               <div class="content-box">
                 <h3><i class="bi bi-hash"></i> Hexadecimal</h3>
-                <p>Networking এবং Debugging-এর জন্য ব্যবহৃত হয়, যেখানে IP Address-কে Base-16 সংখ্যায়
-                  লেখা হয়।</p>
+                <p>Networking ??? Debugging-?? ???? ??????? ??, ?????? IP Address-?? Base-16 ???????
+                  ???? ???</p>
                 <ul>
-                  <li>প্রতিটি বাইটকে দুটি হেক্সাডেসিমাল ডিজিটে প্রকাশ করা হয়।</li>
-                  <li>বাইনারির তুলনায় এটি সংক্ষিপ্ত।</li>
+                  <li>??????? ?????? ???? ????????????? ?????? ?????? ??? ???</li>
+                  <li>???????? ?????? ??? ??????????</li>
                 </ul>
               </div>
             </div>
 
             <hr>
 
-            <h2><i class="bi bi-patch-question"></i> কেন Classful Addressing প্রয়োজন ছিল?</h2>
+            <h2><i class="bi bi-patch-question"></i> ??? Classful Addressing ???????? ????</h2>
             <div class="content-box">
               <ul>
-                <li><strong>সহজ বরাদ্দ:</strong> নির্দিষ্ট Class-এর মাধ্যমে IP বরাদ্দ করা সহজ ছিল।</li>
-                <li><strong>Fast Routing:</strong> Router-গুলো প্রথম Bit দেখেই Class এবং Network ID
-                  বুঝতে পারত।</li>
-                <li><strong>Scalability:</strong> বড় এবং ছোট উভয় Type-এর Network-এর জন্য Separate Class
-                  (A, B, C) ছিল।</li>
-                <li><strong>Standardization:</strong> সমস্ত Device-এর মধ্যে সামঞ্জস্য নিশ্চিত করত।
+                <li><strong>??? ??????:</strong> ????????? Class-?? ??????? IP ?????? ??? ??? ????</li>
+                <li><strong>Fast Routing:</strong> Router-???? ????? Bit ????? Class ??? Network ID
+                  ????? ?????</li>
+                <li><strong>Scalability:</strong> ??? ??? ??? ???? Type-?? Network-?? ???? Separate Class
+                  (A, B, C) ????</li>
+                <li><strong>Standardization:</strong> ????? Device-?? ????? ????????? ??????? ????
                 </li>
               </ul>
             </div>
@@ -231,15 +231,15 @@
 
             <h2><i class="bi bi-diagram-3"></i> IP Address Management</h2>
             <div class="content-box">
-              <p>IP Address-গুলো বিশ্বব্যাপী <strong>Internet Assigned Numbers Authority
-                  (IANA)</strong> এবং <strong>Regional Internet Registries (RIRs)</strong> দ্বারা
-                পরিচালিত হয়। তারা নিশ্চিত করে যে IP বরাদ্দ যেন সুশৃঙ্খল এবং Unique হয়।</p>
+              <p>IP Address-???? ??????????? <strong>Internet Assigned Numbers Authority
+                  (IANA)</strong> ??? <strong>Regional Internet Registries (RIRs)</strong> ??????
+                ???????? ???? ???? ??????? ??? ?? IP ?????? ??? ???????? ??? Unique ???</p>
             </div>
 
             <hr>
 
-            <h2><i class="bi bi-table"></i> Classful Addressing-এর Structure (Structure)</h2>
-            <p>নিচের Table ে প্রতিটি Class-এর Bit বিভাজন এবং Address-রেঞ্জ দেখানো হলো:</p>
+            <h2><i class="bi bi-table"></i> Classful Addressing-?? Structure (Structure)</h2>
+            <p>????? Table ? ??????? Class-?? Bit ?????? ??? Address-????? ?????? ???:</p>
 
             <!-- Custom CSS Diagram for IP Classes -->
             <div
@@ -247,7 +247,7 @@
               <h4 style="margin-top: 0; color: #e0e0e0; margin-bottom: 25px; font-size: 1.2rem; text-align: center;">Bit
                 Allocation per IP Class (32 Bits Total)</h4>
               <div
-                style="display: flex; flex-direction: column; gap: 15px; min-width: 600px; max-width: 800px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 0.95rem; text-align: center;">
+                style="display: flex; flex-direction: column; gap: 15px; min-width: min(600px, 88vw); max-width: 800px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 0.95rem; text-align: center;">
                 <!-- Class A -->
                 <div style="display: flex; align-items: center; gap: 10px;">
                   <span style="width: 70px; color: #2196f3; font-size: 1.1rem;">Class A</span>
@@ -304,8 +304,8 @@
                     <th>Leading Bits</th>
                     <th>Net ID (Bit)</th>
                     <th>Host ID (Bit)</th>
-                    <th>মোট Network</th>
-                    <th>ব্যবহারযোগ্য Host</th>
+                    <th>??? Network</th>
+                    <th>???????????? Host</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -314,7 +314,7 @@
                     <td>0</td>
                     <td>8</td>
                     <td>24</td>
-                    <td>128 (2⁷)</td>
+                    <td>128 (27)</td>
                     <td>16,777,214</td>
                   </tr>
                   <tr>
@@ -322,7 +322,7 @@
                     <td>10</td>
                     <td>16</td>
                     <td>16</td>
-                    <td>16,384 (2¹⁴)</td>
+                    <td>16,384 (2�4)</td>
                     <td>65,534</td>
                   </tr>
                   <tr>
@@ -330,7 +330,7 @@
                     <td>110</td>
                     <td>24</td>
                     <td>8</td>
-                    <td>2,097,152 (2²¹)</td>
+                    <td>2,097,152 (2��)</td>
                     <td>254</td>
                   </tr>
                   <tr>
@@ -352,116 +352,116 @@
                 </tbody>
               </table>
             </div>
-            <p class="article-meta"><strong>দ্রষ্টব্য:</strong> Class A-তে মূলত 127টি Network ধরা হয়
-              (0.0.0.0 এবং 127.0.0.0 বিশেষ কারণ ে বাদ দেওয়া হয়)।</p>
+            <p class="article-meta"><strong>?????????:</strong> Class A-?? ???? 127?? Network ??? ???
+              (0.0.0.0 ??? 127.0.0.0 ????? ???? ? ??? ????? ??)?</p>
 
             <hr>
 
-            <h2><i class="bi bi-grid-3x3-gap"></i> IP Address-এর Class সমূহ (Detailed)</h2>
-            <p>32-Bit IP Address-কে নিম্নোক্ত 5টি Class-এ ভাগ করা হয়:</p>
+            <h2><i class="bi bi-grid-3x3-gap"></i> IP Address-?? Class ???? (Detailed)</h2>
+            <p>32-Bit IP Address-?? ????????? 5?? Class-? ??? ??? ??:</p>
 
             <div class="ip-class-card">
               <span class="class-badge class-a">Class A</span>
-              <p>অনেক বিশাল সংখ্যক Host প্রয়োজন এমন Network-এর জন্য ব্যবহৃত হয়।</p>
+              <p>???? ????? ?????? Host ???????? ??? Network-?? ???? ??????? ???</p>
               <ul>
-                <li><strong>প্রথম Bit:</strong> সব সময় '0' থাকে।</li>
-                <li><strong>Address-রেঞ্জ:</strong> 0.0.0.0 থেকে 127.255.255.255</li>
-                <li><strong>Network আইডি:</strong> 8 Bit | <strong>হোস্ট আইডি:</strong> 24 Bit</li>
-                <li><strong>ব্যবহারযোগ্য হোস্ট:</strong> 1,67,77,214 টি (প্রতি Network ে)।</li>
-                <li><strong>সাবনেট মাস্ক:</strong> 255.0.0.0</li>
+                <li><strong>????? Bit:</strong> ?? ??? '0' ?????</li>
+                <li><strong>Address-?????:</strong> 0.0.0.0 ???? 127.255.255.255</li>
+                <li><strong>Network ????:</strong> 8 Bit | <strong>????? ????:</strong> 24 Bit</li>
+                <li><strong>???????????? ?????:</strong> 1,67,77,214 ?? (????? Network ?)?</li>
+                <li><strong>?????? ?????:</strong> 255.0.0.0</li>
               </ul>
             </div>
 
             <div class="ip-class-card">
               <span class="class-badge class-b">Class B</span>
-              <p>Medium থেকে বড় আকারের Network-এর জন্য বরাদ্দ করা হয়।</p>
+              <p>Medium ???? ??? ?????? Network-?? ???? ?????? ??? ???</p>
               <ul>
-                <li><strong>প্রথম দুই Bit:</strong> সব সময় '10' থাকে।</li>
-                <li><strong>Address-রেঞ্জ:</strong> 128.0.0.0 থেকে 191.255.255.255</li>
-                <li><strong>Network আইডি:</strong> 16 Bit | <strong>হোস্ট আইডি:</strong> 16 Bit</li>
-                <li><strong>ব্যবহারযোগ্য হোস্ট:</strong> 65,534 টি।</li>
-                <li><strong>সাবনেট মাস্ক:</strong> 255.255.0.0</li>
+                <li><strong>????? ??? Bit:</strong> ?? ??? '10' ?????</li>
+                <li><strong>Address-?????:</strong> 128.0.0.0 ???? 191.255.255.255</li>
+                <li><strong>Network ????:</strong> 16 Bit | <strong>????? ????:</strong> 16 Bit</li>
+                <li><strong>???????????? ?????:</strong> 65,534 ???</li>
+                <li><strong>?????? ?????:</strong> 255.255.0.0</li>
               </ul>
             </div>
 
             <div class="ip-class-card">
               <span class="class-badge class-c">Class C</span>
-              <p>ছোট আকারের Network-এর জন্য ব্যবহৃত হয়।</p>
+              <p>??? ?????? Network-?? ???? ??????? ???</p>
               <ul>
-                <li><strong>প্রথম তিন Bit:</strong> সব সময় '110' থাকে।</li>
-                <li><strong>Address-রেঞ্জ:</strong> 192.0.0.0 থেকে 223.255.255.255</li>
-                <li><strong>Network আইডি:</strong> 24 Bit | <strong>হোস্ট আইডি:</strong> 8 Bit</li>
-                <li><strong>ব্যবহারযোগ্য হোস্ট:</strong> 254 টি।</li>
-                <li><strong>সাবনেট মাস্ক:</strong> 255.255.255.0</li>
+                <li><strong>????? ??? Bit:</strong> ?? ??? '110' ?????</li>
+                <li><strong>Address-?????:</strong> 192.0.0.0 ???? 223.255.255.255</li>
+                <li><strong>Network ????:</strong> 24 Bit | <strong>????? ????:</strong> 8 Bit</li>
+                <li><strong>???????????? ?????:</strong> 254 ???</li>
+                <li><strong>?????? ?????:</strong> 255.255.255.0</li>
               </ul>
             </div>
 
             <div class="ip-class-card">
               <span class="class-badge class-d">Class D</span>
-              <p><strong>মাল্টিকাস্ট (Multicast)</strong> যোগাযোগের জন্য সংরক্ষিত।</p>
+              <p><strong>??????????? (Multicast)</strong> ????????? ???? ?????????</p>
               <ul>
-                <li><strong>প্রথম চার Bit:</strong> সব সময় '1110' থাকে।</li>
-                <li><strong>Address-রেঞ্জ:</strong> 224.0.0.0 থেকে 239.255.255.255</li>
-                <li>কোনো Network বা হোস্ট আইডি বিভাজন নেই।</li>
+                <li><strong>????? ??? Bit:</strong> ?? ??? '1110' ?????</li>
+                <li><strong>Address-?????:</strong> 224.0.0.0 ???? 239.255.255.255</li>
+                <li>???? Network ?? ????? ???? ?????? ????</li>
               </ul>
             </div>
 
             <div class="ip-class-card">
               <span class="class-badge class-e">Class E</span>
-              <p><strong>Research এবং Test মূলক (Experimental)</strong> Task-এর জন্য সংরক্ষিত।</p>
+              <p><strong>Research ??? Test ???? (Experimental)</strong> Task-?? ???? ?????????</p>
               <ul>
-                <li><strong>প্রথম চার Bit:</strong> সব সময় '1111' থাকে।</li>
-                <li><strong>Address-রেঞ্জ:</strong> 240.0.0.0 থেকে 255.255.255.255</li>
+                <li><strong>????? ??? Bit:</strong> ?? ??? '1111' ?????</li>
+                <li><strong>Address-?????:</strong> 240.0.0.0 ???? 255.255.255.255</li>
               </ul>
             </div>
 
             <hr>
 
-            <h2><i class="bi bi-star"></i> বিশেষ IP Address Range</h2>
+            <h2><i class="bi bi-star"></i> ????? IP Address Range</h2>
             <div class="content-box">
               <ul>
-                <li><strong>127.0.0.0 - 127.255.255.255:</strong> Loopback Address, নিজের
-                  Computer Test করার জন্য ব্যবহৃত হয়।</li>
+                <li><strong>127.0.0.0 - 127.255.255.255:</strong> Loopback Address, ?????
+                  Computer Test ???? ???? ??????? ???</li>
                 <li><strong>169.254.0.0 - 169.254.255.255:</strong> Link-Local Address,
-                  যখন DHCP Server থেকে IP পাওয়া যায় না।</li>
-                <li><strong>0.0.0.0:</strong> এটি বর্তমান Network-কে বোঝায়।</li>
+                  ??? DHCP Server ???? IP ????? ??? ???</li>
+                <li><strong>0.0.0.0:</strong> ??? ??????? Network-?? ???????</li>
               </ul>
             </div>
 
             <hr>
 
-            <h2><i class="bi bi-rules"></i> ID Assign করার Rule াবলি</h2>
+            <h2><i class="bi bi-rules"></i> ID Assign ???? Rule ????</h2>
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;">
               <div class="content-box">
                 <h3>Host ID</h3>
                 <ul>
-                  <li>প্রতিটি Host ID অবশ্যই Unique হতে হবে।</li>
-                  <li>সব Bit '0' হতে পারবে না (এটি Network Address)।</li>
-                  <li>সব Bit '1' হতে পারবে না (এটি Broadcast Address)।</li>
+                  <li>??????? Host ID ?????? Unique ??? ????</li>
+                  <li>?? Bit '0' ??? ????? ?? (??? Network Address)?</li>
+                  <li>?? Bit '1' ??? ????? ?? (??? Broadcast Address)?</li>
                 </ul>
               </div>
               <div class="content-box">
                 <h3>Network ID</h3>
                 <ul>
-                  <li>Network ID 127 দিয়ে শুরু হতে পারবে না।</li>
-                  <li>সব Bit '1' Broadcast-এর জন্য সংরক্ষিত।</li>
-                  <li>সব Bit '0' Local Network-এর জন্য।</li>
+                  <li>Network ID 127 ???? ???? ??? ????? ???</li>
+                  <li>?? Bit '1' Broadcast-?? ???? ?????????</li>
+                  <li>?? Bit '0' Local Network-?? ?????</li>
                 </ul>
               </div>
             </div>
 
             <hr>
 
-            <h2><i class="bi bi-exclamation-triangle"></i> Classful Addressing-এর সমস্যাসমূহ</h2>
+            <h2><i class="bi bi-exclamation-triangle"></i> Classful Addressing-?? ??????????</h2>
             <div class="content-box">
-              <p>Classful Addressing-এর প্রধান সমস্যা ছিল IP Address-এর অপচয়। Example স্বরূপ:</p>
+              <p>Classful Addressing-?? ?????? ?????? ??? IP Address-?? ?????? Example ??????:</p>
               <ul>
-                <li>Class A এবং B Network-এ অনেক High IP অপচয় হতো।</li>
-                <li>Class C Network-এ Host সংখ্যা খুব কম (254 টি) ছিল যা বড় প্রতিষ্ঠানের জন্য
-                  Sufficient নয়।</li>
-                <li>Addressing-এ Flexible তা এবং Scalability-র অভাব ছিল।</li>
+                <li>Class A ??? B Network-? ???? High IP ????? ????</li>
+                <li>Class C Network-? Host ?????? ??? ?? (254 ??) ??? ?? ?? ???????????? ????
+                  Sufficient ???</li>
+                <li>Addressing-? Flexible ?? ??? Scalability-? ???? ????</li>
               </ul>
-              <p>এই সমস্যাগুলোর কারণেই 1993 সালে <strong>CIDR</strong> প্রবর্তন করা হয়।</p>
+              <p>?? ??????????? ?????? 1993 ???? <strong>CIDR</strong> ???????? ??? ???</p>
             </div>
 
             <hr>
@@ -478,29 +478,29 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><strong>বিভাজন</strong></td>
-                    <td>স্থায়ী Class (A, B, C, D, E) ভিত্তিক।</td>
-                    <td>Flexible Prefix Length ভিত্তিক।</td>
+                    <td><strong>??????</strong></td>
+                    <td>??????? Class (A, B, C, D, E) ????????</td>
+                    <td>Flexible Prefix Length ????????</td>
                   </tr>
                   <tr>
                     <td><strong>Subnetting</strong></td>
-                    <td>Default-ভাবে Subnetting Support করে না।</td>
-                    <td>Subnetting এবং VLSM Support করে।</td>
+                    <td>Default-???? Subnetting Support ??? ???</td>
+                    <td>Subnetting ??? VLSM Support ????</td>
                   </tr>
                   <tr>
-                    <td><strong>IP অপচয়</strong></td>
-                    <td>অত্যধিক IP অপচয় ঘটে।</td>
-                    <td>IP Address-এর দক্ষ ব্যবহার নিশ্চিত করে।</td>
+                    <td><strong>IP ?????</strong></td>
+                    <td>??????? IP ????? ????</td>
+                    <td>IP Address-?? ???? ??????? ??????? ????</td>
                   </tr>
                   <tr>
                     <td><strong>Routing Table</strong></td>
-                    <td>বড় Routing Table তৈরি হয়।</td>
-                    <td>Route Aggregation-এর মাধ্যমে ছোট Table তৈরি হয়।</td>
+                    <td>??? Routing Table ???? ????</td>
+                    <td>Route Aggregation-?? ??????? ??? Table ???? ???</td>
                   </tr>
                   <tr>
                     <td><strong>Scalability</strong></td>
-                    <td>খুবই সীমিত।</td>
-                    <td>Modern Network-এর জন্য অত্যন্ত Scalable।</td>
+                    <td>???? ??????</td>
+                    <td>Modern Network-?? ???? ??????? Scalable?</td>
                   </tr>
                 </tbody>
               </table>

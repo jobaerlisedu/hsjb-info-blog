@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="bn">
 
 <head>
@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Network Layer Protocols | enablement.info</title>
     <meta name="description"
-        content="Network Layer Protocols কী, IP, ARP, RARP, ICMP এবং IGMP প্রোটোকলের বিস্তারিত ব্যাখ্যা এবং এগুলো কীভাবে কাজ করে তা নিয়ে বিস্তারিত গাইড।">
+        content="Network Layer Protocols ??, IP, ARP, RARP, ICMP ??? IGMP ?????????? ????????? ???????? ??? ????? ?????? ??? ??? ?? ????? ????????? ?????">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -200,49 +200,49 @@
 
                     <div class="article-body">
 
-                        <p><strong>Network Layer</strong> একটি নেটওয়ার্কে সংযুক্ত এক Host থেকে অন্য Host-এ Data বা
-                            যোগাযোগ প্রেরণের জন্য দায়ী। Data কীভাবে Transfer হয় তা বর্ণনা করার পরিবর্তে, এটি দক্ষ
-                            Transmission-এর কৌশল বাস্তবায়ন করে। দক্ষ যোগাযোগ নিশ্চিত করতে Network Layer-এ বিভিন্ন
-                            Protocol ব্যবহার করা হয়। Data-কে প্যাকেটে বা অত্যন্ত বড় Data-এর ক্ষেত্রে ছোট Sub-packet-এ
-                            ভাগ করা হয়। প্রতিটি Protocol-এর নিজস্ব বৈশিষ্ট্য ও সুবিধা রয়েছে।</p>
+                        <p><strong>Network Layer</strong> ???? ??????????? ??????? ?? Host ???? ???? Host-? Data ??
+                            ??????? ???????? ???? ?????? Data ?????? Transfer ??? ?? ?????? ???? ????????, ??? ????
+                            Transmission-?? ???? ?????????? ???? ???? ??????? ??????? ???? Network Layer-? ???????
+                            Protocol ??????? ??? ???? Data-?? ???????? ?? ??????? ??? Data-?? ???????? ??? Sub-packet-?
+                            ??? ??? ???? ??????? Protocol-?? ?????? ????????? ? ?????? ???????</p>
 
                         <hr>
 
-                        <h2><i class="bi bi-list-task"></i> Network Layer-এর কাজ (Functions)</h2>
+                        <h2><i class="bi bi-list-task"></i> Network Layer-?? ??? (Functions)</h2>
                         <div class="table-responsive">
                             <table class="function-table">
                                 <thead>
                                     <tr>
-                                        <th>কাজ</th>
-                                        <th>বিবরণ</th>
+                                        <th>???</th>
+                                        <th>?????</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td><strong>Logical Addressing</strong></td>
-                                        <td>নেটওয়ার্কের প্রতিটি ডিভাইসকে অনন্যভাবে সনাক্ত করার জন্য IP অ্যাড্রেসিং
-                                            স্কিম প্রদান করে। প্রতিটি Header-এ Sender ও Receiver-এর IP অ্যাড্রেস এবং
-                                            Network ID ও Host ID থাকে।</td>
+                                        <td>???????????? ??????? ???????? ????????? ?????? ???? ???? IP ???????????
+                                            ????? ?????? ???? ??????? Header-? Sender ? Receiver-?? IP ????????? ???
+                                            Network ID ? Host ID ?????</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Host-to-host Delivery</strong></td>
-                                        <td>প্যাকেটটি Sender থেকে সঠিক Receiver-এ সফলভাবে পৌঁছানো নিশ্চিত করে।</td>
+                                        <td>????????? Sender ???? ???? Receiver-? ??????? ??????? ??????? ????</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Fragmentation</strong></td>
-                                        <td>বড় Data-কে ছোট প্যাকেটে ভাগ করে (কারণ প্রতিটি Node-এর Data গ্রহণের
-                                            নির্দিষ্ট ক্ষমতা আছে)।</td>
+                                        <td>??? Data-?? ??? ???????? ??? ??? (???? ??????? Node-?? Data ???????
+                                            ????????? ?????? ???)?</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Congestion Control</strong></td>
-                                        <td>নেটওয়ার্কে প্যাকেটের সংখ্যা বেশি হয়ে গেলে Router প্যাকেট রুট করতে পারে না।
-                                            Network Layer এই Congestion নিয়ন্ত্রণ করে।</td>
+                                        <td>??????????? ????????? ?????? ???? ???? ???? Router ??????? ??? ???? ???? ???
+                                            Network Layer ?? Congestion ?????????? ????</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Routing & Forwarding</strong></td>
-                                        <td>Sender থেকে Receiver-এ প্যাকেট পাঠানোর পথ নির্ধারণ করে। সাধারণত সবচেয়ে ছোট
-                                            পথ বেছে নেওয়া হয় (Path Vector, Distance Vector, Link State Routing
-                                            ইত্যাদি)।</td>
+                                        <td>Sender ???? Receiver-? ??????? ??????? ?? ???????? ???? ??????? ??????? ???
+                                            ?? ???? ?????? ??? (Path Vector, Distance Vector, Link State Routing
+                                            ???????)?</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -250,41 +250,41 @@
 
                         <hr>
 
-                        <h2><i class="bi bi-layers"></i> Network Layer Protocols — সারসংক্ষেপ</h2>
+                        <h2><i class="bi bi-layers"></i> Network Layer Protocols � ??????????</h2>
                         <div class="table-responsive">
                             <table class="protocols-summary-table">
                                 <thead>
                                     <tr>
                                         <th>Protocol</th>
-                                        <th>পূর্ণ নাম</th>
-                                        <th>কাজ</th>
+                                        <th>????? ???</th>
+                                        <th>???</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td><strong>IP</strong></td>
                                         <td>Internet Protocol</td>
-                                        <td>নেটওয়ার্কে প্রতিটি ডিভাইসকে সনাক্ত করে এবং Data প্যাকেট Transfer করে।</td>
+                                        <td>??????????? ??????? ???????? ?????? ??? ??? Data ??????? Transfer ????</td>
                                     </tr>
                                     <tr>
                                         <td><strong>ARP</strong></td>
                                         <td>Address Resolution Protocol</td>
-                                        <td>IP Address (Logical) → MAC Address (Physical)-এ রূপান্তর করে।</td>
+                                        <td>IP Address (Logical) ? MAC Address (Physical)-? ???????? ????</td>
                                     </tr>
                                     <tr>
                                         <td><strong>RARP</strong></td>
                                         <td>Reverse Address Resolution Protocol</td>
-                                        <td>MAC Address (Physical) → IP Address (Logical)-এ রূপান্তর করে।</td>
+                                        <td>MAC Address (Physical) ? IP Address (Logical)-? ???????? ????</td>
                                     </tr>
                                     <tr>
                                         <td><strong>ICMP</strong></td>
                                         <td>Internet Control Message Protocol</td>
-                                        <td>Error-রিপোর্টিং এবং নেটওয়ার্ক Diagnostic Protocol।</td>
+                                        <td>Error-????????? ??? ?????????? Diagnostic Protocol?</td>
                                     </tr>
                                     <tr>
                                         <td><strong>IGMP</strong></td>
                                         <td>Internet Group Message Protocol</td>
-                                        <td>Multicast যোগাযোগের জন্য ব্যবহৃত Protocol।</td>
+                                        <td>Multicast ????????? ???? ??????? Protocol?</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -296,34 +296,34 @@
                         <div class="protocol-card">
                             <span class="protocol-badge">Protocol 1</span>
                             <h2><i class="bi bi-globe"></i> IP (Internet Protocol)</h2>
-                            <p><strong>Internet Protocol (IP)</strong> নেটওয়ার্কের প্রতিটি ডিভাইসকে অনন্যভাবে সনাক্ত
-                                করতে এবং এক Node থেকে অন্য Node-এ Data Transfer করতে সাহায্য করে। IP একটি
-                                <strong>Connectionless Protocol</strong>, তাই এটি Data Delivery-এর গ্যারান্টি দেয় না।
-                                সফল Delivery নিশ্চিত করতে উচ্চতর Protocol যেমন <strong>TCP</strong> ব্যবহার করা হয়।
+                            <p><strong>Internet Protocol (IP)</strong> ???????????? ??????? ???????? ????????? ??????
+                                ???? ??? ?? Node ???? ???? Node-? Data Transfer ???? ??????? ???? IP ????
+                                <strong>Connectionless Protocol</strong>, ??? ??? Data Delivery-?? ?????????? ???? ???
+                                ??? Delivery ??????? ???? ?????? Protocol ???? <strong>TCP</strong> ??????? ??? ????
                             </p>
 
-                            <p>Internet Protocol দুটি ধরনের:</p>
+                            <p>Internet Protocol ???? ?????:</p>
                             <div class="content-box">
                                 <ul>
                                     <li>
                                         <strong>IPv4:</strong>
                                         <ul>
-                                            <li>৩২-বিটের অ্যাড্রেস স্কিম প্রদান করে।</li>
-                                            <li>চারটি সংখ্যার Field যা Dot দ্বারা বিভক্ত (যেমন: 192.168.1.1)।</li>
-                                            <li>DHCP বা ম্যানুয়ালি কনফিগার করা যায়।</li>
-                                            <li>Authentication বা Encryption সমর্থন করে না, তাই নিরাপত্তা কম।</li>
-                                            <li>পাঁচটি ক্লাসে বিভক্ত: Class A, B, C, D এবং E।</li>
+                                            <li>??-????? ????????? ????? ?????? ????</li>
+                                            <li>????? ??????? Field ?? Dot ?????? ?????? (????: 192.168.1.1)?</li>
+                                            <li>DHCP ?? ??????????? ??????? ??? ?????</li>
+                                            <li>Authentication ?? Encryption ?????? ??? ??, ??? ????????? ???</li>
+                                            <li>?????? ?????? ??????: Class A, B, C, D ??? E?</li>
                                         </ul>
                                     </li>
                                     <li>
                                         <strong>IPv6:</strong>
                                         <ul>
-                                            <li>১২৮-বিটের অ্যাড্রেস স্কিম প্রদান করে।</li>
-                                            <li>আটটি Alphanumeric Field যা Colon দ্বারা বিভক্ত। Hexadecimal-এ প্রকাশ করা
-                                                হয়।</li>
-                                            <li>Authentication ও Encryption সমর্থন করে, তাই নিরাপত্তা বেশি।</li>
-                                            <li>End-to-end Connection Integrity সমর্থন করে।</li>
-                                            <li>IPv4-এর তুলনায় অনেক বেশি IP Address প্রদান করে।</li>
+                                            <li>???-????? ????????? ????? ?????? ????</li>
+                                            <li>???? Alphanumeric Field ?? Colon ?????? ??????? Hexadecimal-? ?????? ???
+                                                ????</li>
+                                            <li>Authentication ? Encryption ?????? ???, ??? ????????? ?????</li>
+                                            <li>End-to-end Connection Integrity ?????? ????</li>
+                                            <li>IPv4-?? ??????? ???? ???? IP Address ?????? ????</li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -334,25 +334,25 @@
                         <div class="protocol-card">
                             <span class="protocol-badge">Protocol 2</span>
                             <h2><i class="bi bi-arrow-left-right"></i> ARP (Address Resolution Protocol)</h2>
-                            <p><strong>ARP</strong> Logical Address (IP Address) থেকে Physical Address (MAC Address)-এ
-                                রূপান্তর করতে ব্যবহৃত হয়। অন্য Node-এর সাথে যোগাযোগ করতে গন্তব্য Node-এর MAC Address
-                                জানা প্রয়োজন।</p>
-                            <p>কোনো নেটওয়ার্কের Node যদি অন্য Node-এর Physical Address জানতে চায়, তখন একটি <strong>ARP
-                                    Query Packet</strong> পাঠানো হয়। এই প্যাকেটে Source Host-এর IP ও MAC Address এবং
-                                Destination Host-এর শুধু IP Address থাকে। নেটওয়ার্কের প্রতিটি Node এই প্যাকেট পায়; যার
-                                IP মিলে যায় সে তার MAC Address পাঠিয়ে দেয়।</p>
-                            <p>এই প্যাকেট আদান-প্রদান Traffic বাড়ায়, তাই সিস্টেমগুলো <strong>ARP Cache</strong> বজায়
-                                রাখে যেখানে সম্প্রতি প্রাপ্ত IP-to-MAC বাইন্ডিং সংরক্ষিত থাকে।</p>
+                            <p><strong>ARP</strong> Logical Address (IP Address) ???? Physical Address (MAC Address)-?
+                                ???????? ???? ??????? ???? ???? Node-?? ???? ??????? ???? ??????? Node-?? MAC Address
+                                ???? ?????????</p>
+                            <p>???? ???????????? Node ??? ???? Node-?? Physical Address ????? ????, ??? ???? <strong>ARP
+                                    Query Packet</strong> ?????? ???? ?? ???????? Source Host-?? IP ? MAC Address ???
+                                Destination Host-?? ???? IP Address ????? ???????????? ??????? Node ?? ??????? ????; ???
+                                IP ???? ???? ?? ??? MAC Address ??????? ?????</p>
+                            <p>?? ??????? ????-?????? Traffic ???????, ??? ??????????? <strong>ARP Cache</strong> ?????
+                                ???? ?????? ???????? ??????? IP-to-MAC ???????? ???????? ?????</p>
 
                             <div class="how-it-works">
-                                <h3><i class="bi bi-question-circle"></i> ARP কীভাবে কাজ করে?</h3>
+                                <h3><i class="bi bi-question-circle"></i> ARP ?????? ??? ????</h3>
                                 <ol>
-                                    <li>Host নেটওয়ার্কে একটি ARP Inquiry Packet Broadcast করে, যাতে গন্তব্যের IP
-                                        Address থাকে।</li>
-                                    <li>নেটওয়ার্কের সকল Host এই ARP Packet গ্রহণ ও প্রক্রিয়া করে; কিন্তু শুধুমাত্র যার
-                                        IP মিলে যায় সে তার Physical Address দিয়ে Reply করে।</li>
-                                    <li>প্রাপক Host Physical Address Datagram Header ও Cache Memory-তে যুক্ত করে এবং
-                                        Sender-কে ফেরত পাঠায়।</li>
+                                    <li>Host ??????????? ???? ARP Inquiry Packet Broadcast ???, ???? ????????? IP
+                                        Address ?????</li>
+                                    <li>???????????? ??? Host ?? ARP Packet ????? ? ?????????? ???; ?????? ????????? ???
+                                        IP ???? ???? ?? ??? Physical Address ????? Reply ????</li>
+                                    <li>?????? Host Physical Address Datagram Header ? Cache Memory-?? ????? ??? ???
+                                        Sender-?? ???? ???????</li>
                                 </ol>
 
                                 <!-- Custom CSS Diagram: ARP Flow -->
@@ -364,7 +364,7 @@
 
                                     <!-- Step 1: Broadcast Query -->
                                     <div
-                                        style="display: flex; align-items: center; justify-content: center; gap: 15px; min-width: 600px; max-width: 800px; margin: 0 auto 20px auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 0.95rem; text-align: center;">
+                                        style="display: flex; align-items: center; justify-content: center; gap: 15px; min-width: min(600px, 88vw); max-width: 800px; margin: 0 auto 20px auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 0.95rem; text-align: center;">
                                         <div
                                             style="background: rgba(33,150,243,0.2); border: 2px solid #2196f3; padding: 15px; color: #bbdefb; border-radius: 8px; flex: 1;">
                                             Source Computer<br><span
@@ -388,7 +388,7 @@
 
                                     <!-- Step 2: Unicast Reply -->
                                     <div
-                                        style="display: flex; align-items: center; justify-content: center; gap: 15px; min-width: 600px; max-width: 800px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 0.95rem; text-align: center;">
+                                        style="display: flex; align-items: center; justify-content: center; gap: 15px; min-width: min(600px, 88vw); max-width: 800px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 0.95rem; text-align: center;">
                                         <div
                                             style="background: rgba(33,150,243,0.2); border: 2px solid #2196f3; padding: 15px; color: #bbdefb; border-radius: 8px; flex: 1;">
                                             Source Computer<br><span
@@ -411,15 +411,15 @@
                                 </div>
                             </div>
 
-                            <h3>ARP Entry-র ধরন (Types of ARP Entries)</h3>
+                            <h3>ARP Entry-? ??? (Types of ARP Entries)</h3>
                             <div class="content-box">
                                 <ul>
-                                    <li><strong>Static Entry:</strong> এই ধরনের Entry তখন তৈরি হয় যখন একজন User ARP
-                                        Command Utility ব্যবহার করে ম্যানুয়ালি IP-to-MAC Address Association যুক্ত
-                                        করেন।</li>
-                                    <li><strong>Dynamic Entry:</strong> Dynamic Entry স্বয়ংক্রিয়ভাবে তৈরি হয় যখন
-                                        Sender পুরো নেটওয়ার্কে তার Message Broadcast করে। Dynamic Entry অস্থায়ী এবং
-                                        নিয়মিত মুছে ফেলা হয়।</li>
+                                    <li><strong>Static Entry:</strong> ?? ????? Entry ??? ???? ??? ??? ???? User ARP
+                                        Command Utility ??????? ??? ??????????? IP-to-MAC Address Association ?????
+                                        ?????</li>
+                                    <li><strong>Dynamic Entry:</strong> Dynamic Entry ???????????????? ???? ??? ???
+                                        Sender ???? ??????????? ??? Message Broadcast ???? Dynamic Entry ???????? ???
+                                        ??????? ???? ???? ????</li>
                                 </ul>
                             </div>
                         </div>
@@ -428,26 +428,26 @@
                         <div class="protocol-card">
                             <span class="protocol-badge">Protocol 3</span>
                             <h2><i class="bi bi-arrow-right-left"></i> RARP (Reverse Address Resolution Protocol)</h2>
-                            <p><strong>RARP</strong> ARP-এর বিপরীতভাবে কাজ করে। এটি Physical Address (MAC Address) থেকে
-                                Logical Address (IP Address)-এ রূপান্তর করতে ব্যবহৃত হয়। RARP সিস্টেম ও
-                                অ্যাপ্লিকেশনগুলোকে DNS বা Router থেকে তাদের নিজস্ব IP Address পাওয়ার সুবিধা দেয়। এই
-                                ধরনের Resolution বিভিন্ন কাজে প্রয়োজন, যেমন Reverse DNS Lookup সম্পাদন করা।</p>
-                            <p>RARP নিম্ন স্তরে (Low Level) কাজ করে এবং সরাসরি নেটওয়ার্ক অ্যাড্রেস প্রয়োজন। Server-এর
-                                Reply সাধারণত অল্প তথ্য বহন করে এবং ৩২-বিট Internet Address ব্যবহার করে; এটি Ethernet-এর
-                                মতো নেটওয়ার্কের পূর্ণ সম্ভাবনা কাজে লাগায় না।</p>
+                            <p><strong>RARP</strong> ARP-?? ?????????? ??? ???? ??? Physical Address (MAC Address) ????
+                                Logical Address (IP Address)-? ???????? ???? ??????? ???? RARP ??????? ?
+                                ?????????????????? DNS ?? Router ???? ????? ?????? IP Address ??????? ?????? ????? ??
+                                ????? Resolution ??????? ???? ????????, ???? Reverse DNS Lookup ??????? ????</p>
+                            <p>RARP ????? ????? (Low Level) ??? ??? ??? ?????? ?????????? ????????? ????????? Server-??
+                                Reply ??????? ???? ???? ??? ??? ??? ??-??? Internet Address ??????? ???; ??? Ethernet-??
+                                ??? ???????????? ????? ???????? ???? ?????? ???</p>
 
                             <div class="how-it-works">
-                                <h3><i class="bi bi-question-circle"></i> RARP কীভাবে কাজ করে?</h3>
+                                <h3><i class="bi bi-question-circle"></i> RARP ?????? ??? ????</h3>
                                 <ol>
-                                    <li>RARP, Network Access Layer-এ থেকে নেটওয়ার্কের দুটি স্থানের মধ্যে Data পাঠায়।
+                                    <li>RARP, Network Access Layer-? ???? ???????????? ???? ??????? ????? Data ???????
                                     </li>
-                                    <li>নেটওয়ার্কের প্রতিটি User-এর দুটি বিভিন্ন Address থাকে: MAC (Physical) Address
-                                        এবং IP (Logical) Address। Software IP Address নির্ধারণ করে এবং Hardware MAC
-                                        Address ডিভাইসে তৈরি করে।</li>
-                                    <li>নেটওয়ার্কে সংযুক্ত যেকোনো সাধারণ Computer RARP Server হিসেবে কাজ করতে পারে। তবে
-                                        এতে সকল MAC Address-এর সাথে সংশ্লিষ্ট IP Address সংরক্ষিত থাকতে হবে।</li>
-                                    <li>Client তার Physical Address ও Ethernet Broadcast Address ব্যবহার করে একটি RARP
-                                        Request পাঠায়। Server এর জবাবে Client-কে তার IP Address প্রদান করে।</li>
+                                    <li>???????????? ??????? User-?? ???? ??????? Address ????: MAC (Physical) Address
+                                        ??? IP (Logical) Address? Software IP Address ???????? ??? ??? Hardware MAC
+                                        Address ??????? ???? ????</li>
+                                    <li>??????????? ??????? ?????? ?????? Computer RARP Server ?????? ??? ???? ????? ???
+                                        ??? ??? MAC Address-?? ???? ????????? IP Address ???????? ????? ????</li>
+                                    <li>Client ??? Physical Address ? Ethernet Broadcast Address ??????? ??? ???? RARP
+                                        Request ??????? Server ?? ????? Client-?? ??? IP Address ?????? ????</li>
                                 </ol>
                             </div>
                         </div>
@@ -456,33 +456,33 @@
                         <div class="protocol-card">
                             <span class="protocol-badge">Protocol 4</span>
                             <h2><i class="bi bi-exclamation-triangle"></i> ICMP (Internet Control Message Protocol)</h2>
-                            <p><strong>ICMP</strong> IP Protocol Suite-এর একটি অংশ। এটি একটি Error Reporting এবং Network
-                                Diagnostic Protocol। নেটওয়ার্কে যেকোনো Error হলে তা ICMP-এর মাধ্যমে নির্দিষ্ট Host-এ
-                                জানানো হয়। ICMP Protocol বিভিন্ন Error Reporting ও Diagnostic Message ধারণ করে।</p>
+                            <p><strong>ICMP</strong> IP Protocol Suite-?? ???? ???? ??? ???? Error Reporting ??? Network
+                                Diagnostic Protocol? ??????????? ?????? Error ??? ?? ICMP-?? ??????? ????????? Host-?
+                                ?????? ???? ICMP Protocol ??????? Error Reporting ? Diagnostic Message ???? ????</p>
 
-                            <h3>ICMP Message-এর ধরন:</h3>
+                            <h3>ICMP Message-?? ???:</h3>
                             <div class="content-box">
                                 <ul>
-                                    <li><strong>Error Message:</strong> IP প্যাকেট প্রক্রিয়াকরণের সময় Host বা Router
-                                        যে সমস্যার সম্মুখীন হয় সে সম্পর্কে Error Message জানায়।</li>
-                                    <li><strong>Query Message:</strong> Host একটি Router বা অন্য Host থেকে তথ্য পেতে
-                                        Query Message ব্যবহার করে।</li>
+                                    <li><strong>Error Message:</strong> IP ??????? ??????????????? ???? Host ?? Router
+                                        ?? ??????? ???????? ??? ?? ???????? Error Message ???????</li>
+                                    <li><strong>Query Message:</strong> Host ???? Router ?? ???? Host ???? ???? ????
+                                        Query Message ??????? ????</li>
                                 </ul>
                             </div>
 
-                            <h3>ICMP-এর প্রধান Error ধরনসমূহ:</h3>
+                            <h3>ICMP-?? ?????? Error ???????:</h3>
                             <div class="content-box">
                                 <ul>
-                                    <li><strong>Time Exceeded:</strong> যখন একটি প্যাকেটের TTL (Time To Live) শেষ হয়ে
-                                        যায় এবং গন্তব্যে পৌঁছানোর আগেই Drop হয়, তখন এই Error পাঠানো হয়।</li>
-                                    <li><strong>Redirection:</strong> যখন একটি Router নির্ধারণ করে যে আরও ভালো রুট আছে
-                                        এবং Sender-কে সেই পথে পাঠাতে বলে।</li>
-                                    <li><strong>Source Quench:</strong> যখন Router বা Host অতিরিক্ত প্যাকেট পাওয়ার
-                                        কারণে Sender-কে প্যাকেট পাঠানোর গতি কমাতে বলে।</li>
-                                    <li><strong>Destination Unreachable:</strong> যখন গন্তব্য Host বা Network পৌঁছানো
-                                        সম্ভব হয় না, তখন এই Error পাঠানো হয়।</li>
-                                    <li><strong>Parameter Problems:</strong> IP প্যাকেটের Header-এ কোনো সমস্যা থাকলে এই
-                                        Error তৈরি হয়।</li>
+                                    <li><strong>Time Exceeded:</strong> ??? ???? ????????? TTL (Time To Live) ??? ????
+                                        ???? ??? ???????? ???????? ???? Drop ???, ??? ?? Error ?????? ????</li>
+                                    <li><strong>Redirection:</strong> ??? ???? Router ???????? ??? ?? ??? ???? ??? ???
+                                        ??? Sender-?? ??? ??? ?????? ????</li>
+                                    <li><strong>Source Quench:</strong> ??? Router ?? Host ???????? ??????? ???????
+                                        ????? Sender-?? ??????? ??????? ??? ????? ????</li>
+                                    <li><strong>Destination Unreachable:</strong> ??? ??????? Host ?? Network ???????
+                                        ????? ??? ??, ??? ?? Error ?????? ????</li>
+                                    <li><strong>Parameter Problems:</strong> IP ????????? Header-? ???? ?????? ????? ??
+                                        Error ???? ????</li>
                                 </ul>
 
                                 <!-- Custom CSS Diagram: ICMP Error Flow -->
@@ -493,7 +493,7 @@
                                         ICMP Error Reporting Flow</h4>
 
                                     <div
-                                        style="display: flex; align-items: center; justify-content: center; gap: 15px; min-width: 600px; max-width: 800px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 0.95rem; text-align: center;">
+                                        style="display: flex; align-items: center; justify-content: center; gap: 15px; min-width: min(600px, 88vw); max-width: 800px; margin: 0 auto; font-family: 'Courier New', monospace; font-weight: bold; font-size: 0.95rem; text-align: center;">
 
                                         <!-- Source -->
                                         <div
@@ -542,16 +542,16 @@
                             </div>
 
                             <div class="how-it-works">
-                                <h3><i class="bi bi-question-circle"></i> ICMP কীভাবে কাজ করে?</h3>
+                                <h3><i class="bi bi-question-circle"></i> ICMP ?????? ??? ????</h3>
                                 <ol>
-                                    <li>ICMP, IP Suite-এর সবচেয়ে গুরুত্বপূর্ণ Protocol-গুলোর একটি। TCP ও UDP-এর
-                                        বিপরীতে, ICMP একটি <strong>Connectionless Protocol</strong>, অর্থাৎ Message
-                                        পাঠাতে গন্তব্য ডিভাইসের সাথে আগে থেকে সংযোগ স্থাপন করতে হয় না।</li>
-                                    <li>ICMP ও TCP-এর কাজ করার পদ্ধতি ভিন্ন। TCP একটি Connection-oriented Protocol;
-                                        Message পাঠানোর আগে TCP Handshake প্রয়োজন। কিন্তু ICMP Connection ছাড়াই কাজ
-                                        করে।</li>
-                                    <li>ICMP প্যাকেট একটি IP Header সহ Datagram আকারে পাঠানো হয়, যাতে ICMP Data থাকে।
-                                        একটি ICMP Datagram একটি স্বাধীন Data আইটেম বা প্যাকেটের মতো।</li>
+                                    <li>ICMP, IP Suite-?? ??????? ???????????? Protocol-????? ????? TCP ? UDP-??
+                                        ???????, ICMP ???? <strong>Connectionless Protocol</strong>, ?????? Message
+                                        ?????? ??????? ???????? ???? ??? ???? ????? ?????? ???? ??? ???</li>
+                                    <li>ICMP ? TCP-?? ??? ???? ?????? ?????? TCP ???? Connection-oriented Protocol;
+                                        Message ??????? ??? TCP Handshake ????????? ?????? ICMP Connection ?????? ???
+                                        ????</li>
+                                    <li>ICMP ??????? ???? IP Header ?? Datagram ????? ?????? ???, ???? ICMP Data ?????
+                                        ???? ICMP Datagram ???? ??????? Data ????? ?? ????????? ????</li>
                                 </ol>
                             </div>
                         </div>
@@ -560,26 +560,26 @@
                         <div class="protocol-card">
                             <span class="protocol-badge">Protocol 5</span>
                             <h2><i class="bi bi-broadcast"></i> IGMP (Internet Group Message Protocol)</h2>
-                            <p><strong>IGMP</strong> একটি Multicasting যোগাযোগ Protocol। এটি Message ও Data প্যাকেট
-                                Broadcast করার সময় Resources দক্ষতার সাথে ব্যবহার করে। IGMP, TCP/IP-এ ব্যবহৃত একটি
-                                Protocol। IP নেটওয়ার্কযুক্ত নেটওয়ার্কের অন্য Host ও Router-গুলো Multicast যোগাযোগের
-                                জন্য IGMP ব্যবহার করে।</p>
-                            <p>অনেক নেটওয়ার্কে সমস্ত Node-এ Message পাঠাতে <strong>Multicast Router</strong> ব্যবহার
-                                করা হয়। কিন্তু সবকটিকে Broadcast করা Network Load বাড়ায়। IGMP, Multicast Router-কে
-                                Broadcast চলাকালীন Address করে এই সমস্যার সমাধান করে। যেহেতু Multicast যোগাযোগে একাধিক
-                                Sender ও Receiver থাকে, তাই IGMP Streaming Media, Web Conference, Games ইত্যাদি
-                                অ্যাপ্লিকেশনে ব্যাপকভাবে ব্যবহৃত হয়।</p>
+                            <p><strong>IGMP</strong> ???? Multicasting ??????? Protocol? ??? Message ? Data ???????
+                                Broadcast ???? ???? Resources ??????? ???? ??????? ???? IGMP, TCP/IP-? ??????? ????
+                                Protocol? IP ??????????????? ???????????? ???? Host ? Router-???? Multicast ?????????
+                                ???? IGMP ??????? ????</p>
+                            <p>???? ??????????? ????? Node-? Message ?????? <strong>Multicast Router</strong> ???????
+                                ??? ???? ?????? ??????? Broadcast ??? Network Load ???????? IGMP, Multicast Router-??
+                                Broadcast ???????? Address ??? ?? ??????? ?????? ???? ?????? Multicast ???????? ??????
+                                Sender ? Receiver ????, ??? IGMP Streaming Media, Web Conference, Games ???????
+                                ????????????? ?????????? ??????? ????</p>
 
                             <div class="how-it-works">
-                                <h3><i class="bi bi-question-circle"></i> IGMP কীভাবে কাজ করে?</h3>
+                                <h3><i class="bi bi-question-circle"></i> IGMP ?????? ??? ????</h3>
                                 <ol>
-                                    <li>Dynamic Multicasting ও Multicast Group সমর্থনকারী ডিভাইসগুলো IGMP ব্যবহার করতে
-                                        পারে।</li>
-                                    <li>এই ডিভাইসগুলো ব্যবহার করে Host Multicast Group-এ যোগ দিতে বা ছাড়তে পারে।
-                                        গ্রাহকদের Group-এ যোগ করা বা সরানোও সম্ভব।</li>
-                                    <li>Host ও স্থানীয় Multicast Router এই যোগাযোগ Protocol ব্যবহার করে। একটি Multicast
-                                        Group তৈরি হলে, প্যাকেটের গন্তব্য IP Address পরিবর্তন করে Multicast Group
-                                        Address দেওয়া হয়, যা Class D IP Address Range-এর মধ্যে পড়ে।</li>
+                                    <li>Dynamic Multicasting ? Multicast Group ?????????? ?????????? IGMP ??????? ????
+                                        ?????</li>
+                                    <li>?? ?????????? ??????? ??? Host Multicast Group-? ??? ???? ?? ?????? ?????
+                                        ????????? Group-? ??? ??? ?? ?????? ??????</li>
+                                    <li>Host ? ???????? Multicast Router ?? ??????? Protocol ??????? ???? ???? Multicast
+                                        Group ???? ???, ????????? ??????? IP Address ???????? ??? Multicast Group
+                                        Address ?????? ???, ?? Class D IP Address Range-?? ????? ?????</li>
                                 </ol>
                             </div>
                         </div>
