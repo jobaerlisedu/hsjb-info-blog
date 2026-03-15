@@ -47,7 +47,8 @@ for (let i = 0; i < columnCount; i++) {
         const material = new THREE.SpriteMaterial({ map: texture, transparent: true, opacity: 0.8 });
         const sprite = new THREE.Sprite(material);
 
-        const y = (Math.random() - 0.5) * 20;
+        // Distribute digits uniformly vertically to prevent clumping
+        const y = (j / digitsPerColumn) * 24 - 12; 
         sprite.position.set(x, y, z);
         sprite.scale.set(0.5, 0.5, 1);
 
