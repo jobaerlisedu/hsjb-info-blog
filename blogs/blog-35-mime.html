@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="MIME Protocol কী এবং কীভাবে এটি ইমেইল ব্যবস্থাকে উন্নত করে? Multimedia attachments এবং Multipart messages সম্পর্কে বিস্তারিত জানুন।">
+    <title>MIME Protocol (Multipurpose Internet Mail Extension) | enablement.info</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <style>
+        .blog-content-wrapper {
+            padding-top: 20px;
+            padding-bottom: 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.6rem;
+            margin-bottom: 15px;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            word-wrap: break-word;
+        }
+
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .article-body {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-main);
+        }
+
+        .article-body h2 {
+            font-size: 1.9rem;
+            color: var(--primary-color);
+            margin-top: 45px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 10px;
+        }
+
+        .article-body h3 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .content-box {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid var(--primary-color);
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        /* Email Structure Diagram */
+        .diagram-wrapper {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 24px;
+            border: 1px solid rgba(0, 188, 212, 0.3);
+            padding: 30px;
+            margin: 40px 0;
+            overflow-x: auto;
+        }
+
+        .email-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            border: 1px solid var(--glass-border);
+            padding: 20px;
+            min-width: 500px;
+        }
+
+        .email-header-area {
+            border-bottom: 2px solid rgba(0, 188, 212, 0.3);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .header-line {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+        }
+
+        .header-key {
+            color: #00bcd4;
+            font-weight: bold;
+            min-width: 180px;
+        }
+
+        .header-val {
+            color: #9c27b0;
+        }
+
+        .multipart-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .boundary {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border: 1px dashed rgba(255, 255, 255, 0.2);
+            padding: 5px;
+            border-radius: 8px;
+        }
+
+        .part-box {
+            background: rgba(0, 188, 212, 0.05);
+            border-left: 3px solid #00bcd4;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .part-box.media {
+            background: rgba(156, 39, 176, 0.05);
+            border-left-color: #9c27b0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-item i {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .info-table th,
+        .info-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .info-table th {
+            background: rgba(33, 150, 243, 0.1);
+            color: var(--primary-color);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Process Flow Diagram Styles */
+        .process-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            border: 1px solid var(--glass-border);
+            overflow-x: auto;
+        }
+
+        .step-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-width: 120px;
+            position: relative;
+        }
+
+        .step-icon-circle {
+            width: 60px;
+            height: 60px;
+            background: rgba(33, 150, 243, 0.1);
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            box-shadow: 0 0 15px rgba(33, 150, 243, 0.2);
+        }
+
+        .step-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .step-subtext {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .flow-arrow {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.2);
+            margin-top: -25px;
+        }
+
+        @media (max-width: 600px) {
+            .process-flow {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .flow-arrow {
+                transform: rotate(90deg);
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="network-canvas"></canvas>
+
+    <div class="overlay">
+        <header class="glass-header">
+            <div class="container container-blog">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span
+                                    class="nav-text">Home</span></a></li>
+                        <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
+                                    class="nav-text">Blog</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="blog-content-wrapper">
+            <div class="container container-blog">
+                <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>Back to
+                        Articles</span></a>
+
+                <article class="glass-panel">
+                    <header class="article-header">
+                        <h1>Multipurpose Internet Mail Extension (MIME) Protocol</h1>
+                        <div class="article-meta">
+                            <span><i class='bx bx-calendar'></i> March 15, 2026</span>
+                            <span><i class='bx bx-category'></i> Networking | Email</span>
+                        </div>
+                    </header>
+
+                    <div class="article-body">
+                        <p>ইমেইল বা ইলেকট্রনিক মেইল যখন শুরুতে তৈরি হয়েছিল, তখন এটি শুধুমাত্র সাধারণ টেক্সট (7-bit
+                            ASCII) আদান-প্রদান করতে পারতো। কিন্তু বর্তমান সময়ের মতো ছবি, ভিডিও, অডিও বা অন্যান্য ফাইল
+                            পাঠানোর সক্ষমতা SMTP (Simple Mail Transfer Protocol)-এর ছিল না। আর এই সীমাবদ্ধতা দূর করতেই
+                            তৈরি করা হয়েছে <strong>MIME (Multipurpose Internet Mail Extension)</strong> প্রোটোকল।</p>
+
+
+                        <div class="content-box">
+                            <p><strong>MIME কী?</strong> এটি মূলত SMTP-এর একটি এক্সটেনশন যা ইমেইল ব্যবস্থার ক্ষমতা
+                                বাড়িয়ে দেয়। এটি ডেটাকে এমনভাবে এনকোড করে যেন তা 7-bit ASCII সিস্টেমে কোনো তথ্য না হারিয়ে
+                                ইন্টারনেটে চলাচল করতে পারে।</p>
+                        </div>
+
+                        <h2><i class="bi bi-star"></i> MIME-এর প্রধান বৈশিষ্ট্যসমূহ</h2>
+                        <div class="feature-grid">
+                            <div class="feature-item">
+                                <i class="bi bi-translate"></i>
+                                <strong>Text Encoding</strong>
+                                <p>এটি ASCII বাদেও UTF-8 এর মতো ক্যারেক্টার সেট সাপোর্ট করে, ফলে বাংলাসহ যেকোনো ভাষায়
+                                    ইমেইল পাঠানো যায়।</p>
+                            </div>
+                            <div class="feature-item">
+                                <i class="bi bi-paperclip"></i>
+                                <strong>Attachments</strong>
+                                <p>ইমেইলের সাথে ছবি (JPEG, PNG), অডিও (MP3), ভিডিও এবং ডকুমেন্ট (PDF) অ্যাটাচমেন্ট
+                                    হিসেবে পাঠানো নিশ্চিত করে।</p>
+                            </div>
+                            <div class="feature-item">
+                                <i class="bi bi-layers"></i>
+                                <strong>Multipart Messages</strong>
+                                <p>একই ইমেইলের ভেতরে বিভিন্ন অংশ (যেমন- প্লেইন টেক্সট এবং HTML ফরম্যাট) আলাদাভাবে থাকতে
+                                    পারে।</p>
+                            </div>
+                        </div>
+
+                        <h2><i class="bi bi-file-earmark-code"></i> MIME মেসেজ স্ট্রাকচার (Headers)</h2>
+                        <p>MIME প্রোটোকল ইমেইলের সাথে কিছু বিশেষ হেডার (Headers) যুক্ত করে দেয় যা দিয়ে রিসিভারের ইমেইল
+                            ক্লায়েন্ট বুঝতে পারে ডেটাটি আসলে কী ধরনের।</p>
+
+                        <div class="diagram-wrapper">
+                            <div class="email-card">
+                                <div class="email-header-area">
+                                    <div class="header-line"><span class="header-key">MIME-Version:</span> <span
+                                            class="header-val">1.0</span></div>
+                                    <div class="header-line"><span class="header-key">Content-Type:</span> <span
+                                            class="header-val">multipart/mixed; boundary="step_123"</span></div>
+                                    <div class="header-line"><span class="header-key">Subject:</span> <span
+                                            class="header-val">Technical Documentation</span></div>
+                                </div>
+                                <div class="multipart-body">
+                                    <div class="boundary">--step_123 (Part Boundary)</div>
+                                    <div class="part-box">
+                                        <div class="header-line"><span class="header-key">Content-Type:</span> <span
+                                                class="header-val">text/html; charset=UTF-8</span></div>
+                                        <p style="font-size: 0.9rem; margin-top: 10px; color: var(--text-muted);">
+
+                                            <body>Hello users, this is an HTML email...</body>
+                                        </p>
+                                    </div>
+                                    <div class="boundary">--step_123 (Part Boundary)</div>
+                                    <div class="part-box media">
+                                        <div class="header-line"><span class="header-key">Content-Type:</span> <span
+                                                class="header-val">image/jpeg</span></div>
+                                        <div class="header-line"><span
+                                                class="header-key">Content-Transfer-Encoding:</span> <span
+                                                class="header-val">base64</span></div>
+                                        <p style="font-size: 0.9rem; margin-top: 10px; color: var(--text-muted);">
+                                            [Encoded Binary Data: /9j/4AAQSkZJRgABA...]</p>
+                                    </div>
+                                    <div class="boundary">--step_123-- (Final Boundary)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>গুরুত্বপূর্ণ হেডার ফিল্ডসমূহ:</h3>
+                        <ul class="custom-list">
+                            <li><strong>MIME-Version:</strong> এটি MIME-এর ভার্সন নির্দেশ করে (বর্তমানে ১.০ সবচেয়ে
+                                জনপ্রিয়)।</li>
+                            <li><strong>Content-Type:</strong> ডেটার টাইপ বলে দেয় (যেমন- text/html, image/png,
+                                application/pdf)।</li>
+                            <li><strong>Content-Transfer-Encoding:</strong> বাইনারি ডেটাকে নিরাপদ টেক্সট ফরম্যাটে
+                                রূপান্তরের পদ্ধতি। সাধারণত <strong>Base64</strong> (ছবির জন্য) অথবা
+                                <strong>Quoted-Printable</strong> (টেক্সটের জন্য) ব্যবহৃত হয়।</li>
+                            <li><strong>Content-Disposition:</strong> ফাইলটি ইমেইলের ভেতরে (Inline) দেখাবে নাকি আলাদা
+                                অ্যাটাচমেন্ট হিসেবে থাকবে তা নিশ্চিত করে।</li>
+                            <li><strong>Content-ID:</strong> ইমেইলের এমবেডেড ফাইলগুলোকে অদ্বিতীয়ভাবে চিহ্নিত করতে
+                                ব্যবহৃত হয়।</li>
+                        </ul>
+
+                        <h2><i class="bi bi-gear-wide"></i> MIME কীভাবে কাজ করে?</h2>
+                        <div class="process-flow">
+                            <div class="step-item">
+                                <div class="step-icon-circle"><i class="bi bi-file-earmark-image"></i></div>
+                                <div class="step-label">Original Content</div>
+                                <div class="step-subtext">Images/Audio/Video</div>
+                            </div>
+                            <div class="flow-arrow"><i class='bx bx-right-arrow-alt'></i></div>
+                            <div class="step-item">
+                                <div class="step-icon-circle"><i class="bi bi-code-slash"></i></div>
+                                <div class="step-label">Encoding</div>
+                                <div class="step-subtext">Base64 / Q.Printable</div>
+                            </div>
+                            <div class="flow-arrow"><i class='bx bx-right-arrow-alt'></i></div>
+                            <div class="step-item">
+                                <div class="step-icon-circle"><i class="bi bi-cloud-arrow-up"></i></div>
+                                <div class="step-label">Transmission</div>
+                                <div class="step-subtext">SMTP (ASCII Text)</div>
+                            </div>
+                            <div class="flow-arrow"><i class='bx bx-right-arrow-alt'></i></div>
+                            <div class="step-item">
+                                <div class="step-icon-circle"><i class="bi bi-unlock"></i></div>
+                                <div class="step-label">Decoding</div>
+                                <div class="step-subtext">Reverse Process</div>
+                            </div>
+                            <div class="flow-arrow"><i class='bx bx-right-arrow-alt'></i></div>
+                            <div class="step-item">
+                                <div class="step-icon-circle"><i class="bi bi-eye"></i></div>
+                                <div class="step-label">Original View</div>
+                                <div class="step-subtext">Displayed for User</div>
+                            </div>
+                        </div>
+                        <ol>
+                            <li><strong>Encoding:</strong> যখন আপনি কোনো ছবি বা ভিডিও পাঠান, MIME সেটিকে 7-bit ASCII
+                                টেক্সটে রূপান্তর (Encode) করে।</li>
+                            <li><strong>Transmission:</strong> এই টেক্সট ডেটা SMTP প্রোটোকলের মাধ্যমে প্রাপকের ইমেইল
+                                সার্ভারে পৌঁছায়।</li>
+                            <li><strong>Decoding:</strong> প্রাপকের ডিভাইস MIME হেডার দেখে বুঝতে পারে এটি বাইনারি ডেটা
+                                এবং সেটিকে পুনরায় আসল ফরম্যাটে (ডিকোডিং) ফিরিয়ে আনে।</li>
+                            <li><strong>Interpretation:</strong> ইমেইল ক্লায়েন্ট ডিকোড করা ডেটাটি ব্যবহারকারীকে
+                                সঠিকভাবে প্রদর্শন করে।</li>
+                        </ol>
+
+                        <h2><i class="bi bi-shield-check"></i> সুবিধা ও অসুবিধা (Pros & Cons)</h2>
+                        <table class="info-table">
+                            <thead>
+                                <tr>
+                                    <th>সুবিধা (Pros)</th>
+                                    <th>অসুবিধা (Cons)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>বিভিন্ন ধরনের মিডিয়া (Audio, Video, PDF) সাপোর্ট করে।</td>
+                                    <td>হেডার এবং এনকোডিংয়ের কারণে ইমেইলের সাইজ কিছুটা বেড়ে যায়।</td>
+                                </tr>
+                                <tr>
+                                    <td>মাল্টিলিঙ্গুয়াল ইমেইল (বাংলা, হিন্দি ইত্যাদি) পাঠানো যায়।</td>
+                                    <td>পুরনো ইমেইল সিস্টেমগুলো এটি সঠিকভাবে ইন্টারপ্রিট করতে পারে না।</td>
+                                </tr>
+                                <tr>
+                                    <td>HTML/CSS ব্যবহার করে ইমেইল ডিজাইন করা সম্ভব।</td>
+                                    <td>বেশি মিডিয়া ফাইল যুক্ত করলে ট্রান্সমিশনে সময় বেশি লাগে।</td>
+                                </tr>
+                                <tr>
+                                    <td>বড় সাইজের ডাটা কোনো সমস্যা ছাড়াই পাঠানো যায়।</td>
+                                    <td>অতিরিক্ত এনকোডিং লেয়ারের কারণে সিস্টেমের লোড বাড়ে।</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="comparison-grid">
+                            <div class="content-box" style="border-left-color: #f44336; margin: 0;">
+                                <h4 style="color: #f44336; margin-top: 0;">Standard SMTP সীমাবদ্ধতা</h4>
+                                <ul style="font-size: 0.95rem; padding-left: 20px;">
+                                    <li>শুধুমাত্র 7-bit ASCII টেক্সট সাপোর্ট করে।</li>
+                                    <li>বাইনারি ফাইল (Image/Audio) পাঠানো যায় না।</li>
+                                    <li>মেসেজের সাইজ সীমিত।</li>
+                                    <li>অন্যান্য ভাষা (যেমন- বাংলা) সাপোর্ট করে না।</li>
+                                </ul>
+                            </div>
+                            <div class="content-box" style="border-left-color: #4caf50; margin: 0;">
+                                <h4 style="color: #4caf50; margin-top: 0;">Extended MIME সমাধান</h4>
+                                <ul style="font-size: 0.95rem; padding-left: 20 Bengali;">
+                                    <li>সব ধরনের বাইনারি ও মাল্টিমিডিয়া সাপোর্ট।</li>
+                                    <li>UTF-8 এনকোডিংয়ের মাধ্যমে বাংলাসহ সব ভাষা।</li>
+                                    <li>Multipart বডির মাধ্যমে সমৃদ্ধ ইমেইল।</li>
+                                    <li>অফুরন্ত ডেটা টাইপ সাপোর্ট।</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="content-box">
+                            <p><i class="bi bi-lightbulb"></i> <strong>উপসংহার:</strong> আজকের আধুনিক ইমেইল কমিউনিকেশন
+                                ব্যবস্থায় MIME অপ্রতিদ্বন্দ্বী। এর সাহায্যেই আমরা প্রতিদিন টেক্সট ইমেইলের বাইরেও হাজারো
+                                ছবি এবং ডকুমেন্ট আদান-প্রদান করতে পারছি।</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer class="glass-footer">
+            <div class="container container-blog">
+                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script type="module" src="../js/network-background.js"></script>
+</body>
+
+</html>

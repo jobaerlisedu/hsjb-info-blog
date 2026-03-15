@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="সহজে শিখুন Point-to-Point Tunneling Protocol (PPTP). VPN তৈরিতে PPTP-এর ভূমিকা, কাজ করার পদ্ধতি এবং এর সুবিধা-অসুবিধা নিয়ে বিস্তারিত আলোচনা।">
+    <title>PPTP (Point-to-Point Tunneling Protocol) | enablement.info</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <style>
+        .blog-content-wrapper {
+            padding-top: 20px;
+            padding-bottom: 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.6rem;
+            margin-bottom: 15px;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            word-wrap: break-word;
+        }
+
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .article-body {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-main);
+        }
+
+        .article-body h2 {
+            font-size: 1.9rem;
+            color: var(--primary-color);
+            margin-top: 45px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 10px;
+        }
+
+        .article-body h3 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .content-box {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid var(--primary-color);
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        /* Diagram Styles */
+        .diagram-wrapper {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 24px;
+            border: 1px solid rgba( 0, 188, 212, 0.3);
+            padding: 30px;
+            margin: 40px 0;
+            overflow-x: auto;
+        }
+
+        .diagram-grid {
+            display: grid;
+            grid-template-columns: 140px 1fr 140px;
+            gap: 15px;
+            position: relative;
+            min-width: 600px;
+        }
+
+        .actor-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+            background: rgba( 0, 188, 212, 0.05);
+            border: 1px solid rgba( 0, 188, 212, 0.2);
+            border-radius: 16px;
+            min-height: 380px;
+        }
+
+        .actor-column.target {
+            background: rgba(156, 39, 176, 0.05);
+            border-color: rgba(156, 39, 176, 0.2);
+        }
+
+        .actor-label {
+            text-align: center;
+            font-weight: bold;
+            color: #00bcd4;
+        }
+
+        .actor-column.target .actor-label { color: #9c27b0; }
+
+        .actor-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .process-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px 0;
+            position: relative;
+            justify-content: center;
+        }
+
+        .tunnel-path {
+            position: relative;
+            height: 100px;
+            background: linear-gradient(90deg, transparent, rgba(0, 188, 212, 0.1), transparent);
+            border: 2px dashed rgba(0, 188, 212, 0.3);
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tunnel-msg {
+            position: relative;
+            z-index: 2;
+            background: #111827;
+            padding: 10px 20px;
+            border-radius: 12px;
+            border: 1px solid var(--primary-color);
+            font-size: 0.95rem;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(0, 188, 212, 0.2);
+        }
+
+        .tunnel-info {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 10px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-item i {
+            display: block;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .comparison-table th {
+            background: rgba(33, 150, 243, 0.1);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="network-canvas"></canvas>
+
+    <div class="overlay">
+        <header class="glass-header">
+            <div class="container container-blog">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span class="nav-text">Home</span></a></li>
+                        <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span class="nav-text">Blog</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="blog-content-wrapper">
+            <div class="container container-blog">
+                <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>Back to Articles</span></a>
+
+                <article class="glass-panel">
+                    <header class="article-header">
+                        <h1>Point-to-Point Tunneling Protocol (PPTP)</h1>
+                        <div class="article-meta">
+                            <span><i class='bx bx-calendar'></i> March 15, 2026</span>
+                            <span><i class='bx bx-category'></i> Networking | VPN</span>
+                        </div>
+                    </header>
+
+                    <div class="article-body">
+                        <p><strong>Point-to-Point Tunneling Protocol (PPTP)</strong> হলো একটি বহুল ব্যবহৃত নেটওয়ার্কিং প্রোটোকল যা পাবলিক নেটওয়ার্ক (যেমন- ইন্টারনেট) এর ওপর দিয়ে একটি সুরক্ষিত এবং প্রাইভেট কানেকশন তৈরি করতে ব্যবহৃত হয়। ১৯৯০-এর দশকে মাইক্রোসফট এবং অন্যান্য প্রযুক্তি কোম্পানিগুলো মিলে এটি তৈরি করেছিল এবং এটি ছিল ভার্চুয়াল প্রাইভেট নেটওয়ার্ক (VPN)-এর জন্য ব্যবহৃত অন্যতম প্রথম প্রোটোকল।</p>
+
+                        <div class="content-box">
+                            <h3><i class="bi bi-info-circle"></i> নামটির অর্থ কী?</h3>
+                            <ul>
+                                <li><strong>Point-to-Point:</strong> এটি দুটি নির্দিষ্ট পয়েন্ট বা ডিভাইসের মধ্যে সরাসরি সংযোগ নির্দেশ করে। এটি <strong>IP (Internet Protocol)</strong> এর পাশাপাশি পুরনো <strong>IPX (Internetwork Packet Exchange)</strong> এবং <strong>NetBEUI</strong> প্রোটোকলও সাপোর্ট করে।</li>
+                                <li><strong>Tunneling:</strong> এক প্রোটোকলের ডেটা অন্য প্রোটোকলের ভেতরে এনক্যাপসুলেট (Encapsulate) বা লুকিয়ে ফেলাকে টানেলিং বলে। PPTP-তে <strong>PPP (Point-to-Point Protocol)</strong> কে <strong>TCP/IP</strong>-এর ভেতরে ঢুকিয়ে ইন্টারনেটে পাঠানো হয়।</li>
+                            </ul>
+                        </div>
+
+                        <h2><i class="bi bi-gear-wide-connected"></i> PPTP কীভাবে কাজ করে? (Working of PPTP)</h2>
+                        <p>PPTP মূলত PPP প্রোটোকলের ওপর ভিত্তি করে তৈরি, যার সাথে অতিরিক্ত অথেন্টিকেশন এবং এনক্রিপশন যুক্ত করা হয়েছে। এটি OSI মডেলের <strong>Layer 2 (Data Link Layer)</strong>-এ কাজ করে এবং একটি ক্লায়েন্ট-সার্ভার ডিজাইন অনুসরণ করে।</p>
+                        
+                        <div class="diagram-wrapper">
+                            <div class="diagram-grid">
+                                <!-- Client Actor -->
+                                <div class="actor-column client">
+                                    <div class="actor-label"><i class="bi bi-laptop actor-icon"></i><br>VPN Client</div>
+                                </div>
+
+                                <!-- Process Column -->
+                                <div class="process-column">
+                                    <div class="tunnel-path">
+                                        <div class="tunnel-msg">🔒 Secure PPTP Tunnel (IP Port 1723)</div>
+                                    </div>
+                                    <div class="tunnel-info">
+                                        <p><i class="bi bi-arrow-left-right"></i> Control Connection (TCP Port 1723)</p>
+                                        <p><i class="bi bi-box-seam"></i> Data Tunnel (GRE - Protocol 47)</p>
+                                    </div>
+                                </div>
+
+                                <!-- Server Actor -->
+                                <div class="actor-column target">
+                                    <div class="actor-label"><i class="bi bi-shield-lock actor-icon"></i><br>VPN Server</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>কানেকশন প্রসেস (Step-by-Step Flow):</h3>
+                        <ol>
+                            <li><strong>Discovery & Connection:</strong> ক্লায়েন্ট VPN সার্ভারের সাথে <strong>TCP Port 1723</strong> ব্যবহার করে একটি কন্ট্রোল কানেকশন তৈরি করে।</li>
+                            <li><strong>Authentication:</strong> সার্ভার ক্লায়েন্টের পরিচয় যাচাই (MS-CHAPv2 বা PAP/CHAP) করে এবং সেশন শুরু করে।</li>
+                            <li><strong>Tunnel Creation:</strong> <strong>IP Protocol 47 (GRE)</strong> ব্যবহার করে একটি টানেল তৈরি করা হয় যার মধ্য দিয়ে ডেটা প্যাকেট যাতায়াত করবে।</li>
+                            <li><strong>Data Encapsulation:</strong> আসল ডেটা প্যাকেটগুলোকে PPP ফ্রেমে এনক্যাপসুলেট করে টানেলের মধ্য দিয়ে নিরাপদে পাঠানো হয়।</li>
+                        </ol>
+
+                        <h2><i class="bi bi-diagram-2"></i> টানেলিংয়ের প্রকারভেদ (Types of Tunneling)</h2>
+                        <p>PPTP-তে সাধারণত দুই ধরনের টানেলিং ব্যবহৃত হয়:</p>
+
+                        <div class="feature-grid">
+                            <div class="feature-item">
+                                <i class="bi bi-person-check"></i>
+                                <strong>Voluntary Tunneling</strong>
+                                <p>ক্লায়েন্ট নিজেই এই সংযোগ চালু করে। এটি ব্যক্তিগত VPN ব্যবহারের ক্ষেত্রে বেশি জনপ্রিয় এবং ব্যবহারকারীর পূর্ণ নিয়ন্ত্রণ থাকে।</p>
+                            </div>
+                            <div class="feature-item">
+                                <i class="bi bi-building-check"></i>
+                                <strong>Compulsory Tunneling</strong>
+                                <p>সার্ভার বা নেটওয়ার্ক অ্যাক্সেস সার্ভার এই সংযোগ শুরু করে। করপোরেট নেটওয়ার্কে এটি বেশি ব্যবহৃত হয় যেন সব ট্রাফিক স্বয়ংক্রিয়ভাবে VPN দিয়ে যায়।</p>
+                            </div>
+                        </div>
+
+                        <h2><i class="bi bi-cpu"></i> টেকনিক্যাল স্পেসিফিকেশন</h2>
+                        <ul>
+                            <li><strong>Encapsulation:</strong> এটি General Routing Encapsulation (GRE) ব্যবহার করে।</li>
+                            <li><strong>Ports:</strong> কন্ট্রোল মেসেজের জন্য TCP Port 1723 এবং GRE ডেটার জন্য IP Protocol 47 ব্যবহৃত হয়।</li>
+                            <li><strong>Encryption:</strong> এটি Microsoft Point-to-Point Encryption (MPPE) ব্যবহার করে যা সাধারণত ৪-বিট, ৪০-বিট বা ১২৮-বিট কি (Key) সাপোর্ট করে।</li>
+                            <li><strong>Authentication:</strong> নিরাপত্তার জন্য সাধারণত MS-CHAPv2, EAP-TLS বা শক্তিশালী পাসওয়ার্ড ব্যবহৃত হয়।</li>
+                        </ul>
+
+                        <h2><i class="bi bi-table"></i> প্রোটোকল তুলনা (Comparison Table)</h2>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>বৈশিষ্ট্য</th>
+                                    <th>PPTP</th>
+                                    <th>L2TP/IPsec</th>
+                                    <th>OpenVPN</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>গতি</td>
+                                    <td>অত্যন্ত দ্রুত</td>
+                                    <td>মধ্যম</td>
+                                    <td>দ্রুত (UDP)</td>
+                                </tr>
+                                <tr>
+                                    <td>নিরাপত্তা</td>
+                                    <td>দুর্বল/পুরানো</td>
+                                    <td>শক্তিশালী</td>
+                                    <td>অত্যন্ত শক্তিশালী</td>
+                                </tr>
+                                <tr>
+                                    <td>সেটআপ</td>
+                                    <td>খুবই সহজ</td>
+                                    <td>মধ্যম</td>
+                                    <td>জটিল</td>
+                                </tr>
+                                <tr>
+                                    <td>ফায়ারওয়াল</td>
+                                    <td>সহজেই ব্লক হয়</td>
+                                    <td>কিছুটা ব্লক হয়</td>
+                                    <td>ব্লক করা কঠিন</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h2><i class="bi bi-hand-thumbs-up"></i> সুবিধা ও অসুবিধা (Pros & Cons)</h2>
+                        <div class="row" style="margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="content-box" style="border-left-color: #4caf50;">
+                                <h3 style="color: #4caf50; margin-top: 0;">সুবিধাসমূহ (Pros)</h3>
+                                <ul style="padding-left: 20px;">
+                                    <li><strong>উচ্চ গতি:</strong> হালকা এনক্রিপশনের কারণে কানেকশন অনেক দ্রুত হয়।</li>
+                                    <li><strong>সহজ সেটআপ:</strong> প্রায় সব অপারেটিং সিস্টেমে এটি আগে থেকেই কনফিগার করা থাকে।</li>
+                                    <li><strong>ডিভাইস কম্প্যাটিবিলিটি:</strong> এটি কম্পিউটার, স্মার্টফোনসহ বিভিন্ন ডিভাইসে সহজেই চলে।</li>
+                                    <li><strong>কম খরচ:</strong> কোনো অতিরিক্ত হার্ডওয়্যার বা বড় রিসোর্সের প্রয়োজন হয় না।</li>
+                                    <li><strong>সহজ ম্যানেজমেন্ট:</strong> প্রশাসনিক বা অ্যাডমিনিস্ট্রেটিভ ওভারহেড অনেক কম।</li>
+                                </ul>
+                            </div>
+                            <div class="content-box" style="border-left-color: #f44336;">
+                                <h3 style="color: #f44336; margin-top: 0;">অসুবিধাসমূহ (Cons)</h3>
+                                <ul style="padding-left: 20px;">
+                                    <li><strong>দুর্বল নিরাপত্তা:</strong> বর্তমানে PPTP-এর এনক্রিপশন বেশ পুরনো এবং হ্যাকারদের কাছে ঝুঁকিপূর্ণ।</li>
+                                    <li><strong>ফায়ারওয়াল ব্লকিং:</strong> অনেক ফায়ারওয়াল বা রাউটারে এই প্রোটোকল ব্লক করা থাকতে পারে।</li>
+                                    <li><strong>NAT ইস্যু:</strong> রাউটারে 'PPTP Passthrough' সাপোর্ট না থাকলে এটি ব্যবহারে সমস্যা হতে পারে।</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="content-box">
+                            <p><i class="bi bi-exclamation-triangle"></i> <strong>বিঃদ্রঃ:</strong> গতির জন্য PPTP ভালো হলেও, অনেক বেশি সংবেদনশীল বা গোপনীয় ডেটা আদান-প্রদান করার জন্য আধুনিক L2TP/IPsec, OpenVPN বা WireGuard ব্যবহার করা উত্তম।</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer class="glass-footer">
+            <div class="container container-blog">
+                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script type="module" src="../js/network-background.js"></script>
+</body>
+
+</html>

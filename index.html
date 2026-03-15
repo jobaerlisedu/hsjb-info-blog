@@ -1,12 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="সহজে শিখুন Network Engineering. Protocols, Architecture এবং Connectivity নিয়ে একটি টেকনিক্যাল ব্লগ।">
-  <title>enablement.info | Technical Blog</title>
+    content="সহজে শিখুন Network Engineering. Protocols, Architecture এবং Connectivity নিয়ে একটি পূর্ণাঙ্গ টেকনিক্যাল ব্লগ।">
+  <meta name="keywords" content="Networking, Computer Science, OSI Model, TCP/IP, IP Addressing, Subnetting, Routing, Bengali Technical Blog">
+  <meta name="author" content="Jobaer Hossain">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://enablement.info/">
+  <meta property="og:title" content="enablement.info | সহজে শিখুন Network Engineering">
+  <meta property="og:description" content="Protocols, Architecture এবং Connectivity নিয়ে বাংলা টেকনিক্যাল ব্লগ। শুরু থেকে অ্যাডভান্স নেটওয়ার্কিং শিখুন।">
+  <meta property="og:image" content="https://enablement.info/assets/images/og-main.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://enablement.info/">
+  <meta name="twitter:title" content="enablement.info | Technical Blog">
+  <meta name="twitter:description" content="সহজে শিখুন Network Engineering. বাংলা টেকনিক্যাল ব্লগ।">
+  <meta name="twitter:image" content="https://enablement.info/assets/images/og-main.png">
+
+  <link rel="canonical" href="https://enablement.info/">
+  <title>enablement.info | সহজে শিখুন Network Engineering</title>
 
   <!-- Icons -->
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -28,253 +46,382 @@
 
   <canvas id="network-canvas"></canvas>
 
-    <header class="glass-header">
-      <nav class="main-nav">
-        <ul>
-          <li>
-            <a href="index.html" class="active">
-              <i class='bx bx-home-alt-2'></i>
-              <span class="nav-text">Home</span>
-            </a>
-          </li>
-          <li>
-            <a href="blogs.html">
-              <i class='bx bx-book-content'></i>
-              <span class="nav-text">Blog</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+  <header class="glass-header">
+    <nav class="main-nav">
+      <ul>
+        <li>
+          <a href="index.html" class="active">
+            <i class='bx bx-home-alt-2'></i>
+            <span class="nav-text">Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="blogs.html">
+            <i class='bx bx-book-content'></i>
+            <span class="nav-text">Blog</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-      <section class="hero-section">
-        <div class="container">
-          <div class="hero-content glass-panel">
-            <span class="badge">Networking and Tech</span>
-            <h1>সহজ ভাষায় শিখুন <br> Network Engineering</h1>
-            <p>A Technical Blog about the world of Protocol, Architecture and Connectivity for Tech
-              Enthusiasts and Professionals.</p>
-            <div class="cta-group">
-              <a href="blogs.html" class="btn btn-primary"><span>Read Blog</span> <i class='bx bx-right-arrow-alt'></i></a>
-              <a href="https://github.com/jobaerlisedu" target="_blank" class="btn btn-outline"><i
-                  class='bx bxl-github'></i> GitHub</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="recent-posts">
-        <div class="container">
-          <div class="section-header">
-            <h2>Recent Articles</h2>
-            <a href="blogs.html" class="btn btn-outline">View All <i class='bx bx-right-arrow-alt'></i></a>
-          </div>
-
-          <div class="posts-grid">
-            <!-- Post 32 -->
-            <article class="post-card glass-panel">
-              <div class="post-meta">
-                <span class="category">Networking</span>
-                <span class="date">09 March, 2026</span>
-              </div>
-              <h3><a href="blogs/blog-32-presentation-layer.html">Presentation Layer in OSI Model</a></h3>
-              <p>প্রেজেন্টেশন লেয়ারের কাজ, ডেটা এনক্রিপশন, কমপ্রেশন এবং ট্রান্সলেশন প্রক্রিয়া নিয়ে একটি বিস্তারিত
-                গাইড।</p>
-              <div class="card-actions">
-                <a href="blogs/blog-32-presentation-layer.html" class="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
-                <div class="share-group">
-                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-32-presentation-layer.html"
-                    target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
-                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-32-presentation-layer.html"
-                    target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
-                  <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-32-presentation-layer.html"
-                    target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
-                </div>
-              </div>
-            </article>
-            <!-- Post 31 -->
-            <article class="post-card glass-panel">
-              <div class="post-meta">
-                <span class="category">Networking</span>
-                <span class="date">09 March, 2026</span>
-              </div>
-              <h3><a href="blogs/blog-31-session-layer.html">Session Layer in OSI Model</a></h3>
-              <p>সেশন লেয়ারের কাজ, সেশন ম্যানেজমেন্ট এবং সিঙ্ক্রোনাইজেশন চেকপয়েন্ট নিয়ে একটি বিস্তারিত টেকনিক্যাল
-                গাইড।</p>
-              <div class="card-actions">
-                <a href="blogs/blog-31-session-layer.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
-                <div class="share-group">
-                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-31-session-layer.html"
-                    target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
-                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-31-session-layer.html"
-                    target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
-                  <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-31-session-layer.html"
-                    target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Post 30 -->
-            <article class="post-card glass-panel">
-              <div class="post-meta">
-                <span class="category">Networking</span>
-                <span class="date">09 March, 2026</span>
-              </div>
-              <h3><a href="blogs/blog-30-udp.html">User Datagram Protocol (UDP)</a></h3>
-              <p>UDP-এর কার্যপদ্ধতি, এর হেডার, প্রয়োগক্ষেত্র এবং ইন্টারনেট কমিউনিকেশনে এর ভূমিকা নিয়ে বিস্তারিত গাইড।
-              </p>
-              <div class="card-actions">
-                <a href="blogs/blog-30-udp.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
-                <div class="share-group">
-                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-30-udp.html"
-                    target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
-                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-30-udp.html"
-                    target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
-                  <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-30-udp.html"
-                    target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Post 29 -->
-            <article class="post-card glass-panel">
-              <div class="post-meta">
-                <span class="category">Networking</span>
-                <span class="date">09 March, 2026</span>
-              </div>
-              <h3><a href="blogs/blog-29-tcp.html">Transmission Control Protocol (TCP)</a></h3>
-              <p>TCP-এর কার্যপদ্ধতি, থ্রি-ওয়ে হ্যান্ডশেক এবং হেডার ফরম্যাট নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।</p>
-              <div class="card-actions">
-                <a href="blogs/blog-29-tcp.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
-                <div class="share-group">
-                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-29-tcp.html"
-                    target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
-                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-29-tcp.html"
-                    target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
-                  <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-29-tcp.html"
-                    target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Post 28 -->
-            <article class="post-card glass-panel">
-              <div class="post-meta">
-                <span class="category">Networking</span>
-                <span class="date">09 March, 2026</span>
-              </div>
-              <h3><a href="blogs/blog-28-transport-layer-protocols.html">Transport Layer Protocols</a></h3>
-              <p>TCP, UDP এবং SCTP প্রোটোকলের কাজ, বৈশিষ্ট্য এবং এদের মধ্যকার মূল পার্থক্যসমূহ নিয়ে আলোচনা।</p>
-              <div class="card-actions">
-                <a href="blogs/blog-28-transport-layer-protocols.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
-                <div class="share-group">
-                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-28-transport-layer-protocols.html"
-                    target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
-                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-28-transport-layer-protocols.html"
-                    target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
-                  <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-28-transport-layer-protocols.html"
-                    target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Post 27 -->
-            <article class="post-card glass-panel">
-              <div class="post-meta">
-                <span class="category">Networking</span>
-                <span class="date">09 March, 2026</span>
-              </div>
-              <h3><a href="blogs/blog-27-transport-layer.html">Transport Layer in OSI Model</a></h3>
-              <p>OSI মডেলের চতুর্থ লেয়ারের কাজ, থ্রি-ওয়ে হ্যান্ডশেক এবং এন্ড-টু-এন্ড যোগাযোগের গুরুত্ব।</p>
-              <div class="card-actions">
-                <a href="blogs/blog-27-transport-layer.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
-                <div class="share-group">
-                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-27-transport-layer.html"
-                    target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
-                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-27-transport-layer.html"
-                    target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
-                  <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-27-transport-layer.html"
-                    target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Post 26 -->
-            <article class="post-card glass-panel">
-              <div class="post-meta">
-                <span class="category">Networking</span>
-                <span class="date">8 March, 2026</span>
-              </div>
-              <h3><a href="blogs/blog-26-network-layer-protocols.html">Network Layer Protocols</a></h3>
-              <p>Network Layer-এর প্রধান Protocol যেমন IP, ARP, RARP, ICMP ও IGMP কী এবং নেটওয়ার্ক লেয়ারের প্রধান কাজ
-                নিয়ে বিস্তারিত গাইড।</p>
-              <div class="card-actions">
-                <a href="blogs/blog-26-network-layer-protocols.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
-                <div class="share-group">
-                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-26-network-layer-protocols.html"
-                    target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
-                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-26-network-layer-protocols.html"
-                    target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
-                  <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-26-network-layer-protocols.html"
-                    target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Post 25 -->
-            <article class="post-card glass-panel">
-              <div class="post-meta">
-                <span class="category">Networking</span>
-                <span class="date">8 March, 2026</span>
-              </div>
-              <h3><a href="blogs/blog-25-routing.html">What is Routing?</a></h3>
-              <p>Routing কী, এটি কীভাবে কাজ করে এবং RIP, OSPF, BGP সহ গুরুত্বপূর্ণ Routing Protocol নিয়ে বিস্তারিত
-                গাইড।</p>
-              <div class="card-actions">
-                <a href="blogs/blog-25-routing.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
-                <div class="share-group">
-                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-25-routing.html"
-                    target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
-                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-25-routing.html"
-                    target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
-                  <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-25-routing.html"
-                    target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Post 24 -->
-            <article class="post-card glass-panel">
-              <div class="post-meta">
-                <span class="category">Networking</span>
-                <span class="date">8 March, 2026</span>
-              </div>
-              <h3><a href="blogs/blog-24-subnetting.html">Introduction to Subnetting</a></h3>
-              <p>Subnetting কী, এটি কেন প্রয়োজন এবং সাবনেট মাস্ক ও CIDR নোটেশন ব্যবহার করে কীভাবে নেটওয়্যার্ক ভাগ করা
-                হয় তার বিস্তারিত গাইড।</p>
-              <div class="card-actions">
-                <a href="blogs/blog-24-subnetting.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
-                <div class="share-group">
-                  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-24-subnetting.html"
-                    target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
-                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-24-subnetting.html"
-                    target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
-                  <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-24-subnetting.html"
-                    target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="glass-footer">
+  <main>
+    <section class="hero-section">
       <div class="container">
-        <p>&copy; 2026 enablement.info. <span data-t="footer-rights">All Rights Reserved.</span></p>
+        <div class="hero-content glass-panel">
+          <span class="badge">Networking and Tech</span>
+          <h1>সহজ ভাষায় শিখুন <br> Network Engineering</h1>
+          <p>A Technical Blog about the world of Protocol, Architecture and Connectivity for Tech
+            Enthusiasts and Professionals.</p>
+          <div class="cta-group">
+            <a href="blogs.html" class="btn btn-primary"><span>Read Blog</span> <i
+                class='bx bx-right-arrow-alt'></i></a>
+            <a href="https://github.com/jobaerlisedu" target="_blank" class="btn btn-outline"><i
+                class='bx bxl-github'></i> GitHub</a>
+          </div>
+        </div>
       </div>
-    </footer>
+    </section>
+
+    <section class="recent-posts">
+      <div class="container">
+        <div class="section-header">
+          <h2>Recent Articles</h2>
+          <a href="blogs.html" class="btn btn-outline">View All <i class='bx bx-right-arrow-alt'></i></a>
+        </div>
+
+        <div class="posts-grid">
+          <!-- Post 39 -->
+          <article class="post-card glass-panel">
+            <div class="post-meta">
+              <span class="category">Networking</span>
+              <span class="date">15 March, 2026</span>
+            </div>
+            <h3><a href="blogs/blog-39-email.html">Electronic Mail (E-mail)</a></h3>
+            <p>E-mail কীভাবে কাজ করে? SMTP, POP3, IMAP প্রোটোকল এবং ইমেইল সিস্টেমের বিভিন্ন উপাদান নিয়ে বিস্তারিত টেকনিক্যাল গাইড।</p>
+            <div class="card-actions">
+              <a href="blogs/blog-39-email.html" class="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
+              <div class="share-group">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-39-email.html"
+                  target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-39-email.html"
+                  target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-39-email.html"
+                  target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+              </div>
+            </div>
+          </article>
+          <!-- Post 38 -->
+          <article class="post-card glass-panel">
+            <div class="post-meta">
+              <span class="category">Networking</span>
+              <span class="date">15 March, 2026</span>
+            </div>
+            <h3><a href="blogs/blog-38-world-wide-web.html">World Wide Web (WWW)</a></h3>
+            <p>World Wide Web (WWW) কী, কীভাবে এটি কাজ করে এবং ইন্টারনেটের সাথে এর পার্থক্য কী? URL, HTTP, HTML এবং ওয়েবের বিবর্তন বিস্তারিত জানুন।</p>
+            <div class="card-actions">
+              <a href="blogs/blog-38-world-wide-web.html" class="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
+              <div class="share-group">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-38-world-wide-web.html"
+                  target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-38-world-wide-web.html"
+                  target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-38-world-wide-web.html"
+                  target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 37 -->
+          <article class="post-card glass-panel">
+            <div class="post-meta">
+              <span class="category">System Design</span>
+              <span class="date">15 March, 2026</span>
+            </div>
+            <h3><a href="blogs/blog-37-client-server-model.html">Client-Server Model & Architecture</a></h3>
+            <p>Client-Server Model কী এবং কীভাবে এটি কাজ করে? 2-Tier ও 3-Tier Architecture, সুবিধা ও অসুবিধা নিয়ে বিস্তারিত গাইড।</p>
+            <div class="card-actions">
+              <a href="blogs/blog-37-client-server-model.html" class="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
+              <div class="share-group">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-37-client-server-model.html"
+                  target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-37-client-server-model.html"
+                  target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-37-client-server-model.html"
+                  target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 36 -->
+          <article class="post-card glass-panel">
+            <div class="post-meta">
+              <span class="category">Networking</span>
+              <span class="date">15 March, 2026</span>
+            </div>
+            <h3><a href="blogs/blog-36-application-layer.html">Application Layer in OSI Model (Layer 7)</a></h3>
+            <p>OSI মডেলের সপ্তম লেয়ার বা Application Layer-এর কাজ, প্রোটোকলসমূহ এবং ইউজার ইন্টারফেস হিসেবে এর ভূমিকা নিয়ে বিস্তারিত গাইড।</p>
+            <div class="card-actions">
+              <a href="blogs/blog-36-application-layer.html" class="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
+              <div class="share-group">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-36-application-layer.html"
+                  target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-36-application-layer.html"
+                  target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-36-application-layer.html"
+                  target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+              </div>
+            </div>
+          </article>
+          <!-- Post 35 -->
+          <article class="post-card glass-panel">
+            <div class="post-meta">
+              <span class="category">Networking</span>
+              <span class="date">15 March, 2026</span>
+            </div>
+            <h3><a href="blogs/blog-35-mime.html">MIME (Multipurpose Internet Mail Extension) Protocol</a></h3>
+            <p>ইমেইলের মাধ্যমে ছবি, ভিডিও এবং বিভিন্ন ভাষায় টেক্সট পাঠানোর প্রোটোকল MIME কী এবং কীভাবে কাজ করে তা নিয়ে একটি টেকনিক্যাল গাইড।</p>
+            <div class="card-actions">
+              <a href="blogs/blog-35-mime.html" class="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
+              <div class="share-group">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-35-mime.html"
+                  target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-35-mime.html"
+                  target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-35-mime.html"
+                  target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+              </div>
+            </div>
+          </article>
+          <!-- Post 34 -->
+          <article class="post-card glass-panel">
+            <div class="post-meta">
+              <span class="category">Networking</span>
+              <span class="date">15 March, 2026</span>
+            </div>
+            <h3><a href="blogs/blog-34-pptp.html">Point-to-Point Tunneling Protocol (PPTP)</a></h3>
+            <p>PPTP প্রোটোকলের কাজ, টানেলিং পদ্ধতি, এনক্রিপশন এবং এর সুবিধা-অসুবিধা নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।</p>
+            <div class="card-actions">
+              <a href="blogs/blog-34-pptp.html" class="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
+              <div class="share-group">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-34-pptp.html"
+                  target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-34-pptp.html"
+                  target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-34-pptp.html"
+                  target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+              </div>
+            </div>
+          </article>
+          <!-- Post 33 -->
+          <article class="post-card glass-panel">
+            <div class="post-meta">
+              <span class="category">Networking</span>
+              <span class="date">15 March, 2026</span>
+            </div>
+            <h3><a href="blogs/blog-33-ssl-tls.html">Secure Socket Layer (SSL)</a></h3>
+            <p>Secure Socket Layer (SSL) এবং TLS প্রোটোকলের কাজ, গুরুত্ব এবং প্রোটকলসমূহ নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।</p>
+            <div class="card-actions">
+              <a href="blogs/blog-33-ssl-tls.html" class="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
+              <div class="share-group">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-33-ssl-tls.html"
+                  target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-33-ssl-tls.html"
+                  target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-33-ssl-tls.html"
+                  target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+              </div>
+            </div>
+          </article>
+          <!-- Post 32 -->
+          <article class="post-card glass-panel">
+            <div class="post-meta">
+              <span class="category">Networking</span>
+              <span class="date">09 March, 2026</span>
+            </div>
+            <h3><a href="blogs/blog-32-presentation-layer.html">Presentation Layer in OSI Model</a></h3>
+            <p>প্রেজেন্টেশন লেয়ারের কাজ, ডেটা এনক্রিপশন, কমপ্রেশন এবং ট্রান্সলেশন প্রক্রিয়া নিয়ে একটি বিস্তারিত
+              গাইড।</p>
+            <div class="card-actions">
+              <a href="blogs/blog-32-presentation-layer.html" class="read-more">Read More <i
+                  class='bx bx-right-arrow-alt'></i></a>
+              <div class="share-group">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-32-presentation-layer.html"
+                  target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-32-presentation-layer.html"
+                  target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-32-presentation-layer.html"
+                  target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+              </div>
+            </div>
+          </article>
+          <!-- Post 31 -->
+          <article class="post-card glass-panel">
+            <div class="post-meta">
+              <span class="category">Networking</span>
+              <span class="date">09 March, 2026</span>
+            </div>
+            <h3><a href="blogs/blog-31-session-layer.html">Session Layer in OSI Model</a></h3>
+            <p>সেশন লেয়ারের কাজ, সেশন ম্যানেজমেন্ট এবং সিঙ্ক্রোনাইজেশন চেকপয়েন্ট নিয়ে একটি বিস্তারিত টেকনিক্যাল
+              গাইড।</p>
+            <div class="card-actions">
+              <a href="blogs/blog-31-session-layer.html" class="read-more" data-t="read-more">Read More <i
+                  class='bx bx-right-arrow-alt'></i></a>
+              <div class="share-group">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-31-session-layer.html"
+                  target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-31-session-layer.html"
+                  target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-31-session-layer.html"
+                  target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 29 -->
+          <article class="post-card glass-panel">
+            <div class="post-meta">
+              <span class="category">Networking</span>
+              <span class="date">09 March, 2026</span>
+            </div>
+            <h3><a href="blogs/blog-29-tcp.html">Transmission Control Protocol (TCP)</a></h3>
+            <p>TCP-এর কার্যপদ্ধতি, থ্রি-ওয়ে হ্যান্ডশেক এবং হেডার ফরম্যাট নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।</p>
+            <div class="card-actions">
+              <a href="blogs/blog-29-tcp.html" class="read-more" data-t="read-more">Read More <i
+                  class='bx bx-right-arrow-alt'></i></a>
+              <div class="share-group">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-29-tcp.html"
+                  target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-29-tcp.html"
+                  target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-29-tcp.html"
+                  target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 28 -->
+          <article class="post-card glass-panel">
+            <div class="post-meta">
+              <span class="category">Networking</span>
+              <span class="date">09 March, 2026</span>
+            </div>
+            <h3><a href="blogs/blog-28-transport-layer-protocols.html">Transport Layer Protocols</a></h3>
+            <p>TCP, UDP এবং SCTP প্রোটোকলের কাজ, বৈশিষ্ট্য এবং এদের মধ্যকার মূল পার্থক্যসমূহ নিয়ে আলোচনা।</p>
+            <div class="card-actions">
+              <a href="blogs/blog-28-transport-layer-protocols.html" class="read-more" data-t="read-more">Read More <i
+                  class='bx bx-right-arrow-alt'></i></a>
+              <div class="share-group">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-28-transport-layer-protocols.html"
+                  target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-28-transport-layer-protocols.html"
+                  target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-28-transport-layer-protocols.html"
+                  target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 27 -->
+          <article class="post-card glass-panel">
+            <div class="post-meta">
+              <span class="category">Networking</span>
+              <span class="date">09 March, 2026</span>
+            </div>
+            <h3><a href="blogs/blog-27-transport-layer.html">Transport Layer in OSI Model</a></h3>
+            <p>OSI মডেলের চতুর্থ লেয়ারের কাজ, থ্রি-ওয়ে হ্যান্ডশেক এবং এন্ড-টু-এন্ড যোগাযোগের গুরুত্ব।</p>
+            <div class="card-actions">
+              <a href="blogs/blog-27-transport-layer.html" class="read-more" data-t="read-more">Read More <i
+                  class='bx bx-right-arrow-alt'></i></a>
+              <div class="share-group">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-27-transport-layer.html"
+                  target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-27-transport-layer.html"
+                  target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-27-transport-layer.html"
+                  target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 26 -->
+          <article class="post-card glass-panel">
+            <div class="post-meta">
+              <span class="category">Networking</span>
+              <span class="date">8 March, 2026</span>
+            </div>
+            <h3><a href="blogs/blog-26-network-layer-protocols.html">Network Layer Protocols</a></h3>
+            <p>Network Layer-এর প্রধান Protocol যেমন IP, ARP, RARP, ICMP ও IGMP কী এবং নেটওয়ার্ক লেয়ারের প্রধান কাজ
+              নিয়ে বিস্তারিত গাইড।</p>
+            <div class="card-actions">
+              <a href="blogs/blog-26-network-layer-protocols.html" class="read-more" data-t="read-more">Read More <i
+                  class='bx bx-right-arrow-alt'></i></a>
+              <div class="share-group">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-26-network-layer-protocols.html"
+                  target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-26-network-layer-protocols.html"
+                  target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-26-network-layer-protocols.html"
+                  target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 25 -->
+          <article class="post-card glass-panel">
+            <div class="post-meta">
+              <span class="category">Networking</span>
+              <span class="date">8 March, 2026</span>
+            </div>
+            <h3><a href="blogs/blog-25-routing.html">What is Routing?</a></h3>
+            <p>Routing কী, এটি কীভাবে কাজ করে এবং RIP, OSPF, BGP সহ গুরুত্বপূর্ণ Routing Protocol নিয়ে বিস্তারিত
+              গাইড।</p>
+            <div class="card-actions">
+              <a href="blogs/blog-25-routing.html" class="read-more" data-t="read-more">Read More <i
+                  class='bx bx-right-arrow-alt'></i></a>
+              <div class="share-group">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-25-routing.html"
+                  target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-25-routing.html"
+                  target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-25-routing.html"
+                  target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 24 -->
+          <article class="post-card glass-panel">
+            <div class="post-meta">
+              <span class="category">Networking</span>
+              <span class="date">8 March, 2026</span>
+            </div>
+            <h3><a href="blogs/blog-24-subnetting.html">Introduction to Subnetting</a></h3>
+            <p>Subnetting কী, এটি কেন প্রয়োজন এবং সাবনেট মাস্ক ও CIDR নোটেশন ব্যবহার করে কীভাবে নেটওয়্যার্ক ভাগ করা
+              হয় তার বিস্তারিত গাইড।</p>
+            <div class="card-actions">
+              <a href="blogs/blog-24-subnetting.html" class="read-more" data-t="read-more">Read More <i
+                  class='bx bx-right-arrow-alt'></i></a>
+              <div class="share-group">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-24-subnetting.html"
+                  target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//enablement.info/blogs/blog-24-subnetting.html"
+                  target="_blank" class="share-btn li" title="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://twitter.com/intent/tweet?url=https%3A//enablement.info/blogs/blog-24-subnetting.html"
+                  target="_blank" class="share-btn x" title="Share on X"><i class='bx bxl-twitter'></i></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="glass-footer">
+    <div class="container">
+      <p>&copy; 2026 enablement.info. <span data-t="footer-rights">All Rights Reserved.</span></p>
+    </div>
+  </footer>
   </div>
 
   <script type="module" src="js/network-background.js"></script>

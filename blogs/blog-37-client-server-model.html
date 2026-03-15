@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Client-Server Model কী এবং কীভাবে এটি কাজ করে? 2-Tier ও 3-Tier Architecture, এর সুবিধা, অসুবিধা এবং ব্যবহার সম্পর্কে বিস্তারিত জানুন।">
+    <title>Client-Server Model & Architecture | enablement.info</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <style>
+        .blog-content-wrapper {
+            padding-top: 20px;
+            padding-bottom: 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.6rem;
+            margin-bottom: 15px;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            word-wrap: break-word;
+        }
+
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .article-body {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-main);
+        }
+
+        .article-body h2 {
+            font-size: 1.9rem;
+            color: var(--primary-color);
+            margin-top: 45px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 10px;
+        }
+
+        .article-body h3 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .content-box {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid var(--primary-color);
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-item i {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        /* Architecture Diagram Styles */
+        .arch-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .arch-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+        }
+
+        .arch-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            background: rgba(33, 150, 243, 0.05);
+            border: 1px solid var(--primary-color);
+            border-radius: 12px;
+            min-width: 160px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .node-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .node-title {
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .node-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        /* Specific coloring for Tiers */
+        .tier-client .arch-node { border-color: #4caf50; background: rgba(76, 175, 80, 0.05); }
+        .tier-client .node-icon { color: #4caf50; }
+        
+        .tier-app .arch-node { border-color: #ff9800; background: rgba(255, 152, 0, 0.05); }
+        .tier-app .node-icon { color: #ff9800; }
+        
+        .tier-data .arch-node { border-color: #2196f3; background: rgba(33, 150, 243, 0.05); }
+        .tier-data .node-icon { color: #2196f3; }
+
+        .arch-connection {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 160px;
+            position: relative;
+        }
+        
+        .arch-connection-vertical {
+            height: 40px;
+            width: 100%;
+        }
+
+        .conn-line {
+            height: 2px;
+            width: calc(100% + 20px);
+            left: -10px;
+            background: var(--text-muted);
+            position: absolute;
+            top: 50%;
+            z-index: 1;
+        }
+        
+        /* Arrows for the horizontal connection line */
+        .conn-line::before, .conn-line::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+        
+        .conn-line::before {
+            left: -2px;
+            border-width: 5px 8px 5px 0;
+            border-color: transparent var(--text-muted) transparent transparent;
+        }
+        
+        .conn-line::after {
+            right: -2px;
+            border-width: 5px 0 5px 8px;
+            border-color: transparent transparent transparent var(--text-muted);
+        }
+        
+        .conn-line-vertical {
+            width: 2px;
+            height: 100%;
+            background: var(--text-muted);
+            position: absolute;
+            left: 50%;
+            z-index: 1;
+        }
+
+        .conn-label {
+            font-size: 0.85rem;
+            color: #fff;
+            background: #1a1f35; /* Solid dark color to hide the line */
+            padding: 4px 12px;
+            border-radius: 12px;
+            position: relative;
+            z-index: 2;
+            border: 1px solid var(--glass-border);
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        /* Code Block Styles (Glassmorphic Theme) */
+        .code-container {
+            background: var(--glass-bg);
+            border-radius: 12px;
+            margin: 20px 0;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .code-header {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--glass-border);
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        .code-header i {
+            color: var(--primary);
+            margin-right: 8px;
+        }
+        .code-body {
+            padding: 20px;
+            overflow-x: auto;
+            font-family: 'Fira Code', 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin: 0;
+        }
+        .code-body span.keyword { color: var(--primary); font-weight: bold; } /* Keywords */
+        .code-body span.function { color: var(--secondary); } /* Functions */
+        .code-body span.string { color: #4caf50; }   /* Strings */
+        .code-body span.comment { color: #888; font-style: italic; } /* Comments */
+        .code-body span.include { color: #ff9800; }  /* #include */
+
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            .arch-row {
+                flex-direction: column;
+            }
+            .arch-connection {
+                width: 100%;
+                height: 50px;
+            }
+            .conn-line {
+                width: 2px;
+                height: calc(100% + 20px);
+                top: -10px;
+                left: 50%;
+            }
+            .conn-line::before {
+                top: -2px;
+                left: -4px;
+                border-width: 0 5px 8px 5px;
+                border-color: transparent transparent var(--text-muted) transparent;
+            }
+            .conn-line::after {
+                top: auto;
+                bottom: -2px;
+                left: -4px;
+                right: auto;
+                border-width: 8px 5px 0 5px;
+                border-color: var(--text-muted) transparent transparent transparent;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="network-canvas"></canvas>
+
+    <div class="overlay">
+        <header class="glass-header">
+            <div class="container container-blog">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span
+                                    class="nav-text">Home</span></a></li>
+                        <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
+                                    class="nav-text">Blog</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="blog-content-wrapper">
+            <div class="container container-blog">
+                <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>Back to
+                        Articles</span></a>
+
+                <article class="glass-panel">
+                    <header class="article-header">
+                        <h1>Client-Server Model & Architecture</h1>
+                        <div class="article-meta">
+                            <span><i class='bx bx-calendar'></i> March 15, 2026</span>
+                            <span><i class='bx bx-category'></i> System Design | Networking</span>
+                        </div>
+                    </header>
+
+                    <div class="article-body">
+                        <p>তথ্যপ্রযুক্তির বর্তমান যুগে ইন্টারনেট বা নেটওয়ার্কে আমরা যে সুবিধাই গ্রহণ করি না কেন—হোক তা ওয়েবসাইট ব্রাউজিং, ইমেইল পাঠানো কিংবা অনলাইন ব্যাংকিং—তার বেশিরভাগই একটি নির্দিষ্ট নিয়মের ওপর ভিত্তি করে চলে। এই নিয়ম বা কাঠামোর নামই হলো <strong>Client-Server Model</strong>। এটি এমন একটি নেটওয়ার্ক আর্কিটেকচার যেখানে 'ক্লায়েন্ট' রিসোর্সের জন্য রিকোয়েস্ট করে এবং 'সার্ভার' সেই রিকোয়েস্ট অনুযায়ী ডেটা বা সার্ভিস প্রদান করে।</p>
+
+                        <div class="content-box">
+                            <h3><i class="bi bi-info-circle"></i> মূল উপাদানসমূহ</h3>
+                            <ul>
+                                <li><strong>Client (ক্লায়েন্ট):</strong> যে ডিভাইস বা প্রোগ্রাম সার্ভিস বা ডেটার জন্য রিকোয়েস্ট করে। (যেমন: আপনার ল্যাপটপের Google Chrome ব্রাউজার)।</li>
+                                <li><strong>Server (সার্ভার):</strong> এমন একটি শক্তিশালী সিস্টেম যা রিসোর্স বা ডেটা সংরক্ষণ করে এবং ক্লায়েন্টের রিকোয়েস্ট অনুযায়ী তা প্রদান করে।</li>
+                            </ul>
+                        </div>
+
+                        <h2><i class="bi bi-arrow-left-right"></i> এটি কীভাবে কাজ করে?</h2>
+                        <p>Client-Server মডেলটি মূলত <strong>Request–Response Mechanism</strong>-এর ওপর নির্ভর করে কাজ করে। এর কাজের ধাপগুলো খুবই সহজ:</p>
+
+                        <ol>
+                            <li><strong>Request:</strong> প্রথমে ক্লায়েন্ট (যেমন ব্রাউজার) সার্ভারের কাছে কোনো নির্দিষ্ট সার্ভিস বা ডেটার জন্য রিকোয়েস্ট পাঠায়।</li>
+                            <li><strong>Processing:</strong> সার্ভার সেই রিকোয়েস্টটি গ্রহণ করে এবং যাচাই-বাছাই (Processing/Authentication) করে। সার্ভার একসাথে শত শত ক্লায়েন্টের রিকোয়েস্ট হ্যান্ডেল করতে পারে।</li>
+                            <li><strong>Response:</strong> প্রসেসিং শেষে সার্ভার কাঙ্ক্ষিত ফলাফল বা ডেটা রেসপন্স হিসেবে ক্লায়েন্টের কাছে ফেরত পাঠায়।</li>
+                        </ol>
+
+                        <div class="feature-grid">
+                            <div class="feature-item">
+                                <i class="bi bi-person-workspace"></i>
+                                <strong>Examples of Clients</strong>
+                                <p>Web Browsers (Chrome, Firefox), Email Apps (Gmail, Outlook), Mobile Banking Apps.</p>
+                            </div>
+                            <div class="feature-item">
+                                <i class="bi bi-server"></i>
+                                <strong>Examples of Servers</strong>
+                                <p>Web Servers (Apache, Nginx), Email Servers, Database Servers (MySQL, Oracle).</p>
+                            </div>
+                        </div>
+
+                        <h2><i class="bi bi-code-slash"></i> C++ এ Client-Server Communication কীভাবে কাজ করে?</h2>
+                        <p>সি ল্যাঙ্গুয়েজ এবং C++ এ ক্লায়েন্ট ও সার্ভারের মধ্যে নেটওয়ার্কের মাধ্যমে যোগাযোগ স্থাপন করতে <strong>Sockets</strong> ব্যবহার করা হয়। নিচে একটি ব্যাসিক ক্লায়েন্ট এবং সার্ভারের কোড দেওয়া হলো যা <code>8080</code> পোর্টে একে অপরের সাথে কানেক্ট করে।</p>
+
+                        <h3>Server Code (server.cpp)</h3>
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span><i class="bi bi-file-earmark-code"></i> server.cpp</span>
+                                <span>C++</span>
+                            </div>
+                            <pre class="code-body">
+<span class="include">#include</span> &lt;iostream&gt;
+<span class="include">#include</span> &lt;cstring&gt;
+<span class="include">#include</span> &lt;unistd.h&gt;
+<span class="include">#include</span> &lt;netinet/in.h&gt;
+
+<span class="keyword">int</span> <span class="function">main</span>() {
+    <span class="keyword">int</span> server_fd, new_socket;
+    <span class="keyword">struct</span> sockaddr_in address;
+    <span class="keyword">int</span> addrlen = <span class="keyword">sizeof</span>(address);
+    <span class="keyword">char</span> buffer[1024] = {0};
+
+    <span class="comment">// Create socket</span>
+    server_fd = <span class="function">socket</span>(AF_INET, SOCK_STREAM, 0);
+
+    <span class="comment">// Setup address</span>
+    address.sin_family = AF_INET;
+    address.sin_addr.s_addr = INADDR_ANY;
+    address.sin_port = <span class="function">htons</span>(8080);
+
+    <span class="comment">// Bind socket</span>
+    <span class="function">bind</span>(server_fd, (<span class="keyword">struct</span> sockaddr*)&address, <span class="keyword">sizeof</span>(address));
+
+    <span class="comment">// Start listening</span>
+    <span class="function">listen</span>(server_fd, 3);
+    std::cout << <span class="string">"Server waiting for connection...\n"</span>;
+
+    <span class="comment">// Accept a client connection</span>
+    new_socket = <span class="function">accept</span>(server_fd, (<span class="keyword">struct</span> sockaddr*)&address, (socklen_t*)&addrlen);
+
+    <span class="comment">// Read message from client</span>
+    <span class="function">read</span>(new_socket, buffer, 1024);
+    std::cout << <span class="string">"Client says: "</span> << buffer << std::endl;
+
+    <span class="comment">// Send reply</span>
+    <span class="keyword">const char</span>* reply = <span class="string">"Hello from server!"</span>;
+    <span class="function">send</span>(new_socket, reply, <span class="function">strlen</span>(reply), 0);
+
+    <span class="function">close</span>(new_socket);
+    <span class="function">close</span>(server_fd);
+    <span class="keyword">return</span> 0;
+}
+</pre>
+                        </div>
+
+                        <h3>Client Code (client.cpp)</h3>
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span><i class="bi bi-file-earmark-code"></i> client.cpp</span>
+                                <span>C++</span>
+                            </div>
+                            <pre class="code-body">
+<span class="include">#include</span> &lt;iostream&gt;
+<span class="include">#include</span> &lt;cstring&gt;
+<span class="include">#include</span> &lt;unistd.h&gt;
+<span class="include">#include</span> &lt;arpa/inet.h&gt;
+
+<span class="keyword">int</span> <span class="function">main</span>() {
+    <span class="keyword">int</span> sock = 0;
+    <span class="keyword">struct</span> sockaddr_in serv_addr;
+    <span class="keyword">char</span> buffer[1024] = {0};
+
+    <span class="comment">// Create socket</span>
+    sock = <span class="function">socket</span>(AF_INET, SOCK_STREAM, 0);
+
+    // Setup Server Address
+    serv_addr.sin_family = AF_INET;
+    serv_addr.sin_port = <span class="function">htons</span>(8080);
+    <span class="function">inet_pton</span>(AF_INET, <span class="string">"127.0.0.1"</span>, &serv_addr.sin_addr);
+
+    <span class="comment">// Connect to server</span>
+    <span class="function">connect</span>(sock, (<span class="keyword">struct</span> sockaddr*)&serv_addr, <span class="keyword">sizeof</span>(serv_addr));
+
+    <span class="comment">// Send message</span>
+    <span class="keyword">const char</span>* hello = <span class="string">"Hello from client!"</span>;
+    <span class="function">send</span>(sock, hello, <span class="function">strlen</span>(hello), 0);
+
+    <span class="comment">// Receive reply</span>
+    <span class="function">read</span>(sock, buffer, 1024);
+    std::cout << <span class="string">"Server says: "</span> << buffer << std::endl;
+
+    <span class="function">close</span>(sock);
+    <span class="keyword">return</span> 0;
+}
+</pre>
+                        </div>
+
+                        <h2><i class="bi bi-diagram-3"></i> আর্কিটেকচারের ধরন (Types of Architecture)</h2>
+                        <p>প্রেজেন্টেশন, লজিক এবং ডেটা লেয়ারগুলো কীভাবে সাজানো তার ওপর ভিত্তি করে Client-Server আর্কিটেকচারকে প্রধানত দুটি ভাগে ভাগ করা যায়:</p>
+
+                        <h3>১. 2-Tier Architecture</h3>
+                        <p>এই মডেলে ক্লায়েন্ট সরাসরি সার্ভারের সাথে যোগাযোগ করে। এখানে দুটি স্তর থাকে: Client Layer এবং Server Layer (যেটি প্রসেসিং এবং ডেটাবেস দুটোর কাজই করে)। ছোট অ্যাপ্লিকেশন এবং কম ইউজারের সফটওয়্যারের জন্য এটি উপযোগী।</p>
+
+                        <div class="arch-diagram tier-client">
+                            <div class="arch-row">
+                                <div class="arch-node">
+                                    <div class="node-icon"><i class="bi bi-laptop"></i></div>
+                                    <div class="node-title">Client Tier</div>
+                                    <div class="node-desc">Presentation / UI</div>
+                                </div>
+                                <div class="arch-connection">
+                                    <div class="conn-line"></div>
+                                    <div class="conn-label">Direct DB Query</div>
+                                </div>
+                                <div class="arch-node" style="border-color: #2196f3; background: rgba(33, 150, 243, 0.05);">
+                                    <div class="node-icon" style="color: #2196f3;"><i class="bi bi-database"></i></div>
+                                    <div class="node-title">Database Server</div>
+                                    <div class="node-desc">Processing & Data Layer</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>২. 3-Tier Architecture</h3>
+                        <p>পারফরম্যান্স, সিকিউরিটি এবং স্কেলাবিলিটি বা সিস্টেম বড় করার সুবিধার জন্য 3-Tier আর্কিটেকচার ব্যবহার করা হয়। এটি বর্তমানে ওয়েব অ্যাপ্লিকেশনে সবচেয়ে জনপ্রিয় মডেল। এখানে সিস্টেমকে তিনটি লেয়ারে ভাগ করা হয়:</p>
+                        
+                        <ul>
+                            <li><strong>Presentation Layer (Client):</strong> ইউজার ইন্টারফেস।</li>
+                            <li><strong>Application Layer (Business Logic):</strong> সার্ভার যা রিকোয়েস্ট প্রসেস করে এবং লজিক অ্যাপ্লাই করে।</li>
+                            <li><strong>Data Layer (Database Server):</strong> যেখানে মূল ডেটা সংরক্ষিত থাকে।</li>
+                        </ul>
+                        <p>এখানে ক্লায়েন্ট সরাসরি ডেটাবেসের সাথে কানেক্ট হতে পারে না, ফলে ডেটাবেস অনেক বেশি নিরাপদ থাকে।</p>
+
+                        <div class="arch-diagram">
+                            <div class="arch-row">
+                                <div class="arch-node tier-client">
+                                    <div class="node-icon" style="color: #4caf50;"><i class="bi bi-laptop"></i></div>
+                                    <div class="node-title">Presentation Tier</div>
+                                    <div class="node-desc">Client Browser / App</div>
+                                </div>
+                                <div class="arch-connection">
+                                    <div class="conn-line"></div>
+                                    <div class="conn-label">HTTP Request</div>
+                                </div>
+                                <div class="arch-node tier-app">
+                                    <div class="node-icon" style="color: #ff9800;"><i class="bi bi-hdd-rack"></i></div>
+                                    <div class="node-title">Application Tier</div>
+                                    <div class="node-desc">Business Logic / API</div>
+                                </div>
+                                <div class="arch-connection">
+                                    <div class="conn-line"></div>
+                                    <div class="conn-label">DB Connection</div>
+                                </div>
+                                <div class="arch-node tier-data">
+                                    <div class="node-icon" style="color: #2196f3;"><i class="bi bi-database"></i></div>
+                                    <div class="node-title">Data Tier</div>
+                                    <div class="node-desc">Database Server</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2><i class="bi bi-grid-1x2"></i> ব্যবহারিক ক্ষেত্র (Applications)</h2>
+                        <div class="feature-grid">
+                            <div class="feature-item">
+                                <i class="bi bi-globe"></i>
+                                <strong>Web Browsing</strong>
+                                <p>ব্রাউজার (Client) ওয়েব সার্ভার থেকে ওয়েবপেজ রিকোয়েস্ট করে ডেলিভারি নেয়。</p>
+                            </div>
+                            <div class="feature-item">
+                                <i class="bi bi-envelope"></i>
+                                <strong>Email Systems</strong>
+                                <p>মেইল ক্লায়েন্ট (যেমন Outlook) মেইল সার্ভার থেকে মেসেজ রিসিভ ও সেন্ড করে。</p>
+                            </div>
+                            <div class="feature-item">
+                                <i class="bi bi-cloud-arrow-up"></i>
+                                <strong>Cloud Storage</strong>
+                                <p>ফাইল সিঙ্ক, আপলোড বা ডাউনলোডের জন্য ক্লাউড স্টোরেজ সার্ভার ও ক্লায়েন্ট অ্যাপ。</p>
+                            </div>
+                        </div>
+
+                        <h2><i class="bi bi-shield-check"></i> সুবিধা ও সীমাবদ্ধতা (Advantages & Limitations)</h2>
+                        <div class="comparison-grid">
+                            <div class="content-box" style="border-left-color: #4caf50; margin: 0;">
+                                <h4 style="color: #4caf50; margin-top: 0;">সুবিধাসমূহ (Advantages)</h4>
+                                <ul style="font-size: 0.95rem; padding-left: 20px;">
+                                    <li><strong>Centralized Data:</strong> ডেটা এবং সার্ভিস এক জায়গায় থাকে বলে ম্যানেজমেন্ট এবং আপডেট অনেক সহজ।</li>
+                                    <li><strong>Security:</strong> সার্ভার এন্ডে শক্তিশালী সিকিউরিটি এবং অ্যাক্সেস কন্ট্রোল ব্যবহার করা যায়।</li>
+                                    <li><strong>Scalability:</strong> একই সার্ভিস একসাথে অসংখ্য ক্লায়েন্টকে দেওয়া যায়।</li>
+                                    <li><strong>Consistency:</strong> ক্লায়েন্ট একটিমাত্র বিশ্বস্ত সোর্স (Trusted Source) থেকে ডেটা পায়।</li>
+                                </ul>
+                            </div>
+                            <div class="content-box" style="border-left-color: #f44336; margin: 0;">
+                                <h4 style="color: #f44336; margin-top: 0;">সীমাবদ্ধতা (Limitations)</h4>
+                                <ul style="font-size: 0.95rem; padding-left: 20px;">
+                                    <li><strong>Server Dependency:</strong> সার্ভার ফেল করলে (SPOF - Single Point of Failure) পুরো সার্ভিস বন্ধ হয়ে যায়।</li>
+                                    <li><strong>Bottleneck:</strong> একসাথে অত্যাধিক রিকোয়েস্ট এলে সার্ভার স্লো হয়ে যেতে পারে।</li>
+                                    <li><strong>High Cost:</strong> শক্তিশালী হার্ডওয়্যার এবং ব্যাকআপ সলিউশন মেইনটেইন করা বেশ ব্যয়বহুল।</li>
+                                    <li><strong>Network Reliant:</strong> ইন্টারনেট বা নেটওয়ার্ক কানেকশন ছাড়াই এটি অচল।</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="content-box">
+                            <p><i class="bi bi-lightbulb"></i> <strong>উপসংহার:</strong> Client-Server Model-ই হলো আধুনিক ইন্টারনেট এবং এন্টারপ্রাইজ নেটওয়ার্কের মেরুদণ্ড। সিকিউরিটি, ডেটা ম্যানেজমেন্ট এবং স্কেলাবিলিটি—সবকিছু মিলিয়ে বড় সিস্টেম পরিচালনার জন্য এর বিকল্প নেই।</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer class="glass-footer">
+            <div class="container container-blog">
+                <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script type="module" src="../js/network-background.js"></script>
+</body>
+
+</html>
