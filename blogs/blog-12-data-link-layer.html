@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="bn">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="সহজে শিখুন Network Engineering. Data Link Layer: Second Layer of OSI Model নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
+    <meta name="description" content="???? ????? Network Engineering. Data Link Layer: Second Layer of OSI Model ???? ???? ????????? ?????????? ?????">
   <title>Data Link Layer: Second Layer of OSI Model | enablement.info</title>
 
   <!-- Icons -->
@@ -120,7 +120,10 @@
 
 <body>
   <canvas id="network-canvas"></canvas>
-  <div class="overlay">
+  <div class="overlay">    <div class="lang-switcher">
+        <button id="lang-bn" class="lang-btn">BN</button>
+        <button id="lang-en" class="lang-btn active">EN</button>
+    </div>
     <header class="glass-header">
       <div class="container container-blog">
         <nav class="main-nav">
@@ -128,13 +131,13 @@
             <li>
               <a href="../index.html">
                 <i class='bx bx-home-alt-2'></i>
-                <span class="nav-text">Home</span>
+                <span class="nav-text" data-t="nav-home">Home</span>
               </a>
             </li>
             <li>
               <a href="../blogs.html" class="active">
                 <i class='bx bx-book-content'></i>
-                <span class="nav-text">Blog</span>
+                <span class="nav-text" data-t="nav-blog">Blog</span>
               </a>
             </li>
           </ul>
@@ -146,7 +149,7 @@
       <div class="container container-blog">
         <a href="../blogs.html" class="back-btn">
           <i class='bx bx-arrow-back'></i>
-          <span>Back to Articles</span>
+          <span data-t="back-articles">Back to Articles</span>
         </a>
 
         <article class="glass-panel">
@@ -160,28 +163,28 @@
           </header>
 
           <div class="article-body">
-            <h2><i class="bi bi-layers"></i> Data Link Layer কী?</h2>
-            <p>Data Link Layer হলো OSI Model-এর নিচ থেকে দ্বিতীয় স্তর। এটি মূলত একই স্থানীয়
-              Network-এর মধ্যে এক Node থেকে অন্য Node-এ Data পৌঁছানোর Responsibility পালন করে। একে OSI
-              Model-এর সবচেয়ে জটিল Layer বলা হয় কারণ এটি Next উপরের Layer-গুলো থেকে Hardware-এর
-              Complexity-গুলো আড়াল করে রাখে।</p>
+            <h2><i class="bi bi-layers"></i> Data Link Layer ???</h2>
+            <p>Data Link Layer ??? OSI Model-?? ??? ???? ??????? ????? ??? ???? ??? ???????
+              Network-?? ????? ?? Node ???? ???? Node-? Data ???????? Responsibility ???? ???? ??? OSI
+              Model-?? ?????? ???? Layer ??? ?? ???? ??? Next ????? Layer-???? ???? Hardware-??
+              Complexity-???? ???? ??? ?????</p>
 
             <div class="content-box">
               <ul>
-                <li><strong>Node-to-Node Delivery:</strong> একই local network-এর মধ্যে data স্থানান্তর
-                  নিশ্চিত করে।</li>
-                <li><strong>Reliable Transmission:</strong> Information-এর Accurate তা এবং Error হীন আদান-প্রদান
-                  নিশ্চিত করা এর মূল Task।</li>
-                <li><strong>Encoding & Decoding:</strong> আগত ও বহির্গত data-কে সাজানো এবং সংকেতে
-                  রূপান্তর
-                  করা।</li>
+                <li><strong>Node-to-Node Delivery:</strong> ??? local network-?? ????? data ??????????
+                  ??????? ????</li>
+                <li><strong>Reliable Transmission:</strong> Information-?? Accurate ?? ??? Error ??? ????-??????
+                  ??????? ??? ?? ??? Task?</li>
+                <li><strong>Encoding & Decoding:</strong> ??? ? ??????? data-?? ?????? ??? ??????
+                  ????????
+                  ????</li>
               </ul>
             </div>
 
             <hr>
 
-            <h2><i class="bi bi-diagram-3"></i> Data Link Layer-এর Sub-layer-সমূহ</h2>
-            <p>Data Link Layer-কে আরও দুটি গুরুত্বপূর্ণ উপ-স্তরে বা Sub-layer-এ ভাগ করা হয়েছে:</p>
+            <h2><i class="bi bi-diagram-3"></i> Data Link Layer-?? Sub-layer-????</h2>
+            <p>Data Link Layer-?? ??? ???? ???????????? ??-????? ?? Sub-layer-? ??? ??? ?????:</p>
 
             <div class="diagram-container">
               <svg viewBox="0 0 400 200" width="100%">
@@ -201,18 +204,18 @@
             </div>
 
             <h3>1. Logical Link Control (LLC)</h3>
-            <p>LLC Sub-layer-টি Network Layer এবং MAC Sub-layer-এর মধ্যে সেতুবন্ধন হিসেবে Task করে। এর
-              Task-গুলো হলো:</p>
+            <p>LLC Sub-layer-?? Network Layer ??? MAC Sub-layer-?? ????? ????????? ?????? Task ???? ??
+              Task-???? ???:</p>
             <ul>
-              <li>Application-গুলোর মধ্যে data-র প্রবাহ (Flow) এবং Multiplexing Operation করা।</li>
-              <li>Error Message প্রদান এবং প্রাপ্তি স্বীকার (Acknowledgment) নিশ্চিত করা।</li>
+              <li>Application-????? ????? data-? ?????? (Flow) ??? Multiplexing Operation ????</li>
+              <li>Error Message ?????? ??? ???????? ??????? (Acknowledgment) ??????? ????</li>
             </ul>
 
             <ul>
-              <li>Device-এর Physical বা MAC Address ব্যবহার করে Frame তৈরি করা।</li>
-              <li>Network Layer থেকে পাওয়া Packet-গুলোকে 'Frame'-এ বিভক্ত করে bit by bit physical
-                Layer-এ পাঠানো।</li>
-              <li>Physical Media Access নিয়ন্ত্রণ করা।</li>
+              <li>Device-?? Physical ?? MAC Address ??????? ??? Frame ???? ????</li>
+              <li>Network Layer ???? ????? Packet-?????? 'Frame'-? ?????? ??? bit by bit physical
+                Layer-? ???????</li>
+              <li>Physical Media Access ????????? ????</li>
             </ul>
 
             <!-- Custom CSS Diagram: MAC Address Structure -->
@@ -251,94 +254,94 @@
 
             <hr>
 
-            <h2><i class="bi bi-gear"></i> Data Link Layer-এর প্রধান Task সমূহ (Functions)</h2>
+            <h2><i class="bi bi-gear"></i> Data Link Layer-?? ?????? Task ???? (Functions)</h2>
             <div class="content-box">
-              <p>Data Link Layer-এর প্রধান Task-গুলো নিচে Detailed Discussion করা হলো:</p>
+              <p>Data Link Layer-?? ?????? Task-???? ???? Detailed Discussion ??? ???:</p>
               <ul>
-                <li><strong>Framing:</strong> Packet-গুলোকে Frame-এ সাজানো যাতে Receiver Frame-এর
-                  শুরু এবং শেষ বুঝতে পারে।</li>
-                <li><strong>Physical Addressing:</strong> প্রতিটি Frame-এর Header-এ Sender ও
-                  Receiver-এর MAC Address যুক্ত করা।</li>
-                <li><strong>Flow Control:</strong> একটি নির্দিষ্ট Speed তে data পাঠানো
-                  নিশ্চিত করা যাতে Receiver device-টি অতিরিক্ত data-র চাপে না পড়ে।</li>
-                <li><strong>Error Control:</strong> Frame Damage বা হারিয়ে গেলে তা
-                  শনাক্ত করা এবং পুনরায় পাঠানোর ব্যবস্থা করা। এটি trailer-এ redundant
-                  data যুক্ত করে করা হয়।</li>
-                <li><strong>Access Control:</strong> যখন Multiple device একই link
-                  share করে, তখন কোন device-টি কখন data পাঠাবে তা নিয়ন্ত্রণ করা।</li>
+                <li><strong>Framing:</strong> Packet-?????? Frame-? ?????? ???? Receiver Frame-??
+                  ???? ??? ??? ????? ?????</li>
+                <li><strong>Physical Addressing:</strong> ??????? Frame-?? Header-? Sender ?
+                  Receiver-?? MAC Address ????? ????</li>
+                <li><strong>Flow Control:</strong> ???? ????????? Speed ?? data ??????
+                  ??????? ??? ???? Receiver device-?? ???????? data-? ???? ?? ????</li>
+                <li><strong>Error Control:</strong> Frame Damage ?? ?????? ???? ??
+                  ?????? ??? ??? ?????? ??????? ???????? ???? ??? trailer-? redundant
+                  data ????? ??? ??? ???</li>
+                <li><strong>Access Control:</strong> ??? Multiple device ??? link
+                  share ???, ??? ??? device-?? ??? data ?????? ?? ????????? ????</li>
               </ul>
             </div>
 
             <hr>
 
-            <h2><i class="bi bi-shield-check"></i> Data Link Layer-এর Protocol-সমূহ</h2>
-            <p>এই Layer-এ নিরবিচ্ছিন্ন যোগাযোগের জন্য বিভিন্ন protocol ব্যবহৃত হয়:</p>
+            <h2><i class="bi bi-shield-check"></i> Data Link Layer-?? Protocol-????</h2>
+            <p>?? Layer-? ???????????? ????????? ???? ??????? protocol ??????? ??:</p>
             <ul>
-              <li><strong>SDLC (Synchronous Data Link Control):</strong> IBM দ্বারা তৈরি প্রাচীন
-                Protocol।</li>
-              <li><strong>HDLC (High-Level Data Link Control):</strong> এটি bit-oriented protocol যা
-                data transmission-এ ব্যবহৃত হয়।</li>
-              <li><strong>SLIP (Serial Line Interface Protocol):</strong> Serial port এবং Modem
-                connection-এর জন্য ব্যবহৃত হয়।</li>
-              <li><strong>PPP (Point-to-Point Protocol):</strong> সরাসরি দুটি Computer-এর মধ্যে IP
-                Traffic transmit করতে ব্যবহৃত হয়।</li>
-              <li><strong>LAP (Link Access Procedure):</strong> X.25 Frame Structure-এর protocol।</li>
-              <li><strong>LCP & NCP:</strong> Link Control এবং Network Control protocol যা PPP-এর
-                সাথে Task করে।</li>
+              <li><strong>SDLC (Synchronous Data Link Control):</strong> IBM ?????? ???? ???????
+                Protocol?</li>
+              <li><strong>HDLC (High-Level Data Link Control):</strong> ??? bit-oriented protocol ??
+                data transmission-? ??????? ???</li>
+              <li><strong>SLIP (Serial Line Interface Protocol):</strong> Serial port ??? Modem
+                connection-?? ???? ??????? ???</li>
+              <li><strong>PPP (Point-to-Point Protocol):</strong> ?????? ???? Computer-?? ????? IP
+                Traffic transmit ???? ??????? ???</li>
+              <li><strong>LAP (Link Access Procedure):</strong> X.25 Frame Structure-?? protocol?</li>
+              <li><strong>LCP & NCP:</strong> Link Control ??? Network Control protocol ?? PPP-??
+                ???? Task ????</li>
             </ul>
 
             <hr>
 
-            <h2><i class="bi bi-cpu"></i> Data Link Layer-এ ব্যবহৃত Device-সমূহ</h2>
-            <p>এই Layout-এ Information-এর সঠিক আদান-প্রদান নিশ্চিত করতে বেশ কিছু Hardware Device Task করে:</p>
+            <h2><i class="bi bi-cpu"></i> Data Link Layer-? ??????? Device-????</h2>
+            <p>?? Layout-? Information-?? ???? ????-?????? ??????? ???? ??? ???? Hardware Device Task ???:</p>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
               <div class="content-box">
                 <h3>1. Switch</h3>
-                <p>MAC Address Table ব্যবহার করে Frame-গুলোকে সঠিক Device-এ forward করে।</p>
+                <p>MAC Address Table ??????? ??? Frame-?????? ???? Device-? forward ????</p>
               </div>
               <div class="content-box">
                 <h3>2. Bridge</h3>
-                <p>দুটি LAN-কে সংযুক্ত করে একটি network segment তৈরি করে এবং traffic কমায়।
+                <p>???? LAN-?? ??????? ??? ???? network segment ???? ??? ??? traffic ?????
                 </p>
               </div>
               <div class="content-box">
                 <h3>3. NIC (Network Interface Card)</h3>
-                <p>Computer-এর physical যোগাযোগ unit যা MAC address ব্যবহার করে frame পাঠায় ও
-                  গ্রহণ করে।</p>
+                <p>Computer-?? physical ??????? unit ?? MAC address ??????? ??? frame ????? ?
+                  ????? ????</p>
               </div>
               <div class="content-box">
                 <h3>4. Wireless Access Point (WAP)</h3>
-                <p>Wireless device-গুলোকে wired network-এর সাথে সংযুক্ত করে Wi-Fi protocol
-                  ব্যবহার করে।</p>
+                <p>Wireless device-?????? wired network-?? ???? ??????? ??? Wi-Fi protocol
+                  ??????? ????</p>
               </div>
             </div>
 
             <div class="warning-box">
               <p><strong><i class="bi bi-shield-slash"></i> Security Risk:</strong> Data Link Layer
-                অনেক সময় <strong>MAC Spoofing</strong> বা <strong>ARP Poisoning</strong>-এর মতো Cyber
-                Attack-এর শিকার হতে পারে। এই Attack-গুলো সম্পর্কে জ্ঞান থাকা network সুরক্ষার জন্য
-                অপরিহার্য।</p>
+                ???? ??? <strong>MAC Spoofing</strong> ?? <strong>ARP Poisoning</strong>-?? ??? Cyber
+                Attack-?? ????? ??? ????? ?? Attack-???? ???????? ????? ???? network ???????? ????
+                ??????????</p>
             </div>
 
             <hr>
 
-            <h2><i class="bi bi-exclamation-octagon"></i> সীমাবদ্ধতা ও প্রয়োগ (Applications)</h2>
+            <h2><i class="bi bi-exclamation-octagon"></i> ?????????? ? ?????? (Applications)</h2>
             <div style="display: flex; gap: 20px; flex-wrap: wrap;">
               <div style="flex: 1; min-width: 280px;">
-                <h3>সীমাবদ্ধতা:</h3>
+                <h3>??????????:</h3>
                 <ul>
-                  <li>সীমিত Scope: শুধুমাত্র স্থানীয় network-এর মধ্যে Task করতে পারে।</li>
-                  <li>Overhead বৃদ্ধি: Header ও trailer যুক্ত করার ফলে data-র size বেড়ে যায়।</li>
-                  <li>Routing অ Capacity: এটি network-এর বাইরে routing করতে পারে না।</li>
+                  <li>????? Scope: ????????? ??????? network-?? ????? Task ???? ?????</li>
+                  <li>Overhead ??????: Header ? trailer ????? ???? ??? data-? size ???? ????</li>
+                  <li>Routing ? Capacity: ??? network-?? ????? routing ???? ???? ???</li>
                 </ul>
               </div>
               <div style="flex: 1; min-width: 280px;">
-                <h3>প্রয়োগ:</h3>
+                <h3>??????:</h3>
                 <ul>
-                  <li>Ethernet এবং LAN Operation।</li>
-                  <li>Wi-Fi (IEEE 802.11) communication।</li>
-                  <li>Point-to-point protocol-এর মাধ্যমে সরাসরি সংযোগ।</li>
-                  <li>Switching operation Operation।</li>
+                  <li>Ethernet ??? LAN Operation?</li>
+                  <li>Wi-Fi (IEEE 802.11) communication?</li>
+                  <li>Point-to-point protocol-?? ??????? ?????? ??????</li>
+                  <li>Switching operation Operation?</li>
                 </ul>
               </div>
             </div>
@@ -346,10 +349,10 @@
             <hr>
 
             <h2><i class="bi bi-check2-circle"></i> Summary</h2>
-            <p>Data Link Layer Networking-এর অত্যন্ত গুরুত্বপূর্ণ একটি স্তর যা bit-গুলোকে frame-এ
-              রূপান্তর করে data-র Reliable তা নিশ্চিত করে। এর flow control, error handling এবং
-              addressing ব্যবস্থা ছাড়া Internet-এর মতো বিশাল network-এ Information-এর আদান-প্রদান করা অসম্ভব
-              ছিল।</p>
+            <p>Data Link Layer Networking-?? ??????? ???????????? ???? ???? ?? bit-?????? frame-?
+              ???????? ??? data-? Reliable ?? ??????? ???? ?? flow control, error handling ???
+              addressing ???????? ???? Internet-?? ??? ????? network-? Information-?? ????-?????? ??? ??????
+              ????</p>
           </div>
         </article>
       </div>
@@ -357,12 +360,13 @@
 
     <footer class="glass-footer">
       <div class="container container-blog">
-        <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+        <p>&copy; 2026 enablement.info. <span data-t="footer-rights">All Rights Reserved.</span></p>
       </div>
     </footer>
   </div>
   
   <script type="module" src="../js/network-background.js"></script>
+    <script type="module" src="../js/translations.js"></script>
 </body>
 
 </html>

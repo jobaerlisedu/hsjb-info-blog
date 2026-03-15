@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="সহজে শিখুন Network Engineering. Types of Computer Network - LAN, WAN and MAN নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
+    <meta name="description" content="???? ????? Network Engineering. Types of Computer Network - LAN, WAN and MAN ???? ???? ????????? ?????????? ?????">
   <title>Types of Computer Network - LAN, WAN and MAN | enablement.info</title>
 
 
@@ -99,7 +99,10 @@
 
 <body>
   <canvas id="network-canvas"></canvas>
-  <div class="overlay">
+  <div class="overlay">    <div class="lang-switcher">
+        <button id="lang-bn" class="lang-btn">BN</button>
+        <button id="lang-en" class="lang-btn active">EN</button>
+    </div>
     <header class="glass-header">
       <div class="container container-blog">
         <nav class="main-nav">
@@ -107,13 +110,13 @@
             <li>
               <a href="../index.html">
                 <i class='bx bx-home-alt-2'></i>
-                <span class="nav-text">Home</span>
+                <span class="nav-text" data-t="nav-home">Home</span>
               </a>
             </li>
             <li>
               <a href="../blogs.html" class="active">
                 <i class='bx bx-book-content'></i>
-                <span class="nav-text">Blog</span>
+                <span class="nav-text" data-t="nav-blog">Blog</span>
               </a>
             </li>
           </ul>
@@ -125,7 +128,7 @@
       <div class="container container-blog">
         <a href="../blogs.html" class="back-btn">
           <i class='bx bx-arrow-back'></i>
-          <span>Back to Articles</span>
+          <span data-t="back-articles">Back to Articles</span>
         </a>
 
         <article class="glass-panel">
@@ -140,13 +143,13 @@
 
           <div class="article-body">
             <h2><i class="bi bi-lightbulb"></i> Introduction</h2>
-            <p>Computer Network বিভিন্ন Type-এর হতে পারে। ভৌগোলিক বিস্তৃতি, Data আদান-প্রদানের মাধ্যম এবং
-              Access Control-এর ওপর ভিত্তি করে এই Network-গুলোকে বিভিন্ন ভাগে ভাগ করা হয়। নিচে এদের
-              Detailed Discussion করা হলো:</p>
+            <p>Computer Network ??????? Type-?? ??? ????? ??????? ????????, Data ????-???????? ?????? ???
+              Access Control-?? ??? ?????? ??? ?? Network-?????? ??????? ???? ??? ??? ???? ???? ????
+              Detailed Discussion ??? ???:</p>
 
             <h2>1. Classification on the Basis of Geographical Scope</h2>
-            <p>Network কতটুকু জায়গা জুড়ে বিস্তৃত, তার ওপর ভিত্তি করে একে প্রধানত 5টি ভাগে ভাগ করা যায়।
-              প্রতিটি প্রকারের রয়েছে Own Technology এবং ব্যবহারের Field:</p>
+            <p>Network ?????? ?????? ????? ???????, ??? ??? ?????? ??? ??? ??????? 5?? ???? ??? ??? ?????
+              ??????? ???????? ?????? Own Technology ??? ????????? Field:</p>
 
             <div class="table-wrapper">
               <table class="table">
@@ -163,97 +166,97 @@
                     <td><strong>PAN</strong> (Personal Area Network)</td>
                     <td>1-10 Meter</td>
                     <td>Bluetooth, NFC, Infrared</td>
-                    <td>স্মার্টফোন এবং Wireless Earbuds।</td>
+                    <td>?????????? ??? Wireless Earbuds?</td>
                   </tr>
                   <tr>
                     <td><strong>LAN</strong> (Local Area Network)</td>
-                    <td>বিল্ডিং বা Office</td>
+                    <td>??????? ?? Office</td>
                     <td>Ethernet, Wi-Fi</td>
-                    <td>হোম বা Office ওয়াই-ফাই Network।</td>
+                    <td>??? ?? Office ?????-??? Network?</td>
                   </tr>
                   <tr>
                     <td><strong>CAN</strong> (Campus Area Network)</td>
-                    <td>বিশ্ববিদ্যালয় বা বড় Campus</td>
+                    <td>????????????? ?? ?? Campus</td>
                     <td>Ethernet, Fiber Optics</td>
-                    <td>College বা Corporate Campus Network।</td>
+                    <td>College ?? Corporate Campus Network?</td>
                   </tr>
                   <tr>
                     <td><strong>MAN</strong> (Metropolitan Area Network)</td>
-                    <td>পুরো একটি শহর</td>
+                    <td>???? ???? ???</td>
                     <td>Fiber Optics, Microwave</td>
-                    <td>সিটি-ওয়াইড ISP Network।</td>
+                    <td>????-?????? ISP Network?</td>
                   </tr>
                   <tr>
                     <td><strong>WAN</strong> (Wide Area Network)</td>
-                    <td>দেশ বা বিশ্বজুড়ে</td>
+                    <td>??? ?? ?????????</td>
                     <td>Satellite, Leased lines</td>
-                    <td>Internet (The Internet)।</td>
+                    <td>Internet (The Internet)?</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
-            <h3>কখন কোন Network ব্যবহার করা হয়?</h3>
+            <h3>??? ??? Network ??????? ??? ???</h3>
             <ul>
-              <li><strong>PAN:</strong> যখন আপনি নিজের ব্যক্তিগত Device-গুলোর মধ্যে Fast Data Share করতে
-                চান।</li>
-              <li><strong>LAN:</strong> একটি নির্দিষ্ট Office-এর সব Computer-এ Fast File Sharing ও
+              <li><strong>PAN:</strong> ??? ???? ????? ????????? Device-????? ????? Fast Data Share ????
+                ????</li>
+              <li><strong>LAN:</strong> ???? ????????? Office-?? ?? Computer-? Fast File Sharing ?
                 Printer
-                Connection-এর জন্য।</li>
-              <li><strong>CAN:</strong> যখন একটি University-র বিভিন্ন Department-এর Separate LAN-গুলোকে
-                একটি Central Management-এর আওতায় আনতে হয়।</li>
-              <li><strong>MAN:</strong> শহরের বিভিন্ন প্রান্তের Banking শাখা বা সরকারি Office-গুলোকে
-                সংযুক্ত
-                করার জন্য।</li>
-              <li><strong>WAN:</strong> এক দেশ থেকে অন্য দেশে বা বিশ্বব্যাপী দীর্ঘ Distance-এর যোগাযোগের
-                জন্য।</li>
+                Connection-?? ?????</li>
+              <li><strong>CAN:</strong> ??? ???? University-? ??????? Department-?? Separate LAN-??????
+                ???? Central Management-?? ????? ???? ???</li>
+              <li><strong>MAN:</strong> ????? ??????? ????????? Banking ???? ?? ?????? Office-??????
+                ???????
+                ???? ?????</li>
+              <li><strong>WAN:</strong> ?? ??? ???? ???? ???? ?? ??????????? ????? Distance-?? ?????????
+                ?????</li>
             </ul>
 
             <h2>2. Classification on the Basis of Transmission Technology</h2>
-            <p>Data কীভাবে এক Device থেকে অন্য Device-এ পৌঁছায় তার ওপর ভিত্তি করে একে 2 ভাগে ভাগ করা যায়:
+            <p>Data ?????? ?? Device ???? ???? Device-? ?????? ??? ??? ?????? ??? ??? 2 ???? ??? ??? ???:
             </p>
 
             <div class="content-box">
               <h3>Broadcast Network</h3>
               <ul>
-                <li><strong>Common Media:</strong> সব Device একটি মাত্র Common Media Share করে।</li>
-                <li><strong>One-to-Many:</strong> একজন Data পাঠালে সবাই পায়, তবে যার Address (Address)
-                  মিলে যায় কেবল সেই Process করে।</li>
-                <li><strong>ব্যবহার:</strong> মূলত Local Area Network (LAN) এবং Wi-Fi-তে ব্যবহৃত
-                  হয়।</li>
-                <li><strong>Example:</strong> Ethernet (Bus-based) ও Wireless LAN।</li>
+                <li><strong>Common Media:</strong> ?? Device ???? ????? Common Media Share ????</li>
+                <li><strong>One-to-Many:</strong> ???? Data ?????? ???? ???, ??? ??? Address (Address)
+                  ???? ??? ???? ??? Process ????</li>
+                <li><strong>???????:</strong> ???? Local Area Network (LAN) ??? Wi-Fi-?? ???????
+                  ???</li>
+                <li><strong>Example:</strong> Ethernet (Bus-based) ? Wireless LAN?</li>
               </ul>
             </div>
 
             <div class="content-box">
               <h3>Point-to-Point Network</h3>
               <ul>
-                <li><strong>Dedicated Link:</strong> সরাসরি দুটি Device-এর মধ্যে সংযোগ থাকে।</li>
-                <li><strong>One-to-One:</strong> Data সরাসরি Destination এ পৌঁছায়, মাঝে কোনো Common User থাকে
-                  না।</li>
-                <li><strong>Routing:</strong> সঠিক Path নির্ধারণ ের জন্য এতে Routing Algorithm ব্যবহৃত হয়।
+                <li><strong>Dedicated Link:</strong> ?????? ???? Device-?? ????? ????? ?????</li>
+                <li><strong>One-to-One:</strong> Data ?????? Destination ? ??????, ???? ???? Common User ????
+                  ???</li>
+                <li><strong>Routing:</strong> ???? Path ???????? ?? ???? ??? Routing Algorithm ??????? ???
                 </li>
-                <li><strong>Example:</strong> Internet, Telephone Network এবং Leased Line (Leased line)।
+                <li><strong>Example:</strong> Internet, Telephone Network ??? Leased Line (Leased line)?
                 </li>
               </ul>
             </div>
 
             <h2>3. Classification on the Basis of Ownership and Access Control</h2>
-            <p>Administrative Control এবং Accessibility-র ওপর ভিত্তি করে Network প্রধানত 3 প্রকার:
+            <p>Administrative Control ??? Accessibility-? ??? ?????? ??? Network ??????? 3 ??????:
             </p>
             <ul>
-              <li><strong>Private Network (Private):</strong> এটি কোনো ব্যক্তি বা প্রতিষ্ঠানের Own।
-                Access সীমিত এবং Username/Password প্রয়োজন। (Example: Corporate LAN, Private Cloud)।
+              <li><strong>Private Network (Private):</strong> ??? ???? ??????? ?? ???????????? Own?
+                Access ????? ??? Username/Password ???????? (Example: Corporate LAN, Private Cloud)?
               </li>
-              <li><strong>Public Network (Public):</strong> সবার জন্য Open, সরকার বা বড়
-                Organization চালায়। (Example: Internet, Public Wi-Fi)।</li>
-              <li><strong>Hybrid Network (Hybrid):</strong> প্রতিষ্ঠানের Internal Security বজায়
-                রেখেও বাইরের সাধারণ User-দের কিছু অংশ ব্যবহারের সুযোগ দেওয়া। (Example: Bank System
-                যেখানে Customer ও Staff Separate লেভেলে Access পায়)।</li>
+              <li><strong>Public Network (Public):</strong> ???? ???? Open, ????? ?? ??
+                Organization ?????? (Example: Internet, Public Wi-Fi)?</li>
+              <li><strong>Hybrid Network (Hybrid):</strong> ???????????? Internal Security ????
+                ????? ?????? ?????? User-??? ???? ??? ????????? ????? ?????? (Example: Bank System
+                ?????? Customer ? Staff Separate ?????? Access ???)?</li>
             </ul>
 
             <h2>4. Internetwork: Intranet and Extranet</h2>
-            <p>Multiple Network যখন Protocol মেনে একে অপরের সাথে যুক্ত হয়, তখন তাকে Internetwork বলে।
+            <p>Multiple Network ??? Protocol ???? ??? ????? ???? ????? ??, ??? ???? Internetwork ????
             </p>
 
             <div class="table-wrapper">
@@ -261,36 +264,36 @@
                 <thead>
                   <tr>
                     <th>Feature</th>
-                    <th>ইন্ট্রানেট (Intranet)</th>
-                    <th>এক্সট্রানেট (Extranet)</th>
+                    <th>?????????? (Intranet)</th>
+                    <th>??????????? (Extranet)</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td><strong>এক্সেস</strong></td>
-                    <td>কেবল প্রতিষ্ঠানের Internal লোক</td>
-                    <td>Internal লোক + বিশ্বস্ত পার্টনার/ভেন্ডর</td>
+                    <td><strong>??????</strong></td>
+                    <td>???? ???????????? Internal ???</td>
+                    <td>Internal ??? + ???????? ????????/??????</td>
                   </tr>
                   <tr>
                     <td><strong>Security</strong></td>
-                    <td>High (Firewall সংরক্ষিত)</td>
-                    <td>Medium থেকে High (VPN ব্যবহারের মাধ্যমে)</td>
+                    <td>High (Firewall ????????)</td>
+                    <td>Medium ???? High (VPN ????????? ???????)</td>
                   </tr>
                   <tr>
-                    <td><strong>ব্যবহার</strong></td>
-                    <td>এমপ্লয়ি পোর্টাল, ফাইল শেয়ারিং</td>
-                    <td>সাপ্লাই Chain, Customer পোর্টাল</td>
+                    <td><strong>???????</strong></td>
+                    <td>??????? ???????, ???? ???????</td>
+                    <td>??????? Chain, Customer ???????</td>
                   </tr>
                   <tr>
                     <td><strong>Example</strong></td>
-                    <td>ভার্সিটির স্টুডেন্ট পোর্টাল</td>
-                    <td>অনলাইন ব্যাংকিং পোর্টাল</td>
+                    <td>????????? ????????? ???????</td>
+                    <td>?????? ???????? ???????</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
-            <h2>5. Classification of LAN, MAN ও WAN (Difference)</h2>
+            <h2>5. Classification of LAN, MAN ? WAN (Difference)</h2>
             <div class="table-wrapper">
               <table class="table">
                 <thead>
@@ -311,8 +314,8 @@
                   <tr>
                     <td>Ownership</td>
                     <td>Single Ownership</td>
-                    <td>সাধারণত শেয়ার্ড</td>
-                    <td>পাবলিক বা Global</td>
+                    <td>??????? ???????</td>
+                    <td>?????? ?? Global</td>
                   </tr>
                   <tr>
                     <td>Error Rate</td>
@@ -330,12 +333,13 @@
 
     <footer class="glass-footer">
       <div class="container container-blog">
-        <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+        <p>&copy; 2026 enablement.info. <span data-t="footer-rights">All Rights Reserved.</span></p>
       </div>
     </footer>
   </div>
   
   <script type="module" src="../js/network-background.js"></script>
+    <script type="module" src="../js/translations.js"></script>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -31,6 +31,10 @@
   <canvas id="network-canvas"></canvas>
 
   <div class="overlay">
+    <div class="lang-switcher">
+      <button id="lang-bn" class="lang-btn">BN</button>
+      <button id="lang-en" class="lang-btn active">EN</button>
+    </div>
     <header class="glass-header">
       <div class="container">
         <nav class="main-nav">
@@ -38,31 +42,29 @@
             <li>
               <a href="index.html">
                 <i class='bx bx-home-alt-2'></i>
-                <span class="nav-text">Home</span>
+                <span class="nav-text" data-t="nav-home">Home</span>
               </a>
             </li>
             <li>
               <a href="blogs.html" class="active">
                 <i class='bx bx-book-content'></i>
-                <span class="nav-text">Blog</span>
+                <span class="nav-text" data-t="nav-blog">Blog</span>
               </a>
             </li>
           </ul>
         </nav>
-
-
       </div>
     </header>
 
     <main>
       <section class="recent-posts" style="padding-top: 30px;">
-        <div class="container container-wide">
+        <div class="container">
           <a href="index.html" class="back-btn">
             <i class='bx bx-arrow-back'></i>
-            <span>Return to Home</span>
+            <span data-t="back-home">Return to Home</span>
           </a>
           <div class="section-header">
-            <h2>All Articles</h2>
+            <h2 data-t="section-all">All Articles</h2>
           </div>
 
           <div class="posts-grid posts-grid-wide">
@@ -76,7 +78,7 @@
               <p>প্রেজেন্টেশন লেয়ারের কাজ, ডেটা এনক্রিপশন, কমপ্রেশন এবং ট্রান্সলেশন প্রক্রিয়া নিয়ে একটি বিস্তারিত
                 গাইড।</p>
               <div class="card-actions">
-                <a href="blogs/blog-32-presentation-layer.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-32-presentation-layer.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-32-presentation-layer.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -97,7 +99,7 @@
               <p>সেশন লেয়ারের কাজ, সেশন ম্যানেজমেন্ট এবং সিঙ্ক্রোনাইজেশন চেকপয়েন্ট নিয়ে একটি বিস্তারিত টেকনিক্যাল
                 গাইড।</p>
               <div class="card-actions">
-                <a href="blogs/blog-31-session-layer.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-31-session-layer.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-31-session-layer.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -119,7 +121,7 @@
               <p>UDP-এর কার্যপদ্ধতি, এর হেডার, প্রয়োগক্ষেত্র এবং ইন্টারনেট কমিউনিকেশনে এর ভূমিকা নিয়ে বিস্তারিত গাইড।
               </p>
               <div class="card-actions">
-                <a href="blogs/blog-30-udp.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-30-udp.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-30-udp.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -140,7 +142,7 @@
               <h3><a href="blogs/blog-29-tcp.html">Transmission Control Protocol (TCP)</a></h3>
               <p>TCP-এর কার্যপদ্ধতি, থ্রি-ওয়ে হ্যান্ডশেক এবং হেডার ফরম্যাট নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।</p>
               <div class="card-actions">
-                <a href="blogs/blog-29-tcp.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-29-tcp.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-29-tcp.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -161,7 +163,7 @@
               <h3><a href="blogs/blog-28-transport-layer-protocols.html">Transport Layer Protocols</a></h3>
               <p>TCP, UDP এবং SCTP প্রোটোকলের কাজ, বৈশিষ্ট্য এবং এদের মধ্যকার মূল পার্থক্যসমূহ নিয়ে আলোচনা।</p>
               <div class="card-actions">
-                <a href="blogs/blog-28-transport-layer-protocols.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-28-transport-layer-protocols.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-28-transport-layer-protocols.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -182,7 +184,7 @@
               <h3><a href="blogs/blog-27-transport-layer.html">Transport Layer in OSI Model</a></h3>
               <p>OSI মডেলের চতুর্থ লেয়ারের কাজ, থ্রি-ওয়ে হ্যান্ডশেক এবং এন্ড-টু-এন্ড যোগাযোগের গুরুত্ব।</p>
               <div class="card-actions">
-                <a href="blogs/blog-27-transport-layer.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-27-transport-layer.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-27-transport-layer.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -204,7 +206,7 @@
               <p>Network Layer-এর প্রধান Protocol যেমন IP, ARP, RARP, ICMP ও IGMP কী, এগুলো কীভাবে কাজ করে এবং
                 নেটওয়ার্ক লেয়ারের পাঁচটি প্রধান কাজ নিয়ে বিস্তারিত গাইড।</p>
               <div class="card-actions">
-                <a href="blogs/blog-26-network-layer-protocols.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-26-network-layer-protocols.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-26-network-layer-protocols.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -225,7 +227,7 @@
               <p>Routing কী, এটি কীভাবে কাজ করে, Static, Dynamic ও Default Routing-এর পার্থক্য এবং RIP, OSPF, BGP সহ
                 গুরুত্বপূর্ণ Routing Protocol নিয়ে বিস্তারিত গাইড।</p>
               <div class="card-actions">
-                <a href="blogs/blog-25-routing.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-25-routing.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-25-routing.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -246,7 +248,7 @@
               <p>Subnetting কী, এটি কেন প্রয়োজন এবং সাবনেট মাস্ক ও CIDR নোটেশন ব্যবহার করে কীভাবে নেটওয়ার্ক ভাগ করা হয়
                 তার বিস্তারিত গাইড।</p>
               <div class="card-actions">
-                <a href="blogs/blog-24-subnetting.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-24-subnetting.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-24-subnetting.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -267,7 +269,7 @@
               <p>IPv4 এবং IPv6-এর মধ্যে মূল পার্থক্যসমূহ, তাদের সুবিধা-অসুবিধা এবং ভবিষ্যতে কেন IPv6 অপরিহার্য তা নিয়ে
                 বিস্তারিত গাইড।</p>
               <div class="card-actions">
-                <a href="blogs/blog-23-ipv4-vs-ipv6.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-23-ipv4-vs-ipv6.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-23-ipv4-vs-ipv6.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -289,7 +291,7 @@
               <p>Public এবং Private IP Address-এর মধ্যে পার্থক্য, তাদের range এবং NAT কীভাবে কাজ করে
                 তা নিয়ে বিস্তারিত আলোচনা।</p>
               <div class="card-actions">
-                <a href="blogs/blog-22-public-private-ip.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-22-public-private-ip.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-22-public-private-ip.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -311,7 +313,7 @@
               <p>IP Address-এর গুরুত্ব, এর প্রকারভেদ (Public, Private, IPv4, IPv6) এবং এটি কীভাবে কাজ
                 করে তা নিয়ে বিস্তারিত আলোচনা।</p>
               <div class="card-actions">
-                <a href="blogs/blog-20-ip-address.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-20-ip-address.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-20-ip-address.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -333,7 +335,7 @@
               <p>IP Address-এর ক্লাসসমূহ (A, B, C, D, E), Dotted Decimal ও Hexadecimal Notation এবং
                 Classful Addressing-এর সীমাবদ্ধতা নিয়ে পূর্ণাঙ্গ আলোচনা।</p>
               <div class="card-actions">
-                <a href="blogs/blog-21-classful-addressing.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-21-classful-addressing.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-21-classful-addressing.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -355,7 +357,7 @@
               <p>Network Layer-এর কাজ, Logical Addressing, Routing Protocol এবং Routing বনাম Flooding
                 নিয়ে বিস্তারিত আলোচনা।</p>
               <div class="card-actions">
-                <a href="blogs/blog-19-network-layer.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-19-network-layer.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-19-network-layer.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -377,7 +379,7 @@
               <p>Piggybacking কী, কীভাবে ACK ও Data একত্রে পাঠিয়ে Network দক্ষতা বাড়ানো হয় এবং এর
                 সীমাবদ্ধতা নিয়ে বিস্তারিত আলোচনা।</p>
               <div class="card-actions">
-                <a href="blogs/blog-18-piggybacking.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-18-piggybacking.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-18-piggybacking.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -399,7 +401,7 @@
               <p>Flow Control-এর ধারণা, Feedback-based ও Rate-based পদ্ধতি, Stop-and-Wait ও Sliding Window
                 কৌশল এবং এর গুরুত্ব নিয়ে পূর্ণাঙ্গ আলোচনা।</p>
               <div class="card-actions">
-                <a href="blogs/blog-17-flow-control.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-17-flow-control.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-17-flow-control.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -421,7 +423,7 @@
               <p>Error Control কী, ARQ পদ্ধতি, Stop-and-Wait, Go-Back-N এবং Selective Repeat ARQ নিয়ে
                 বিস্তারিত বাংলায় আলোচনা।</p>
               <div class="card-actions">
-                <a href="blogs/blog-16-error-control.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-16-error-control.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-16-error-control.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -443,7 +445,7 @@
               <p>Framing কী, এর উদ্দেশ্য, Fixed ও Variable Framing, Byte ও Bit Stuffing এবং Framing-এর
                 সমস্যাসমূহ নিয়ে বিস্তারিত আলোচনা।</p>
               <div class="card-actions">
-                <a href="blogs/blog-15-framing.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-15-framing.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-15-framing.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -466,7 +468,7 @@
                 নিয়ে
                 পূর্ণাঙ্গ আলোচনা।</p>
               <div class="card-actions">
-                <a href="blogs/blog-14-vlan.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-14-vlan.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-14-vlan.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -488,7 +490,7 @@
               <p>Circuit, Message এবং Packet Switching-এর কার্যপদ্ধতি, সুবিধা এবং আধুনিক Internet-এ এদের
                 ভূমিকা নিয়ে বিস্তারিত আলোচনা।</p>
               <div class="card-actions">
-                <a href="blogs/blog-13-switching.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-13-switching.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-13-switching.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -510,7 +512,7 @@
               <p>OSI Model-এর দ্বিতীয় Layer বা Data Link Layer-এর কাজ, sub-layer এবং Networking-এ এর
                 গুরুত্ব নিয়ে বিস্তারিত আলোচনা।</p>
               <div class="card-actions">
-                <a href="blogs/blog-12-data-link-layer.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-12-data-link-layer.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-12-data-link-layer.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -534,7 +536,7 @@
               <p>Computer Network-এ Data আদান-প্রদানের মাধ্যম হিসেবে Cable এবং তারবিহীন Technology নিয়ে
                 বিস্তারিত আলোচনা।</p>
               <div class="card-actions">
-                <a href="blogs/blog-11-transmission-media.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-11-transmission-media.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-11-transmission-media.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -557,7 +559,7 @@
               <p>Computer Network-এ Data প্রবাহের দিক এবং সময় নির্ধারণকারী Simplex, Half-Duplex
                 এবং Full-Duplex Mode নিয়ে পূর্ণাঙ্গ আলোচনা।</p>
               <div class="card-actions">
-                <a href="blogs/blog-10-transmission-modes.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-10-transmission-modes.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-10-transmission-modes.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -579,7 +581,7 @@
                   গাইড</a></h3>
               <p>Mesh, Star, Bus এবং Ring Topology-র গঠন, সুবিধা ও অসুবিধা নিয়ে পূর্ণাঙ্গ আলোচনা।</p>
               <div class="card-actions">
-                <a href="blogs/blog-09-network-topologies.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-09-network-topologies.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-09-network-topologies.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -602,7 +604,7 @@
               <p>OSI Model-এর প্রথম Layer বা Physical Layer-এর কাজ, Protocol এবং Security নিয়ে বিস্তারিত
                 আলোচনা।</p>
               <div class="card-actions">
-                <a href="blogs/blog-08-physical-layer.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-08-physical-layer.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-08-physical-layer.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -624,7 +626,7 @@
               <p>OSI এবং TCP/IP Model-এর মধ্যে প্রধান পার্থক্য এবং Internet-এ এদের ভূমিকা নিয়ে বিস্তারিত
                 আলোচনা।</p>
               <div class="card-actions">
-                <a href="blogs/blog-07-osi-vs-tcp-ip.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-07-osi-vs-tcp-ip.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-07-osi-vs-tcp-ip.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -646,7 +648,7 @@
               <p>আধুনিক Internet-এর মূল ভিত্তি TCP/IP Model-এর 4টি Layer এবং এর কার্যপদ্ধতি সম্পর্কে
                 বিস্তারিত আলোচনা।</p>
               <div class="card-actions">
-                <a href="blogs/blog-06-tcp-ip-model.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-06-tcp-ip-model.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-06-tcp-ip-model.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -668,7 +670,7 @@
               <p>Computer Network-এর 7টি Layer এবং Data কীভাবে এক Device থেকে অন্য Device-এ পৌঁছায় তার
                 বিস্তারিত আলোচনা।</p>
               <div class="card-actions">
-                <a href="blogs/blog-05-osi-model.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-05-osi-model.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-05-osi-model.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -689,7 +691,7 @@
               <h3><a href="blogs/blog-04-network-devices.html">Network Devices সমূহ</a></h3>
               <p>Router, Switch, Hub এবং Bridge: Network Hardware-এর গুরুত্বপূর্ণ ভূমিকা।</p>
               <div class="card-actions">
-                <a href="blogs/blog-04-network-devices.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-04-network-devices.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-04-network-devices.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -711,7 +713,7 @@
               <p>Internet-এর ইতিহাস, এটি কীভাবে কাজ করে এবং এর সুবিধা-অসুবিধা সম্পর্কে একটি বিস্তারিত
                 গাইড।</p>
               <div class="card-actions">
-                <a href="blogs/blog-03-basics-of-internet.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-03-basics-of-internet.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-03-basics-of-internet.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -733,7 +735,7 @@
               <p>ভৌগোলিক পরিধি, Transmission মাধ্যম এবং অ্যাক্সেস কন্ট্রোলের ভিত্তিতে Network-এর
                 বিস্তারিত প্রকারভেদ।</p>
               <div class="card-actions">
-                <a href="blogs/blog-02-types-of-network.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-02-types-of-network.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-02-types-of-network.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -755,7 +757,7 @@
               </h3>
               <p>Network কীভাবে কাজ করে তার ওপর একটি বিস্তারিত গাইড।</p>
               <div class="card-actions">
-                <a href="blogs/blog-01-basics-of-networking.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-01-basics-of-networking.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-01-basics-of-networking.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -774,12 +776,13 @@
 
     <footer class="glass-footer">
       <div class="container">
-        <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+        <p>&copy; 2026 enablement.info. <span data-t="footer-rights">All Rights Reserved.</span></p>
       </div>
     </footer>
   </div>
 
   <script type="module" src="js/network-background.js"></script>
+  <script type="module" src="js/translations.js"></script>
 </body>
 
 </html>

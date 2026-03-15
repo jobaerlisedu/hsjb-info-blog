@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="সহজে শিখুন Network Engineering. Basics of Computer Networking নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
+    <meta name="description" content="???? ????? Network Engineering. Basics of Computer Networking ???? ???? ????????? ?????????? ?????">
   <title>Basics of Computer Networking | enablement.info</title>
 
 
@@ -92,7 +92,10 @@
 
   <canvas id="network-canvas"></canvas>
 
-  <div class="overlay">
+  <div class="overlay">    <div class="lang-switcher">
+        <button id="lang-bn" class="lang-btn">BN</button>
+        <button id="lang-en" class="lang-btn active">EN</button>
+    </div>
     <header class="glass-header">
       <div class="container container-blog">
         <nav class="main-nav">
@@ -100,13 +103,13 @@
             <li>
               <a href="../index.html">
                 <i class='bx bx-home-alt-2'></i>
-                <span class="nav-text">Home</span>
+                <span class="nav-text" data-t="nav-home">Home</span>
               </a>
             </li>
             <li>
               <a href="../blogs.html" class="active">
                 <i class='bx bx-book-content'></i>
-                <span class="nav-text">Blog</span>
+                <span class="nav-text" data-t="nav-blog">Blog</span>
               </a>
             </li>
           </ul>
@@ -118,7 +121,7 @@
       <div class="container container-blog">
         <a href="../blogs.html" class="back-btn">
           <i class='bx bx-arrow-back'></i>
-          <span>Back to Articles</span>
+          <span data-t="back-articles">Back to Articles</span>
         </a>
 
         <article class="glass-panel">
@@ -133,62 +136,62 @@
 
           <div class="article-body">
             <h2><i class="bi bi-lightbulb"></i> Introduction: What is a Computer Network?</h2>
-            <p>Computer Network হলো একে অপরের সাথে যুক্ত একদল Device-এর সমষ্টি, যা Communication এবং
+            <p>Computer Network ??? ??? ????? ???? ????? ???? Device-?? ??????, ?? Communication ???
               Resource
-              Share করার জন্য Task করে। এটি Data আদান-প্রদান এবং Modern Technology-র মেরুদণ্ড হিসেবে Task
-              করে।</p>
+              Share ???? ???? Task ???? ??? Data ????-?????? ??? Modern Technology-? ???????? ?????? Task
+              ????</p>
             <ul>
-              <li><strong>Connectivity:</strong> Computer, Smartphone এবং Server-এর মধ্যে সংযোগ স্থাপন।
+              <li><strong>Connectivity:</strong> Computer, Smartphone ??? Server-?? ????? ????? ???????
               </li>
-              <li><strong>Resource Sharing:</strong> Hardware (Printer, Scanner) এবং
-                Software/File Sharing।</li>
-              <li><strong>Communication:</strong> Email, Instant Messaging এবং Video Call-এর Advantage।</li>
+              <li><strong>Resource Sharing:</strong> Hardware (Printer, Scanner) ???
+                Software/File Sharing?</li>
+              <li><strong>Communication:</strong> Email, Instant Messaging ??? Video Call-?? Advantage?</li>
             </ul>
 
             <h2><i class="bi bi-lightbulb"></i> Basic Terminology</h2>
             <ul>
-              <li><strong>Network:</strong> একদল যুক্ত Computer এবং Device যা একে অপরের সাথে Communication
-                ও
-                Data Share করতে পারে।</li>
-              <li><strong>Node:</strong> Network-এর এমন যেকোনো Device যা Data পাঠাতে, গ্রহণ করতে বা
-                Forward করতে পারে। এর মধ্যে Laptop, Mobile, Printer, Earbud, Server ইত্যাদি
-                রয়েছে।</li>
-              <li><strong>Networking Device:</strong> যেসব Device Network Operation ও সমর্থন করে।
-                যেমন- Router, Switch, Hub এবং Access Point।</li>
-              <li><strong>Transmission Media:</strong> যে Physical বা Wireless মাধ্যমে র ভেতর দিয়ে এক
+              <li><strong>Network:</strong> ???? ????? Computer ??? Device ?? ??? ????? ???? Communication
+                ?
+                Data Share ???? ?????</li>
+              <li><strong>Node:</strong> Network-?? ??? ?????? Device ?? Data ??????, ????? ???? ??
+                Forward ???? ????? ?? ????? Laptop, Mobile, Printer, Earbud, Server ???????
+                ??????</li>
+              <li><strong>Networking Device:</strong> ???? Device Network Operation ? ?????? ????
+                ????- Router, Switch, Hub ??? Access Point?</li>
+              <li><strong>Transmission Media:</strong> ?? Physical ?? Wireless ??????? ? ???? ???? ??
                 Device
-                থেকে অন্য Device-এ Data Flow করে।
+                ???? ???? Device-? Data Flow ????
                 <ul>
                   <li>Wired Media: Ethernet Cable, Optical Fiber</li>
                   <li>Wireless Media: Wi-Fi, Bluetooth, Infrared</li>
                 </ul>
               </li>
-              <li><strong>Service Provider Network:</strong> বাইরের যেসব প্রতিষ্ঠান বা Provider
-                (যেমন- ISP বা Internet Service Provider, Mobile Operator) User-দের Network
-                ব্যবহারের স Capacity ইজারা বা Lease দেয়।</li>
+              <li><strong>Service Provider Network:</strong> ?????? ???? ?????????? ?? Provider
+                (????- ISP ?? Internet Service Provider, Mobile Operator) User-??? Network
+                ????????? ? Capacity ????? ?? Lease ????</li>
             </ul>
 
             <h2>1. How does a Computer Network work?</h2>
-            <p>একটি Network-এর প্রধান ভিত্তি হলো <strong>Node (Nodes)</strong> এবং <strong>Link
-                (Links)</strong>।</p>
+            <p>???? Network-?? ?????? ?????? ??? <strong>Node (Nodes)</strong> ??? <strong>Link
+                (Links)</strong>?</p>
             <ul>
-              <li><strong>Node:</strong> Network-এর যেকোনো Device যা Data পাঠায় বা গ্রহণ করে
-                (যেমন: Laptop, Router, Smartphone)।</li>
-              <li><strong>Link:</strong> সেই মাধ্যম যা Node-গুলোকে যুক্ত করে (যেমন: Ethernet Cable বা
-                Wi-Fi Signal)।</li>
-              <li><strong>Protocols:</strong> Network-এর Device-গুলো কিছু নির্দিষ্ট Rule মেনে
-                চলে যাতে তারা একে অপরের Language বুঝতে পারে।</li>
-              <li><strong>Firewall:</strong> একটি Security Tool যা Network-এর Traffic
-                Monitor করে এবং Unauthorized Access ঠেকায়।</li>
+              <li><strong>Node:</strong> Network-?? ?????? Device ?? Data ?????? ?? ????? ???
+                (????: Laptop, Router, Smartphone)?</li>
+              <li><strong>Link:</strong> ??? ?????? ?? Node-?????? ????? ??? (????: Ethernet Cable ??
+                Wi-Fi Signal)?</li>
+              <li><strong>Protocols:</strong> Network-?? Device-???? ???? ????????? Rule ????
+                ??? ???? ???? ??? ????? Language ????? ?????</li>
+              <li><strong>Firewall:</strong> ???? Security Tool ?? Network-?? Traffic
+                Monitor ??? ??? Unauthorized Access ??????</li>
             </ul>
 
             <h2>2. Types of Network Architecture</h2>
-            <p>প্রতিটি Network কীভাবে বিন্যস্ত হবে তার ওপর ভিত্তি করে একে দুই ভাগে ভাগ করা যায়:</p>
+            <p>??????? Network ?????? ???????? ??? ??? ??? ?????? ??? ??? ??? ???? ??? ??? ????:</p>
             <ul>
-              <li><strong>Client-Server Architecture:</strong> এখানে একটি শক্তিশালী Central 'Server'
-                থাকে যা অন্য সব 'Client' Device-এর অনুরোধ পূরণ করে।</li>
-              <li><strong>Peer-to-Peer (P2P) Architecture:</strong> এখানে কোনো Central Server থাকে না;
-                প্রতিটি Device সমান Capacity-র অধিকারী এবং একে অপরের সাথে সরাসরি Data Share করতে পারে।
+              <li><strong>Client-Server Architecture:</strong> ????? ???? ????????? Central 'Server'
+                ???? ?? ???? ?? 'Client' Device-?? ?????? ???? ????</li>
+              <li><strong>Peer-to-Peer (P2P) Architecture:</strong> ????? ???? Central Server ???? ??;
+                ??????? Device ???? Capacity-? ??????? ??? ??? ????? ???? ?????? Data Share ???? ?????
               </li>
             </ul>
 
@@ -230,32 +233,32 @@
             </div>
 
             <h2>4. Main Goals and Uses of Computer Network</h2>
-            <p>Networking শুধু Device সংযোগ নয়, এটি Task-এর দক্ষতা এবং সুযোগ বহুগুণ বাড়িয়ে দেয়:</p>
+            <p>Networking ???? Device ????? ??, ??? Task-?? ?????? ??? ????? ?????? ?????? ???:</p>
             <ul>
-              <li><strong>Resource Sharing:</strong> এক বা Multiple Printer, Scanner এবং File-এর
-                মাধ্যমে Cost কমানো।</li>
-              <li><strong>Remote Access:</strong> আপনি পৃথিবীর যেকোনো প্রান্তে বসে আপনার Office-র বা বাসার
-                Computer-এর File-গুলো ব্যবহার করতে পারেন।</li>
-              <li><strong>E-commerce & Payments:</strong> Secure Online Shopping এবং কয়েক ক্লিকেই Money
-                লেনদেনের
-                স Capacity।</li>
-              <li><strong>Education & Research:</strong> অনলাইনে Class করা, নতুন নতুন Research Paper পড়া
-                এবং
-                পৃথিবীর সেরা সব Mentor-দের সাথে সরাসরি Communication করা।</li>
-              <li><strong>Real-time Collaboration:</strong> Multiple মানুষ একসাথে একটি ফাইলে Task করা এবং
-                Task-এর
-                Update সাথে সাথে একে অপরকে জানানো।</li>
+              <li><strong>Resource Sharing:</strong> ?? ?? Multiple Printer, Scanner ??? File-??
+                ??????? Cost ??????</li>
+              <li><strong>Remote Access:</strong> ???? ??????? ?????? ???????? ??? ????? Office-? ?? ?????
+                Computer-?? File-???? ??????? ???? ??????</li>
+              <li><strong>E-commerce & Payments:</strong> Secure Online Shopping ??? ???? ??????? Money
+                ????????
+                ? Capacity?</li>
+              <li><strong>Education & Research:</strong> ??????? Class ???, ???? ???? Research Paper ???
+                ???
+                ??????? ???? ?? Mentor-??? ???? ?????? Communication ????</li>
+              <li><strong>Real-time Collaboration:</strong> Multiple ????? ?????? ???? ????? Task ??? ???
+                Task-??
+                Update ???? ???? ??? ????? ???????</li>
             </ul>
 
             <h2><i class="bi bi-lightbulb"></i> Characteristics of a Computer Network</h2>
             <ul>
-              <li><strong>Security:</strong> Firewall এবং Encryption-র মাধ্যমে সুরক্ষা নিশ্চিত করা।
+              <li><strong>Security:</strong> Firewall ??? Encryption-? ??????? ??????? ??????? ????
               </li>
-              <li><strong>Reliability:</strong> Backup এবং Redundancy-র মাধ্যমে সবসময় Network সচল
-                রাখা।</li>
-              <li><strong>Scalability:</strong> Performance না কমিয়ে Network বড় করার Capacity।</li>
-              <li><strong>High Performance:</strong> Fast Data Transfer এবং কম Latency।</li>
-              <li><strong>Quality of Service (QoS):</strong> গুরুত্বপূর্ণ Data-কে অগ্রাধিকার দেওয়া।</li>
+              <li><strong>Reliability:</strong> Backup ??? Redundancy-? ??????? ????? Network ???
+                ?????</li>
+              <li><strong>Scalability:</strong> Performance ?? ????? Network ?? ???? Capacity?</li>
+              <li><strong>High Performance:</strong> Fast Data Transfer ??? ?? Latency?</li>
+              <li><strong>Quality of Service (QoS):</strong> ???????????? Data-?? ?????????? ??????</li>
             </ul>
           </div>
         </article>
@@ -264,13 +267,14 @@
 
     <footer class="glass-footer">
       <div class="container container-blog">
-        <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+        <p>&copy; 2026 enablement.info. <span data-t="footer-rights">All Rights Reserved.</span></p>
       </div>
     </footer>
   </div>
 
   
   <script type="module" src="../js/network-background.js"></script>
+    <script type="module" src="../js/translations.js"></script>
 </body>
 
 </html>

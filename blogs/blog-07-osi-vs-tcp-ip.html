@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="সহজে শিখুন Network Engineering. Difference Between OSI and TCP/IP Models নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
+    <meta name="description" content="???? ????? Network Engineering. Difference Between OSI and TCP/IP Models ???? ???? ????????? ?????????? ?????">
   <title>Difference Between OSI and TCP/IP Models | enablement.info</title>
 
 
@@ -99,7 +99,10 @@
 
 <body>
   <canvas id="network-canvas"></canvas>
-  <div class="overlay">
+  <div class="overlay">    <div class="lang-switcher">
+        <button id="lang-bn" class="lang-btn">BN</button>
+        <button id="lang-en" class="lang-btn active">EN</button>
+    </div>
     <header class="glass-header">
       <div class="container container-blog">
         <nav class="main-nav">
@@ -107,7 +110,7 @@
             <li>
               <a href="../index.html">
                 <i class='bx bx-home-alt-2'></i>
-                <span class="nav-text">Home</span>
+                <span class="nav-text" data-t="nav-home">Home</span>
               </a>
             </li>
             <li>
@@ -125,7 +128,7 @@
       <div class="container container-blog">
         <a href="../blogs.html" class="back-btn">
           <i class='bx bx-arrow-back'></i>
-          <span>Back to Articles</span>
+          <span data-t="back-articles">Back to Articles</span>
         </a>
 
         <article class="glass-panel">
@@ -139,126 +142,126 @@
           </header>
 
           <div class="article-body">
-            <h2><i class="bi bi-lightbulb"></i> ভূমিকা</h2>
-            <p>Computer Networking জগতে <strong>OSI (Open Systems Interconnection)</strong> এবং
-              <strong>TCP/IP (Transmission Control Protocol / Internet Protocol)</strong>— এই দুটি Model-ই
-              Information আদান-প্রদানের মূল ভিত্তি। যদিও এরা Separate Purpose ে তৈরি হয়েছে, তবে এদের প্রধান Task হলো
-              একটি Network-এর মাধ্যমে দুটি Device-এর মধ্যে Data কীভাবে প্রবাহিত হবে তা সংজ্ঞায়িত করা।
-              OSI একটি Theoretical Reference Model হিসেবে Task করে, অন্য দিক ে TCP/IP হলো Modern Internet-এর
-              বাস্তবসম্মত ভিত্তি।
+            <h2><i class="bi bi-lightbulb"></i> ??????</h2>
+            <p>Computer Networking ???? <strong>OSI (Open Systems Interconnection)</strong> ???
+              <strong>TCP/IP (Transmission Control Protocol / Internet Protocol)</strong>� ?? ???? Model-?
+              Information ????-???????? ??? ??????? ???? ??? Separate Purpose ? ???? ?????, ??? ???? ?????? Task ???
+              ???? Network-?? ??????? ???? Device-?? ????? Data ?????? ???????? ??? ?? ?????????? ????
+              OSI ???? Theoretical Reference Model ?????? Task ???, ???? ??? ? TCP/IP ??? Modern Internet-??
+              ??????????? ???????
             </p>
 
             <hr>
 
-            <h2><i class="bi bi-layers"></i> OSI Model (7টি Layer)</h2>
-            <p>OSI Model-টি 1970-এর দশকের শেষ দিক ে <strong>ISO</strong> দ্বারা তৈরি একটি Theoretical
-              Framework। এতে মোট 7টি Layer থাকে:</p>
+            <h2><i class="bi bi-layers"></i> OSI Model (7?? Layer)</h2>
+            <p>OSI Model-?? 1970-?? ????? ??? ??? ? <strong>ISO</strong> ?????? ???? ???? Theoretical
+              Framework? ??? ??? 7?? Layer ????:</p>
 
             <div class="content-box mb-4">
               <h3 class="h5 text-white">1. Physical Layer</h3>
               <ul>
-                <li>Physical Media-র (তার, Connector) মাধ্যমে Raw Bits ট্রান্সমিট করে।</li>
-                <li>Digital Data-কে Electrical, Optical বা Radio Signal-এ রূপান্তর করে।</li>
-                <li>Data Rate, Modulation এবং Physical Topology (যেমন: Bus, Star) সংজ্ঞায়িত করে।</li>
-                <li>Hub এবং Repeater এই Layer-এ Task করে।</li>
+                <li>Physical Media-? (???, Connector) ??????? Raw Bits ?????????? ????</li>
+                <li>Digital Data-?? Electrical, Optical ?? Radio Signal-? ???????? ????</li>
+                <li>Data Rate, Modulation ??? Physical Topology (????: Bus, Star) ?????????? ????</li>
+                <li>Hub ??? Repeater ?? Layer-? Task ????</li>
               </ul>
 
               <h3 class="h5 text-white">2. Data Link Layer</h3>
               <ul>
-                <li>Node-to-Node Reliable Data Transfer এবং Framing নিশ্চিত করে।</li>
-                <li>Device শনাক্তকরণের জন্য MAC Address ব্যবহার করে।</li>
-                <li>Error Detection (FCS) এবং Flow Control Manage করে।</li>
-                <li>Switch এবং Bridge এই Layer-এ Task করে।</li>
+                <li>Node-to-Node Reliable Data Transfer ??? Framing ??????? ????</li>
+                <li>Device ??????????? ???? MAC Address ??????? ????</li>
+                <li>Error Detection (FCS) ??? Flow Control Manage ????</li>
+                <li>Switch ??? Bridge ?? Layer-? Task ????</li>
               </ul>
 
               <h3 class="h5 text-white">3. Network Layer</h3>
               <ul>
-                <li>Packet-এর Logical Addressing এবং IP Routing Handle করে।</li>
-                <li>IP Address ব্যবহার করে Destination এ পৌঁছানোর সেরা Path নির্ধারণ করে।</li>
-                <li>Packet Forwarding এবং Routing Table Manage করে।</li>
-                <li>Router এই Layer-এ Task করে।</li>
+                <li>Packet-?? Logical Addressing ??? IP Routing Handle ????</li>
+                <li>IP Address ??????? ??? Destination ? ???????? ???? Path ???????? ????</li>
+                <li>Packet Forwarding ??? Routing Table Manage ????</li>
+                <li>Router ?? Layer-? Task ????</li>
               </ul>
 
               <h3 class="h5 text-white">4. Transport Layer</h3>
               <ul>
-                <li>End-to-End Reliable বা Fast Data Delivery নিশ্চিত করে।</li>
-                <li>TCP (Reliable/Connection-oriented) এবং UDP (Fast/Connectionless) Protocol ব্যবহার
-                  করে।</li>
-                <li>Data Segmentation, Sequencing এবং Re-assembly করে।</li>
-                <li>Flow Control এবং Error Recovery প্রদান করে।</li>
+                <li>End-to-End Reliable ?? Fast Data Delivery ??????? ????</li>
+                <li>TCP (Reliable/Connection-oriented) ??? UDP (Fast/Connectionless) Protocol ???????
+                  ????</li>
+                <li>Data Segmentation, Sequencing ??? Re-assembly ????</li>
+                <li>Flow Control ??? Error Recovery ?????? ????</li>
               </ul>
 
               <h3 class="h5 text-white">5. Session Layer</h3>
               <ul>
-                <li>Device-এর মধ্যে Session তৈরি, Operation এবং সমাপ্ত করে।</li>
-                <li>এটি Dialogue Control (Half-duplex / Full-duplex) করে।</li>
-                <li>Session Checkpoint এবং Authentication বজায় রাখে।</li>
-                <li>RPC এবং NetBIOS-এর মতো Protocol এখানে Task করে।</li>
+                <li>Device-?? ????? Session ????, Operation ??? ?????? ????</li>
+                <li>??? Dialogue Control (Half-duplex / Full-duplex) ????</li>
+                <li>Session Checkpoint ??? Authentication ???? ?????</li>
+                <li>RPC ??? NetBIOS-?? ??? Protocol ????? Task ????</li>
               </ul>
 
               <h3 class="h5 text-white">6. Presentation Layer</h3>
               <ul>
-                <li>Data Translation, Encryption এবং Formatting Handle করে।</li>
-                <li>Data Format Convert (Encoding/Decoding) করে যাতে Application Layer তা বুঝতে পারে।
+                <li>Data Translation, Encryption ??? Formatting Handle ????</li>
+                <li>Data Format Convert (Encoding/Decoding) ??? ???? Application Layer ?? ????? ?????
                 </li>
-                <li>Security-র জন্য Encryption/Decryption (SSL/TLS) প্রয়োগ করে।</li>
-                <li>দক্ষ Transmission-এর জন্য Data Compression করে।</li>
+                <li>Security-? ???? Encryption/Decryption (SSL/TLS) ?????? ????</li>
+                <li>???? Transmission-?? ???? Data Compression ????</li>
               </ul>
 
               <h3 class="h5 text-white">7. Application Layer</h3>
               <ul>
-                <li>সরাসরি End-user Application-কে Network Service প্রদান করে।</li>
-                <li>HTTP, FTP, SMTP, DNS এবং SNMP-এর মতো Protocol সমর্থন করে।</li>
-                <li>Email, Web Browsing এবং File Transfer-এর মতো অনলাইন সেবাগুলো নিশ্চিত করে।</li>
+                <li>?????? End-user Application-?? Network Service ?????? ????</li>
+                <li>HTTP, FTP, SMTP, DNS ??? SNMP-?? ??? Protocol ?????? ????</li>
+                <li>Email, Web Browsing ??? File Transfer-?? ??? ?????? ???????? ??????? ????</li>
               </ul>
             </div>
 
-            <h2><i class="bi bi-cpu"></i> TCP/IP Model (5টি Layer)</h2>
-            <p>TCP/IP Model-টি Internet-এর জন্য তৈরি একটি Practical Framework। এটি বর্তমানে বিশ্বজুড়ে
-              ব্যব্যহৃত হয় এবং এতে নিচের 5টি Layer-এর Detailed Task রয়েছে:</p>
+            <h2><i class="bi bi-cpu"></i> TCP/IP Model (5?? Layer)</h2>
+            <p>TCP/IP Model-?? Internet-?? ???? ???? ???? Practical Framework? ??? ???????? ??????????
+              ????????? ?? ??? ??? ????? 5?? Layer-?? Detailed Task ?????:</p>
 
             <div class="content-box mb-4">
               <h3 class="h5 text-white">1. Physical Layer</h3>
               <ul>
-                <li>Physical Media-র মাধ্যমে Raw Bits ট্রান্সমিট করে।</li>
-                <li>Physical Hardware যেমন: Cable, Signal এবং Connector নিয়ে Task করে।</li>
-                <li>Hub, Repeater এবং NIC এই Layer-এর অংশ।</li>
+                <li>Physical Media-? ??????? Raw Bits ?????????? ????</li>
+                <li>Physical Hardware ????: Cable, Signal ??? Connector ???? Task ????</li>
+                <li>Hub, Repeater ??? NIC ?? Layer-?? ????</li>
               </ul>
 
               <h3 class="h5 text-white">2. Data Link Layer</h3>
               <ul>
-                <li>Node-to-Node যোগাযোগ এবং Framing নিশ্চিত করে।</li>
-                <li>Device শনাক্তকরণের জন্য MAC Address ব্যবহার করে।</li>
-                <li>Framing, Error Detection (FCS) এবং Flow Control-এর জন্য দায়ী।</li>
-                <li>Physical Medium-এ (Ethernet, Wi-Fi) Access Handle করে।</li>
-                <li>Switch এই Layer-এ Task করে।</li>
+                <li>Node-to-Node ??????? ??? Framing ??????? ????</li>
+                <li>Device ??????????? ???? MAC Address ??????? ????</li>
+                <li>Framing, Error Detection (FCS) ??? Flow Control-?? ???? ?????</li>
+                <li>Physical Medium-? (Ethernet, Wi-Fi) Access Handle ????</li>
+                <li>Switch ?? Layer-? Task ????</li>
               </ul>
 
               <h3 class="h5 text-white">3. Network (Internet) Layer</h3>
               <ul>
-                <li>Logical Addressing এবং Packet Routing Handle করে।</li>
-                <li>IP Addressing (IPv4/IPv6) ব্যবহার করে।</li>
-                <li>Destination এ পৌঁছানোর জন্য সেরা Path নির্ধারণ করে।</li>
-                <li>Packet Routing এবং Fragmentation সম্পন্ন করে।</li>
-                <li>প্রধান Protocol: IP, ICMP, ARP, RARP।</li>
+                <li>Logical Addressing ??? Packet Routing Handle ????</li>
+                <li>IP Addressing (IPv4/IPv6) ??????? ????</li>
+                <li>Destination ? ???????? ???? ???? Path ???????? ????</li>
+                <li>Packet Routing ??? Fragmentation ??????? ????</li>
+                <li>?????? Protocol: IP, ICMP, ARP, RARP?</li>
               </ul>
 
               <h3 class="h5 text-white">4. Transport Layer</h3>
               <ul>
-                <li>End-to-End যোগাযোগ এবং Reliable তা নিশ্চিত করে।</li>
-                <li>TCP (Reliable, Connection-oriented) এবং UDP (Fast, Connectionless) ব্যবহার করে।</li>
-                <li>Data Segmentation, Sequencing and Re-assembly করে।</li>
-                <li>Error Detection, Correction এবং Flow Control প্রদান করে।</li>
+                <li>End-to-End ??????? ??? Reliable ?? ??????? ????</li>
+                <li>TCP (Reliable, Connection-oriented) ??? UDP (Fast, Connectionless) ??????? ????</li>
+                <li>Data Segmentation, Sequencing and Re-assembly ????</li>
+                <li>Error Detection, Correction ??? Flow Control ?????? ????</li>
               </ul>
 
               <h3 class="h5 text-white">5. Application Layer</h3>
               <ul>
-                <li>End-user Application-কে সরাসরি Network Service প্রদান করে।</li>
-                <li>HTTP, FTP, SMTP, DNS, DHCP এবং SNMP Protocol সমর্থন করে।</li>
-                <li>Data Formatting এবং Communication Service প্রদানের জন্য দায়ী।</li>
-                <li>এটি OSI Model-এর Session, Presentation এবং Application Layer-এর Task-গুলো একসাথে
-                  সম্পন্ন
-                  করে।</li>
+                <li>End-user Application-?? ?????? Network Service ?????? ????</li>
+                <li>HTTP, FTP, SMTP, DNS, DHCP ??? SNMP Protocol ?????? ????</li>
+                <li>Data Formatting ??? Communication Service ???????? ???? ?????</li>
+                <li>??? OSI Model-?? Session, Presentation ??? Application Layer-?? Task-???? ??????
+                  ???????
+                  ????</li>
               </ul>
             </div>
 
@@ -327,7 +330,7 @@
 
             <hr>
 
-            <h2><i class="bi bi-arrow-left-right"></i> OSI এবং TCP/IP Model-এর মধ্যে Detailed পার্থক্য</h2>
+            <h2><i class="bi bi-arrow-left-right"></i> OSI ??? TCP/IP Model-?? ????? Detailed ????????</h2>
             <div class="table-wrapper">
               <table class="table">
                 <thead>
@@ -339,54 +342,54 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><strong>Layer সংখ্যা</strong></td>
-                    <td>7টি Layer থাকে।</td>
-                    <td>5টি (বা 4টি) Layer থাকে।</td>
+                    <td><strong>Layer ??????</strong></td>
+                    <td>7?? Layer ?????</td>
+                    <td>5?? (?? 4??) Layer ?????</td>
                   </tr>
                   <tr>
-                    <td><strong>Session ও Presentation Layer</strong></td>
-                    <td>Separate Session এবং Presentation Layer থাকে।</td>
-                    <td>Separate কোনো Layer নেই; এগুলো Application Layer-এর অংশ।</td>
+                    <td><strong>Session ? Presentation Layer</strong></td>
+                    <td>Separate Session ??? Presentation Layer ?????</td>
+                    <td>Separate ???? Layer ???; ????? Application Layer-?? ????</td>
                   </tr>
                   <tr>
-                    <td><strong>প্রকৃতি</strong></td>
-                    <td>এটি একটি Theoretical Reference Model।</td>
-                    <td>এটি একটি Practical Implementation Model।</td>
+                    <td><strong>???????</strong></td>
+                    <td>??? ???? Theoretical Reference Model?</td>
+                    <td>??? ???? Practical Implementation Model?</td>
                   </tr>
                   <tr>
-                    <td><strong>তৈরি ও বিকাশ</strong></td>
-                    <td>ISO দ্বারা Internet-এর ব্যাপক প্রসারের আগে তৈরি।</td>
-                    <td>DoD (Department of Defense) দ্বারা Internet-এর জন্য তৈরি।</td>
+                    <td><strong>???? ? ?????</strong></td>
+                    <td>ISO ?????? Internet-?? ?????? ???????? ??? ?????</td>
+                    <td>DoD (Department of Defense) ?????? Internet-?? ???? ?????</td>
                   </tr>
                   <tr>
-                    <td><strong>নির্ভরশীলতা</strong></td>
-                    <td>প্রতিটি Layer কঠোরভাবে সীমানা নির্দিষ্ট এবং স্বাধীন।</td>
-                    <td>Layer-গুলো অনেক High Integrated এবং সীমানা কম কঠোর।</td>
+                    <td><strong>???????????</strong></td>
+                    <td>??????? Layer ???????? ?????? ????????? ??? ????????</td>
+                    <td>Layer-???? ???? High Integrated ??? ?????? ?? ?????</td>
                   </tr>
                   <tr>
                     <td><strong>Protocol</strong></td>
-                    <td>কোনো নির্দিষ্ট Protocol নির্ধারণ করে না, শুধু Function বর্ণনা করে।</td>
-                    <td>নির্দিষ্ট Protocol (TCP, IP, UDP, HTTP) সংজ্ঞায়িত করে।</td>
+                    <td>???? ????????? Protocol ???????? ??? ??, ???? Function ?????? ????</td>
+                    <td>????????? Protocol (TCP, IP, UDP, HTTP) ?????????? ????</td>
                   </tr>
                   <tr>
-                    <td><strong>তৈরি র ক্রম</strong></td>
-                    <td>আগে Model তৈরি করা হয়েছে, পরে Protocol।</td>
-                    <td>আগে Protocol তৈরি করা হয়েছে, পরে Model।</td>
+                    <td><strong>???? ? ????</strong></td>
+                    <td>??? Model ???? ??? ?????, ??? Protocol?</td>
+                    <td>??? Protocol ???? ??? ?????, ??? Model?</td>
                   </tr>
                   <tr>
-                    <td><strong>ব্যবহার</strong></td>
-                    <td>মূলত শিক্ষাদান এবং Network Design-এর Reference হিসেবে ব্যবহৃত হয়।</td>
-                    <td>Internet-এ যোগাযোগের জন্য প্রধান Protocol Stack হিসেবে ব্যবহৃত হয়।</td>
+                    <td><strong>???????</strong></td>
+                    <td>???? ????????? ??? Network Design-?? Reference ?????? ??????? ???</td>
+                    <td>Internet-? ????????? ???? ?????? Protocol Stack ?????? ??????? ???</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
             <h2><i class="bi bi-info-circle"></i> Summary</h2>
-            <p>सहज কথায়, OSI Model আমাদের শেখায় কীভাবে Protocol Task করা উচিত, অন্য দিক ে TCP/IP Model
-              Internet-এর বাস্তব যোগাযোগ ব্যবস্থা নিশ্চিত করে। কোনো Network Engineer যদি সিস্টে মেকোনো সমস্যা খুঁজে বের
-              করতে চান (Troubleshooting), তবে তিনি সাধারণত OSI Model Layer-কেই
-              রেফারেন্স হিসেবে ব্যবহার করেন।</p>
+            <p>??? ????, OSI Model ?????? ?????? ?????? Protocol Task ??? ????, ???? ??? ? TCP/IP Model
+              Internet-?? ?????? ??????? ???????? ??????? ???? ???? Network Engineer ??? ?????? ?????? ?????? ????? ???
+              ???? ??? (Troubleshooting), ??? ???? ??????? OSI Model Layer-???
+              ????????? ?????? ??????? ?????</p>
           </div>
         </article>
       </div>
@@ -394,12 +397,13 @@
 
     <footer class="glass-footer">
       <div class="container container-blog">
-        <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+        <p>&copy; 2026 enablement.info. <span data-t="footer-rights">All Rights Reserved.</span></p>
       </div>
     </footer>
   </div>
   
   <script type="module" src="../js/network-background.js"></script>
+    <script type="module" src="../js/translations.js"></script>
 </body>
 
 </html>

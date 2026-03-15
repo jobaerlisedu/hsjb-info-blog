@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="bn">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="সহজে শিখুন Network Engineering. Framing in Data Link Layer: Detailed Guide নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
+    <meta name="description" content="???? ????? Network Engineering. Framing in Data Link Layer: Detailed Guide ???? ???? ????????? ?????????? ?????">
   <title>Framing in Data Link Layer: Detailed Guide | enablement.info</title>
 
   <!-- Icons -->
@@ -142,7 +142,10 @@
 
 <body>
   <canvas id="network-canvas"></canvas>
-  <div class="overlay">
+  <div class="overlay">    <div class="lang-switcher">
+        <button id="lang-bn" class="lang-btn">BN</button>
+        <button id="lang-en" class="lang-btn active">EN</button>
+    </div>
     <header class="glass-header">
       <div class="container container-blog">
         <nav class="main-nav">
@@ -150,13 +153,13 @@
             <li>
               <a href="../index.html">
                 <i class='bx bx-home-alt-2'></i>
-                <span class="nav-text">Home</span>
+                <span class="nav-text" data-t="nav-home">Home</span>
               </a>
             </li>
             <li>
               <a href="../blogs.html" class="active">
                 <i class='bx bx-book-content'></i>
-                <span class="nav-text">Blog</span>
+                <span class="nav-text" data-t="nav-blog">Blog</span>
               </a>
             </li>
           </ul>
@@ -168,7 +171,7 @@
       <div class="container container-blog">
         <a href="../blogs.html" class="back-btn">
           <i class='bx bx-arrow-back'></i>
-          <span>Back to Articles</span>
+          <span data-t="back-articles">Back to Articles</span>
         </a>
 
         <article class="glass-panel">
@@ -183,11 +186,11 @@
 
           <div class="article-body">
 
-            <!-- 1. Frame িং কী -->
-            <h2><i class="bi bi-bounding-box"></i> Framing কী?</h2>
-            <p>একটি <strong>Frame</strong> হলো Data Link Layer-এ Data Transmission-এর মৌলিক Single। এটি
-              Bit-এর একটি সংগঠিত গোষ্ঠী যেখানে মূল Information ছাড়াও Address ও Error Detection-এর মতো
-              Control Information থাকে।</p>
+            <!-- 1. Frame ?? ?? -->
+            <h2><i class="bi bi-bounding-box"></i> Framing ???</h2>
+            <p>???? <strong>Frame</strong> ??? Data Link Layer-? Data Transmission-?? ????? Single? ???
+              Bit-?? ???? ?????? ?????? ?????? ??? Information ????? Address ? Error Detection-?? ???
+              Control Information ?????</p>
 
             <!-- Custom CSS Diagram for Ethernet Frame Structure -->
             <div
@@ -243,83 +246,83 @@
 
             <div class="content-box">
               <ul>
-                <li>Frame-এ Address ও Error Detection-এর মতো Control Information থাকে।</li>
-                <li>এটি Data Link Layer (DLL)-এ সম্পাদিত হয়।</li>
-                <li>Bit stream-কে ছোট ও অর্থবহ Single ে বিভক্ত করে।</li>
-                <li>Sender ও Receiver-এর মধ্যে Synchronization নিশ্চিত করে।</li>
-                <li>Receiver-এর কাছে Reliable Transmission ও সঠিক Processing নিশ্চিত করে।</li>
+                <li>Frame-? Address ? Error Detection-?? ??? Control Information ?????</li>
+                <li>??? Data Link Layer (DLL)-? ???????? ???</li>
+                <li>Bit stream-?? ??? ? ?????? Single ? ?????? ????</li>
+                <li>Sender ? Receiver-?? ????? Synchronization ??????? ????</li>
+                <li>Receiver-?? ???? Reliable Transmission ? ???? Processing ??????? ????</li>
               </ul>
             </div>
 
             <div class="note-box">
-              <strong><i class="bi bi-info-circle"></i> উল্লেখ্য:</strong> Framing Time Division
-              Multiplexing (TDM)-এর মতো Technique-এও অত্যন্ত গুরুত্বপূর্ণ, যেখানে Data নির্দিষ্ট Time Slot-এ
-              পাঠানো হয়। Ethernet, Token Ring এবং Frame Relay-এর মতো প্রযুক্তি সুনির্দিষ্ট Frame Format
-              ব্যবহার করে।
+              <strong><i class="bi bi-info-circle"></i> ????????:</strong> Framing Time Division
+              Multiplexing (TDM)-?? ??? Technique-?? ??????? ????????????, ?????? Data ????????? Time Slot-?
+              ?????? ??? Ethernet, Token Ring ??? Frame Relay-?? ??? ????????? ??????????? Frame Format
+              ??????? ????
             </div>
 
             <hr>
 
-            <!-- 2. Frame িংয়ের Purpose -->
-            <h2><i class="bi bi-bullseye"></i> Framing-এর Purpose (Purpose of Framing)</h2>
+            <!-- 2. Frame ?????? Purpose -->
+            <h2><i class="bi bi-bullseye"></i> Framing-?? Purpose (Purpose of Framing)</h2>
             <div class="content-box">
               <ul>
-                <li><strong>Frame Boundary নির্ধারণ:</strong> স্পষ্ট সীমানা নির্ধারণ করে যাতে Receiver
-                  প্রতিটি Frame সঠিকভাবে Symbol িত করতে পারে।</li>
-                <li><strong>Address সংযোজন:</strong> Source ও Destination Address বহন করে সঠিক
-                  Point-to-Point যোগাযোগ নিশ্চিত করে।</li>
-                <li><strong>Error Detection & Correction:</strong> Data Integrity বজায়
-                  রাখতে সহায়তা করে।</li>
-                <li><strong>Reliable Transmission:</strong> সুসংগঠিত ও Reliable Data পাঠানো
-                  নিশ্চিত
-                  করে।</li>
+                <li><strong>Frame Boundary ????????:</strong> ?????? ?????? ???????? ??? ???? Receiver
+                  ??????? Frame ???????? Symbol ?? ???? ?????</li>
+                <li><strong>Address ??????:</strong> Source ? Destination Address ??? ??? ????
+                  Point-to-Point ??????? ??????? ????</li>
+                <li><strong>Error Detection & Correction:</strong> Data Integrity ????
+                  ????? ?????? ????</li>
+                <li><strong>Reliable Transmission:</strong> ???????? ? Reliable Data ??????
+                  ???????
+                  ????</li>
               </ul>
             </div>
             <div class="note-box">
-              <strong><i class="bi bi-lightbulb"></i> মনে রাখুন:</strong> Framing ও Reassembly
-              প্রক্রিয়া সম্পূর্ণভাবে Data Link Layer দ্বারা পরিচালিত হয় এবং ব্যবহারকারীর কাছে এটি
-              সম্পূর্ণ Transparent থাকে।
+              <strong><i class="bi bi-lightbulb"></i> ??? ?????:</strong> Framing ? Reassembly
+              ????????? ???????????? Data Link Layer ?????? ???????? ?? ??? ???????????? ???? ???
+              ???????? Transparent ?????
             </div>
 
             <hr>
 
-            <!-- 3. Frame িংয়ের Classification -->
-            <h2><i class="bi bi-grid-3x3-gap"></i> Framing-এর Classification (Types of Framing)</h2>
+            <!-- 3. Frame ?????? Classification -->
+            <h2><i class="bi bi-grid-3x3-gap"></i> Framing-?? Classification (Types of Framing)</h2>
 
             <h3>1. Fixed-Size Framing</h3>
-            <p>এই Method তে প্রতিটি Frame-এর একটি পূর্ব Fixed স্থায়ী Size থাকে।</p>
+            <p>?? Method ?? ??????? Frame-?? ???? ????? Fixed ?????? Size ?????</p>
             <ul>
-              <li>Frame-এর Length ই সীমানা নির্ধারণ করে বলে Separate Delimiter-এর প্রয়োজন হয় না।</li>
-              <li><strong>অ Advantage:</strong> যখন Data Frame-এর আকারের চেয়ে ছোট হয়, তখন <em>Internal
-                  Fragmentation</em> হয়, যা Bandwidth-এর অপচয় করে।</li>
-              <li><strong>সমাধান:</strong> অব্যবহৃত স্থান পূরণ করতে <strong>Padding</strong> ব্যবহার করা
-                হয়।</li>
+              <li>Frame-?? Length ? ?????? ???????? ??? ??? Separate Delimiter-?? ??????? ?? ???</li>
+              <li><strong>? Advantage:</strong> ??? Data Frame-?? ?????? ???? ??? ??, ??? <em>Internal
+                  Fragmentation</em> ??, ?? Bandwidth-?? ???? ????</li>
+              <li><strong>??????:</strong> ???????? ????? ???? ???? <strong>Padding</strong> ??????? ???
+                ???</li>
             </ul>
 
             <h3>2. Variable-Size Framing</h3>
-            <p>এই Method তে Frame-এর শুরু ও শেষ Symbol িত করার জন্য স্পষ্ট সীমানা Instruction ক ব্যবহার করা হয়। দুটি
-              ুপায়ে এটি করা হয়:</p>
+            <p>?? Method ?? Frame-?? ???? ? ??? Symbol ?? ???? ???? ?????? ?????? Instruction ? ??????? ??? ??? ????
+              ????? ??? ??? ??:</p>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px;">
               <div class="content-box">
                 <strong>Length Field:</strong>
-                <p>Frame-এর মধ্যে একটি Field থাকে যা Frame-এর Size Instruction করে (IEEE 802.3 Ethernet-এ
-                  ব্যবহৃত)। এই Field নষ্ট হলে Receiver Frame-টি সঠিকভাবে বুঝতে পারে না।</p>
+                <p>Frame-?? ????? ???? Field ???? ?? Frame-?? Size Instruction ??? (IEEE 802.3 Ethernet-?
+                  ???????)? ?? Field ???? ??? Receiver Frame-?? ???????? ????? ???? ???</p>
               </div>
               <div class="content-box">
                 <strong>End Delimiter:</strong>
-                <p>একটি অনন্য Pattern ব্যবহার করে Frame-এর শেষ Symbol িত করা হয় (Token Ring-এ ব্যবহৃত)।
-                  তবে এই Pattern Data-র ভেতরেও থাকতে পারে, যা সমস্যা তৈরি করে।</p>
+                <p>???? ????? Pattern ??????? ??? Frame-?? ??? Symbol ?? ??? ?? (Token Ring-? ???????)?
+                  ??? ?? Pattern Data-? ?????? ????? ????, ?? ?????? ???? ????</p>
               </div>
             </div>
 
-            <p>এই সমস্যা সমাধানের জন্য <strong>Stuffing</strong> Technique ব্যবহার করা হয়:</p>
+            <p>?? ?????? ???????? ???? <strong>Stuffing</strong> Technique ??????? ??? ??:</p>
 
-            <h4>(ক) Character/Byte Stuffing</h4>
+            <h4>(?) Character/Byte Stuffing</h4>
             <ul>
-              <li>Character-ভিত্তিক Data-র Field ে ব্যবহৃত হয়।</li>
-              <li>যদি Data-র মধ্যে বিশেষ Delimiter Character (যেমন <code>$</code>) থাকে, তাহলে তার আগে
-                একটি Escape Character (যেমন <code>\O</code>) যোগ করা হয়।</li>
+              <li>Character-??????? Data-? Field ? ??????? ???</li>
+              <li>??? Data-? ????? ????? Delimiter Character (???? <code>$</code>) ????, ????? ??? ???
+                ???? Escape Character (???? <code>\O</code>) ??? ??? ???</li>
             </ul>
 
             <div class="code-block">
@@ -328,14 +331,14 @@
               Original Data: Hello $ World<br>
               After Stuffing: Hello \O$ World<br>
               <br>
-              Disadvantage: Processing overhead High এবং Modern সিস্টে মেএটি পুরনো।
+              Disadvantage: Processing overhead High ??? Modern ?????? ????? ??????
             </div>
 
-            <h4>(খ) Bit Stuffing</h4>
+            <h4>(?) Bit Stuffing</h4>
             <ul>
-              <li>End Delimiter (ED) হলো একটি Bit Sequence, যেমন <code>01111</code>।</li>
-              <li>যখনই Data-য় এই Pattern দেখা যায়, বিভ্রান্তি এড়াতে একটি অতিরিক্ত <code>0</code> Bit
-                প্রবেশ করানো হয়।</li>
+              <li>End Delimiter (ED) ??? ???? Bit Sequence, ???? <code>01111</code>?</li>
+              <li>???? Data-? ?? Pattern ???? ???, ?????????? ????? ???? ???????? <code>0</code> Bit
+                ?????? ????? ???</li>
             </ul>
 
             <div class="code-block">
@@ -352,36 +355,36 @@
 
             <hr>
 
-            <!-- 4. Frame িংয়ের সমস্যাসমূহ -->
-            <h2><i class="bi bi-exclamation-triangle"></i> Framing-এর সমস্যাসমূহ (Problems in Framing)</h2>
+            <!-- 4. Frame ?????? ?????????? -->
+            <h2><i class="bi bi-exclamation-triangle"></i> Framing-?? ?????????? (Problems in Framing)</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px;">
               <div class="content-box">
-                <strong><i class="bi bi-flag"></i> শুরু ও শেষ শনাক্তকরণ:</strong>
-                <p>Receiver অবশ্যই delimiter বা flag ব্যবহার করে Frame সীমানা সঠিকভাবে Symbol িত করতে হবে।
+                <strong><i class="bi bi-flag"></i> ???? ? ??? ?????????:</strong>
+                <p>Receiver ?????? delimiter ?? flag ??????? ??? Frame ?????? ???????? Symbol ?? ???? ????
                 </p>
               </div>
               <div class="content-box">
                 <strong><i class="bi bi-clock-history"></i> Synchronization:</strong>
-                <p>High-Speed-র Network-এ Sender ও Receiver-কে Frame-এর Timing-এ একমত থাকতে হবে।</p>
+                <p>High-Speed-? Network-? Sender ? Receiver-?? Frame-?? Timing-? ???? ????? ????</p>
               </div>
               <div class="content-box">
                 <strong><i class="bi bi-bug"></i> Error Handling:</strong>
-                <p>Noise Data বা Delimiter নষ্ট করতে পারে। CRC বা Checksum-এর মতো Method ব্যবহার করা
-                  হয়।</p>
+                <p>Noise Data ?? Delimiter ???? ???? ????? CRC ?? Checksum-?? ??? Method ??????? ???
+                  ???</p>
               </div>
               <div class="content-box">
                 <strong><i class="bi bi-bar-chart-line"></i> Overhead:</strong>
-                <p>Header ও Trailer Control Information বহন করে কিন্তু ব্যবহারযোগ্য Bandwidth কমিয়ে দেয়।
+                <p>Header ? Trailer Control Information ??? ??? ?????? ???????????? Bandwidth ????? ????
                 </p>
               </div>
               <div class="content-box">
                 <strong><i class="bi bi-speedometer2"></i> Efficiency:</strong>
-                <p>Overhead ও Processing বিলম্ব কমিয়ে Payload সর্বাধিক করাই লক্ষ্য।</p>
+                <p>Overhead ? Processing ?????? ????? Payload ???????? ???? ???????</p>
               </div>
               <div class="content-box">
                 <strong><i class="bi bi-gear-wide-connected"></i> Compatibility:</strong>
-                <p>ভিন্ন Device ভিন্ন Framing Method ব্যবহার করতে পারে, যা Data-র ভুল ব্যাখ্যা করার কারণ
-                  হতে পারে।</p>
+                <p>????? Device ????? Framing Method ??????? ???? ????, ?? Data-? ??? ???????? ???? ????
+                  ??? ?????</p>
               </div>
             </div>
 
@@ -389,10 +392,10 @@
 
             <!-- 5. Summary -->
             <h2><i class="bi bi-check2-circle"></i> Summary</h2>
-            <p>Framing হলো Data Link Layer-এর একটি মৌলিক প্রক্রিয়া যা Bit-এর অবিচ্ছিন্ন প্রবাহকে অর্থবহ
-              Single ে বিভক্ত করে। Fixed-size Framing সহজ হলেও Padding-এর প্রয়োজন হয়, আর Variable-size
-              Framing Flexible হলেও Stuffing Technique-এর মাধ্যমে Delimiter-এর সমস্যা সামলাতে হয়। সঠিক Framing
-              ছাড়া Reliable Network যোগাযোগ সম্ভব নয়।</p>
+            <p>Framing ??? Data Link Layer-?? ???? ????? ????????? ?? Bit-?? ?????????? ???????? ??????
+              Single ? ?????? ???? Fixed-size Framing ??? ???? Padding-?? ??????? ??, ?? Variable-size
+              Framing Flexible ???? Stuffing Technique-?? ??????? Delimiter-?? ?????? ??????? ??? ???? Framing
+              ???? Reliable Network ??????? ????? ???</p>
 
           </div>
         </article>
@@ -401,12 +404,13 @@
 
     <footer class="glass-footer">
       <div class="container container-blog">
-        <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+        <p>&copy; 2026 enablement.info. <span data-t="footer-rights">All Rights Reserved.</span></p>
       </div>
     </footer>
   </div>
   
   <script type="module" src="../js/network-background.js"></script>
+    <script type="module" src="../js/translations.js"></script>
 </body>
 
 </html>

@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="bn">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="সহজে শিখুন Network Engineering. What is an IP Address? নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
+    <meta name="description" content="???? ????? Network Engineering. What is an IP Address? ???? ???? ????????? ?????????? ?????">
   <title>What is an IP Address? | enablement.info</title>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -160,14 +160,16 @@
 
 <body>
   <canvas id="network-canvas"></canvas>
-  <div class="overlay">
+  <div class="overlay">    <div class="lang-switcher">
+        <button id="lang-bn" class="lang-btn">BN</button>
+        <button id="lang-en" class="lang-btn active">EN</button>
+    </div>
     <header class="glass-header">
       <div class="container container-blog">
         <nav class="main-nav">
           <ul>
-            <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span class="nav-text">Home</span></a></li>
-            <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
-                  class="nav-text">Blog</span></a></li>
+            <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span class="nav-text" data-t="nav-home">Home</span></a></li>
+            <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span class="nav-text" data-t="nav-blog">Blog</span></a></li>
           </ul>
         </nav>
       </div>
@@ -175,7 +177,7 @@
 
     <main class="blog-content-wrapper">
       <div class="container container-blog">
-        <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>Back to Articles</span></a>
+        <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span data-t="back-articles">Back to Articles</span></a>
 
         <article class="glass-panel">
           <header class="article-header">
@@ -188,30 +190,30 @@
           </header>
 
           <div class="article-body">
-            <p><strong>IP Address (Internet Protocol Address)</strong> হলো একটি Unique গাণিতিক Label যা
-              কোনো Computer Network-এ যুক্ত থাকা প্রতিটি Device-এর Identity হিসেবে ব্যবহৃত হয়। সহজ কথায়,
-              এটি আপনার Device-এর একটি Digital বাড়ির Address, যার মাধ্যমে Internet-এ Data আদান-প্রদান করা
-              সম্ভব হয়।</p>
+            <p><strong>IP Address (Internet Protocol Address)</strong> ??? ???? Unique ??????? Label ??
+              ???? Computer Network-? ????? ???? ??????? Device-?? Identity ?????? ??????? ??? ??? ????,
+              ??? ????? Device-?? ???? Digital ????? Address, ??? ??????? Internet-? Data ????-?????? ???
+              ????? ???</p>
 
             <div class="note-box">
-              <i class="bi bi-info-circle"></i> IP Address মূলত দুটি প্রধান Task করে:
+              <i class="bi bi-info-circle"></i> IP Address ???? ???? ?????? Task ???:
               <ul>
-                <li>1. Network-এ Device-টিকে শনাক্ত করা।</li>
-                <li>2. Device-এর অবস্থান খুঁজে বের করে অন্য Device-এর সাথে যোগাযোগ স্থাপন করা।</li>
+                <li>1. Network-? Device-???? ?????? ????</li>
+                <li>2. Device-?? ??????? ????? ??? ??? ???? Device-?? ???? ??????? ?????? ????</li>
               </ul>
             </div>
 
             <hr>
 
-            <h2><i class="bi bi-box-seam"></i> IP Address-এর Component সমূহ (Components)</h2>
-            <p>একটি IP Address প্রধানত তিনটি অংশে বিভক্ত থাকে:</p>
+            <h2><i class="bi bi-box-seam"></i> IP Address-?? Component ???? (Components)</h2>
+            <p>???? IP Address ??????? ????? ???? ?????? ????:</p>
             <ul>
-              <li><span class="highlight-text">Network Portion:</span> এটি Device-টি কোন Network-এর
-                অন্তর্ভুক্ত তা শনাক্ত করে।</li>
-              <li><span class="highlight-text">Host Portion:</span> এটি ওই Network-এর নির্দিষ্ট
-                Device-টিকে শনাক্ত করে।</li>
-              <li><span class="highlight-text">Subnet Mask:</span> এটি নির্ধারণ করে IP Address-এর
-                কতটুকু অংশ Network-এর এবং কতটুকু Host-এর।</li>
+              <li><span class="highlight-text">Network Portion:</span> ??? Device-?? ??? Network-??
+                ??????????? ?? ?????? ????</li>
+              <li><span class="highlight-text">Host Portion:</span> ??? ?? Network-?? ?????????
+                Device-???? ?????? ????</li>
+              <li><span class="highlight-text">Subnet Mask:</span> ??? ???????? ??? IP Address-??
+                ?????? ??? Network-?? ??? ?????? Host-???</li>
             </ul>
 
             <!-- Custom CSS Diagram: IP Address Structure -->
@@ -259,21 +261,21 @@
 
             <hr>
 
-            <h2><i class="bi bi-diagram-3"></i> IP Address-এর Classification</h2>
+            <h2><i class="bi bi-diagram-3"></i> IP Address-?? Classification</h2>
 
             <h3>1. Public vs Private IP</h3>
             <div class="info-grid">
               <div class="info-card">
                 <i class="bi bi-globe"></i>
                 <h3>Public IP Address</h3>
-                <p>Internet-এ সরাসরি Access করার জন্য এটি ব্যবহৃত হয়। বিশ্বজুড়ে এটি Unique হয় এবং ISP
-                  (Internet Service Provider) এটি প্রদান করে।</p>
+                <p>Internet-? ?????? Access ???? ???? ??? ??????? ??? ????????? ??? Unique ?? ??? ISP
+                  (Internet Service Provider) ??? ?????? ????</p>
               </div>
               <div class="info-card">
                 <i class="bi bi-shield-lock"></i>
                 <h3>Private IP Address</h3>
-                <p>এটি Local Network-এর (যেমন- আপনার বাড়ি বা Office) ভেতরে যোগাযোগের জন্য ব্যবহৃত হয়।
-                  এটি Internet-এ সরাসরি Routable নয়।</p>
+                <p>??? Local Network-?? (????- ????? ???? ?? Office) ????? ????????? ???? ??????? ???
+                  ??? Internet-? ?????? Routable ???</p>
               </div>
             </div>
 
@@ -281,84 +283,84 @@
             <div class="info-grid">
               <div class="info-card">
                 <h3>IPv4</h3>
-                <p>এটি 32-Bit Addressing System, যা ডট দিয়ে Separate করা 4টি সংখ্যার সেট (যেমন:
-                  192.168.1.1)। এতে প্রায় 4 বিলিয়ন Address সম্ভব।</p>
+                <p>??? 32-Bit Addressing System, ?? ?? ???? Separate ??? 4?? ??????? ??? (????:
+                  192.168.1.1)? ??? ????? 4 ??????? Address ??????</p>
               </div>
               <div class="info-card">
                 <h3>IPv6</h3>
-                <p>IP সংকটের কারণ ে এটি তৈরি করা হয়েছে। এটি 128-Bit Addressing System এবং
-                  Hexadecimal সংখ্যায় প্রকাশ করা হয়।</p>
+                <p>IP ?????? ???? ? ??? ???? ??? ?????? ??? 128-Bit Addressing System ???
+                  Hexadecimal ??????? ?????? ??? ???</p>
               </div>
             </div>
 
             <h3>3. Static vs Dynamic IP</h3>
             <ul>
-              <li><strong>Static IP:</strong> এটি স্থায়ীভাবে কোনো Device-এ বরাদ্দ করা হয় (যেমন Server-এর
-                জন্য)।</li>
-              <li><strong>Dynamic IP:</strong> এটি সাময়িকভাবে DHCP Server দ্বারা বরাদ্দ করা হয় এবং Rule িত
-                পরিবর্তিত হতে পারে।</li>
+              <li><strong>Static IP:</strong> ??? ?????????? ???? Device-? ?????? ??? ?? (???? Server-??
+                ????)?</li>
+              <li><strong>Dynamic IP:</strong> ??? ?????????? DHCP Server ?????? ?????? ??? ?? ??? Rule ??
+                ????????? ??? ?????</li>
             </ul>
 
-            <h3>4. কার্যের ভিত্তিতে IP Address</h3>
+            <h3>4. ??????? ???????? IP Address</h3>
             <div class="info-grid">
               <div class="info-card">
                 <h3>Unicast Address</h3>
-                <p>একজন Sender থেকে একজন নির্দিষ্ট Receiver কাছে Data পাঠানো। এটি সবচেয়ে সাধারণ যোগাযোগ
-                  Method।</p>
+                <p>???? Sender ???? ???? ????????? Receiver ???? Data ??????? ??? ?????? ?????? ???????
+                  Method?</p>
               </div>
               <div class="info-card">
                 <h3>Broadcast Address</h3>
-                <p>একটি Device-এর মাধ্যমে Network-এর সকল Device-এ Message পাঠানো। IPv6-এ এটি ব্যবহৃত হয়
-                  না।</p>
+                <p>???? Device-?? ??????? Network-?? ??? Device-? Message ??????? IPv6-? ??? ??????? ???
+                  ???</p>
               </div>
               <div class="info-card">
                 <h3>Multicast Address</h3>
-                <p>একই সাথে Multiple নির্দিষ্ট Device-এর Group-এ Data পাঠানো (যেমন: লাইভ স্ Tree মিং)।</p>
+                <p>??? ???? Multiple ????????? Device-?? Group-? Data ?????? (????: ???? ?? Tree ???)?</p>
               </div>
               <div class="info-card">
                 <h3>Anycast Address</h3>
-                <p>একই IP Share করা Group থেকে ভৌগোলিকভাবে সবচেয়ে কাছের Device-এ Information পাঠানো।</p>
+                <p>??? IP Share ??? Group ???? ??????????? ?????? ????? Device-? Information ???????</p>
               </div>
             </div>
 
             <hr>
 
-            <h2><i class="bi bi-list-columns-reverse"></i> IPv4 Address-এর Class-সমূহ (Classes)</h2>
-            <p>সহজে ব্যবস্থাপনার জন্য IPv4 Address-কে 5টি Class-এ ভাগ করা হয়েছে:</p>
+            <h2><i class="bi bi-list-columns-reverse"></i> IPv4 Address-?? Class-???? (Classes)</h2>
+            <p>???? ???????????? ???? IPv4 Address-?? 5?? Class-? ??? ??? ?????:</p>
             <div class="table-responsive">
               <table class="comparison-table">
                 <thead>
                   <tr>
                     <th>Class</th>
                     <th>IP Range</th>
-                    <th>ব্যবহারের Field</th>
+                    <th>????????? Field</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>Class A</td>
-                    <td>1.0.0.0 — 127.255.255.255</td>
-                    <td>বিশাল Network (যেমন: Multinational Company)।</td>
+                    <td>1.0.0.0 � 127.255.255.255</td>
+                    <td>????? Network (????: Multinational Company)?</td>
                   </tr>
                   <tr>
                     <td>Class B</td>
-                    <td>128.0.0.0 — 191.255.255.255</td>
-                    <td>Medium আকারের Network।</td>
+                    <td>128.0.0.0 � 191.255.255.255</td>
+                    <td>Medium ?????? Network?</td>
                   </tr>
                   <tr>
                     <td>Class C</td>
-                    <td>192.0.0.0 — 223.255.255.255</td>
-                    <td>ছোট ব্যবসা বা Home Network।</td>
+                    <td>192.0.0.0 � 223.255.255.255</td>
+                    <td>??? ?????? ?? Home Network?</td>
                   </tr>
                   <tr>
                     <td>Class D</td>
-                    <td>224.0.0.0 — 239.255.255.255</td>
-                    <td>মাল্টিকাস্ট গ্রুপের জন্য সংরক্ষিত।</td>
+                    <td>224.0.0.0 � 239.255.255.255</td>
+                    <td>??????????? ??????? ???? ?????????</td>
                   </tr>
                   <tr>
                     <td>Class E</td>
-                    <td>240.0.0.0 — 255.255.255.255</td>
-                    <td>Research ও ভবিষ্যতের ব্যবহারের জন্য।</td>
+                    <td>240.0.0.0 � 255.255.255.255</td>
+                    <td>Research ? ????????? ????????? ?????</td>
                   </tr>
                 </tbody>
               </table>
@@ -366,82 +368,82 @@
 
             <hr>
 
-            <h2><i class="bi bi-star-fill"></i> বিশেষ IP Address (Special IP Addresses)</h2>
+            <h2><i class="bi bi-star-fill"></i> ????? IP Address (Special IP Addresses)</h2>
             <div class="content-box">
               <ul>
-                <li><strong>Loopback Address / Localhost:</strong> 127.0.0.1 (127.0.0.1) Address-টি
-                  নিজের Device-এর Connectivity Test করতে ব্যবহৃত হয়।</li>
-                <li><strong>Broadcast Address:</strong> একটি Network-এর সকল Device-এ Information পাঠাতে
-                  ব্যবহৃত হয় (যেমন: 192.168.1.255)।</li>
-                <li><strong>0.0.0.0:</strong> এটি একটি Non-routable Address যা Default Route হিসেবে
-                  ব্যবহৃত
-                  হয়।</li>
+                <li><strong>Loopback Address / Localhost:</strong> 127.0.0.1 (127.0.0.1) Address-??
+                  ????? Device-?? Connectivity Test ???? ??????? ???</li>
+                <li><strong>Broadcast Address:</strong> ???? Network-?? ??? Device-? Information ??????
+                  ??????? ?? (????: 192.168.1.255)?</li>
+                <li><strong>0.0.0.0:</strong> ??? ???? Non-routable Address ?? Default Route ??????
+                  ???????
+                  ???</li>
               </ul>
             </div>
 
             <hr>
 
-            <h2><i class="bi bi-hdd-network"></i> IP Address কীভাবে কাজ করে?</h2>
+            <h2><i class="bi bi-hdd-network"></i> IP Address ?????? ??? ????</h2>
             <div class="step-container">
               <div class="step-item">
                 <h3>Unique Identification</h3>
-                <p>প্রতিটি Device-এ একটি IP থাকায় Router Information পাঠানোর সময় সঠিক Destination চিনতে পারে।</p>
+                <p>??????? Device-? ???? IP ????? Router Information ??????? ??? ???? Destination ????? ?????</p>
               </div>
               <div class="step-item">
                 <h3>Data Packeting</h3>
-                <p>যখন কোনো Data পাঠানো হয়, তখন সেটি ছোট ছোট Packet-এ বিভক্ত হয়। প্রতিটি Packet-এ
-                  Sender এবং Receiver-এর IP থাকে।</p>
+                <p>??? ???? Data ?????? ??, ??? ???? ??? ??? Packet-? ?????? ??? ??????? Packet-?
+                  Sender ??? Receiver-?? IP ?????</p>
               </div>
               <div class="step-item">
                 <h3>Routing</h3>
-                <p>Router-গুলো IP Address দেখে নির্ধারণ করে কোন Path ে Data পাঠালে Fast পৌঁছাবে।</p>
+                <p>Router-???? IP Address ???? ???????? ??? ??? Path ? Data ?????? Fast ????????</p>
               </div>
               <div class="step-item">
                 <h3>NAT (Network Address Translation)</h3>
-                <p>আপনার Local Device-এর Private IP-কে Router Public IP-তে রূপান্তর করে Internet-এ
-                  পাঠায়।</p>
+                <p>????? Local Device-?? Private IP-?? Router Public IP-?? ???????? ??? Internet-?
+                  ??????</p>
               </div>
             </div>
 
             <hr>
 
-            <h2><i class="bi bi-envelope-at"></i> বাস্তব Example: Email পাঠানো</h2>
-            <p>নিউইয়র্ক থেকে টোকিওতে একজন বন্ধুকে Email পাঠানোর Step-গুলো:</p>
+            <h2><i class="bi bi-envelope-at"></i> ?????? Example: Email ??????</h2>
+            <p>????????? ???? ??????? ???? ??????? Email ??????? Step-????:</p>
             <ol>
-              <li>আপনার Email Client Data-কে Packet-এ ভাগ করে এবং তাতে আপনার ও আপনার বন্ধুর Mail
-                Server-এর IP যুক্ত করে।</li>
-              <li>আপনার Router Packet-গুলোকে ISP-র কাছে পাঠায়।</li>
-              <li>Router-গুলো Global Network-এর মাধ্যমে Packet-গুলোকে জাপানে টোকিও Server-এর কাছে পৌঁছে
-                দেয়।</li>
-              <li>টোকিও Mail Server Packet-গুলোকে একত্র করে এবং আপনার বন্ধুর Device-এ Email-টি পৌঁছে দেয়।
+              <li>????? Email Client Data-?? Packet-? ??? ??? ??? ???? ????? ? ????? ?????? Mail
+                Server-?? IP ????? ????</li>
+              <li>????? Router Packet-?????? ISP-? ???? ??????</li>
+              <li>Router-???? Global Network-?? ??????? Packet-?????? ?????? ????? Server-?? ???? ?????
+                ????</li>
+              <li>????? Mail Server Packet-?????? ????? ??? ??? ????? ?????? Device-? Email-?? ????? ????
               </li>
             </ol>
 
             <hr>
 
-            <h2><i class="bi bi-search"></i> IP Address Check করার উপায়</h2>
+            <h2><i class="bi bi-search"></i> IP Address Check ???? ????</h2>
             <div class="content-box">
               <ul>
-                <li><strong>Windows:</strong> Command Prompt অপেন করে `ipconfig` লিখে Enter দিন।</li>
-                <li><strong>Mac/iPhone:</strong> Network Settings বা Wi-Fi সেটিংস থেকে IP Check করা যায়।
+                <li><strong>Windows:</strong> Command Prompt ???? ??? `ipconfig` ???? Enter ????</li>
+                <li><strong>Mac/iPhone:</strong> Network Settings ?? Wi-Fi ?????? ???? IP Check ??? ????
                 </li>
-                <li><strong>Public IP:</strong> গুগল সার্চে "What is my IP" লিখলে আপনার Public IP দেখা
-                  যায়।</li>
+                <li><strong>Public IP:</strong> ???? ?????? "What is my IP" ????? ????? Public IP ????
+                  ????</li>
               </ul>
             </div>
 
             <hr>
 
-            <h2><i class="bi bi-shield-check"></i> Security এবং সুরক্ষা</h2>
-            <p>IP Address ওপেন থাকলে বিভিন্ন Risk যেমন- <span class="highlight-text">IP
-                Spoofing</span>, <span class="highlight-text">DDoS Attacks</span> বা <span
-                class="highlight-text">Man-in-the-Middle</span> Attack হতে পারে।</p>
-            <p><strong>সুরক্ষার উপায়:</strong></p>
+            <h2><i class="bi bi-shield-check"></i> Security ??? ???????</h2>
+            <p>IP Address ???? ????? ??????? Risk ????- <span class="highlight-text">IP
+                Spoofing</span>, <span class="highlight-text">DDoS Attacks</span> ?? <span
+                class="highlight-text">Man-in-the-Middle</span> Attack ??? ?????</p>
+            <p><strong>???????? ????:</strong></p>
             <ul>
-              <li><strong>VPN ব্যবহার করা:</strong> এটি আপনার আসল IP লুকিয়ে ফেলে।</li>
-              <li><strong>Proxy Server:</strong> এটি আপনার ও Internet-এর মাঝে মধ্যস্থতাকারী হিসেবে Task
-                করে।</li>
-              <li><strong>Firewall:</strong> অননুমোদিত Connection Block করার জন্য Firewall ব্যবহার করুন।
+              <li><strong>VPN ??????? ???:</strong> ??? ????? ??? IP ?????? ?????</li>
+              <li><strong>Proxy Server:</strong> ??? ????? ? Internet-?? ???? ????????????? ?????? Task
+                ????</li>
+              <li><strong>Firewall:</strong> ????????? Connection Block ???? ???? Firewall ??????? ?????
               </li>
             </ul>
           </div>
@@ -451,12 +453,13 @@
 
     <footer class="glass-footer">
       <div class="container container-blog">
-        <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+        <p>&copy; 2026 enablement.info. <span data-t="footer-rights">All Rights Reserved.</span></p>
       </div>
     </footer>
   </div>
   
   <script type="module" src="../js/network-background.js"></script>
+    <script type="module" src="../js/translations.js"></script>
 </body>
 
 </html>

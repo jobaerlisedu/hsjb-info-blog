@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="সহজে শিখুন Network Engineering. What is Internet? - History and Working Process নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
+    <meta name="description" content="???? ????? Network Engineering. What is Internet? - History and Working Process ???? ???? ????????? ?????????? ?????">
   <title>What is Internet? - History and Working Process | enablement.info</title>
 
 
@@ -99,7 +99,10 @@
 
 <body>
   <canvas id="network-canvas"></canvas>
-  <div class="overlay">
+  <div class="overlay">    <div class="lang-switcher">
+        <button id="lang-bn" class="lang-btn">BN</button>
+        <button id="lang-en" class="lang-btn active">EN</button>
+    </div>
     <header class="glass-header">
       <div class="container container-blog">
         <nav class="main-nav">
@@ -107,13 +110,13 @@
             <li>
               <a href="../index.html">
                 <i class='bx bx-home-alt-2'></i>
-                <span class="nav-text">Home</span>
+                <span class="nav-text" data-t="nav-home">Home</span>
               </a>
             </li>
             <li>
               <a href="../blogs.html" class="active">
                 <i class='bx bx-book-content'></i>
-                <span class="nav-text">Blog</span>
+                <span class="nav-text" data-t="nav-blog">Blog</span>
               </a>
             </li>
           </ul>
@@ -125,7 +128,7 @@
       <div class="container container-blog">
         <a href="../blogs.html" class="back-btn">
           <i class='bx bx-arrow-back'></i>
-          <span>Back to Articles</span>
+          <span data-t="back-articles">Back to Articles</span>
         </a>
 
         <article class="glass-panel">
@@ -140,73 +143,73 @@
 
           <div class="article-body">
             <h2><i class="bi bi-lightbulb"></i> Introduction: What is the Internet?</h2>
-            <p>Internet হলো বিশ্বজুড়ে ছড়িয়ে থাকা কোটি কোটি Computer এবং Smartphone-এর একটি বিশাল সমন্বিত
-              Network। এটিকে বলা হয় "Network-এর Network"। এটি মূলত একটি বিশাল মহাসড়কের মতো, যেখানে
-              Information-এর ছোট ছোট 'Packet' এক Device থেকে অন্য Device-এ চলাফেরা করে।</p>
+            <p>Internet ??? ????????? ????? ???? ???? ???? Computer ??? Smartphone-?? ???? ????? ???????
+              Network? ????? ??? ??? "Network-?? Network"? ??? ???? ???? ????? ???????? ???, ??????
+              Information-?? ??? ??? 'Packet' ?? Device ???? ???? Device-? ??????? ????</p>
 
             <div class="content-box">
-              <h3>Internet vs World ওয়াইড Web (WWW)</h3>
-              <p>অনেকেই Internet এবং WWW (World Wide Web)-কে এক মনে করেন, কিন্তু তারা Separate:</p>
+              <h3>Internet vs World ?????? Web (WWW)</h3>
+              <p>?????? Internet ??? WWW (World Wide Web)-?? ?? ??? ????, ?????? ???? Separate:</p>
               <ul>
-                <li><strong>Internet:</strong> এটি হলো Hardware Infrastructure — Cable, Satellite এবং
-                  Router-এর বিশাল শারীরিক Network।</li>
-                <li><strong>World Wide Web:</strong> এটি Internet-এর ওপর চলা একটি Service মাত্র
-                  — যেখানে Website এবং Web Page-গুলো অবস্থান করে।</li>
+                <li><strong>Internet:</strong> ??? ??? Hardware Infrastructure � Cable, Satellite ???
+                  Router-?? ????? ??????? Network?</li>
+                <li><strong>World Wide Web:</strong> ??? Internet-?? ??? ??? ???? Service ?????
+                  � ?????? Website ??? Web Page-???? ??????? ????</li>
               </ul>
             </div>
 
-            <h2>1. Internet-এর History ও Public Revolution</h2>
-            <p>Internet-এর যাত্রা অনেক আগে শুরু হলেও, সাধারণ মানুষের জন্য এর বিপ্লব ঘটে নব্বইয়ের দশকের
-              শুরুতে।</p>
+            <h2>1. Internet-?? History ? Public Revolution</h2>
+            <p>Internet-?? ?????? ???? ??? ???? ????, ?????? ??????? ???? ?? ?????? ??? ???????? ?????
+              ???????</p>
             <div class="content-box">
-              <h3>স্যার Team বার্নার্স-লি ও WWW (1989-1991)</h3>
-              <p>ব্রিটিশ বিজ্ঞানী <strong>স্যার Team বার্নার্স-লি</strong> CERN-এ Task করার সময়
-                World Wide Web উদ্ভাবন করেন। তিনি তিনটি মূল ভিত্তি তৈরি করেছিলেন:</p>
+              <h3>????? Team ?????????-?? ? WWW (1989-1991)</h3>
+              <p>??????? ???????? <strong>????? Team ?????????-??</strong> CERN-? Task ???? ???
+                World Wide Web ??????? ????? ???? ????? ??? ?????? ???? ????????:</p>
               <ul>
-                <li><strong>HTML (HyperText Markup Language):</strong> Web Page তৈরি র ভাষা।</li>
-                <li><strong>HTTP (HyperText Transfer Protocol):</strong> Browser এবং Server-এর মধ্যে
-                  যোগাযোগের Rule।</li>
-                <li><strong>URLs (Uniform Resource Locators):</strong> Web Page-এর নির্দিষ্ট Address।
+                <li><strong>HTML (HyperText Markup Language):</strong> Web Page ???? ? ?????</li>
+                <li><strong>HTTP (HyperText Transfer Protocol):</strong> Browser ??? Server-?? ?????
+                  ????????? Rule?</li>
+                <li><strong>URLs (Uniform Resource Locators):</strong> Web Page-?? ????????? Address?
                 </li>
               </ul>
-              <p>মিড-নব্বইয়ের দশকে <strong>Mosaic</strong> এবং <strong>Netscape Navigator</strong>-এর মতো
-                Browser-গুলো আসার পর Internet সাধারণ মানুষের জন্য সহজ হয়ে ওঠে।</p>
+              <p>???-???????? ???? <strong>Mosaic</strong> ??? <strong>Netscape Navigator</strong>-?? ???
+                Browser-???? ???? ?? Internet ?????? ??????? ???? ??? ??? ????</p>
             </div>
 
-            <h2>2. Internet কীভাবে কাজ করে? (Technical Deep-Dive)</h2>
-            <p>প্রতিটি সেকেন্ডে লক্ষ লক্ষ Data Packet আদান-প্রদান হয়। এই বিশাল প্রক্রিয়াটি তিনটি মূল
-              স্তম্ভের ওপর দাঁড়িয়ে আছে:</p>
+            <h2>2. Internet ?????? ??? ???? (Technical Deep-Dive)</h2>
+            <p>??????? ???????? ???? ???? Data Packet ????-?????? ??? ?? ????? ??????????? ????? ???
+              ???????? ??? ??????? ???:</p>
 
-            <h3>ক. Data Packet (Data Packets)</h3>
-            <p>আপনি যখন কোনো Image বা Email পাঠান, সেটি ছোট ছোট Chunk বা 'Packet'-এ ভাগ হয়ে যায়। প্রতিটি
-              Packet Separate Separate Path দিয়ে Internet-এ ভ্রমণ করতে পারে এবং Destination এ পৌঁছানোর পর আবার আগের
-              মতো Complete ফাইলে রূপান্তরিত হয়।</p>
+            <h3>?. Data Packet (Data Packets)</h3>
+            <p>???? ??? ???? Image ?? Email ?????, ???? ??? ??? Chunk ?? 'Packet'-? ??? ??? ???? ???????
+              Packet Separate Separate Path ???? Internet-? ????? ???? ???? ??? Destination ? ???????? ?? ???? ????
+              ??? Complete ????? ?????????? ???</p>
 
-            <h3>খ. Protocol: Information-এর মহাসড়কের Rule</h3>
+            <h3>?. Protocol: Information-?? ???????? Rule</h3>
             <ul>
-              <li><strong>TCP (Transmission Control Protocol):</strong> Data-কে Packet-এ ভাগ করে এবং
-                প্রতিটি Packet সঠিকভাবে পৌঁছানো নিশ্চিত করে।</li>
-              <li><strong>IP (Internet Protocol):</strong> প্রতিটি Device-এর জন্য একটি অনন্য Address (IP
-                Address) নির্ধারণ করে। যেমন: <code>192.168.1.1</code>। বর্তমানে আমরা IPv4 থেকে Modern
-                <strong>IPv6</strong>-এ স্থানান্তরিত হচ্ছি।
+              <li><strong>TCP (Transmission Control Protocol):</strong> Data-?? Packet-? ??? ??? ???
+                ??????? Packet ???????? ??????? ??????? ????</li>
+              <li><strong>IP (Internet Protocol):</strong> ??????? Device-?? ???? ???? ????? Address (IP
+                Address) ???????? ???? ????: <code>192.168.1.1</code>? ???????? ???? IPv4 ???? Modern
+                <strong>IPv6</strong>-? ???????????? ??????
               </li>
-              <li><strong>HTTP/HTTPS:</strong> Website দেখার জন্য ব্যবহৃত হয়।</li>
-              <li><strong>SMTP:</strong> Professional Email আদান-প্রদানের জন্য ব্যবহৃত Rule।</li>
+              <li><strong>HTTP/HTTPS:</strong> Website ????? ???? ??????? ???</li>
+              <li><strong>SMTP:</strong> Professional Email ????-???????? ???? ??????? Rule?</li>
             </ul>
 
-            <h3>গ. Network-এর মূল Component</h3>
+            <h3>?. Network-?? ??? Component</h3>
             <ul>
-              <li><strong>Routers:</strong> Traffic Police-এর মতো প্রতিটি Packet-কে সবচেয়ে Fast ও সঠিক
-                Path ে
-                পাঠায়।</li>
-              <li><strong>Servers:</strong> যেখানে আমাদের Website, Video এবং App-এর Data জমা থাকে।</li>
-              <li><strong>ISPs (Internet Service Providers):</strong> আপনার Internet Connection প্রদানকারী
-                Company।</li>
-              <li><strong>DNS (Domain Name System):</strong> এটি Internet-এর 'Phonebook'। এটি মানুষের
-                পাঠযোগ্য নাম (google.com) কে IP Address-এ রূপান্তর করে।</li>
+              <li><strong>Routers:</strong> Traffic Police-?? ??? ??????? Packet-?? ?????? Fast ? ????
+                Path ?
+                ??????</li>
+              <li><strong>Servers:</strong> ?????? ?????? Website, Video ??? App-?? Data ??? ?????</li>
+              <li><strong>ISPs (Internet Service Providers):</strong> ????? Internet Connection ??????????
+                Company?</li>
+              <li><strong>DNS (Domain Name System):</strong> ??? Internet-?? 'Phonebook'? ??? ???????
+                ???????? ??? (google.com) ?? IP Address-? ???????? ????</li>
             </ul>
 
-            <h2>3. Internet-এর বহুমুখী প্রয়োগ (Applications)</h2>
+            <h2>3. Internet-?? ??????? ?????? (Applications)</h2>
             <div class="table-wrapper">
               <table class="table">
                 <thead>
@@ -242,27 +245,27 @@
             </div>
 
             <h2>4. Online Security (Internet Safety)</h2>
-            <p>Internet যতটা শক্তিশালী, অসাবধানতায় এটি ততটাই Risk পূর্ণ হতে পারে। নিজেকে Secure-রাখতে
-              করণীয়:</p>
+            <p>Internet ???? ?????????, ?????????? ??? ????? Risk ????? ??? ????? ?????? Secure-?????
+              ??????:</p>
             <ul>
-              <li><strong>Strong Password:</strong> প্রতিটি Account-এর জন্য Separate ও কঠিন Password
-                ব্যবহার করা।</li>
-              <li><strong>Phishing Awareness:</strong> কোনো অচেনা Link-এ ক্লিক না করা বা ব্যক্তিগত Information
+              <li><strong>Strong Password:</strong> ??????? Account-?? ???? Separate ? ???? Password
+                ??????? ????</li>
+              <li><strong>Phishing Awareness:</strong> ???? ????? Link-? ????? ?? ??? ?? ????????? Information
                 Share
-                না করা।</li>
-              <li><strong>Security Software:</strong> Reliable Antivirus ব্যবহার করা এবং
-                Firewall অন রাখা।</li>
+                ?? ????</li>
+              <li><strong>Security Software:</strong> Reliable Antivirus ??????? ??? ???
+                Firewall ?? ?????</li>
             </ul>
 
-            <h2>5. Internet-এর ভবিষ্যৎ কী (What is the Future of Internet)?</h2>
-            <p>প্রযুক্তি থে মেনেই, Internet প্রতিনিয়ত বিবর্তিত হচ্ছে:</p>
+            <h2>5. Internet-?? ??????? ?? (What is the Future of Internet)?</h2>
+            <p>????????? ?? ?????, Internet ????????? ???????? ?????:</p>
             <ul>
-              <li><strong>IoT (Internet of Things):</strong> আপনার ফ্রিজ, Car বা Clock—সবই এখন Internet-এর
-                সাথে যুক্ত।</li>
-              <li><strong>5G ও Fiber Optics:</strong> যেখানে Speed-র কোনো সীমা থাকবে না।</li>
-              <li><strong>Artificial Intelligence (AI):</strong> আপনার প্রয়োজনগুলো আগে থেকেই বুঝে নিয়ে
-                Service দেবে।</li>
-              <li><strong>Web 3.0:</strong> Blockchain এবং AI চালিত এক বিকেন্দ্রীভূত ও বুদ্ধিমান Internet।
+              <li><strong>IoT (Internet of Things):</strong> ????? ?????, Car ?? Clock�??? ??? Internet-??
+                ???? ??????</li>
+              <li><strong>5G ? Fiber Optics:</strong> ?????? Speed-? ???? ???? ????? ???</li>
+              <li><strong>Artificial Intelligence (AI):</strong> ????? ??????????? ??? ????? ???? ????
+                Service ?????</li>
+              <li><strong>Web 3.0:</strong> Blockchain ??? AI ????? ?? ????????????? ? ????????? Internet?
               </li>
             </ul>
           </div>
@@ -272,12 +275,13 @@
 
     <footer class="glass-footer">
       <div class="container container-blog">
-        <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+        <p>&copy; 2026 enablement.info. <span data-t="footer-rights">All Rights Reserved.</span></p>
       </div>
     </footer>
   </div>
   
   <script type="module" src="../js/network-background.js"></script>
+    <script type="module" src="../js/translations.js"></script>
 </body>
 
 </html>

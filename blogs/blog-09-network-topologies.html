@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="সহজে শিখুন Network Engineering. Types of Network Topology নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
+    <meta name="description" content="???? ????? Network Engineering. Types of Network Topology ???? ???? ????????? ?????????? ?????">
   <title>Types of Network Topology | enablement.info</title>
 
 
@@ -154,7 +154,10 @@
 
 <body>
   <canvas id="network-canvas"></canvas>
-  <div class="overlay">
+  <div class="overlay">    <div class="lang-switcher">
+        <button id="lang-bn" class="lang-btn">BN</button>
+        <button id="lang-en" class="lang-btn active">EN</button>
+    </div>
     <header class="glass-header">
       <div class="container container-blog">
         <nav class="main-nav">
@@ -162,7 +165,7 @@
             <li>
               <a href="../index.html">
                 <i class='bx bx-home-alt-2'></i>
-                <span class="nav-text">Home</span>
+                <span class="nav-text" data-t="nav-home">Home</span>
               </a>
             </li>
             <li>
@@ -180,7 +183,7 @@
       <div class="container container-blog">
         <a href="../blogs.html" class="back-btn">
           <i class='bx bx-arrow-back'></i>
-          <span>Back to Articles</span>
+          <span data-t="back-articles">Back to Articles</span>
         </a>
 
         <article class="glass-panel">
@@ -194,27 +197,27 @@
           </header>
 
           <div class="article-body">
-            <h2><i class="bi bi-lightbulb"></i> Network Topology কী?</h2>
-            <p>Network Topology হলো একটি Network-এর Device (Node) এবং সংযোগগুলোর (Link) জ্যামিতিক বিন্যাস।
-              এটি নির্ধারণ করে যে কীভাবে Computer, Server এবং অন্যান্য Device-গুলো একে অপরের সাথে যুক্ত
-              এবং কীভাবে তাদের মধ্যে Data প্রবাহিত হয়। Topology মূলত দুই প্রকার:</p>
+            <h2><i class="bi bi-lightbulb"></i> Network Topology ???</h2>
+            <p>Network Topology ??? ???? Network-?? Device (Node) ??? ?????????? (Link) ????????? ????????
+              ??? ???????? ??? ?? ?????? Computer, Server ??? ???????? Device-???? ??? ????? ???? ?????
+              ??? ?????? ????? ????? Data ???????? ??? Topology ???? ??? ??????:</p>
             <ul>
-              <li><strong>Physical Topology:</strong> Cable এবং Device-এর প্রকৃত শারীরিক বিন্যাস।</li>
-              <li><strong>Logical Topology:</strong> শারীরিক বিন্যাস যাই হোক না কেন, Data কীভাবে
-                Network-এর মাধ্যমে প্রবাহিত হয়।</li>
+              <li><strong>Physical Topology:</strong> Cable ??? Device-?? ?????? ??????? ????????</li>
+              <li><strong>Logical Topology:</strong> ??????? ??????? ??? ??? ?? ???, Data ??????
+                Network-?? ??????? ???????? ???</li>
             </ul>
 
             <hr>
 
-            <h2><i class="bi bi-diagram-3"></i> Topology-র Classification (Types of Topologies)</h2>
-            <p>GeeksforGeeks-এর Information অনুযায়ী প্রধান Topology-গুলো নিচে Detailed Discussion করা হলো:</p>
+            <h2><i class="bi bi-diagram-3"></i> Topology-? Classification (Types of Topologies)</h2>
+            <p>GeeksforGeeks-?? Information ??????? ?????? Topology-???? ???? Detailed Discussion ??? ???:</p>
 
             <div class="content-box mb-4">
               <h3>1. Point-to-Point Topology</h3>
-              <p>এটি সবচেয়ে সহজ যোগাযোগ Method যেখানে দুটি Node-এর মধ্যে একটি সরাসরি Link থাকে। একজন
+              <p>??? ??????? ??? ??????? Method ?????? ???? Node-?? ????? ???? ?????? Link ????? ????
                 Sender
-                এবং
-                একজন receiver থাকে। এটি High Bandwidth প্রদান করে।</p>
+                ???
+                ???? receiver ????? ??? High Bandwidth ?????? ????</p>
 
               <svg class="topology-diagram" viewBox="0 0 400 150">
                 <line x1="100" y1="75" x2="300" y2="75" class="topology-link" />
@@ -226,8 +229,8 @@
             </div>
 
             <div class="content-box mb-4">
-              <h3>2. Mesh Topology (মেশ Topology)</h3>
-              <p>মেশ Topology-তে প্রতিটি Device অন্য প্রতিটি Device-এর সাথে সরাসরি যুক্ত থাকে।</p>
+              <h3>2. Mesh Topology (??? Topology)</h3>
+              <p>??? Topology-?? ??????? Device ???? ??????? Device-?? ???? ?????? ????? ?????</p>
 
               <svg class="topology-diagram" viewBox="0 0 400 300">
                 <!-- Links -->
@@ -254,18 +257,18 @@
               </svg>
 
               <ul>
-                <li><strong>Link সংখ্যা:</strong> $N$ সংখ্যক Device-এর জন্য মোট Link প্রয়োজন
-                  $N(N-1)/2$।
+                <li><strong>Link ??????:</strong> $N$ ?????? Device-?? ???? ??? Link ????????
+                  $N(N-1)/2$?
                 </li>
-                <li><strong>Advantage:</strong> অত্যন্ত Reliable (Robust), Fast যোগাযোগ এবং High
-                  Security। একটি Link নষ্ট হলেও পুরো Network সচল থাকে।</li>
-                <li><strong>অ Advantage:</strong> Installation কঠিন এবং Cabling Cost অনেক High।</li>
+                <li><strong>Advantage:</strong> ??????? Reliable (Robust), Fast ??????? ??? High
+                  Security? ???? Link ???? ???? ???? Network ??? ?????</li>
+                <li><strong>? Advantage:</strong> Installation ???? ??? Cabling Cost ???? High?</li>
               </ul>
             </div>
 
             <div class="content-box mb-4">
-              <h3>3. Star Topology (স্টার Topology)</h3>
-              <p>এখানে সব Device একটি কেন্দ্রীয় Hub বা Switch-এর সাথে যুক্ত থাকে।</p>
+              <h3>3. Star Topology (????? Topology)</h3>
+              <p>????? ?? Device ???? ?????????? Hub ?? Switch-?? ???? ????? ?????</p>
 
               <svg class="topology-diagram" viewBox="0 0 400 300">
                 <line x1="200" y1="150" x2="200" y2="50" class="topology-link" />
@@ -287,17 +290,17 @@
               </svg>
 
               <ul>
-                <li><strong>Advantage:</strong> সহজে Setup করা যায়, একটি Link নষ্ট হলে অন্যগুলো প্রভাবিত হয়
-                  না, Fault শনাক্ত করা সহজ।</li>
-                <li><strong>অ Advantage:</strong> কেন্দ্রীয় Hub নষ্ট হলে পুরো Network অচল হয়ে পড়ে। Hub-এর
-                  Performance-এর ওপর পুরো Network নির্ভরশীল।</li>
+                <li><strong>Advantage:</strong> ???? Setup ??? ???, ???? Link ???? ??? ???????? ???????? ??
+                  ??, Fault ?????? ??? ????</li>
+                <li><strong>? Advantage:</strong> ?????????? Hub ???? ??? ???? Network ??? ??? ???? Hub-??
+                  Performance-?? ??? ???? Network ??????????</li>
               </ul>
             </div>
 
             <div class="content-box mb-4">
-              <h3>4. Bus Topology (বাস Topology)</h3>
-              <p>সব Device একটি সাধারণ Backbone Cable-এর সাথে যুক্ত থাকে। এটি দ্বিমুখী (Bi-directional)
-                যোগাযোগ সমর্থন করে।</p>
+              <h3>4. Bus Topology (??? Topology)</h3>
+              <p>?? Device ???? ?????? Backbone Cable-?? ???? ????? ????? ??? ???????? (Bi-directional)
+                ??????? ?????? ????</p>
 
               <svg class="topology-diagram" viewBox="0 0 400 200">
                 <line x1="50" y1="100" x2="350" y2="100" class="topology-backbone" />
@@ -315,16 +318,16 @@
               </svg>
 
               <ul>
-                <li><strong>Advantage:</strong> ছোট Network-এর জন্য সস্তা এবং সহজ।</li>
-                <li><strong>অ Advantage:</strong> মূল Cable নষ্ট হলে পুরো Network অচল হয়। Traffic High
-                  হলে Collision বাড়ে। Security কম।</li>
+                <li><strong>Advantage:</strong> ??? Network-?? ???? ????? ??? ????</li>
+                <li><strong>? Advantage:</strong> ??? Cable ???? ??? ???? Network ??? ??? Traffic High
+                  ??? Collision ????? Security ???</li>
               </ul>
             </div>
 
             <div class="content-box mb-4">
-              <h3>5. Ring Topology (রিং Topology)</h3>
-              <p>প্রতিটি Device তার পাশের দুটি Device-এর সাথে যুক্ত হয়ে একটি বৃত্ত বা Ring তৈরি করে। এখানে
-                'Token Passing' Method ব্যবহার করা হয়।</p>
+              <h3>5. Ring Topology (??? Topology)</h3>
+              <p>??????? Device ??? ????? ???? Device-?? ???? ????? ??? ???? ????? ?? Ring ???? ???? ?????
+                'Token Passing' Method ??????? ??? ???</p>
 
               <svg class="topology-diagram" viewBox="0 0 400 300">
                 <circle cx="200" cy="150" r="80" fill="none" stroke="rgba(33, 150, 243, 0.3)" stroke-width="2"
@@ -340,16 +343,16 @@
               </svg>
 
               <ul>
-                <li><strong>Advantage:</strong> Data Collision কম হয়, Installation Cost Relatively low।</li>
-                <li><strong>অ Advantage:</strong> যেকোনো একটি Node নষ্ট হলে পুরো Network অচল হয়ে যায়।
-                  Troubleshooting কঠিন।</li>
+                <li><strong>Advantage:</strong> Data Collision ?? ??, Installation Cost Relatively low?</li>
+                <li><strong>? Advantage:</strong> ?????? ???? Node ???? ??? ???? Network ??? ??? ????
+                  Troubleshooting ?????</li>
               </ul>
             </div>
 
             <div class="content-box mb-4">
               <h3>6. Tree Topology (Tree Topology)</h3>
-              <p>এটি Star Topology-র একটি Advanced রূপ যা হায়ারার্কিকাল (Hierarchical) Structure অনুসরণ করে। একটি
-                Main Hub-এর সাথে অনেকগুলো Secondary Hub যুক্ত থাকে।</p>
+              <p>??? Star Topology-? ???? Advanced ??? ?? ????????????? (Hierarchical) Structure ?????? ???? ????
+                Main Hub-?? ???? ???????? Secondary Hub ????? ?????</p>
 
               <svg class="topology-diagram" viewBox="0 0 400 300">
                 <line x1="200" y1="50" x2="120" y2="130" class="topology-link" />
@@ -368,16 +371,16 @@
               </svg>
 
               <ul>
-                <li><strong>Advantage:</strong> বড় Network-এর জন্য উপযোগী, নতুন Device যোগ করা সহজ।</li>
-                <li><strong>অ Advantage:</strong> Main Hub নষ্ট হলে নিচের সব শাখা অচল হয়ে যায়। Cabling Cost
-                  High।</li>
+                <li><strong>Advantage:</strong> ?? Network-?? ???? ??????, ???? Device ??? ??? ????</li>
+                <li><strong>? Advantage:</strong> Main Hub ???? ??? ????? ?? ???? ??? ??? ???? Cabling Cost
+                  High?</li>
               </ul>
             </div>
 
             <div class="content-box mb-4">
-              <h3>7. Hybrid Topology (হাইব্রিড Topology)</h3>
-              <p>দুই বা ততোধিক ভিন্ন ধরণের Topology-র সমন্বয়ে এটি তৈরি হয়। যেমন- স্টার এবং বাস Topology-র
-                মিশ্রণ।</p>
+              <h3>7. Hybrid Topology (???????? Topology)</h3>
+              <p>??? ?? ?????? ????? ????? Topology-? ??????? ??? ???? ??? ????- ????? ??? ??? Topology-?
+                ???????</p>
 
               <svg class="topology-diagram" viewBox="0 0 400 250">
                 <line x1="50" y1="200" x2="350" y2="200" class="topology-backbone" />
@@ -399,27 +402,27 @@
               </svg>
 
               <ul>
-                <li><strong>Advantage:</strong> অত্যন্ত Flexible (Flexible) এবং বড় Network-এর Scope বাড়ানো
-                  সহজ।</li>
-                <li><strong>অ Advantage:</strong> Design করা জটিল এবং Maintenance Cost High।</li>
+                <li><strong>Advantage:</strong> ??????? Flexible (Flexible) ??? ?? Network-?? Scope ??????
+                  ????</li>
+                <li><strong>? Advantage:</strong> Design ??? ???? ??? Maintenance Cost High?</li>
               </ul>
             </div>
 
-            <h2><i class="bi bi-info-circle"></i> Topology-র গুরুত্ব</h2>
+            <h2><i class="bi bi-info-circle"></i> Topology-? ???????</h2>
             <ul>
-              <li><strong>Performance:</strong> সঠিক Topology Selection করলে Network-এর Speed বৃদ্ধি পায়।
+              <li><strong>Performance:</strong> ???? Topology Selection ???? Network-?? Speed ?????? ????
               </li>
-              <li><strong>Reliable তা:</strong> Mesh বা Star Topology Backup সংযোগ প্রদান করে
-                Reliable তা বাড়ায়।</li>
-              <li><strong>বিস্তৃতি:</strong> সঠিক Plan থাকলে ভবিষ্যতে Network বাড়ানো সহজ হয়।</li>
-              <li><strong>Security:</strong> Topology অনুযায়ী Data প্রবাহ নিয়ন্ত্রণ করে Advanced Security
-                নিশ্চিত করা সম্ভব।</li>
+              <li><strong>Reliable ??:</strong> Mesh ?? Star Topology Backup ????? ?????? ???
+                Reliable ?? ??????</li>
+              <li><strong>????????:</strong> ???? Plan ????? ???????? Network ?????? ??? ???</li>
+              <li><strong>Security:</strong> Topology ??????? Data ?????? ????????? ??? Advanced Security
+                ??????? ??? ??????</li>
             </ul>
 
             <div class="content-box mt-4">
-              <p><strong>Summary:</strong> Network-এর Size, Budget এবং প্রয়োজনীয়তার ওপর ভিত্তি করে
-                সঠিক Topology Selection করা অত্যন্ত জরুরি। Modern Corporate Network-এ সাধারণত Star বা
-                Hybrid Topology বেশি ব্যবহৃত হয়।</p>
+              <p><strong>Summary:</strong> Network-?? Size, Budget ??? ???????????? ??? ?????? ???
+                ???? Topology Selection ??? ??????? ?????? Modern Corporate Network-? ??????? Star ??
+                Hybrid Topology ???? ??????? ???</p>
             </div>
           </div>
         </article>
@@ -428,12 +431,13 @@
 
     <footer class="glass-footer">
       <div class="container container-blog">
-        <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+        <p>&copy; 2026 enablement.info. <span data-t="footer-rights">All Rights Reserved.</span></p>
       </div>
     </footer>
   </div>
   
   <script type="module" src="../js/network-background.js"></script>
+    <script type="module" src="../js/translations.js"></script>
 </body>
 
 </html>

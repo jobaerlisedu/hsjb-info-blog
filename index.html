@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -29,19 +29,23 @@
   <canvas id="network-canvas"></canvas>
 
   <div class="overlay">
+    <div class="lang-switcher">
+      <button id="lang-bn" class="lang-btn">BN</button>
+      <button id="lang-en" class="lang-btn active">EN</button>
+    </div>
     <header class="glass-header">
       <nav class="main-nav">
         <ul>
           <li>
             <a href="index.html" class="active">
               <i class='bx bx-home-alt-2'></i>
-              <span class="nav-text">Home</span>
+              <span class="nav-text" data-t="nav-home">Home</span>
             </a>
           </li>
           <li>
             <a href="blogs.html">
               <i class='bx bx-book-content'></i>
-              <span class="nav-text">Blog</span>
+              <span class="nav-text" data-t="nav-blog">Blog</span>
             </a>
           </li>
         </ul>
@@ -52,12 +56,12 @@
       <section class="hero-section">
         <div class="container">
           <div class="hero-content glass-panel">
-            <span class="badge">Networking and Tech</span>
-            <h1>সহজে শিখুন <br> <span class="gradient-text">Network Engineering</span></h1>
-            <p>A Technical Blog about the world of Protocol, Architecture and Connectivity for Tech
+            <span class="badge" data-t="hero-badge">Networking and Tech</span>
+            <h1 data-t="hero-title">Learn Network Engineering <br> Easily</h1>
+            <p data-t="hero-subtitle">A Technical Blog about the world of Protocol, Architecture and Connectivity for Tech
               Enthusiasts and Professionals.</p>
             <div class="cta-group">
-              <a href="blogs.html" class="btn btn-primary">Read Blog <i class='bx bx-right-arrow-alt'></i></a>
+              <a href="blogs.html" class="btn btn-primary"><span data-t="hero-cta">Read Blog</span> <i class='bx bx-right-arrow-alt'></i></a>
               <a href="https://github.com/jobaerlisedu" target="_blank" class="btn btn-outline"><i
                   class='bx bxl-github'></i> GitHub</a>
             </div>
@@ -68,8 +72,8 @@
       <section class="recent-posts">
         <div class="container">
           <div class="section-header">
-            <h2>Recent Post</h2>
-            <a href="blogs.html" class="btn btn-outline">View All <i class='bx bx-right-arrow-alt'></i></a>
+            <h2 data-t="section-recent">Recent Articles</h2>
+            <a href="blogs.html" class="btn btn-primary" data-t="view-all">View All</a>
           </div>
 
           <div class="posts-grid">
@@ -83,7 +87,7 @@
               <p>প্রেজেন্টেশন লেয়ারের কাজ, ডেটা এনক্রিপশন, কমপ্রেশন এবং ট্রান্সলেশন প্রক্রিয়া নিয়ে একটি বিস্তারিত
                 গাইড।</p>
               <div class="card-actions">
-                <a href="blogs/blog-32-presentation-layer.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-32-presentation-layer.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-32-presentation-layer.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -104,7 +108,7 @@
               <p>সেশন লেয়ারের কাজ, সেশন ম্যানেজমেন্ট এবং সিঙ্ক্রোনাইজেশন চেকপয়েন্ট নিয়ে একটি বিস্তারিত টেকনিক্যাল
                 গাইড।</p>
               <div class="card-actions">
-                <a href="blogs/blog-31-session-layer.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-31-session-layer.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-31-session-layer.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -126,7 +130,7 @@
               <p>UDP-এর কার্যপদ্ধতি, এর হেডার, প্রয়োগক্ষেত্র এবং ইন্টারনেট কমিউনিকেশনে এর ভূমিকা নিয়ে বিস্তারিত গাইড।
               </p>
               <div class="card-actions">
-                <a href="blogs/blog-30-udp.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-30-udp.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-30-udp.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -147,7 +151,7 @@
               <h3><a href="blogs/blog-29-tcp.html">Transmission Control Protocol (TCP)</a></h3>
               <p>TCP-এর কার্যপদ্ধতি, থ্রি-ওয়ে হ্যান্ডশেক এবং হেডার ফরম্যাট নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।</p>
               <div class="card-actions">
-                <a href="blogs/blog-29-tcp.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-29-tcp.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-29-tcp.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -168,7 +172,7 @@
               <h3><a href="blogs/blog-28-transport-layer-protocols.html">Transport Layer Protocols</a></h3>
               <p>TCP, UDP এবং SCTP প্রোটোকলের কাজ, বৈশিষ্ট্য এবং এদের মধ্যকার মূল পার্থক্যসমূহ নিয়ে আলোচনা।</p>
               <div class="card-actions">
-                <a href="blogs/blog-28-transport-layer-protocols.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-28-transport-layer-protocols.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-28-transport-layer-protocols.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -189,7 +193,7 @@
               <h3><a href="blogs/blog-27-transport-layer.html">Transport Layer in OSI Model</a></h3>
               <p>OSI মডেলের চতুর্থ লেয়ারের কাজ, থ্রি-ওয়ে হ্যান্ডশেক এবং এন্ড-টু-এন্ড যোগাযোগের গুরুত্ব।</p>
               <div class="card-actions">
-                <a href="blogs/blog-27-transport-layer.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-27-transport-layer.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-27-transport-layer.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -211,7 +215,7 @@
               <p>Network Layer-এর প্রধান Protocol যেমন IP, ARP, RARP, ICMP ও IGMP কী এবং নেটওয়ার্ক লেয়ারের প্রধান কাজ
                 নিয়ে বিস্তারিত গাইড।</p>
               <div class="card-actions">
-                <a href="blogs/blog-26-network-layer-protocols.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-26-network-layer-protocols.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-26-network-layer-protocols.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -233,7 +237,7 @@
               <p>Routing কী, এটি কীভাবে কাজ করে এবং RIP, OSPF, BGP সহ গুরুত্বপূর্ণ Routing Protocol নিয়ে বিস্তারিত
                 গাইড।</p>
               <div class="card-actions">
-                <a href="blogs/blog-25-routing.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-25-routing.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-25-routing.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -255,7 +259,7 @@
               <p>Subnetting কী, এটি কেন প্রয়োজন এবং সাবনেট মাস্ক ও CIDR নোটেশন ব্যবহার করে কীভাবে নেটওয়্যার্ক ভাগ করা
                 হয় তার বিস্তারিত গাইড।</p>
               <div class="card-actions">
-                <a href="blogs/blog-24-subnetting.html" class="read-more">সম্পূর্ণ পড়ুন</a>
+                <a href="blogs/blog-24-subnetting.html" class="read-more" data-t="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
                 <div class="share-group">
                   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//enablement.info/blogs/blog-24-subnetting.html"
                     target="_blank" class="share-btn fb" title="Share on Facebook"><i class='bx bxl-facebook'></i></a>
@@ -273,12 +277,13 @@
 
     <footer class="glass-footer">
       <div class="container">
-        <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
+        <p>&copy; 2026 enablement.info. <span data-t="footer-rights">All Rights Reserved.</span></p>
       </div>
     </footer>
   </div>
 
   <script type="module" src="js/network-background.js"></script>
+  <script type="module" src="js/translations.js"></script>
 </body>
 
 </html>
