@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="bn">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="???? ????? Network Engineering. Virtual LAN (VLAN): Detailed Guide ???? ???? ????????? ?????????? ?????">
+    <meta name="description" content="সহজে শিখুন Network Engineering. Virtual LAN (VLAN): Detailed Guide নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
   <title>Virtual LAN (VLAN): Detailed Guide | enablement.info</title>
 
   <!-- Icons -->
@@ -130,10 +130,7 @@
 
 <body>
   <canvas id="network-canvas"></canvas>
-  <div class="overlay">    <div class="lang-switcher">
-        <button id="lang-bn" class="lang-btn">BN</button>
-        <button id="lang-en" class="lang-btn active">EN</button>
-    </div>
+  <div class="overlay">
     <header class="glass-header">
       <div class="container container-blog">
         <nav class="main-nav">
@@ -141,13 +138,13 @@
             <li>
               <a href="../index.html">
                 <i class='bx bx-home-alt-2'></i>
-                <span class="nav-text" data-t="nav-home">Home</span>
+                <span class="nav-text">Home</span>
               </a>
             </li>
             <li>
               <a href="../blogs.html" class="active">
                 <i class='bx bx-book-content'></i>
-                <span class="nav-text" data-t="nav-blog">Blog</span>
+                <span class="nav-text">Blog</span>
               </a>
             </li>
           </ul>
@@ -159,7 +156,7 @@
       <div class="container container-blog">
         <a href="../blogs.html" class="back-btn">
           <i class='bx bx-arrow-back'></i>
-          <span data-t="back-articles">Back to Articles</span>
+          <span>Back to Articles</span>
         </a>
 
         <article class="glass-panel">
@@ -174,39 +171,39 @@
 
           <div class="article-body">
 
-            <!-- 1. ?????? -->
-            <h2><i class="bi bi-diagram-3"></i> Virtual LAN (VLAN) ???</h2>
-            <p>Virtual Local Area Network ?? VLAN ??? ???? Layer 2 (Data Link Layer) Network-?? Logical
-              ??????, ?? Device-?????? ????? Physical ??????? ?????????? Separate Separate Logical Network-?
-              Group ???? ?????? LAN-?? ??? Physical Topology-? ??? ?????? ?? ???, VLAN Switch-?
+            <!-- 1. ভূমিকা -->
+            <h2><i class="bi bi-diagram-3"></i> Virtual LAN (VLAN) কী?</h2>
+            <p>Virtual Local Area Network বা VLAN হলো একটি Layer 2 (Data Link Layer) Network-এর Logical
+              বিভাজন, যা Device-গুলোকে তাদের Physical অবস্থান নির্বিশেষে Separate Separate Logical Network-এ
+              Group করে। সাধারণ LAN-এর মতো Physical Topology-র ওপর নির্ভর না করে, VLAN Switch-এ
               <strong>IEEE
-                802.1Q Frame Tagging</strong>-?? ??????? Task ????
+                802.1Q Frame Tagging</strong>-এর মাধ্যমে Task করে।
             </p>
-            <p>???? Physical Switch Network-?? Multiple Logical Broadcast Domain-? ?????? ??? VLAN
-              ?????????? Broadcast Traffic ????, Security ????? ??? Network Performance ?
-              ???????????? ??? Advanced ????</p>
+            <p>একটি Physical Switch Network-কে Multiple Logical Broadcast Domain-এ বিভক্ত করে VLAN
+              অপ্রয়োজনীয় Broadcast Traffic কমায়, Security বাড়ায় এবং Network Performance ও
+              ব্যবস্থাপনার মান Advanced করে।</p>
 
             <div class="content-box">
               <ul>
-                <li><strong>??? VLAN-?:</strong> Device-???? ?????? ??? Broadcast Domain-?? ?????
-                  ???????
-                  ???? ?????</li>
-                <li><strong>????? VLAN-?:</strong> ????????? ???? ???? Router ?? Layer 3 Switch-?? (SVI)
-                  ??????? <strong>Inter-VLAN Routing</strong> ????????</li>
+                <li><strong>একই VLAN-এ:</strong> Device-গুলো সরাসরি একই Broadcast Domain-এর মধ্যে
+                  যোগাযোগ
+                  করতে পারে।</li>
+                <li><strong>ভিন্ন VLAN-এ:</strong> যোগাযোগের জন্য একটি Router বা Layer 3 Switch-এর (SVI)
+                  মাধ্যমে <strong>Inter-VLAN Routing</strong> প্রয়োজন।</li>
               </ul>
             </div>
 
             <div class="note-box">
-              <strong><i class="bi bi-info-circle"></i> ????????:</strong> VLAN ???? ???? ?????? LAN-?
-              Switch-?? ???? ??????? ??? Device ???? ????? Broadcast Domain-? ????? ??? Broadcast Frame ??
-              Port-? ????? ???, ?? ?????????? Network Overhead ??? Security-? Risk ???? ????
+              <strong><i class="bi bi-info-circle"></i> উল্লেখ্য:</strong> VLAN ছাড়া একটি সাধারণ LAN-এ
+              Switch-এর সাথে সংযুক্ত সকল Device একটি মাত্র Broadcast Domain-এ থাকে। ফলে Broadcast Frame সব
+              Port-এ ছড়িয়ে পড়ে, যা অপ্রয়োজনীয় Network Overhead এবং Security-র Risk তৈরি করে।
             </div>
 
             <hr>
 
-            <!-- 2. VLAN ID-????? -->
+            <!-- 2. VLAN ID-রেঞ্জ -->
             <h2><i class="bi bi-list-ol"></i> VLAN ID Range (Cisco Standard)</h2>
-            <p>Cisco-?? Standard ??????? VLAN ID-?????? ????? ???? ??? ??? ??:</p>
+            <p>Cisco-এর Standard অনুযায়ী VLAN ID-গুলোকে নিচের ভাগে ভাগ করা হয়:</p>
 
             <table class="vlan-id-table">
               <thead>
@@ -218,53 +215,53 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>VLAN 0 ? VLAN 4095</strong></td>
+                  <td><strong>VLAN 0 ও VLAN 4095</strong></td>
                   <td>Reserved</td>
-                  <td>IEEE 802.1Q ?????? ????????? Protocol Operation-?? ???? ???????; Configure ???
-                    ???
-                    ???</td>
+                  <td>IEEE 802.1Q দ্বারা সংরক্ষিত। Protocol Operation-এর জন্য ব্যবহৃত; Configure করা
+                    যায়
+                    না।</td>
                 </tr>
                 <tr>
                   <td><strong>VLAN 1</strong></td>
                   <td>Default VLAN</td>
-                  <td>Cisco Switch-?? Default VLAN? ?? Port Default-? ????? ????? STP, CDP, VTP-? ????
-                    ???????? ???? ???? ??? ???</td>
+                  <td>Cisco Switch-এর Default VLAN। সব Port Default-এ এখানে থাকে। STP, CDP, VTP-র জন্য
+                    ব্যবহৃত। মুছে ফেলা যায় না।</td>
                 </tr>
                 <tr>
-                  <td><strong>VLAN 2�1001</strong></td>
+                  <td><strong>VLAN 2–1001</strong></td>
                   <td>Normal VLAN</td>
-                  <td>?????? VLAN Configuration-?? ???? ???????? ???????? Configurable ??? Switch-??
+                  <td>সাধারণ VLAN Configuration-এর জন্য ব্যবহৃত। সম্পূর্ণ Configurable এবং Switch-এর
                     VLAN
-                    Database-? ?????????</td>
+                    Database-এ সংরক্ষিত।</td>
                 </tr>
                 <tr>
-                  <td><strong>VLAN 1002�1005</strong></td>
+                  <td><strong>VLAN 1002–1005</strong></td>
                   <td>Reserved (Legacy)</td>
-                  <td>FDDI ??? Token Ring-?? ??? ????? ?????????? ???? ????????? ???? ???? ??? ???
+                  <td>FDDI এবং Token Ring-এর মতো পুরনো প্রযুক্তির জন্য সংরক্ষিত। মুছে ফেলা যায় না।
                   </td>
                 </tr>
                 <tr>
-                  <td><strong>VLAN 1006�4094</strong></td>
+                  <td><strong>VLAN 1006–4094</strong></td>
                   <td>Extended VLAN</td>
-                  <td>?? Network-?? ???? Design ???? Running Configuration-? ???????? ??? VTP
-                    Transparent Mode ????????</td>
+                  <td>বড় Network-এর জন্য Design করা। Running Configuration-এ সংরক্ষিত এবং VTP
+                    Transparent Mode প্রয়োজন।</td>
                 </tr>
               </tbody>
             </table>
 
             <hr>
 
-            <!-- 3. ?????????? Example -->
+            <!-- 3. কনফিগারেশন Example -->
             <h2><i class="bi bi-terminal"></i> VLAN Configuration Example</h2>
-            <p>???? Cisco Switch-? VLAN ???? ??? Port-? Assign ???? ???? ?????? Example ????? ???:</p>
+            <p>নিচে Cisco Switch-এ VLAN তৈরি এবং Port-এ Assign করার একটি বাস্তব Example দেওয়া হলো:</p>
 
-            <p><strong>Step 1: VLAN ???? ????</strong></p>
+            <p><strong>Step 1: VLAN তৈরি করুন</strong></p>
             <div class="code-block">Switch(config)# vlan 2<br>
               Switch(config-vlan)# name Accounts<br>
               Switch(config)# vlan 3<br>
               Switch(config-vlan)# name HR</div>
 
-            <p><strong>Step 2: Switch Port-? VLAN Assign ????</strong></p>
+            <p><strong>Step 2: Switch Port-এ VLAN Assign করুন</strong></p>
             <div class="code-block">Switch(config)# interface fa0/0<br>
               Switch(config-if)# switchport mode access<br>
               Switch(config-if)# switchport access vlan 2<br>
@@ -275,120 +272,120 @@
             </div>
 
             <div class="note-box">
-              ????? <strong>Fa0/0</strong> Port-?? VLAN 2 (Accounts)-? ??? <strong>Fa0/1</strong> Port-??
-              VLAN 3 (HR)-? Assign ??? ?????? ?????? ?? ???? Separate Broadcast Domain, ??? ???? ?????
-              ????????? ???? Inter-VLAN Routing ????????
+              এখানে <strong>Fa0/0</strong> Port-টি VLAN 2 (Accounts)-এ এবং <strong>Fa0/1</strong> Port-টি
+              VLAN 3 (HR)-এ Assign করা হয়েছে। যেহেতু এই দুটি Separate Broadcast Domain, তাই এদের মধ্যে
+              যোগাযোগের জন্য Inter-VLAN Routing প্রয়োজন।
             </div>
 
             <hr>
 
             <!-- 4. VLAN Link Type -->
-            <h2><i class="bi bi-link-45deg"></i> VLAN Link Type-????</h2>
+            <h2><i class="bi bi-link-45deg"></i> VLAN Link Type-সমূহ</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px;">
               <div class="content-box">
                 <h3><i class="bi bi-pc-display"></i> Access Link</h3>
-                <p>VLAN ???????? ???? End-device (???? PC) ???? VLAN-aware Switch-? ?????? Frame-????
-                  Untagged ?? ??? ???? ????? VLAN-?? ???????? ?????</p>
+                <p>VLAN সম্পর্কে অজ্ঞ End-device (যেমন PC) থেকে VLAN-aware Switch-এ সংযোগ। Frame-গুলো
+                  Untagged হয় এবং একটি মাত্র VLAN-এর অন্তর্গত থাকে।</p>
               </div>
               <div class="content-box">
                 <h3><i class="bi bi-hdd-network"></i> Trunk Link</h3>
-                <p>???? VLAN-aware Device-?? ????? (???? Switch-to-Switch ?? Switch-to-Router) ??????
-                  IEEE 802.1Q Tagging ??????? ??? Multiple VLAN-?? Traffic ??? ????</p>
+                <p>দুটি VLAN-aware Device-এর মধ্যে (যেমন Switch-to-Switch বা Switch-to-Router) সংযোগ।
+                  IEEE 802.1Q Tagging ব্যবহার করে Multiple VLAN-এর Traffic বহন করে।</p>
               </div>
               <div class="content-box">
                 <h3><i class="bi bi-shuffle"></i> Hybrid Link</h3>
-                <p>??? Link-? Tagged ??? Untagged ??? Frame ?????? ???? ??? ??????? Vendor-specific ???
-                  IEEE 802.1Q Standard-?? ??? ???</p>
+                <p>একই Link-এ Tagged এবং Untagged উভয় Frame সমর্থন করে। এটি সাধারণত Vendor-specific এবং
+                  IEEE 802.1Q Standard-এর অংশ নয়।</p>
               </div>
             </div>
 
             <hr>
 
-            <!-- 5. VLAN ????? -->
-            <h2><i class="bi bi-stars"></i> VLAN-?? Feature ???? (Features)</h2>
+            <!-- 5. VLAN ফিচার -->
+            <h2><i class="bi bi-stars"></i> VLAN-এর Feature সমূহ (Features)</h2>
             <div class="content-box">
               <ul>
-                <li><strong>VLAN Tagging (IEEE 802.1Q):</strong> Ethernet Frame-? ???? 4-byte VLAN Tag
-                  ??? ??? ?? ?? Frame-?? ??? VLAN-?? ?? Symbol ?? ????</li>
-                <li><strong>VLAN Membership:</strong> Device-?????? Switch Port, MAC Address ?? Protocol
-                  Type-?? ???????? VLAN-? Assign ??? ????</li>
-                <li><strong>VLAN Trunking:</strong> ???? Physical Link-? Multiple VLAN-?? Traffic
-                  Share ???? Advantage ????</li>
-                <li><strong>Dynamic VLANs:</strong> ????? Fixed Policy ?? Authentication ???????????
-                  ???
-                  ?????? ??? ???????????????? Device-?? VLAN-? Assign ??? ????</li>
+                <li><strong>VLAN Tagging (IEEE 802.1Q):</strong> Ethernet Frame-এ একটি 4-byte VLAN Tag
+                  যোগ করা হয় যা Frame-টি কোন VLAN-এর তা Symbol িত করে।</li>
+                <li><strong>VLAN Membership:</strong> Device-গুলোকে Switch Port, MAC Address বা Protocol
+                  Type-এর ভিত্তিতে VLAN-এ Assign করা যায়।</li>
+                <li><strong>VLAN Trunking:</strong> একটি Physical Link-এ Multiple VLAN-এর Traffic
+                  Share করার Advantage দেয়।</li>
+                <li><strong>Dynamic VLANs:</strong> পূর্ব Fixed Policy বা Authentication প্রক্রিয়ার
+                  ওপর
+                  ভিত্তি করে স্বয়ংক্রিয়ভাবে Device-কে VLAN-এ Assign করা হয়।</li>
               </ul>
             </div>
 
             <hr>
 
-            <!-- 6. ??????-Time ??????? -->
-            <h2><i class="bi bi-broadcast"></i> VLAN-?? ?????? ??????????</h2>
+            <!-- 6. রিয়েল-Time প্রয়োগ -->
+            <h2><i class="bi bi-broadcast"></i> VLAN-এর বাস্তব প্রয়োগসমূহ</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px;">
               <div class="content-box">
                 <strong><i class="bi bi-telephone"></i> VoIP:</strong>
-                <p>Dedicated Voice VLAN Quality of Service (QoS) ??????? ??? Voice Traffic-??
-                  ?????????? ????</p>
+                <p>Dedicated Voice VLAN Quality of Service (QoS) নিশ্চিত করে Voice Traffic-কে
+                  অগ্রাধিকার দেয়।</p>
               </div>
               <div class="content-box">
                 <strong><i class="bi bi-camera-video"></i> Video Conferencing:</strong>
-                <p>VLAN ????????? Latency ??? Jitter ????? ?? ???????? Advanced ????</p>
+                <p>VLAN প্রাধান্য Latency এবং Jitter কমিয়ে কল কোয়ালিটি Advanced করে।</p>
               </div>
               <div class="content-box">
                 <strong><i class="bi bi-cloud"></i> Cloud & Data Center:</strong>
-                <p>Security ? Traffic ?????????? ???? ?????? Workload Logically ????????? ????
-                  ???</p>
+                <p>Security ও Traffic পৃথকীকরণের জন্য ভাড়াটে Workload Logically বিচ্ছিন্ন রাখা
+                  হয়।</p>
               </div>
               <div class="content-box">
                 <strong><i class="bi bi-cpu"></i> IoT Network:</strong>
-                <p>IoT Device-???? Separate VLAN-? ???? Security Risk ?????</p>
+                <p>IoT Device-গুলো Separate VLAN-এ রাখা Security Risk কমায়।</p>
               </div>
               <div class="content-box">
                 <strong><i class="bi bi-controller"></i> Gaming Network:</strong>
-                <p>VLAN Gaming Traffic-?? ?????????? ???? Lag ? Packet Loss ?????</p>
+                <p>VLAN Gaming Traffic-কে অগ্রাধিকার দিয়ে Lag ও Packet Loss কমায়।</p>
               </div>
               <div class="content-box">
                 <strong><i class="bi bi-shield-lock"></i> Remote Access:</strong>
-                <p>Secure VLAN VPN ??????????? ? ??????? ????? Operation ??? Network ????????? ?????
+                <p>Secure VLAN VPN ব্যবহারকারী ও বাহ্যিক সংযোগ Operation করে Network বিচ্ছিন্ন রাখে।
                 </p>
               </div>
             </div>
 
             <hr>
 
-            <!-- 7. Advantage ? ? Advantage -->
-            <h2><i class="bi bi-bar-chart"></i> VLAN-?? Advantage ? ? Advantage</h2>
+            <!-- 7. Advantage ও অ Advantage -->
+            <h2><i class="bi bi-bar-chart"></i> VLAN-এর Advantage ও অ Advantage</h2>
             <div style="display: flex; gap: 20px; flex-wrap: wrap;">
               <div style="flex: 1; min-width: 280px;">
                 <h3 style="color: #4caf50;"><i class="bi bi-check-circle"></i> Pros</h3>
                 <ul>
-                  <li><strong>Advanced Security:</strong> ????????? Traffic Separate VLAN-? ?????????
-                    ?????</li>
-                  <li><strong>Better Performance:</strong> Broadcast Traffic ????? ??? Network
-                    Load ?????</li>
-                  <li><strong>??? ???????????:</strong> ????? ??????? (HR, Finance) Logical Grouping
-                    ??? ????</li>
-                  <li><strong>Flexible ??:</strong> Physical Cable Change ????? Device VLAN Change
-                    ??? ????</li>
-                  <li><strong>????????:</strong> ???????? Physical Network ? Routing Hardware-??
-                    ??????????? ?????</li>
-                  <li><strong>Scalability:</strong> ?? Network-?? ??? ??? Operation ????? ???? ???
-                    ??? ????</li>
+                  <li><strong>Advanced Security:</strong> সংবেদনশীল Traffic Separate VLAN-এ বিচ্ছিন্ন
+                    থাকে।</li>
+                  <li><strong>Better Performance:</strong> Broadcast Traffic সীমিত করে Network
+                    Load কমায়।</li>
+                  <li><strong>সহজ ব্যবস্থাপনা:</strong> বিভাগ অনুযায়ী (HR, Finance) Logical Grouping
+                    করা সহজ।</li>
+                  <li><strong>Flexible তা:</strong> Physical Cable Change ছাড়াই Device VLAN Change
+                    করা যায়।</li>
+                  <li><strong>সাশ্রয়ী:</strong> অতিরিক্ত Physical Network ও Routing Hardware-এর
+                    প্রয়োজনীয়তা কমায়।</li>
+                  <li><strong>Scalability:</strong> বড় Network-কে ছোট ছোট Operation যোগ্য অংশে ভাগ
+                    করা যায়।</li>
                 </ul>
               </div>
               <div style="flex: 1; min-width: 280px;">
                 <h3 style="color: #f44336;"><i class="bi bi-x-circle"></i> Cons</h3>
                 <ul>
-                  <li><strong>Configuration Complexity:</strong> ???? Plan ? Configuration ????????
+                  <li><strong>Configuration Complexity:</strong> সঠিক Plan ও Configuration প্রয়োজন।
                   </li>
-                  <li><strong>VLAN ID ??????????:</strong> Standard VLAN ID ?????, ?? ???? ??
-                    Network-? ?????? ??? ?????</li>
-                  <li><strong>Security Risk:</strong> ??? Configuration VLAN Hopping Attack-?? ?????
-                    ???? ???? ?????</li>
-                  <li><strong>Interoperability ??????:</strong> Non-standard ?? ????? Device-?? ????
-                    ????????? ?????? ???? ???? ?????</li>
-                  <li><strong>Troubleshooting ????:</strong> ????????? Traffic ?????? Error ????????
-                    ???? ??? ?????</li>
+                  <li><strong>VLAN ID সীমাবদ্ধতা:</strong> Standard VLAN ID সীমিত, যা অনেক বড়
+                    Network-এ সমস্যা হতে পারে।</li>
+                  <li><strong>Security Risk:</strong> ভুল Configuration VLAN Hopping Attack-এর সুযোগ
+                    তৈরি করতে পারে।</li>
+                  <li><strong>Interoperability সমস্যা:</strong> Non-standard বা পুরনো Device-এর সাথে
+                    সামঞ্জস্য সমস্যা দেখা দিতে পারে।</li>
+                  <li><strong>Troubleshooting কঠিন:</strong> বিচ্ছিন্ন Traffic প্রবাহ Error নির্ণয়কে
+                    জটিল করে তোলে।</li>
                 </ul>
               </div>
             </div>
@@ -397,10 +394,10 @@
 
             <!-- 8. Summary -->
             <h2><i class="bi bi-check2-circle"></i> Summary</h2>
-            <p>VLAN Modern Network Design-?? ???? ????????? Component? ??? ???? Physical Infrastructure Multiple
-              Logical Network ???? ? Advantage ???, Security ????? ??? Performance Advanced ????
-              ???????? Configure ??? ??? VLAN ?????? ?????? Network-?? ?????? ? Security ??????? ????
-              ??????</p>
+            <p>VLAN Modern Network Design-এর একটি অপরিহার্য Component। এটি একটি Physical Infrastructure Multiple
+              Logical Network তৈরি র Advantage দেয়, Security বাড়ায় এবং Performance Advanced করে।
+              সঠিকভাবে Configure করা হলে VLAN যেকোনো আকারের Network-এর দক্ষতা ও Security নিশ্চিত করতে
+              সক্ষম।</p>
 
           </div>
         </article>
@@ -409,13 +406,12 @@
 
     <footer class="glass-footer">
       <div class="container container-blog">
-        <p>&copy; 2026 enablement.info. <span data-t="footer-rights">All Rights Reserved.</span></p>
+        <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
       </div>
     </footer>
   </div>
   
   <script type="module" src="../js/network-background.js"></script>
-    <script type="module" src="../js/translations.js"></script>
 </body>
 
 </html>

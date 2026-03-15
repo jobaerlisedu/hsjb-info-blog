@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="bn">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="???? ????? Network Engineering. Piggybacking: Computer Network ???? ???? ????????? ?????????? ?????">
+    <meta name="description" content="সহজে শিখুন Network Engineering. Piggybacking: Computer Network নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
   <title>Piggybacking: Computer Network | enablement.info</title>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -108,16 +108,15 @@
 
 <body>
   <canvas id="network-canvas"></canvas>
-  <div class="overlay">    <div class="lang-switcher">
-        <button id="lang-bn" class="lang-btn">BN</button>
-        <button id="lang-en" class="lang-btn active">EN</button>
-    </div>
+  <div class="overlay">
     <header class="glass-header">
       <div class="container container-blog">
         <nav class="main-nav">
           <ul>
-            <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span class="nav-text" data-t="nav-home">Home</span></a></li>
-            <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span class="nav-text" data-t="nav-blog">Blog</span></a></li>
+            <li><a href="../index.html"><i class='bx bx-home-alt-2'></i><span
+                  class="nav-text">Home</span></a></li>
+            <li><a href="../blogs.html" class="active"><i class='bx bx-book-content'></i><span
+                  class="nav-text">Blog</span></a></li>
           </ul>
         </nav>
       </div>
@@ -125,7 +124,7 @@
 
     <main class="blog-content-wrapper">
       <div class="container container-blog">
-        <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span data-t="back-articles">Back to Articles</span></a>
+        <a href="../blogs.html" class="back-btn"><i class='bx bx-arrow-back'></i><span>Back to Articles</span></a>
 
         <article class="glass-panel">
           <header class="article-header">
@@ -139,106 +138,106 @@
 
           <div class="article-body">
 
-            <h2><i class="bi bi-backpack"></i> Piggybacking ???</h2>
-            <p><strong>Piggybacking</strong> ??? ???? Technique ?????? Receiver ??? ACK (Acknowledgment) ??????
-              ???????? ??? ??? Next ????? ?????? Data Packet-?? ???? ?????? ??????? ??? ??????? ?? ???
-              Separate Control ???? ??? ?????? ??? ??? Network ?????? ??????</p>
+            <h2><i class="bi bi-backpack"></i> Piggybacking কী?</h2>
+            <p><strong>Piggybacking</strong> হলো একটি Technique যেখানে Receiver তার ACK (Acknowledgment) পাঠানো
+              বিলম্বিত করে এবং Next বাইরে যাওয়া Data Packet-এর সাথে একত্রে সংযুক্ত করে পাঠায়। এর ফলে
+              Separate Control ফ্রে মের সংখ্যা কমে এবং Network দক্ষতা বাড়ে।</p>
 
             <div class="content-box">
               <ul>
-                <li>Sliding Window Protocol Sender ACK ?????? ???? Multiple Packet ?????? ???, ??
-                  Throughput ??????</li>
-                <li>Sender ? Receiver ???? ??? ? ????? ???? Packet ??? ????? ????? Buffer-?????</li>
-                <li>????????? ????? ????? ACK ?? ???? ???????? Packet-???? ?????? ?????? ???</li>
+                <li>Sliding Window Protocol Sender ACK পাওয়ার আগেই Multiple Packet পাঠাতে দেয়, যা
+                  Throughput বাড়ায়।</li>
+                <li>Sender ও Receiver উভয়ই আগত ও বাহির হওয়া Packet ধরে রাখতে সীমিত Buffer-রাখে।</li>
+                <li>নির্দিষ্ট সময়ের মধ্যে ACK না পেলে অস্বীকৃত Packet-গুলো পুনরায় পাঠানো হয়।</li>
               </ul>
             </div>
 
             <hr>
 
-            <h2><i class="bi bi-wifi"></i> Network Efficiency ?????? ????????</h2>
-            <p>Network Efficiency <strong>Full-Duplex Transmission</strong>-?? ??????? ?????? ???, ?? ???
-              ???? ??? ??? ? ??????? ????? ???? ??? Simplex ?? Half-Duplex-?? ??? ??, ????? ??? ???????
-              ??? ???? Data ?????? ? ????? ???? ?????</p>
+            <h2><i class="bi bi-wifi"></i> Network Efficiency কীভাবে বাড়াবেন?</h2>
+            <p>Network Efficiency <strong>Full-Duplex Transmission</strong>-এর মাধ্যমে বাড়ানো যায়, যা একই
+              সময়ে দুই দিক ে যোগাযোগ সম্ভব করে। এটি Simplex বা Half-Duplex-এর মতো নয়, এখানে উভয় প্রান্ত
+              একই সময়ে Data পাঠাতে ও গ্রহণ করতে পারে।</p>
 
-            <p>Full-Duplex Transmission ???? ????? ????? ??? ?????:</p>
+            <p>Full-Duplex Transmission দুটি উপায়ে অর্জন করা সম্ভব:</p>
 
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;">
               <div class="content-box">
-                <h3><i class="bi bi-arrow-left-right"></i> ???? Separate Channel</h3>
-                <p>???? Channel Data ??????? ???? ??? ????? ??????? ???? ??????? ??? ??? ??? ?? ?????
-                  Traffic ?? ????, ??? Bandwidth ???? ???</p>
+                <h3><i class="bi bi-arrow-left-right"></i> দুটি Separate Channel</h3>
+                <p>একটি Channel Data পাঠানোর জন্য এবং অপরটি গ্রহণের জন্য ব্যবহৃত হয়। তবে যখন এক দিকের
+                  Traffic কম থাকে, তখন Bandwidth অপচয় হয়।</p>
               </div>
               <div class="content-box">
                 <h3><i class="bi bi-backpack2"></i> Piggybacking</h3>
-                <p>???? ??? ???? Method ?????? Data ? ACK ??? Channel Share ???? Receiver ACK ????????
-                  ??? Next Data Frame-? ??????? ??? ???????</p>
+                <p>একটি আরও দক্ষ Method যেখানে Data ও ACK একই Channel Share করে। Receiver ACK বিলম্বিত
+                  করে Next Data Frame-এ সংযুক্ত করে পাঠায়।</p>
               </div>
             </div>
 
             <hr>
 
-            <h2><i class="bi bi-gear-wide-connected"></i> Piggybacking ?????? ??? ????</h2>
-            <p>Piggybacking-? Separate ???? Message (DATA + ACK) ?? ?????? ???? ????? Combined Message ??????
-              ??:
+            <h2><i class="bi bi-gear-wide-connected"></i> Piggybacking কীভাবে কাজ করে?</h2>
+            <p>Piggybacking-এ Separate দুটি Message (DATA + ACK) না পাঠিয়ে একটি মাত্র Combined Message পাঠানো
+              হয়:
             </p>
 
             <!-- Diagram -->
             <div class="piggyback-diagram">
               <div class="piggyback-box">
                 <i class="bi bi-pc-display" style="font-size:2rem;color:var(--primary-color);"></i>
-                <p><strong>Host A</strong><br>Data ??? + ACK ???</p>
+                <p><strong>Host A</strong><br>Data আছে + ACK আছে</p>
               </div>
               <div class="piggyback-arrow">
                 <div style="text-align:center;margin-bottom:8px;">
                   <span
                     style="background:rgba(33,150,243,0.2);border:1px solid var(--primary-color);border-radius:6px;padding:4px 12px;font-size:0.8rem;color:#cce;">DATA
-                    + ACK ?</span>
+                    + ACK ➜</span>
                 </div>
                 <div style="text-align:center;">
                   <span
-                    style="background:rgba(76,175,80,0.1);border:1px solid #4caf50;border-radius:6px;padding:4px 12px;font-size:0.8rem;color:#a5d6a7;">?
+                    style="background:rgba(76,175,80,0.1);border:1px solid #4caf50;border-radius:6px;padding:4px 12px;font-size:0.8rem;color:#a5d6a7;">◀
                     DATA + ACK</span>
                 </div>
               </div>
               <div class="piggyback-box">
                 <i class="bi bi-pc-display-horizontal" style="font-size:2rem;color:#4caf50;"></i>
-                <p><strong>Host B</strong><br>Data ??? + ACK ???</p>
+                <p><strong>Host B</strong><br>Data আছে + ACK আছে</p>
               </div>
             </div>
 
             <div class="content-box">
               <ul>
-                <li><strong>??? Host-?? ???? Data ? ACK ???? ????:</strong> ???? Frame-? ???? ???????
+                <li><strong>যদি Host-এর কাছে Data ও ACK উভয়ই থাকে:</strong> একটি Frame-এ উভয়ই পাঠায়।
                 </li>
-                <li><strong>??? ???? ACK ????:</strong> Host ???????? ??????? ??? Data ???????? ????
-                  ????, ?? ??? ACK Separate ???? ???????</li>
-                <li><strong>??? ???? Data ????:</strong> ??????? ACK ?? Data Frame-? ??????????? ???
-                  ???????</li>
+                <li><strong>যদি শুধু ACK থাকে:</strong> Host কিছুক্ষণ অপেক্ষা করে Data প্রস্তুত কিনা
+                  দেখে, না হলে ACK Separate ভাবে পাঠায়।</li>
+                <li><strong>যদি শুধু Data থাকে:</strong> সর্বশেষ ACK টি Data Frame-এ অন্তর্ভুক্ত করে
+                  পাঠায়।</li>
               </ul>
             </div>
 
-            <p>Piggybacking ?????? Channel Bandwidth-?? ??? ???? ??????? ??????? ??? Data ? ACK ???? ?????
-              Frame-? ?????? ?????? ??????? � Separate ACK Frame ??????? ??????????? ??? ???? ??? Control
-              Overhead ????, Transmission Cost ????? ??? ??? ?????? ???????? ???????? Data Transfer-??
-              Latency Advanced ????</p>
+            <p>Piggybacking উপলব্ধ Channel Bandwidth-এর আরও ভালো ব্যবহার নিশ্চিত করে Data ও ACK একটি মাত্র
+              Frame-এ মিলিয়ে দেওয়ার মাধ্যমে — Separate ACK Frame পাঠানোর প্রয়োজনীয়তা দূর করে। এটি Control
+              Overhead কমায়, Transmission Cost হ্রাস করে এবং বিশেষত দ্বিমুখী যোগাযোগে Data Transfer-এর
+              Latency Advanced করে।</p>
 
             <hr>
 
-            <h2><i class="bi bi-exclamation-triangle"></i> Piggybacking-?? ??????????</h2>
+            <h2><i class="bi bi-exclamation-triangle"></i> Piggybacking-এর সীমাবদ্ধতা</h2>
 
             <div class="warning-box">
-              <strong><i class="bi bi-exclamation-triangle"></i> ???????:</strong> Piggybacking Protocol-?
-              ???????? Complexity ???? Sender-?? ????????? ???? ?? ACK ??????? ??? ?????? ??????? ????? ???
-              Data Link Layer ACK High ??? ??? ??????? ???, ????? Sender Frame-?? ?????? ???? ??? ???
-              ?????? ?????? ???? � ?? ?????? ????? ????
+              <strong><i class="bi bi-exclamation-triangle"></i> সতর্কতা:</strong> Piggybacking Protocol-এ
+              অতিরিক্ত Complexity আনে। Sender-কে সিদ্ধান্ত নিতে হয় ACK পাঠানোর আগে কতক্ষণ অপেক্ষা করবে। যদি
+              Data Link Layer ACK High সময় ধরে অপেক্ষা করে, তাহলে Sender Frame-টি হারিয়ে গেছে মনে করে
+              পুনরায় পাঠাতে পারে — যা দক্ষতা কমিয়ে দেয়।
             </div>
 
             <hr>
 
             <h2><i class="bi bi-check2-circle"></i> Summary</h2>
-            <p>Piggybacking ??? ???? ???? Technique ?? Network-? Separate ACK Frame-?? ?????? ????? ?????? Advanced
-              ???? ?????? Full-Duplex ???????? ??? Channel Bandwidth-?? ????????? ??????? ??????? ???? ???
-              ACK ???????? ???? ????????? ?? ??? ?????????? ?????? ?????? ??? ?????</p>
+            <p>Piggybacking হলো একটি চতুর Technique যা Network-এ Separate ACK Frame-এর সংখ্যা কমিয়ে দক্ষতা Advanced
+              করে। বিশেষত Full-Duplex যোগাযোগে এটি Channel Bandwidth-এর সর্বোত্তম ব্যবহার নিশ্চিত করে। তবে
+              ACK বিলম্বের সঠিক সামঞ্জস্য না হলে অপ্রয়োজনীয় পুনরায় পাঠানো হতে পারে।</p>
 
           </div>
         </article>
@@ -247,13 +246,12 @@
 
     <footer class="glass-footer">
       <div class="container container-blog">
-        <p>&copy; 2026 enablement.info. <span data-t="footer-rights">All Rights Reserved.</span></p>
+        <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
       </div>
     </footer>
   </div>
   
   <script type="module" src="../js/network-background.js"></script>
-    <script type="module" src="../js/translations.js"></script>
 </body>
 
 </html>

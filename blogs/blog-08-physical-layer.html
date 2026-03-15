@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="???? ????? Network Engineering. Physical Layer in OSI Model ???? ???? ????????? ?????????? ?????">
+    <meta name="description" content="সহজে শিখুন Network Engineering. Physical Layer in OSI Model নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
   <title>Physical Layer in OSI Model | enablement.info</title>
 
 
@@ -98,10 +98,7 @@
 
 <body>
   <canvas id="network-canvas"></canvas>
-  <div class="overlay">    <div class="lang-switcher">
-        <button id="lang-bn" class="lang-btn">BN</button>
-        <button id="lang-en" class="lang-btn active">EN</button>
-    </div>
+  <div class="overlay">
     <header class="glass-header">
       <div class="container container-blog">
         <nav class="main-nav">
@@ -109,7 +106,7 @@
             <li>
               <a href="../index.html">
                 <i class='bx bx-home-alt-2'></i>
-                <span class="nav-text" data-t="nav-home">Home</span>
+                <span class="nav-text">Home</span>
               </a>
             </li>
             <li>
@@ -127,7 +124,7 @@
       <div class="container container-blog">
         <a href="../blogs.html" class="back-btn">
           <i class='bx bx-arrow-back'></i>
-          <span data-t="back-articles">Back to Articles</span>
+          <span>Back to Articles</span>
         </a>
 
         <article class="glass-panel">
@@ -141,108 +138,108 @@
           </header>
 
           <div class="article-body">
-            <h2><i class="bi bi-lightbulb"></i> ??????</h2>
-            <p><strong>Physical Layer</strong> ?? Physical Layer ??? OSI (Open Systems Interconnection)
-              Model-?? ????????? ?? ????? Layer? ?? Layer-?? ???? Physical Network Hardware-??
-              ??????? Raw Data Bits ?????????? ???? ???? ????? ??? Data Link Layer ???? Frame
-              ????? ??? ??? ???????? Electrical, Optical ?? Radio Signal-? ???????? ??? Media-?
-              ??????? ??????</p>
+            <h2><i class="bi bi-lightbulb"></i> ভূমিকা</h2>
+            <p><strong>Physical Layer</strong> বা Physical Layer হলো OSI (Open Systems Interconnection)
+              Model-এর সর্বনিম্ন বা প্রথম Layer। এই Layer-টি মূলত Physical Network Hardware-এর
+              মাধ্যমে Raw Data Bits ট্রান্সমিট করার জন্য দায়ী। এটি Data Link Layer থেকে Frame
+              গ্রহণ করে এবং সেগুলোকে Electrical, Optical বা Radio Signal-এ রূপান্তর করে Media-র
+              মাধ্যমে পাঠায়।</p>
 
             <hr>
 
-            <h2><i class="bi bi-gear-wide-connected"></i> Physical Layer-?? ?????? ?????????</h2>
-            <p>?? Layer-?? Network-?? Hardware ??? Signaling ????? ????? ???????????? Task-???? ???????
-              ???:</p>
+            <h2><i class="bi bi-gear-wide-connected"></i> Physical Layer-এর প্রধান কার্যাবলী</h2>
+            <p>এই Layer-টি Network-এর Hardware এবং Signaling স্তরে নিচের গুরুত্বপূর্ণ Task-গুলো সম্পন্ন
+              করে:</p>
 
             <div class="content-box mb-4">
               <ul>
-                <li><strong>Signal ???????? (Signal Transformation):</strong> ??? Digital Data-?? (0
-                  ??? 1) Encoding-?? ??????? Electrical ?? Optical Signal-? ???????? ??? ???? ??
-                  ??? ?? ????? ??????? ???????? ??? ?????</li>
-                <li><strong>Bit Synchronization:</strong> Sender ??? Receiver ???
-                  Device-?? Clock ?? Clock-? ??? ??? ???? ??????? ??? ???? Bit-???? ???? ???? ????? ???
-                  ????
+                <li><strong>Signal রূপান্তর (Signal Transformation):</strong> এটি Digital Data-কে (0
+                  এবং 1) Encoding-এর মাধ্যমে Electrical বা Optical Signal-এ রূপান্তর করে যাতে তা
+                  তার বা বেতার মাধ্যমে পরিবাহিত হতে পারে।</li>
+                <li><strong>Bit Synchronization:</strong> Sender এবং Receiver উভয়
+                  Device-এর Clock বা Clock-র সময় একই রাখা নিশ্চিত করে যাতে Bit-গুলো সঠিক সময়ে গ্রহণ করা
+                  যায়।
                 </li>
-                <li><strong>Transmission Rate:</strong> ????? ???????? ?????? Bit
-                  ?????? ??? (Bit per second) ?? ?? Layer ???????? ????</li>
-                <li><strong>Physical Topology:</strong> Network-? Device-???? ??????
-                  ??? ????? ???? ????? ????? (????: Bus, Star, ?? Mesh Topology) ?? ?? Layer-?
-                  ?????????? ??? ???</li>
-                <li><strong>Transmission Mode:</strong> Data ????-?????? ??????
-                  (Simplex), ??????? Level ????? (Half-Duplex) ???? ??????? ??????? (Full-Duplex) ???
-                  ?? ???????? ????</li>
+                <li><strong>Transmission Rate:</strong> প্রতি সেকেন্ডে কতগুলো Bit
+                  পাঠানো হবে (Bit per second) তা এই Layer নির্ধারণ করে।</li>
+                <li><strong>Physical Topology:</strong> Network-এ Device-গুলো কীভাবে
+                  একে অপরের সাথে যুক্ত থাকবে (যেমন: Bus, Star, বা Mesh Topology) তা এই Layer-এ
+                  সংজ্ঞায়িত করা হয়।</li>
+                <li><strong>Transmission Mode:</strong> Data আদান-প্রদান একমুখী
+                  (Simplex), উভয়মুখী Level ক্রমে (Half-Duplex) নাকি উভয়মুখী একইসাথে (Full-Duplex) হবে
+                  তা নির্ধারণ করে।</li>
               </ul>
             </div>
 
             <h2><i class="bi bi-diagram-3"></i> Physical Topologies & Line Configuration</h2>
-            <p>Device-????? ????? ???????? ???? ??? ????? ??? ????:</p>
+            <p>Device-গুলোর সংযোগ ব্যবস্থা মূলত দুই ধরণের হতে পারে:</p>
             <ul>
-              <li><strong>Point-to-Point Configuration:</strong> ????? ???? Device-?? ????? ???? Dedicated
-                Link ?????</li>
-              <li><strong>Multi-Point Configuration:</strong> ???? Single Link-?? ??????? Multiple Device ???
-                ????? ???? ????? ?????</li>
+              <li><strong>Point-to-Point Configuration:</strong> এখানে দুটি Device-এর মধ্যে একটি Dedicated
+                Link থাকে।</li>
+              <li><strong>Multi-Point Configuration:</strong> একটি Single Link-এর মাধ্যমে Multiple Device একে
+                অপরের সাথে যুক্ত থাকে।</li>
             </ul>
 
-            <h2><i class="bi bi-shield-lock"></i> ????????? Protocol-????</h2>
-            <p>Physical Layer-? Hardware ??? Software ????? Task ???? ???? ??????????? Protocol ???:</p>
+            <h2><i class="bi bi-shield-lock"></i> সংশ্লিষ্ট Protocol-সমূহ</h2>
+            <p>Physical Layer-এ Hardware এবং Software উভয়ই Task করে। কিছু উল্লেখযোগ্য Protocol হলো:</p>
             <div class="row">
               <div class="col-md-6 mb-3">
                 <div class="glass-panel p-3">
-                  <strong>Ethernet (IEEE 802.3):</strong> Wired Network-?? ???? ??????? ???
+                  <strong>Ethernet (IEEE 802.3):</strong> Wired Network-এর জন্য ব্যবহৃত হয়।
                 </div>
               </div>
               <div class="col-md-6 mb-3">
                 <div class="glass-panel p-3">
-                  <strong>Wi-Fi (IEEE 802.11):</strong> Wireless ?? ????? ????????? ?????
+                  <strong>Wi-Fi (IEEE 802.11):</strong> Wireless বা বেতার যোগাযোগের জন্য।
                 </div>
               </div>
               <div class="col-md-6 mb-3">
                 <div class="glass-panel p-3">
-                  <strong>Bluetooth (IEEE 802.15.1):</strong> ?????? Distance-?? ????? ????????
+                  <strong>Bluetooth (IEEE 802.15.1):</strong> স্বল্প Distance-এর বেতার যোগাযোগ।
                 </div>
               </div>
               <div class="col-md-6 mb-3">
                 <div class="glass-panel p-3">
-                  <strong>USB (Universal Serial Bus):</strong> Computer ??? Peripheral Device-??
-                  ??????
+                  <strong>USB (Universal Serial Bus):</strong> Computer এবং Peripheral Device-এর
+                  সংযোগ।
                 </div>
               </div>
             </div>
 
             <h2><i class="bi bi-exclamation-triangle"></i> Security Risk (Security in Physical Layer)</h2>
-            <p>Software ???????? ????? ???? Hardware ?????? ???? Attack ??? ????:</p>
+            <p>Software আক্রান্ত হওয়ার আগেই Hardware লেভেলে কিছু Attack হতে পারে:</p>
             <ul>
-              <li><strong>Cable Tapping:</strong> ?????? Network Cable ???? Information ???? ????</li>
-              <li><strong>Signal Jamming:</strong> Wi-Fi ?? ????? ????? Block ??? ??????</li>
-              <li><strong>Physical Access:</strong> Server Room-? ????????? ?????? ??? Hardware ?????
-                ????</li>
-              <li><strong>Wireless Signal Interception:</strong> ??? ???? ????? Signal Capture ????
+              <li><strong>Cable Tapping:</strong> সরাসরি Network Cable থেকে Information চুরি করা।</li>
+              <li><strong>Signal Jamming:</strong> Wi-Fi বা বেতার সংকেত Block করে দেওয়া।</li>
+              <li><strong>Physical Access:</strong> Server Room-এ অননুমোদিত প্রবেশ এবং Hardware ক্ষতি
+                করা।</li>
+              <li><strong>Wireless Signal Interception:</strong> দূর থেকে বেতার Signal Capture করা।
               </li>
             </ul>
 
-            <h2><i class="bi bi-plus-slash-minus"></i> Advantage ? ??????????</h2>
+            <h2><i class="bi bi-plus-slash-minus"></i> Advantage ও সীমাবদ্ধতা</h2>
             <div class="row">
               <div class="col-md-6">
-                <h3 class="h5">Advantage ???? (Pros):</h3>
+                <h3 class="h5">Advantage সমূহ (Pros):</h3>
                 <ul>
-                  <li>??????? Media-? (??? ??? ?????) ??????? Data ??????? ??????? ????</li>
-                  <li>??? Hardware-?? ???? ???? ????????? Standard (????: Connector Type) ????
-                    ?????</li>
+                  <li>বিভিন্ন Media-র (তার এবং বেতার) মাধ্যমে Data পৌঁছানো নিশ্চিত করে।</li>
+                  <li>সকল Hardware-এর জন্য একটি নির্দিষ্ট Standard (যেমন: Connector Type) বজায়
+                    রাখে।</li>
                 </ul>
               </div>
               <div class="col-md-6">
-                <h3 class="h5">?????????? (Limitations):</h3>
+                <h3 class="h5">সীমাবদ্ধতা (Limitations):</h3>
                 <ul>
-                  <li>?? Layer-? ???? Error Detection ?? Correction ???????? ????</li>
-                  <li>Hardware ?? Wire ???? ????? ??? ??????? ????????? ??? ????</li>
-                  <li>??? Data-? ???? ????? ???? ??, ???? Bit ?????????? ????</li>
+                  <li>এই Layer-এ কোনো Error Detection বা Correction ব্যবস্থা নেই।</li>
+                  <li>Hardware বা Wire কোনো ক্ষতি হলে যোগাযোগ বিচ্ছিন্ন হয়ে পড়ে।</li>
+                  <li>এটি Data-র অর্থ বুঝতে পারে না, শুধু Bit ট্রান্সমিট করে।</li>
                 </ul>
               </div>
             </div>
 
             <div class="content-box mt-4">
-              <p><strong>Summary:</strong> Physical Layer ??? Networking-?? ??? ??????? Hardware
-                ?????? ???? Connection ??? Signaling ?? ????? ????? ???? Layer-? Task ???? ????? ???</p>
+              <p><strong>Summary:</strong> Physical Layer হলো Networking-এর মূল ভিত্তি। Hardware
+                লেভেলে সঠিক Connection এবং Signaling না থাকলে উপরের কোনো Layer-ই Task করতে পারবে না।</p>
             </div>
           </div>
         </article>
@@ -251,13 +248,12 @@
 
     <footer class="glass-footer">
       <div class="container container-blog">
-        <p>&copy; 2026 enablement.info. <span data-t="footer-rights">All Rights Reserved.</span></p>
+        <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
       </div>
     </footer>
   </div>
   
   <script type="module" src="../js/network-background.js"></script>
-    <script type="module" src="../js/translations.js"></script>
 </body>
 
 </html>

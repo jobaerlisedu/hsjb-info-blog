@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="???? ????? Network Engineering. Transmission Mode: Simplex, Half-Duplex ??? Full-Duplex ???? ???? ????????? ?????????? ?????">
-  <title>Transmission Mode: Simplex, Half-Duplex ??? Full-Duplex | enablement.info</title>
+    <meta name="description" content="সহজে শিখুন Network Engineering. Transmission Mode: Simplex, Half-Duplex এবং Full-Duplex নিয়ে একটি বিস্তারিত টেকনিক্যাল গাইড।">
+  <title>Transmission Mode: Simplex, Half-Duplex এবং Full-Duplex | enablement.info</title>
 
 
 
@@ -142,10 +142,7 @@
 
 <body>
   <canvas id="network-canvas"></canvas>
-  <div class="overlay">    <div class="lang-switcher">
-        <button id="lang-bn" class="lang-btn">BN</button>
-        <button id="lang-en" class="lang-btn active">EN</button>
-    </div>
+  <div class="overlay">
     <header class="glass-header">
       <div class="container container-blog">
         <nav class="main-nav">
@@ -153,7 +150,7 @@
             <li>
               <a href="../index.html">
                 <i class='bx bx-home-alt-2'></i>
-                <span class="nav-text" data-t="nav-home">Home</span>
+                <span class="nav-text">Home</span>
               </a>
             </li>
             <li>
@@ -171,12 +168,12 @@
       <div class="container container-blog">
         <a href="../blogs.html" class="back-btn">
           <i class='bx bx-arrow-back'></i>
-          <span data-t="back-articles">Back to Articles</span>
+          <span>Back to Articles</span>
         </a>
 
         <article class="glass-panel">
           <header class="article-header">
-            <h1>Transmission Mode: Simplex, Half-Duplex ??? Full-Duplex</h1>
+            <h1>Transmission Mode: Simplex, Half-Duplex এবং Full-Duplex</h1>
             <div class="article-meta">
               <span><i class='bx bx-calendar'></i> Jan 02, 2026</span>
               <span style="margin: 0 10px;">|</span>
@@ -185,17 +182,17 @@
           </header>
 
           <div class="article-body">
-            <h2><i class="bi bi-lightbulb"></i> Transmission Mode ???</h2>
-            <p>Transmission Mode, ?? Communication Mode ?? ??? Known, ???????? ??? ?? ????
-              Network-?? ???? Device-?? ????? Data ?????? ???????? ???? ??? ???? Data ???????? ??? ???
-              ????? ?????????? ???? Networking-? ???? ??? ????? Transmission Mode ??????? ??:</p>
+            <h2><i class="bi bi-lightbulb"></i> Transmission Mode কী?</h2>
+            <p>Transmission Mode, যা Communication Mode না মেও Known, নির্ধারণ করে যে একটি
+              Network-এর দুটি Device-এর মধ্যে Data কীভাবে প্রবাহিত হবে। এটি মূলত Data প্রবাহের দিক এবং
+              সময়কে সংজ্ঞায়িত করে। Networking-এ মূলত তিন ধরণের Transmission Mode ব্যবহৃত হয়:</p>
 
             <hr>
 
             <div class="content-box mb-4">
               <h2>1. Simplex Mode</h2>
-              <p>Simplex Mode-? Data-???? ?? ??? ? ???????? ??? ???? (Unidirectional)? ??? ??? ??????
-                ??????? ???, ?????? ???? Device-???? Data ?????? ???? ??? ?????? ???? ????? ???? ?????
+              <p>Simplex Mode-এ Data-কেবল এক দিক ে প্রবাহিত হতে পারে (Unidirectional)। এটি ঠিক একমুখী
+                রাস্তার মতো, যেখানে একটি Device-কেবল Data পাঠাতে পারে এবং অন্যটি কেবল গ্রহণ করতে পারে।
               </p>
 
               <svg class="topology-diagram" viewBox="0 0 400 150">
@@ -209,22 +206,22 @@
               </svg>
 
               <ul>
-                <li><strong>Feature:</strong> ???? Channel-?? ? Capacity Data ?????? ???? ???? ???????
-                  ???
+                <li><strong>Feature:</strong> পুরো Channel-এর স Capacity Data একমুখী করার জন্য ব্যবহৃত
+                  হয়।
                 </li>
-                <li><strong>Example:</strong> Keyboard ??? Monitor? Keyboard-???? Input ???, Monitor-????
-                  Output ??????</li>
-                <li><strong>Advantage (Pros):</strong> ??? ???????? ??? Device-????? ????? ????
-                  Synchronization-?? ??????? ?? ???</li>
-                <li><strong>? Advantage (Cons):</strong> ??? ???????? ??????? ????? ?? ??? Data ????????
-                  ??????? ???? ?? ????? ???? ???? ????</li>
+                <li><strong>Example:</strong> Keyboard এবং Monitor। Keyboard-কেবল Input দেয়, Monitor-কেবল
+                  Output দেখায়।</li>
+                <li><strong>Advantage (Pros):</strong> এটি সাশ্রয়ী এবং Device-গুলোর মধ্যে কোনো
+                  Synchronization-এর প্রয়োজন হয় না।</li>
+                <li><strong>অ Advantage (Cons):</strong> এতে দ্বিমুখী যোগাযোগ সম্ভব নয় এবং Data সঠিকভাবে
+                  পৌঁছেছে কিনা তা যাচাই করার উপায় নেই।</li>
               </ul>
             </div>
 
             <div class="content-box mb-4">
               <h2>2. Half-Duplex Mode</h2>
-              <p>Half-Duplex Mode-? ??????? Station Data ?????? ??? ????? ???? ????, ??? ?? ??? ???? ?????
-                ??? ??? ???? Device Data ?????, ?????? ???? ????? ???? ?????</p>
+              <p>Half-Duplex Mode-এ প্রতিটি Station Data পাঠাতে এবং গ্রহণ করতে পারে, তবে তা একই সময়ে সম্ভব
+                নয়। যখন একটি Device Data পাঠায়, অন্যটি কেবল গ্রহণ করতে পারে।</p>
 
               <svg class="topology-diagram" viewBox="0 0 400 200">
                 <line x1="112" y1="100" x2="288" y2="100" stroke="rgba(33, 150, 243, 0.3)" stroke-width="2"
@@ -246,27 +243,27 @@
                 </path>
                 <path d="M 125 95 L 113 100 L 125 105" fill="#ff3366" />
 
-                <text x="200" y="80" fill="#fff" font-size="10" text-anchor="middle">?? ???? ??????
+                <text x="200" y="80" fill="#fff" font-size="10" text-anchor="middle">এক সময়ে একমুখী
                   Flow</text>
               </svg>
 
-              <p><strong>Channel ? Capacity (Channel Capacity):</strong>
+              <p><strong>Channel স Capacity (Channel Capacity):</strong>
                 <code>Bandwidth * Propagation Delay</code>
               </p>
               <ul>
-                <li><strong>Example:</strong> Walkie-Talkie? ??? ??? ??? ??? ???? ??, ??? ??? ???? ??????
-                  ??? ??? ??? ???</li>
-                <li><strong>Advantage:</strong> ??? ??? ???? ??????? ????? ??? Channel-?? ???? ? Capacity ??
-                  ???? ?? ??? ? ??????? ??? ??????</li>
-                <li><strong>? Advantage:</strong> ??? ???? ??? ???? Collision ?? ??? ??????? Slow ??? ?????
+                <li><strong>Example:</strong> Walkie-Talkie। এতে একে একে কথা বলতে হয়, উভয় দিক থেকে একসাথে
+                  কথা বলা যায় না।</li>
+                <li><strong>Advantage:</strong> উভয় দিক থেকে যোগাযোগ সম্ভব এবং Channel-এর পুরো স Capacity যে
+                  কোনো এক দিক ে ব্যবহার করা সম্ভব।</li>
+                <li><strong>অ Advantage:</strong> একই সময়ে কথা বললে Collision হয় এবং যোগাযোগ Slow হতে পারে।
                 </li>
               </ul>
             </div>
 
             <div class="content-box mb-4">
               <h2>3. Full-Duplex Mode</h2>
-              <p>Full-Duplex Mode-? ??? Station ?????? Data ?????? ??? ????? ???? ????? ??? Modern
-                ????????? ?????? Advanced Method?</p>
+              <p>Full-Duplex Mode-এ উভয় Station একসাথে Data পাঠাতে এবং গ্রহণ করতে পারে। এটি Modern
+                যোগাযোগের সবচেয়ে Advanced Method।</p>
 
               <svg class="topology-diagram" viewBox="0 0 400 200">
                 <!-- Top Path -->
@@ -288,18 +285,18 @@
                 <code>2 * Bandwidth * Propagation Delay</code>
               </p>
               <ul>
-                <li><strong>Example:</strong> Telephone Network? ?? ???????? ??? ??????? ???? ?????
-                  ?????? ??? ???? ? ????? ?????</li>
-                <li><strong>Advantage:</strong> Real-time application-?? (????- Video Conferencing, Gaming)
-                  ???? ????? ??? ??????? Accurate?</li>
-                <li><strong>? Advantage:</strong> ??? ?????? ???????? ??? ????, ???? ??? ???? Separate Path ??
-                  ??? ??? ? Capacity-? ??????? ???</li>
+                <li><strong>Example:</strong> Telephone Network। কল চলাকালীন উভয় প্রান্ত থেকে মানুষ
+                  একসাথে কথা বলতে ও শুনতে পারে।</li>
+                <li><strong>Advantage:</strong> Real-time application-এর (যেমন- Video Conferencing, Gaming)
+                  জন্য আদর্শ এবং অত্যন্ত Accurate।</li>
+                <li><strong>অ Advantage:</strong> এটি সবচেয়ে ব্যয়বহুল এবং জটিল, কারণ এতে দুটি Separate Path বা
+                  ভাগ করা স Capacity-র প্রয়োজন হয়।</li>
               </ul>
             </div>
 
             <hr>
 
-            <h2><i class="bi bi-grid"></i> ?????? ???????? (Comparison Table)</h2>
+            <h2><i class="bi bi-grid"></i> একনজরে পার্থক্য (Comparison Table)</h2>
             <div class="table-responsive">
               <table class="comparison-table">
                 <thead>
@@ -313,15 +310,15 @@
                 <tbody>
                   <tr>
                     <td><strong>Direction</strong></td>
-                    <td>?????? (Unidirectional)</td>
-                    <td>???????? (One at a time)</td>
-                    <td>???????? (Simultaneous)</td>
+                    <td>একমুখী (Unidirectional)</td>
+                    <td>উভয়মুখী (One at a time)</td>
+                    <td>উভয়মুখী (Simultaneous)</td>
                   </tr>
                   <tr>
                     <td><strong>Performance</strong></td>
-                    <td>?????????</td>
-                    <td>??????</td>
-                    <td>????????</td>
+                    <td>সর্বনিম্ন</td>
+                    <td>মাঝারি</td>
+                    <td>সর্বোচ্চ</td>
                   </tr>
                   <tr>
                     <td><strong>Example</strong></td>
@@ -335,10 +332,10 @@
 
             <h2><i class="bi bi-info-circle"></i> Summary</h2>
             <div class="content-box mt-4">
-              <p>Simplex ???? Full-Duplex ??????? ??????? Mode-?? Own ??????? ?????? ?????
-                Networking Budget, ????????????? ??? ??? ????? Data ????-?????? ????? ??? ??? ??????
-                ????
-                ???? Transmission Mode Selection ??? ?????</p>
+              <p>Simplex থেকে Full-Duplex পর্যন্ত প্রতিটি Mode-এর Own গুরুত্ব রয়েছে। আপনার
+                Networking Budget, প্রয়োজনীয়তা এবং কোন ধরণের Data আদান-প্রদান করছেন তার ওপর ভিত্তি
+                করেই
+                সঠিক Transmission Mode Selection করা উচিত।</p>
             </div>
           </div>
         </article>
@@ -347,13 +344,12 @@
 
     <footer class="glass-footer">
       <div class="container container-blog">
-        <p>&copy; 2026 enablement.info. <span data-t="footer-rights">All Rights Reserved.</span></p>
+        <p>&copy; 2026 enablement.info. All Rights Reserved.</p>
       </div>
     </footer>
   </div>
   
   <script type="module" src="../js/network-background.js"></script>
-    <script type="module" src="../js/translations.js"></script>
 </body>
 
 </html>
